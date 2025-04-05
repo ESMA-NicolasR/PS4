@@ -666,6 +666,7 @@ MonoBehaviour:
   playerCamera: {fileID: 330585543}
   maxHorizontalRotation: 15
   maxVerticalRotation: 10
+  dampTime: 0.3
 --- !u!1001 &944022462
 PrefabInstance:
   m_ObjectHideFlags: 0
