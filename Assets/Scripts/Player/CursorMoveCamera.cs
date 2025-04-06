@@ -7,6 +7,7 @@ public class CursorMoveCamera : MonoBehaviour
     [Header("Constraints")]
     public float maxHorizontalRotation;
     public float maxVerticalRotation;
+    public bool canMove;
     [Header("Tweaking")]
     public float dampTime;
     // Internal
@@ -20,6 +21,7 @@ public class CursorMoveCamera : MonoBehaviour
 
     void Update()
     {
+        if (!canMove) return;
         // Deduce target angle from mouse position
         Vector2 mouseScreenPosition = Input.mousePosition;
         Vector2 mouseRelativePosition = new Vector2(mouseScreenPosition.x / Screen.width, mouseScreenPosition.y/Screen.height);
@@ -28,5 +30,10 @@ public class CursorMoveCamera : MonoBehaviour
         // Smoothly rotate with damping
         _rotation = Vector3.SmoothDamp(_rotation, new Vector3(targetXRotation, targetYRotation), ref _speed, dampTime);
         playerCamera.transform.localRotation = Quaternion.Euler(_rotation);
+    }
+
+    public void Reset()
+    {
+        playerCamera.transform.localRotation = Quaternion.Euler(Vector3.zero);
     }
 }
