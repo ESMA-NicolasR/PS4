@@ -10,7 +10,17 @@ public class MeteorController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (transform.localScale.x >= 4.0f)
+        {
+            print("boum");
+            Destroy(gameObject);
+        }
     }
+    private void FixedUpdate()
+    {
+        transform.localScale = transform.localScale * 1.005f;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Aim"))
