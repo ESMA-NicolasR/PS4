@@ -3,17 +3,30 @@ using UnityEngine.EventSystems;
 
 public class ButtonScript : MonoBehaviour
 {
-    public bool selected;
+    private bool _selected;
+    private bool _pressed = false;
+
+    private void Update()
+    {
+        if (_selected == true && Input.GetButton("Fire1")) //penible, faut enlever le maintien
+        {
+            _pressed = true;
+        }
+        else _pressed = false;
+    }
 
     void OnMouseEnter()
     {
-        selected = true;
-        Debug.Log("Button was selected");
+        _selected = true;
     }
 
     void OnMouseExit()
     {
-        selected = false;
-        Debug.Log("Button was deselected");
+        _selected = false;
+    }
+
+    public bool IsPressed()
+    {
+        return _pressed;
     }
 }
