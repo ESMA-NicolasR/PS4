@@ -9,8 +9,6 @@ public class Drag : MonoBehaviour
     public bool isDragged;
     private Vector3 _mouseStartPos;
 
-    public bool isHooked;
-
     public float maxRaycastDistance;
     public LayerMask priseLayer;
     private Collider _collider;
@@ -42,20 +40,21 @@ public class Drag : MonoBehaviour
     {
         isDragged = true;
         _mouseStartPos = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-        
-        
+
+        if (priseScript != null)
+        {
+            priseScript.inPrise = false;
+        }
     }
     private void OnMouseUp()
     {
         isDragged = false;
         ResetPosition();
         
-        Debug.Log("A Lacher");
-
-        if (priseScript != null)
+        if (priseScript != null && (!priseScript.inPrise))
         {
             transform.position = priseScript.Hook.transform.position;
-            isHooked = true;
+            priseScript.inPrise = true;
         }
         
         /*
