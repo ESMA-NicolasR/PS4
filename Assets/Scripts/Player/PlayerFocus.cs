@@ -11,6 +11,7 @@ public class PlayerFocus : MonoBehaviour
     public Transform focusPov;
     public float timeToFocus;
     private bool _isFocused;
+    public AnimationCurve focusCurve;
     
     private CursorMoveCamera _cursorMoveCamera;
     
@@ -46,7 +47,7 @@ public class PlayerFocus : MonoBehaviour
     {
         focusPov = pov;
         _cursorMoveCamera.canMove = false;
-        yield return StartCoroutine(FocusFromTo(playerPov, focusPov));
+        yield return StartCoroutine(FocusTo(focusPov));
         exitFocus.SetActive(true);
     }
 
@@ -61,20 +62,23 @@ public class PlayerFocus : MonoBehaviour
     private IEnumerator LoseFocus()
     {
         exitFocus.SetActive(false);
-        yield return StartCoroutine(FocusFromTo(focusPov, playerPov));
+        yield return StartCoroutine(FocusTo(playerPov));
+        _cursorMoveCamera.ResetCamera();
         _cursorMoveCamera.canMove = true;
     }
 
-    private IEnumerator FocusFromTo(Transform from, Transform to)
+    private IEnumerator FocusTo(Transform to)
     {
         Cursor.visible = false;
+        var initialPosition = _cursorMoveCamera.playerCamera.transform.position;
+        var initialRotation = _cursorMoveCamera.playerCamera.transform.rotation;
         float ellapsedTime = 0;
         while (ellapsedTime < timeToFocus)
         {
             ellapsedTime += Time.deltaTime;
-            float ratio = ellapsedTime / timeToFocus;
-            playerCamera.transform.position = Vector3.Lerp(from.position, to.position, ratio);
-            playerCamera.transform.rotation = Quaternion.Lerp(from.rotation, to.rotation, ratio);
+            float ratio = focusCurve.Evaluate(ellapsedTime / timeToFocus);
+            playerCamera.transform.position = Vector3.Lerp(initialPosition, to.position, ratio);
+            playerCamera.transform.rotation = Quaternion.Lerp(initialRotation, to.rotation, ratio);
             yield return new WaitForEndOfFrame();
         }
         // Snap to the desired coordinates
