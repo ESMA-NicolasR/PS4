@@ -14,8 +14,10 @@ public class PlayerTravel : MonoBehaviour
     public float lookDestinationStrength;
     public AnimationCurve movementCurve;
     public Station currentStation;
+    public float lookTowardsPathSpeed;
     
     public static event Action<Station> OnDestinationReached;
+    public static event Action OnTravelStart;
     
     private void Awake()
     {
@@ -40,6 +42,10 @@ public class PlayerTravel : MonoBehaviour
         _cursorMoveCamera.canMove = false;
         _cursorMoveCamera.ResetCamera();
         Cursor.visible = false;
+        OnTravelStart?.Invoke();
+        
+        // Turn towards spline start
+        yield return StartCoroutine(LookTowardsPathStart(path));
         
         // Do the traveling
         yield return StartCoroutine(Move(path.splineContainer));
@@ -53,6 +59,20 @@ public class PlayerTravel : MonoBehaviour
         transform.position = currentStation.transform.position;
         transform.rotation = currentStation.transform.rotation;
         OnDestinationReached?.Invoke(currentStation);
+    }
+
+    private IEnumerator LookTowardsPathStart(TravelPath path)
+    {
+        var tmpRotation = transform.rotation;
+        var tangent = Quaternion.LookRotation(path.splineContainer.Spline.EvaluateTangent(0));
+        transform.LookAt(path.splineContainer.Spline.Last().Position);
+        var targetRotation = Quaternion.Slerp(tangent, transform.rotation, lookDestinationStrength);
+        transform.rotation = tmpRotation;
+        while (transform.rotation != targetRotation)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, lookTowardsPathSpeed*Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
     }
 
     private IEnumerator Move(SplineContainer spline)

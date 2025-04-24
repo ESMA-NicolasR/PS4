@@ -12,6 +12,8 @@ public class TravelManager : MonoBehaviour
         // Singleton
         Instance = this;
         PlayerTravel.OnDestinationReached += OnDestinationReached;
+        PlayerTravel.OnTravelStart += OnTravelStart;
+        OnDestinationReached(playerTravel.currentStation);
     }
 
     public void Travel(TravelDirection travelDirection)
@@ -24,5 +26,12 @@ public class TravelManager : MonoBehaviour
         travelLeft.SetActive(station.GetPath(TravelDirection.Left) != null);
         travelRight.SetActive(station.GetPath(TravelDirection.Right) != null);
         travelBack.SetActive(station.GetPath(TravelDirection.Back) != null);
+    }
+
+    private void OnTravelStart()
+    {
+        travelLeft.SetActive(false);
+        travelRight.SetActive(false);
+        travelBack.SetActive(false);
     }
 }
