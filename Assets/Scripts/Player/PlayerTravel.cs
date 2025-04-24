@@ -11,6 +11,7 @@ public class PlayerTravel : MonoBehaviour
 {
     private CursorMoveCamera _cursorMoveCamera;
     public float travelSpeed;
+    public float lookDestinationStrength;
     public AnimationCurve movementCurve;
     public Station currentStation;
     
@@ -62,7 +63,7 @@ public class PlayerTravel : MonoBehaviour
             transform.position = spline.EvaluatePosition(movementCurve.Evaluate(ratio));
             var tangent = Quaternion.LookRotation(spline.EvaluateTangent(ratio));
             transform.LookAt(lastNode.Position);
-            transform.rotation = Quaternion.Slerp(tangent, transform.rotation, ratio);
+            transform.rotation = Quaternion.Slerp(tangent, transform.rotation, lookDestinationStrength);
             yield return new WaitForEndOfFrame();
         }
         // Snap to destination
