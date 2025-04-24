@@ -2003,7 +2003,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1ff173d99572349a62978ed7cc015d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  travelSpeed: 1
+  travelSpeed: 1.5
+  lookDestinationStrength: 0.8
   movementCurve:
     serializedVersion: 2
     m_Curve:
