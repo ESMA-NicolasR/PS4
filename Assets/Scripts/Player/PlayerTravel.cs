@@ -38,6 +38,8 @@ public class PlayerTravel : MonoBehaviour
 
     private IEnumerator MoveAlongTravelPath(TravelPath path)
     {
+        // Give the illusion we move from our current rotation
+        transform.rotation = _cursorMoveCamera.playerCamera.transform.rotation;
         // Disable controls
         _cursorMoveCamera.canMove = false;
         _cursorMoveCamera.ResetCamera();
