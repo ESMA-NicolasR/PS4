@@ -1991,6 +1991,30 @@ MonoBehaviour:
   maxVerticalRotation: 10
   canMove: 1
   dampTime: 0.3
+  deadZoneCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &845883943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2003,7 +2027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1ff173d99572349a62978ed7cc015d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  travelSpeed: 1.5
+  travelSpeed: 1
   lookDestinationStrength: 0.8
   movementCurve:
     serializedVersion: 2

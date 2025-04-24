@@ -36,15 +36,20 @@ public class PlayerTravel : MonoBehaviour
 
     private IEnumerator MoveAlongTravelPath(TravelPath path)
     {
+        // Disable controls
         _cursorMoveCamera.canMove = false;
+        _cursorMoveCamera.ResetCamera();
         Cursor.visible = false;
         
+        // Do the traveling
         yield return StartCoroutine(Move(path.splineContainer));
         
+        // Give back control and reset cursor
         currentStation = path.endStation;
         Cursor.visible = true;
         Mouse.current.WarpCursorPosition(new Vector2(Screen.width / 2, Screen.height / 2));
         _cursorMoveCamera.canMove = true;
+        // Snap to destination
         transform.position = currentStation.transform.position;
         transform.rotation = currentStation.transform.rotation;
         OnDestinationReached?.Invoke(currentStation);
@@ -66,8 +71,5 @@ public class PlayerTravel : MonoBehaviour
             transform.rotation = Quaternion.Slerp(tangent, transform.rotation, lookDestinationStrength);
             yield return new WaitForEndOfFrame();
         }
-        // Snap to destination
-        transform.position = spline.EvaluatePosition(1f);
-        transform.rotation = lastNode.Rotation;
     }
 }
