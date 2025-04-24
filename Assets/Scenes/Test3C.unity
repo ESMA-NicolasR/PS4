@@ -2054,6 +2054,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   currentStation: {fileID: 918514459}
+  lookTowardsPathSpeed: 90
 --- !u!114 &845883944
 MonoBehaviour:
   m_ObjectHideFlags: 0
