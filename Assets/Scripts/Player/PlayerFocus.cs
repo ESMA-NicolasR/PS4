@@ -10,6 +10,7 @@ public class PlayerFocus : MonoBehaviour
     public Transform playerPov;
     public Transform focusPov;
     public float timeToFocus;
+    private bool _isFocused;
     
     private CursorMoveCamera _cursorMoveCamera;
     
@@ -35,6 +36,9 @@ public class PlayerFocus : MonoBehaviour
 
     private void OnGainFocus(Transform pov)
     {
+        if (_isFocused) return;
+        
+        _isFocused = true;
         StartCoroutine(GainFocus(pov));
     }
 
@@ -48,6 +52,9 @@ public class PlayerFocus : MonoBehaviour
 
     public void OnLoseFocus()
     {
+        if (!_isFocused) return;
+        
+        _isFocused = false;
         StartCoroutine(LoseFocus());
     }
 

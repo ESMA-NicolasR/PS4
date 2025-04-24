@@ -8,23 +8,20 @@ public class Clickable : MonoBehaviour
 
     public Material baseMaterial;
     public Material selectedMaterial;
+
+    protected bool _canBeUsed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected virtual void Start()
     {
+        _canBeUsed = true;
         _meshRenderer = GetComponent<MeshRenderer>();
         _meshRenderer.material = baseMaterial;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnMouseDown()
     {
-        Debug.Log("Down");
-        Interact();
+        if(_canBeUsed)
+            Interact();
     }
 
     protected virtual void Interact()
@@ -32,30 +29,13 @@ public class Clickable : MonoBehaviour
         Debug.Log("Interact");
     }
 
-    private void OnMouseUp()
-    {
-        Debug.Log("Up");
-    }
-
     private void OnMouseEnter()
     {
-        Debug.Log("Enter");
         _meshRenderer.material = selectedMaterial;
     }
     
     private void OnMouseExit()
     {
-        Debug.Log("Exit");
         _meshRenderer.material = baseMaterial;
-    }
-
-    private void OnMouseOver()
-    {
-        // Debug.Log("Over");
-    }
-
-    private void OnMouseDrag()
-    {
-        Debug.Log("Drag");
     }
 }
