@@ -10,10 +10,12 @@ public class PlayerFocus : MonoBehaviour
     public Transform playerPov;
     public Transform focusPov;
     public float timeToFocus;
-    private bool _isFocused;
+    public bool isFocused;
     public AnimationCurve focusCurve;
     
     private CursorMoveCamera _cursorMoveCamera;
+
+    public static event Action OnLoseFocus;
     
     private void OnEnable()
     {
@@ -37,9 +39,9 @@ public class PlayerFocus : MonoBehaviour
 
     private void OnGainFocus(Transform pov)
     {
-        if (_isFocused) return;
+        if (isFocused) return;
         
-        _isFocused = true;
+        isFocused = true;
         StartCoroutine(GainFocus(pov));
     }
 
@@ -51,20 +53,21 @@ public class PlayerFocus : MonoBehaviour
         exitFocus.SetActive(true);
     }
 
-    public void OnLoseFocus()
+    public void LoseFocus()
     {
-        if (!_isFocused) return;
+        if (!isFocused) return;
         
-        _isFocused = false;
-        StartCoroutine(LoseFocus());
+        isFocused = false;
+        StartCoroutine(LoseFocusCoroutine());
     }
 
-    private IEnumerator LoseFocus()
+    private IEnumerator LoseFocusCoroutine()
     {
         exitFocus.SetActive(false);
         yield return StartCoroutine(FocusTo(playerPov));
         _cursorMoveCamera.ResetCamera();
         _cursorMoveCamera.canMove = true;
+        OnLoseFocus?.Invoke();
     }
 
     private IEnumerator FocusTo(Transform to)
