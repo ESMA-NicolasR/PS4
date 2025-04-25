@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Clickable : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Clickable : MonoBehaviour
 
     public Material baseMaterial;
     public Material selectedMaterial;
+    public UnityEvent OnClick;
 
     protected bool _canBeUsed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,8 +22,11 @@ public class Clickable : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(_canBeUsed)
+        if (_canBeUsed)
+        {
+            OnClick?.Invoke();
             Interact();
+        }
     }
 
     protected virtual void Interact()
