@@ -1887,6 +1887,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   currentStation: {fileID: 918514459}
   lookTowardsPathSpeed: 180
+  currentSpeed: 0
 --- !u!114 &845883944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2874,6 +2875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3457971e366ca514bab0e32e3d033de9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerTravel: {fileID: 845883943}
 --- !u!1001 &1441984951
 PrefabInstance:
   m_ObjectHideFlags: 0

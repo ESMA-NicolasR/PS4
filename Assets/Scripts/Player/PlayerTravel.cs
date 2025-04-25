@@ -4,7 +4,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Splines;
-using UnityEngine.UIElements;
 using Cursor = UnityEngine.Cursor;
 
 public class PlayerTravel : MonoBehaviour
@@ -15,6 +14,7 @@ public class PlayerTravel : MonoBehaviour
     public AnimationCurve movementCurve;
     public Station currentStation;
     public float lookTowardsPathSpeed;
+    public float currentSpeed;
     
     public static event Action<Station> OnDestinationReached;
     public static event Action OnTravelStart;
@@ -44,6 +44,7 @@ public class PlayerTravel : MonoBehaviour
         _cursorMoveCamera.canMove = false;
         _cursorMoveCamera.ResetCamera();
         Cursor.visible = false;
+        currentSpeed = 0;
         OnTravelStart?.Invoke();
         
         // Turn towards spline start
@@ -60,6 +61,7 @@ public class PlayerTravel : MonoBehaviour
         // Snap to destination
         transform.position = currentStation.transform.position;
         transform.rotation = currentStation.transform.rotation;
+        currentSpeed = 0;
         OnDestinationReached?.Invoke(currentStation);
     }
 
@@ -87,10 +89,16 @@ public class PlayerTravel : MonoBehaviour
         {
             ellapsedTime = Mathf.Min(ellapsedTime+Time.deltaTime, totalTime);
             float ratio = ellapsedTime / totalTime;
+            // Move along spline
             transform.position = spline.EvaluatePosition(movementCurve.Evaluate(ratio));
+            // Compute speed with f'(x) ~= (f(x+dt)-f(x))/dt
+            float dt = 0.01f;
+            currentSpeed = (movementCurve.Evaluate(ratio+dt)-movementCurve.Evaluate(ratio))/dt;
+            // Look ahead towards the destination
             var tangent = Quaternion.LookRotation(spline.EvaluateTangent(ratio));
             transform.LookAt(lastNode.Position);
             transform.rotation = Quaternion.Slerp(tangent, transform.rotation, lookDestinationStrength);
+            // Wait next frame
             yield return new WaitForEndOfFrame();
         }
     }

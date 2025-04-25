@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
 public class HeadMovement : MonoBehaviour
 {
     private Animator _animator;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField]
+    private PlayerTravel _playerTravel;
+
     void Start()
     {
         _animator = GetComponent<Animator>();
@@ -18,5 +21,10 @@ public class HeadMovement : MonoBehaviour
     private void OnDestinationReached(Station _)
     {
         _animator.SetBool("IsMoving", false);
+    }
+
+    private void Update()
+    {
+        _animator.SetFloat("MoveSpeed", _playerTravel.currentSpeed);
     }
 }
