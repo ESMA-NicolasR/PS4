@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class HeadMovement : MonoBehaviour
@@ -6,6 +7,7 @@ public class HeadMovement : MonoBehaviour
     private Animator _animator;
     [SerializeField]
     private PlayerTravel _playerTravel;
+    private Coroutine _coroutine;
 
     void Start()
     {
@@ -17,14 +19,21 @@ public class HeadMovement : MonoBehaviour
     private void OnTravelStart()
     {
         _animator.SetBool("IsMoving", true);
+        _coroutine = StartCoroutine(CoUpdate());
     }
     private void OnDestinationReached(Station _)
     {
         _animator.SetBool("IsMoving", false);
+        StopCoroutine(_coroutine);
     }
 
-    private void Update()
+    private IEnumerator CoUpdate()
     {
-        _animator.SetFloat("MoveSpeed", _playerTravel.currentSpeed);
+        // Behaves like an Update, but must not always be active
+        while (true)
+        {
+            _animator.SetFloat("MoveSpeed", _playerTravel.currentSpeed);
+            yield return new WaitForEndOfFrame(); 
+        }
     }
 }
