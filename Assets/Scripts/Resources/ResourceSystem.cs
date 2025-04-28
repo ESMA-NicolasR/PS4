@@ -25,7 +25,7 @@ public class ResourceSystem : MonoBehaviour
 
     public virtual void ChangeValue(int delta)
     {
-        SetValue(currentValue+delta);
+        SetValue(currentValue+delta*step);
     }
     
     public virtual void SetValue(int newValue)
