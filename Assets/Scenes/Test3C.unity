@@ -4900,6 +4900,9 @@ MonoBehaviour:
   targetValue: 0
   minValue: 0
   maxValue: 100
+  step: 5
+  minDistance: 2
+  maxDistance: 10
 --- !u!114 &2113152587
 MonoBehaviour:
   m_ObjectHideFlags: 0

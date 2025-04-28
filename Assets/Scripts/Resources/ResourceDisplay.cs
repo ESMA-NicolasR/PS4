@@ -25,6 +25,8 @@ public class ResourceDisplay : MonoBehaviour
     protected virtual void UpdateDisplay()
     {
         text.text = $"{_resourceSystem.name} level : {_resourceSystem.currentValue}";
-        text.color = Color.Lerp(Color.red, Color.green, (_resourceSystem.maxValue-(_resourceSystem.targetValue-_resourceSystem.currentValue))/_resourceSystem.maxValue);
+        var distance = Mathf.Abs(_resourceSystem.targetValue - _resourceSystem.currentValue);
+        text.color = Color.Lerp(Color.green, Color.red, (float)distance/_resourceSystem.maxValue);
+        
     }
 }
