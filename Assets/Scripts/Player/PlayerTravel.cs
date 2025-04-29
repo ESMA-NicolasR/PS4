@@ -36,11 +36,11 @@ public class PlayerTravel : MonoBehaviour
         _cursorMoveCamera = GetComponent<CursorMoveCamera>();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         transform.position = currentStation.transform.position;
         transform.rotation = currentStation.transform.rotation;
+        currentStation.EnableAllInteractables();
     }
 
     public void MoveDirection(TravelDirection direction)

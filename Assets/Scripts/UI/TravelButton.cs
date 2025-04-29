@@ -5,11 +5,18 @@ public class TravelButton : MonoBehaviour
     public TravelDirection travelDirection;
     public GameObject panel;
 
-    private void Start()
+    private void OnEnable()
     {
         PlayerFocus.OnLoseFocus += Show;
         Focusable.OnGainFocus += Hide;
     }
+    
+    private void OnDisable()
+    {
+        PlayerFocus.OnLoseFocus += Show;
+        Focusable.OnGainFocus += Hide;
+    }
+
 
     public void Travel()
     {

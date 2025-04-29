@@ -1,9 +1,20 @@
+using System;
 using UnityEngine;
-using UnityEngine.Splines;
 
 public class Station : MonoBehaviour
 {
     public TravelPath leftPath, rightPath, backPath;
+
+    private void OnEnable()
+    {
+        PlayerTravel.OnTravelStart += DisableAllInteractables;
+        PlayerTravel.OnDestinationReached += OnDestinationReached;
+    }
+
+    private void OnDisable()
+    {
+        PlayerTravel.OnTravelStart -= DisableAllInteractables;
+    }
 
     public TravelPath GetPath(TravelDirection direction)
     {
@@ -17,6 +28,29 @@ public class Station : MonoBehaviour
                 return backPath;
             default:
                 return null;
+        }
+    }
+
+    public void DisableAllInteractables()
+    {
+        foreach (var clickable in transform.GetComponentsInChildren<Clickable>())
+        {
+            clickable.Disable();
+        }
+    }
+
+    public void EnableAllInteractables()
+    {
+        foreach (var clickable in transform.GetComponentsInChildren<Clickable>())
+        {
+            clickable.Enable();
+        }
+    }
+    private void OnDestinationReached(Station station)
+    {
+        if (station == this)
+        {
+            EnableAllInteractables();
         }
     }
 }

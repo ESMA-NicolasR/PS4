@@ -1471,6 +1471,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 619504167}
   - {fileID: 1493312094}
   m_Father: {fileID: 918514458}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1776,7 +1777,7 @@ Transform:
   m_GameObject: {fileID: 416596512}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2, z: 0}
+  m_LocalPosition: {x: 0, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2565,14 +2566,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619504166}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1866993759}
   - {fileID: 1454147946}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 374960414}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &622042513
 GameObject:
@@ -3223,7 +3224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitFocus: {fileID: 2003891461}
-  playerCamera: {fileID: 330585543}
+  playerHead: {fileID: 1418500225}
   playerPov: {fileID: 416596513}
   focusPov: {fileID: 0}
   timeToFocus: 0.5
@@ -3243,8 +3244,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 2
-      outSlope: 2
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -6903,7 +6904,6 @@ SceneRoots:
   - {fileID: 1441984951}
   - {fileID: 973137982}
   - {fileID: 2021540610}
-  - {fileID: 619504167}
   - {fileID: 1191648660}
   - {fileID: 1236601080}
   - {fileID: 1505024060}
