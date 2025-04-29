@@ -39,7 +39,6 @@ public class CursorMoveCamera : MonoBehaviour
 
     public void ResetCamera()
     {
-        playerCamera.transform.localRotation = Quaternion.Euler(Vector3.zero);
         playerHead.transform.localRotation = Quaternion.Euler(Vector3.zero);
         _rotation = Vector3.zero;
         _speed = Vector3.zero;

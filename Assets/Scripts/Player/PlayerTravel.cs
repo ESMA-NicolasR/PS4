@@ -8,17 +8,28 @@ using Cursor = UnityEngine.Cursor;
 
 public class PlayerTravel : MonoBehaviour
 {
-    private CursorMoveCamera _cursorMoveCamera;
-    public float travelSpeed;
-    public float lookDestinationStrength;
-    public AnimationCurve movementCurve;
+    [Header("Dependencies")]
+    [Tooltip("Station the player is at")]
     public Station currentStation;
+    [Header("Tweaking")]
+    [Tooltip("Average speed when moving")]
+    public float travelSpeed;
+    [Tooltip("How much the player will look at its destination")]
+    public AnimationCurve lookDestinationCurve;
+    [Tooltip("How the player moves from point A to B")]
+    public AnimationCurve movementCurve;
+    [Tooltip("How fast the player turns before moving")]
     public float lookTowardsPathSpeed;
+    // Used for internal animations
+    [HideInInspector]
     public float currentSpeed;
+    [HideInInspector]
     public float timeToArrive;
-    
+    // Delegates
     public static event Action<Station> OnDestinationReached;
     public static event Action OnTravelStart;
+    // Internal components
+    private CursorMoveCamera _cursorMoveCamera;
     
     private void Awake()
     {
@@ -63,19 +74,16 @@ public class PlayerTravel : MonoBehaviour
         transform.position = currentStation.transform.position;
         transform.rotation = currentStation.transform.rotation;
         currentSpeed = 0;
+        timeToArrive = 0;
         OnDestinationReached?.Invoke(currentStation);
     }
 
     private IEnumerator LookTowardsPathStart(TravelPath path)
     {
-        var tmpRotation = transform.rotation;
-        var tangent = Quaternion.LookRotation(path.splineContainer.Spline.EvaluateTangent(0));
-        transform.LookAt(path.splineContainer.Spline.Last().Position);
-        var targetRotation = Quaternion.Slerp(tangent, transform.rotation, lookDestinationStrength);
-        transform.rotation = tmpRotation;
-        while (transform.rotation != targetRotation)
+        var startTangent = Quaternion.LookRotation(path.splineContainer.Spline.EvaluateTangent(0));
+        while (transform.rotation != startTangent)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, lookTowardsPathSpeed*Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, startTangent, lookTowardsPathSpeed*Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
     }
@@ -87,6 +95,9 @@ public class PlayerTravel : MonoBehaviour
         var length = spline.CalculateLength();
         var totalTime = length / travelSpeed;
         timeToArrive = totalTime;
+        // We eventually want to look at what's right in front of the last node
+        Vector3 aimDestination = (Vector3)lastNode.Position + new Quaternion(lastNode.Rotation.value.x,
+            lastNode.Rotation.value.y, lastNode.Rotation.value.z, lastNode.Rotation.value.w) * Vector3.forward;
         while (ellapsedTime < totalTime)
         {
             ellapsedTime = Mathf.Min(ellapsedTime+Time.deltaTime, totalTime);
@@ -99,8 +110,8 @@ public class PlayerTravel : MonoBehaviour
             timeToArrive -= Time.deltaTime;
             // Look ahead towards the destination
             var tangent = Quaternion.LookRotation(spline.EvaluateTangent(ratio));
-            transform.LookAt(lastNode.Position);
-            transform.rotation = Quaternion.Slerp(tangent, transform.rotation, lookDestinationStrength);
+            var lookDestination = Quaternion.LookRotation(aimDestination-transform.position);
+            transform.rotation = Quaternion.Slerp(tangent, lookDestination, lookDestinationCurve.Evaluate(ratio));
             // Wait next frame
             yield return new WaitForEndOfFrame();
         }
