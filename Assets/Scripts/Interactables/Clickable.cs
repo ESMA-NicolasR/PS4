@@ -14,7 +14,7 @@ public class Clickable : MonoBehaviour
 
     protected bool _canBeUsed;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _meshRenderer = GetComponent<MeshRenderer>();
         _meshRenderer.material = baseMaterial;

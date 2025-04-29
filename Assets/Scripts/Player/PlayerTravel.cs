@@ -40,7 +40,6 @@ public class PlayerTravel : MonoBehaviour
     {
         transform.position = currentStation.transform.position;
         transform.rotation = currentStation.transform.rotation;
-        currentStation.EnableAllInteractables();
     }
 
     public void MoveDirection(TravelDirection direction)

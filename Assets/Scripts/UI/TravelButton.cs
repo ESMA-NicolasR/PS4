@@ -23,7 +23,7 @@ public class TravelButton : MonoBehaviour
         TravelManager.Instance.Travel(travelDirection);
     }
 
-    private void Hide(Transform _)
+    private void Hide(Focusable _)
     {
         panel.SetActive(false);
     }

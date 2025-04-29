@@ -53,7 +53,7 @@ public class HeadMovement : MonoBehaviour
         }
     }
 
-    private void OnGainFocus(Transform _)
+    private void OnGainFocus(Focusable _)
     {
         _animator.SetBool("IsFocused", true);
     }

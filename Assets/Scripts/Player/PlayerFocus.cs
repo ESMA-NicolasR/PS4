@@ -48,12 +48,12 @@ public class PlayerFocus : MonoBehaviour
         exitFocus.SetActive(false);
     }
 
-    private void OnGainFocus(Transform pov)
+    private void OnGainFocus(Focusable focus)
     {
         if (_isFocused) return;
         
         _isFocused = true;
-        StartCoroutine(GainFocus(pov));
+        StartCoroutine(GainFocus(focus.pov));
     }
 
     private IEnumerator GainFocus(Transform pov)
