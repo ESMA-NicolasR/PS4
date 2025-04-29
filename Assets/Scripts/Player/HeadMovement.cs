@@ -33,6 +33,7 @@ public class HeadMovement : MonoBehaviour
         while (true)
         {
             _animator.SetFloat("MoveSpeed", _playerTravel.currentSpeed);
+            _animator.SetFloat("TimeToArrive", _playerTravel.timeToArrive);
             yield return new WaitForEndOfFrame(); 
         }
     }

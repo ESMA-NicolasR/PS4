@@ -15,6 +15,7 @@ public class PlayerTravel : MonoBehaviour
     public Station currentStation;
     public float lookTowardsPathSpeed;
     public float currentSpeed;
+    public float timeToArrive;
     
     public static event Action<Station> OnDestinationReached;
     public static event Action OnTravelStart;
@@ -39,7 +40,7 @@ public class PlayerTravel : MonoBehaviour
     private IEnumerator MoveAlongTravelPath(TravelPath path)
     {
         // Give the illusion we move from our current rotation
-        transform.rotation = _cursorMoveCamera.playerCamera.transform.rotation;
+        transform.rotation = _cursorMoveCamera.playerHead.transform.rotation;
         // Disable controls
         _cursorMoveCamera.canMove = false;
         _cursorMoveCamera.ResetCamera();
@@ -85,6 +86,7 @@ public class PlayerTravel : MonoBehaviour
         var lastNode = spline.Spline.Last();
         var length = spline.CalculateLength();
         var totalTime = length / travelSpeed;
+        timeToArrive = totalTime;
         while (ellapsedTime < totalTime)
         {
             ellapsedTime = Mathf.Min(ellapsedTime+Time.deltaTime, totalTime);
@@ -94,6 +96,7 @@ public class PlayerTravel : MonoBehaviour
             // Compute speed with f'(x) ~= (f(x+dt)-f(x))/dt
             float dt = 0.01f;
             currentSpeed = (movementCurve.Evaluate(ratio+dt)-movementCurve.Evaluate(ratio))/dt;
+            timeToArrive -= Time.deltaTime;
             // Look ahead towards the destination
             var tangent = Quaternion.LookRotation(spline.EvaluateTangent(ratio));
             transform.LookAt(lastNode.Position);
