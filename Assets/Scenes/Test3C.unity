@@ -3076,11 +3076,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 845883940}
-  - component: {fileID: 845883941}
   - component: {fileID: 845883942}
   - component: {fileID: 845883943}
   - component: {fileID: 845883944}
-  - component: {fileID: 845883945}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3105,22 +3103,6 @@ Transform:
   - {fileID: 416596513}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &845883941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 845883939}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f0c30ca26a7c4944a5db95f98c38ebe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCamera: {fileID: 330585543}
-  rotateSpeed: 30
-  maxVerticalRotation: 45
-  maxHorizontalRotation: 45
 --- !u!114 &845883942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3175,8 +3157,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1ff173d99572349a62978ed7cc015d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentStation: {fileID: 918514459}
   travelSpeed: 1.5
-  lookDestinationStrength: 0.9
+  lookDestinationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   movementCurve:
     serializedVersion: 2
     m_Curve:
@@ -3201,7 +3207,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  currentStation: {fileID: 918514459}
   lookTowardsPathSpeed: 180
   currentSpeed: 0
   timeToArrive: 0
@@ -3247,29 +3252,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &845883945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 845883939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29a074d529cf945029ef7cf40540c9df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_LoopMode: 0
-  m_Method: 1
-  m_Duration: 5
-  m_MaxSpeed: 1.5
-  m_EasingMode: 3
-  m_AlignmentMode: 0
-  m_ObjectForwardAxis: 2
-  m_ObjectUpAxis: 1
-  m_StartOffset: 0
 --- !u!1 &862584290
 GameObject:
   m_ObjectHideFlags: 0
@@ -5758,35 +5740,35 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -0.05695253
+        z: -0.051022056
       TangentOut:
         x: 0
         y: 0
-        z: 0.05695253
+        z: 0.051022056
       Rotation:
         value:
           x: 0
-          y: 0.22623684
-          z: 0
-          w: 0.97407234
+          y: -0.2105106
+          z: -0
+          w: 0.9775915
     - Position:
-        x: -0.74898624
+        x: -1.21
         y: 0
-        z: 0.011225164
+        z: -0.035
       TangentIn:
         x: -0
         y: -0
-        z: -0.15908423
+        z: -0.1789709
       TangentOut:
         x: 0
         y: 0
-        z: 0.20253421
+        z: 0.19919612
       Rotation:
         value:
           x: 0
-          y: -0.13418522
+          y: -0.23346205
           z: -0
-          w: 0.9909563
+          w: 0.97236586
     - Position:
         x: -1.5231512
         y: 0
@@ -5794,17 +5776,17 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -0.30082336
+        z: -0.23703307
       TangentOut:
         x: 0
         y: 0
-        z: 0.3238981
+        z: 0.3084297
       Rotation:
         value:
           x: 0
-          y: -0.32165933
+          y: -0.20686729
           z: -0
-          w: 0.9468555
+          w: 0.978369
     - Position:
         x: -1.8548429
         y: 0
