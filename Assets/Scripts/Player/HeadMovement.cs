@@ -9,11 +9,26 @@ public class HeadMovement : MonoBehaviour
     private PlayerTravel _playerTravel;
     private Coroutine _coroutine;
 
+    private void OnEnable()
+    {
+        PlayerTravel.OnTravelStart += OnTravelStart;
+        PlayerTravel.OnDestinationReached += OnDestinationReached;
+        Focusable.OnGainFocus += OnGainFocus;
+        PlayerFocus.OnLoseFocus += OnLoseFocus;
+    }
+    
+    private void OnDisable()
+    {
+        PlayerTravel.OnTravelStart -= OnTravelStart;
+        PlayerTravel.OnDestinationReached -= OnDestinationReached;
+        Focusable.OnGainFocus -= OnGainFocus;
+        PlayerFocus.OnLoseFocus -= OnLoseFocus;
+    }
+
     void Start()
     {
         _animator = GetComponent<Animator>();
-        PlayerTravel.OnTravelStart += OnTravelStart;
-        PlayerTravel.OnDestinationReached += OnDestinationReached;
+
     }
 
     private void OnTravelStart()
@@ -33,7 +48,18 @@ public class HeadMovement : MonoBehaviour
         while (true)
         {
             _animator.SetFloat("MoveSpeed", _playerTravel.currentSpeed);
+            _animator.SetFloat("TimeToArrive", _playerTravel.timeToArrive);
             yield return new WaitForEndOfFrame(); 
         }
+    }
+
+    private void OnGainFocus(Focusable _)
+    {
+        _animator.SetBool("IsFocused", true);
+    }
+    
+    private void OnLoseFocus()
+    {
+        _animator.SetBool("IsFocused", false);
     }
 }

@@ -4,6 +4,7 @@ public class CursorMoveCamera : MonoBehaviour
 {
     [Header("Dependencies")]
     public GameObject playerCamera;
+    public GameObject playerHead;
     [Header("Constraints")]
     public float maxHorizontalRotation;
     public float maxVerticalRotation;
@@ -30,14 +31,15 @@ public class CursorMoveCamera : MonoBehaviour
         var deadZoneFactor = deadZoneCurve.Evaluate(distance / 0.5f); // 0.5 is the max distance to middle of screen
         var targetXRotation = Mathf.Lerp(maxVerticalRotation, -maxVerticalRotation, mouseRelativePosition.y)*deadZoneFactor;
         var targetYRotation = Mathf.Lerp(-maxHorizontalRotation, maxHorizontalRotation, mouseRelativePosition.x)*deadZoneFactor;
+        
         // Smoothly rotate with damping
         _rotation = Vector3.SmoothDamp(_rotation, new Vector3(targetXRotation, targetYRotation), ref _speed, dampTime);
-        playerCamera.transform.localRotation = Quaternion.Euler(_rotation);
+        playerHead.transform.localRotation = Quaternion.Euler(_rotation);
     }
 
     public void ResetCamera()
     {
-        playerCamera.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        playerHead.transform.localRotation = Quaternion.Euler(Vector3.zero);
         _rotation = Vector3.zero;
         _speed = Vector3.zero;
     }

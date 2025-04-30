@@ -2,19 +2,30 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerFocus : MonoBehaviour
 {
+    [Header("UI")]
+    [Tooltip("The UI element that allows to unfocus")]
     public GameObject exitFocus;
-    public GameObject playerCamera;
+    [Header("Dependencies")]
+    [Tooltip("The camera parent that moves when focused")]
+    public GameObject playerHead;
+    [Tooltip("The original position of the head")]
     public Transform playerPov;
+    [Tooltip("The position of the head when focused")]
     public Transform focusPov;
+    [Header("Tweaking")]
+    [Tooltip("Total time in seconds to (un)focus")]
     public float timeToFocus;
-    public bool isFocused;
+    [Tooltip("How the head moves to focus")]
     public AnimationCurve focusCurve;
-    
+    // Internal variables
+    private bool _isFocused;
+    // Internal components
     private CursorMoveCamera _cursorMoveCamera;
-
+    //Delegates
     public static event Action OnLoseFocus;
     
     private void OnEnable()
@@ -37,12 +48,12 @@ public class PlayerFocus : MonoBehaviour
         exitFocus.SetActive(false);
     }
 
-    private void OnGainFocus(Transform pov)
+    private void OnGainFocus(Focusable focus)
     {
-        if (isFocused) return;
+        if (_isFocused) return;
         
-        isFocused = true;
-        StartCoroutine(GainFocus(pov));
+        _isFocused = true;
+        StartCoroutine(GainFocus(focus.pov));
     }
 
     private IEnumerator GainFocus(Transform pov)
@@ -55,40 +66,39 @@ public class PlayerFocus : MonoBehaviour
 
     public void LoseFocus()
     {
-        if (!isFocused) return;
+        if (!_isFocused) return;
         
-        isFocused = false;
+        _isFocused = false;
         StartCoroutine(LoseFocusCoroutine());
     }
 
     private IEnumerator LoseFocusCoroutine()
     {
+        OnLoseFocus?.Invoke();
         exitFocus.SetActive(false);
         yield return StartCoroutine(FocusTo(playerPov));
         _cursorMoveCamera.ResetCamera();
         _cursorMoveCamera.canMove = true;
-        OnLoseFocus?.Invoke();
     }
 
     private IEnumerator FocusTo(Transform to)
     {
         Cursor.visible = false;
-        var initialPosition = _cursorMoveCamera.playerCamera.transform.position;
-        var initialRotation = _cursorMoveCamera.playerCamera.transform.rotation;
+        var initialPosition = playerHead.transform.position;
+        var initialRotation = playerHead.transform.rotation;
         float ellapsedTime = 0;
         while (ellapsedTime < timeToFocus)
         {
             ellapsedTime += Time.deltaTime;
             float ratio = focusCurve.Evaluate(ellapsedTime / timeToFocus);
-            playerCamera.transform.position = Vector3.Lerp(initialPosition, to.position, ratio);
-            playerCamera.transform.rotation = Quaternion.Lerp(initialRotation, to.rotation, ratio);
+            playerHead.transform.position = Vector3.Lerp(initialPosition, to.position, ratio);
+            playerHead.transform.rotation = Quaternion.Lerp(initialRotation, to.rotation, ratio);
             yield return new WaitForEndOfFrame();
         }
         // Snap to the desired coordinates
-        playerCamera.transform.position = to.position;
-        playerCamera.transform.rotation = to.rotation;
+        playerHead.transform.position = to.position;
+        playerHead.transform.rotation = to.rotation;
         Cursor.visible = true;
         Mouse.current.WarpCursorPosition(new Vector2(Screen.width / 2, Screen.height / 2));
-
     }
 }
