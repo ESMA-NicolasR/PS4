@@ -6,8 +6,14 @@ public class MinigameAsteroids : ResourceSystem
 {
     public int minAsteroids;
     public GameObject cursor;
+    public GameObject screen;
     public float cursorX, cursorY;
     public int cursorMaxY, cursorMaxX, cursorMinY, cursorMinX;
+    public Asteroid asteroid;
+    public float cursorStep;
+    
+    public static event Action<MinigameAsteroids> OnMoveCursor;
+    
     public override void ChangeValue(int delta)
     {
         if (delta == 1)//left
@@ -42,6 +48,7 @@ public class MinigameAsteroids : ResourceSystem
                 cursor.transform.localPosition += new Vector3(0, -0.1f, 0);
             }
         }
+        OnMoveCursor?.Invoke(this);
     }
     
     public override void SetValue(int newValue)
@@ -52,5 +59,19 @@ public class MinigameAsteroids : ResourceSystem
     public override void Break()
     {
         SetValue(SanitizeValue(Random.Range(minValue+minAsteroids, maxValue)));
+        SpawnAsteroids();
+    }
+
+    private void SpawnAsteroids()
+    {
+        for (int i = 0; i < currentValue; i++)
+        {
+            Vector3 asteroidPosition;
+            asteroidPosition.z = cursor.transform.localPosition.z;
+            asteroidPosition.x = cursorStep*Random.Range(cursorMinX, cursorMaxX);
+            asteroidPosition.y = cursorStep*Random.Range(cursorMinY, cursorMaxY);
+            var newAsteroid = Instantiate(asteroid, screen.transform, false);
+            newAsteroid.transform.localPosition = asteroidPosition;
+        }
     }
 }
