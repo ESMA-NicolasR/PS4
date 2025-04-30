@@ -11,8 +11,9 @@ public class MinigameAsteroids : ResourceSystem
     public int cursorMaxY, cursorMaxX, cursorMinY, cursorMinX;
     public Asteroid asteroid;
     public float cursorStep;
+    public int asteroidCount;
     
-    public static event Action<MinigameAsteroids> OnMoveCursor;
+    public static event Action<Transform> OnMoveCursor;
     
     public override void ChangeValue(int delta)
     {
@@ -22,6 +23,7 @@ public class MinigameAsteroids : ResourceSystem
             {
                 cursorX -= 1;
                 cursor.transform.localPosition += new Vector3(-0.1f, 0, 0);
+                OnMoveCursor?.Invoke(cursor.transform);
             }
         }
         else if (delta == 2)//right
@@ -30,6 +32,7 @@ public class MinigameAsteroids : ResourceSystem
             {
                 cursorX += 1;
                 cursor.transform.localPosition += new Vector3(0.1f, 0, 0);
+                OnMoveCursor?.Invoke(cursor.transform);
             }
         }
         else if (delta == 3)//up
@@ -38,6 +41,7 @@ public class MinigameAsteroids : ResourceSystem
             {
                 cursorY += 1;
                 cursor.transform.localPosition += new Vector3(0, 0.1f, 0);
+                OnMoveCursor?.Invoke(cursor.transform);
             }
         }
         else if (delta == 4)//down
@@ -46,9 +50,9 @@ public class MinigameAsteroids : ResourceSystem
             {
                 cursorY -= 1;
                 cursor.transform.localPosition += new Vector3(0, -0.1f, 0);
+                OnMoveCursor?.Invoke(cursor.transform);
             }
         }
-        OnMoveCursor?.Invoke(this);
     }
     
     public override void SetValue(int newValue)
@@ -72,6 +76,14 @@ public class MinigameAsteroids : ResourceSystem
             asteroidPosition.y = cursorStep*Random.Range(cursorMinY, cursorMaxY);
             var newAsteroid = Instantiate(asteroid, screen.transform, false);
             newAsteroid.transform.localPosition = asteroidPosition;
+            asteroidCount += 1;
         }
+        SetValue(asteroidCount);
+    }
+
+    public void ChangeAsteroidCount(int newValue)
+    {
+        asteroidCount -= newValue;
+        SetValue(asteroidCount);
     }
 }

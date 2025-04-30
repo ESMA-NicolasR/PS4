@@ -954,8 +954,8 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 155649974}
-        m_TargetAssemblyTypeName: ResourceSystem, Assembly-CSharp
+      - m_Target: {fileID: 1186579140}
+        m_TargetAssemblyTypeName: MinigameAsteroids, Assembly-CSharp
         m_MethodName: ChangeValue
         m_Mode: 3
         m_Arguments:
@@ -966,83 +966,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &155649970
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 155649971}
-  - component: {fileID: 155649973}
-  - component: {fileID: 155649974}
-  m_Layer: 0
-  m_Name: Asteroides
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &155649971
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 155649970}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1951020624}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &155649973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 155649970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b7dd3444b57560499f75e8fcb75c8f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _resourceSystem: {fileID: 155649974}
---- !u!114 &155649974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 155649970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d043228df4d38845a98f37150aab2d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resourceName: Asteroides
-  currentValue: 10
-  targetValue: 0
-  minValue: 0
-  maxValue: 5
-  step: 1
-  minDistance: 3
-  maxDistance: 5
-  minAsteroids: 3
-  cursor: {fileID: 2032763805}
-  screen: {fileID: 881650211}
-  cursorX: 0
-  cursorY: 0
-  cursorMaxY: 4
-  cursorMaxX: 4
-  cursorMinY: -4
-  cursorMinX: -4
-  asteroid: {fileID: 2143426268764074388, guid: 5c7ea845fa9d69d4f946f4b374d376b5, type: 3}
-  cursorStep: 0.1
 --- !u!1 &193722222
 GameObject:
   m_ObjectHideFlags: 0
@@ -2880,8 +2803,8 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 155649974}
-        m_TargetAssemblyTypeName: ResourceSystem, Assembly-CSharp
+      - m_Target: {fileID: 1186579140}
+        m_TargetAssemblyTypeName: MinigameAsteroids, Assembly-CSharp
         m_MethodName: ChangeValue
         m_Mode: 3
         m_Arguments:
@@ -4509,6 +4432,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1186579138}
   - component: {fileID: 1186579139}
+  - component: {fileID: 1186579140}
+  - component: {fileID: 1186579141}
   m_Layer: 0
   m_Name: Asteroides
   m_TagString: Untagged
@@ -4544,7 +4469,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42682fdb0d5e2f4a8aeb9115c6ba1f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceSystem: {fileID: 155649974}
+  resourceSystem: {fileID: 1186579140}
+--- !u!114 &1186579140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186579137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d043228df4d38845a98f37150aab2d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceName: Asteroides
+  currentValue: 10
+  targetValue: 0
+  minValue: 0
+  maxValue: 5
+  step: 1
+  minDistance: 3
+  maxDistance: 5
+  minAsteroids: 3
+  cursor: {fileID: 2032763805}
+  screen: {fileID: 881650211}
+  cursorX: 0
+  cursorY: 0
+  cursorMaxY: 4
+  cursorMaxX: 4
+  cursorMinY: -4
+  cursorMinX: -4
+  asteroid: {fileID: 2143426268764074388, guid: 5c7ea845fa9d69d4f946f4b374d376b5, type: 3}
+  cursorStep: 0.1
+  asteroidCount: 0
+--- !u!114 &1186579141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186579137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b7dd3444b57560499f75e8fcb75c8f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _resourceSystem: {fileID: 1186579140}
 --- !u!1 &1191648656
 GameObject:
   m_ObjectHideFlags: 0
@@ -5957,7 +5927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possibleObjectives:
-  - {fileID: 155649973}
+  - {fileID: 1186579141}
   text: {fileID: 1340779631}
 --- !u!1 &1505024059
 GameObject:
@@ -7066,7 +7036,6 @@ Transform:
   - {fileID: 1072575952}
   - {fileID: 439027846}
   - {fileID: 455136285}
-  - {fileID: 155649971}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2003891461
@@ -7546,8 +7515,8 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 155649974}
-        m_TargetAssemblyTypeName: ResourceSystem, Assembly-CSharp
+      - m_Target: {fileID: 1186579140}
+        m_TargetAssemblyTypeName: MinigameAsteroids, Assembly-CSharp
         m_MethodName: ChangeValue
         m_Mode: 3
         m_Arguments:
@@ -7682,8 +7651,8 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 155649974}
-        m_TargetAssemblyTypeName: ResourceSystem, Assembly-CSharp
+      - m_Target: {fileID: 1186579140}
+        m_TargetAssemblyTypeName: MinigameAsteroids, Assembly-CSharp
         m_MethodName: ChangeValue
         m_Mode: 3
         m_Arguments:
