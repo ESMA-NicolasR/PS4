@@ -55,11 +55,6 @@ public class MinigameAsteroids : ResourceSystem
         }
     }
     
-    public override void SetValue(int newValue)
-    {
-        currentValue = SanitizeValue(newValue);
-    }
-    
     public override void Break()
     {
         SetValue(SanitizeValue(Random.Range(minValue+minAsteroids, maxValue)));
