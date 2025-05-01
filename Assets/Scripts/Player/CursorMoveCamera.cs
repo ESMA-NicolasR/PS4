@@ -3,16 +3,17 @@ using UnityEngine;
 public class CursorMoveCamera : MonoBehaviour
 {
     [Header("Dependencies")]
-    public GameObject playerCamera;
     public GameObject playerHead;
     [Header("Constraints")]
     public float maxHorizontalRotation;
     public float maxVerticalRotation;
     public bool canMove;
     [Header("Tweaking")]
+    [Tooltip("Damp time when looking around")]
     public float dampTime;
+    [Tooltip("How much we move depending on the distance from center of screen")]
     public AnimationCurve deadZoneCurve;
-    // Internal
+    // Internal animation variables
     private Vector3 _rotation;
     private Vector3 _speed;
     
@@ -33,7 +34,13 @@ public class CursorMoveCamera : MonoBehaviour
         var targetYRotation = Mathf.Lerp(-maxHorizontalRotation, maxHorizontalRotation, mouseRelativePosition.x)*deadZoneFactor;
         
         // Smoothly rotate with damping
-        _rotation = Vector3.SmoothDamp(_rotation, new Vector3(targetXRotation, targetYRotation), ref _speed, dampTime);
+        RotateTowards(new Vector3(targetXRotation, targetYRotation));
+    }
+
+    private void RotateTowards(Vector3 target)
+    {
+        // Smoothly rotate with damping
+        _rotation = Vector3.SmoothDamp(_rotation, target, ref _speed, dampTime);
         playerHead.transform.localRotation = Quaternion.Euler(_rotation);
     }
 

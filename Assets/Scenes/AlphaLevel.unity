@@ -186,35 +186,17 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -0.16608733
+        z: -0.46447605
       TangentOut:
         x: 0
         y: 0
-        z: 0.16608733
+        z: 0.46447605
       Rotation:
         value:
-          x: -0.04012577
-          y: 0.8185269
-          z: 0.028059058
-          w: -0.5723777
-    - Position:
-        x: -2.06
-        y: 1
-        z: 3.93
-      TangentIn:
-        x: -0
-        y: -0
-        z: -0.51644576
-      TangentOut:
-        x: 0
-        y: 0
-        z: 0.8080601
-      Rotation:
-        value:
-          x: -0.012804048
-          y: 0.9663071
-          z: 0.0034060453
-          w: -0.25705042
+          x: -0.024717838
+          y: 0.9956612
+          z: 0.002226407
+          w: -0.08968207
     - Position:
         x: -1.33
         y: 1
@@ -222,17 +204,17 @@ MonoBehaviour:
       TangentIn:
         x: 0
         y: 0
-        z: -0.9834185
+        z: -2.578025
       TangentOut:
         x: 0
         y: 0
         z: 0.7795519
       Rotation:
         value:
-          x: 0.012366962
-          y: 0.8101526
-          z: -0.06790809
-          w: 0.5821412
+          x: 0.014292049
+          y: 0.8253098
+          z: -0.067373976
+          w: 0.5604643
     - Position:
         x: 3.5
         y: 0
@@ -252,8 +234,6 @@ MonoBehaviour:
           z: 0
           w: 0.4999999
     m_MetaData:
-    - Mode: 0
-      Tension: 0.5
     - Mode: 0
       Tension: 0.5
     - Mode: 3
@@ -1224,35 +1204,17 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -0.15824032
+        z: -0.40340492
       TangentOut:
         x: 0
         y: 0
-        z: 0.15824032
+        z: 0.40340492
       Rotation:
         value:
-          x: -0.00061467674
-          y: -0.6008082
-          z: 0.00081784494
-          w: 0.7993925
-    - Position:
-        x: -2.02
-        y: 1
-        z: 4.94
-      TangentIn:
-        x: -0
-        y: -0
-        z: -0.46875763
-      TangentOut:
-        x: 0
-        y: 0
-        z: 0.70315325
-      Rotation:
-        value:
-          x: -0.272121
-          y: 0.015826665
-          z: 0.9605097
-          w: -0.05586363
+          x: 0.0000025224801
+          y: -0.10796746
+          z: -0.000023226763
+          w: 0.99415445
     - Position:
         x: -1.366
         y: 1
@@ -1260,17 +1222,17 @@ MonoBehaviour:
       TangentIn:
         x: 0
         y: 0
-        z: -1.0443974
+        z: -1.9594903
       TangentOut:
         x: 0
         y: 0
         z: 1.8605832
       Rotation:
         value:
-          x: 0.06638274
-          y: 0.6828627
-          z: -0.04748803
-          w: 0.72597295
+          x: 0.065555386
+          y: 0.67007977
+          z: -0.04853458
+          w: 0.73779404
     - Position:
         x: 2.65
         y: 0
@@ -1308,8 +1270,6 @@ MonoBehaviour:
           z: 0
           w: 0.70710677
     m_MetaData:
-    - Mode: 0
-      Tension: 0.5
     - Mode: 0
       Tension: 0.5
     - Mode: 3
@@ -1703,35 +1663,35 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -0.14372724
+        z: -0.14337893
       TangentOut:
         x: 0
         y: 0
-        z: 0.14372724
+        z: 0.14337893
       Rotation:
         value:
-          x: 0.05523998
-          y: -0.52572995
-          z: -0.022987964
-          w: 0.8485447
+          x: 0.025793737
+          y: -0.52748674
+          z: -0.041474342
+          w: 0.8481582
     - Position:
         x: -1.786
-        y: 0.9
+        y: 1
         z: 5.134
       TangentIn:
         x: -0
         y: -0
-        z: -0.53782463
+        z: -0.53753984
       TangentOut:
         x: 0
         y: 0
-        z: 0.69200444
+        z: 0.6921716
       Rotation:
         value:
-          x: -0.014399717
-          y: -0.5459208
-          z: 0.03472459
-          w: 0.8369929
+          x: -0.020181913
+          y: -0.54570633
+          z: 0.030960813
+          w: 0.8371611
     - Position:
         x: -4
         y: 1
@@ -2487,6 +2447,11 @@ PrefabInstance:
       addedObject: {fileID: 1465460781}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 788d605d668368843bc52f45f4e31526, type: 3}
+--- !u!4 &1835905183 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1844476819577645644, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
+  m_PrefabInstance: {fileID: 209263181771041829}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1843962237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4080533205009946647, guid: 788d605d668368843bc52f45f4e31526, type: 3}
@@ -2652,35 +2617,35 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -0.19719028
+        z: -0.1968248
       TangentOut:
         x: 0
         y: 0
-        z: 0.19719028
+        z: 0.1968248
       Rotation:
         value:
-          x: 0.017776167
-          y: 0.85613155
-          z: -0.024829766
-          w: 0.51585484
+          x: 0.0020721664
+          y: 0.8565665
+          z: 0.0012483587
+          w: 0.5160311
     - Position:
         x: -2.26
-        y: 0.88
+        y: 1
         z: 5.08
       TangentIn:
         x: -0
         y: -0
-        z: -0.6438803
+        z: -0.6439167
       TangentOut:
         x: 0
         y: 0
-        z: 0.62483704
+        z: 0.6247983
       Rotation:
         value:
-          x: -0.031194607
-          y: 0.833561
-          z: -0.01949209
-          w: 0.5512014
+          x: -0.030672794
+          y: 0.8335779
+          z: -0.020281406
+          w: 0.5511768
     - Position:
         x: -0.5
         y: 1
@@ -2741,6 +2706,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1216700630285079548, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
+      propertyPath: headPivot
+      value: 
+      objectReference: {fileID: 1835905183}
+    - target: {fileID: 1216700630285079548, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
       propertyPath: travelSpeed
       value: 2
       objectReference: {fileID: 0}
@@ -2748,6 +2717,22 @@ PrefabInstance:
       propertyPath: currentStation
       value: 
       objectReference: {fileID: 793578655}
+    - target: {fileID: 1216700630285079548, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
+      propertyPath: lookTowardsPathSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216700630285079548, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
+      propertyPath: adhereToLookAheadCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216700630285079548, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
+      propertyPath: adhereToLookAheadCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216700630285079548, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
+      propertyPath: adhereToLookAheadCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1216700630285079548, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
       propertyPath: lookDestinationCurve.m_Curve.Array.data[0].inSlope
       value: 0
@@ -2763,6 +2748,34 @@ PrefabInstance:
     - target: {fileID: 1216700630285079548, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
       propertyPath: lookDestinationCurve.m_Curve.Array.data[1].outSlope
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216700630285079548, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
+      propertyPath: adhereToLookAheadCurve.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216700630285079548, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
+      propertyPath: adhereToLookAheadCurve.m_Curve.Array.data[1].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216700630285079548, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
+      propertyPath: adhereToLookAheadCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216700630285079548, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
+      propertyPath: adhereToLookAheadCurve.m_Curve.Array.data[1].outSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216700630285079548, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
+      propertyPath: adhereToLookAheadCurve.m_Curve.Array.data[0].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216700630285079548, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
+      propertyPath: adhereToLookAheadCurve.m_Curve.Array.data[1].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2977952439158365879, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
+      propertyPath: lookCenterSpeed
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2977952439158365879, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
       propertyPath: maxHorizontalRotation
@@ -2820,9 +2833,13 @@ PrefabInstance:
       propertyPath: currentStation
       value: 
       objectReference: {fileID: 793578655}
-    - target: {fileID: 5137224608236261793, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
+    - target: {fileID: 3323198083368301152, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137224608236261793, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5165474346458372784, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
       propertyPath: m_Name
@@ -2834,7 +2851,7 @@ PrefabInstance:
       objectReference: {fileID: 2003891461}
     - target: {fileID: 7226944431270460867, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7226944431270460867, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
       propertyPath: m_LocalPosition.y
