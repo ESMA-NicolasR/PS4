@@ -189,6 +189,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  speedToAdhereToLookAhead: 30
   adhereToLookAheadCurve:
     serializedVersion: 2
     m_Curve:

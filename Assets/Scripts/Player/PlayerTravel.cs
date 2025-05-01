@@ -18,7 +18,9 @@ public class PlayerTravel : MonoBehaviour
     public float travelSpeed;
     [Tooltip("How much the destination weight on where to look")]
     public AnimationCurve lookDestinationCurve;
-    [Tooltip("How fast the player will look at a new direction")]
+    [Tooltip("How fast the player will turn to the path")]
+    public float speedToAdhereToLookAhead;
+    [Tooltip("Influence of turning to the path")]
     public AnimationCurve adhereToLookAheadCurve;
     [Tooltip("How the player moves from point A to B")]
     public AnimationCurve movementCurve;
@@ -79,18 +81,20 @@ public class PlayerTravel : MonoBehaviour
 
     private IEnumerator Move(SplineContainer spline)
     {
-        float ellapsedTime = 0;
+        float elapsedTime = 0;
         var lastNode = spline.Spline.Last();
         var length = spline.CalculateLength();
         var totalTime = length / travelSpeed;
         timeToArrive = totalTime;
+        // We need to know hom much time is necessary to face the path
+        var lookAheadTime = Quaternion.Angle(headPivot.rotation, Quaternion.LookRotation(spline.EvaluateTangent(0)))/speedToAdhereToLookAhead;
         // We eventually want to look at what's right in front of the last node
         Vector3 aimDestination = (Vector3)lastNode.Position + new Quaternion(lastNode.Rotation.value.x,
             lastNode.Rotation.value.y, lastNode.Rotation.value.z, lastNode.Rotation.value.w) * Vector3.forward;
-        while (ellapsedTime < totalTime)
+        while (elapsedTime < totalTime)
         {
-            ellapsedTime = Mathf.Min(ellapsedTime+Time.deltaTime, totalTime);
-            float ratio = ellapsedTime / totalTime;
+            elapsedTime = Mathf.Min(elapsedTime+Time.deltaTime, totalTime);
+            float ratio = elapsedTime / totalTime;
             // Move along spline
             transform.position = spline.EvaluatePosition(movementCurve.Evaluate(ratio));
             // Compute speed with f'(x) ~= (f(x+dt)-f(x))/dt
@@ -100,8 +104,10 @@ public class PlayerTravel : MonoBehaviour
             // Look ahead towards the destination
             var tangent = Quaternion.LookRotation(spline.EvaluateTangent(ratio));
             var lookDestination = Quaternion.LookRotation(aimDestination-transform.position);
+            // Interpolate between path direction and destination
             var wantedRotation = Quaternion.Slerp(tangent, lookDestination, lookDestinationCurve.Evaluate(ratio));
-            headPivot.rotation = Quaternion.Slerp(headPivot.rotation, wantedRotation, adhereToLookAheadCurve.Evaluate(ratio));
+            // Take into account initial turning from station
+            headPivot.rotation = Quaternion.Slerp(headPivot.rotation, wantedRotation, adhereToLookAheadCurve.Evaluate(elapsedTime/lookAheadTime));
             // Wait next frame
             yield return new WaitForEndOfFrame();
         }
