@@ -13,7 +13,7 @@ public class PlayerFocus : MonoBehaviour
     [Tooltip("The camera parent that moves when focused")]
     public GameObject playerHead;
     [Tooltip("The original position of the head")]
-    public Transform playerPov;
+    public Transform headPivot;
     [Tooltip("The position of the head when focused")]
     public Transform focusPov;
     [Header("Tweaking")]
@@ -76,7 +76,7 @@ public class PlayerFocus : MonoBehaviour
     {
         OnLoseFocus?.Invoke();
         exitFocus.SetActive(false);
-        yield return StartCoroutine(FocusTo(playerPov));
+        yield return StartCoroutine(FocusTo(headPivot));
         _cursorMoveCamera.ResetCamera();
         _cursorMoveCamera.canMove = true;
     }
