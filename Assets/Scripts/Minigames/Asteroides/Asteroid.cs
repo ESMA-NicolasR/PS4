@@ -5,14 +5,15 @@ using System.Collections;
 
 public class Asteroid : MonoBehaviour
 {
-    public MinigameAsteroids minigameAsteroids;
+    private MinigameAsteroids _minigameAsteroids;
     public float timeToBeDestroyed;
     public float timeToDestroy;
+    public float speed;
 
     private void OnEnable()
     {
         MinigameAsteroids.OnMoveCursor += OnMoveCursor;
-        minigameAsteroids = GameObject.Find("Asteroides").GetComponent<MinigameAsteroids>();
+        _minigameAsteroids = GameObject.Find("Asteroids").GetComponent<MinigameAsteroids>();
         StartCoroutine(DestroyShip());
     }
 
@@ -25,7 +26,7 @@ public class Asteroid : MonoBehaviour
     {
         if (transform.position == cursorTransform.position)
         {
-            minigameAsteroids.ChangeAsteroidCount(1);
+            _minigameAsteroids.ChangeAsteroidCount(1);
             StartCoroutine(DestroyAsteroids(cursorTransform.gameObject));
         }
     }
@@ -43,6 +44,16 @@ public class Asteroid : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToDestroy);
         print("kaboum");
+    }
+
+    /*private IEnumerator Moving()
+    {
+        yield return new WaitForSeconds(1/speed*0.1f);
+    }*/
+
+    private void Moving()
+    {
+        
     }
 }
 
