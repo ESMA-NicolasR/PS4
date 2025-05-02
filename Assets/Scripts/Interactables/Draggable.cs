@@ -25,6 +25,20 @@ public class Draggable : Clickable
         FindFirstObjectByType<CursorMoveCamera>().canMove = true;
     }
 
+    protected override void OnMouseEnter()
+    {
+        // Ignore while dragging around
+        if (_isDragged) return;
+        base.OnMouseEnter();
+    }
+    
+    protected override void OnMouseExit()
+    {
+        // Ignore while dragging around
+        if (_isDragged) return;
+        base.OnMouseExit();
+    }
+
     private void Update()
     {
         if (!_isDragged) return;

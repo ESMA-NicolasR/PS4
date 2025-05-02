@@ -5,7 +5,7 @@ public class Pump : Draggable
     public Transform lowEnd, highEnd;
     public GameObject pump;
     public float amplitudeWeight;
-    public float increasedDragOnDown;
+    public float dragDownMultiplier;
     public int valueStrength;
 
     private float _progress;
@@ -26,6 +26,10 @@ public class Pump : Draggable
     {
         //base.Drag(delta);
         _lastProgress = _progress;
+        if (delta.y < 0)
+        {
+            delta *= dragDownMultiplier;
+        }
         _progress = Mathf.Clamp01(_progress + delta.y / Screen.height);
         UpdateScore(_progress - _lastProgress);
         pump.transform.position = Vector3.Lerp(lowEnd.position, highEnd.position, _progress);
@@ -33,15 +37,16 @@ public class Pump : Draggable
 
     private void UpdateScore(float delta)
     {
+        // When we pump down, increase the score
         if (delta < 0)
         {
             _accumulatedScore -= delta * amplitudeWeight;
         }
+        // If we pumped enough, use score to change system value
         if (_accumulatedScore >= 1.0f)
         {
             resourceHandle.ChangeValue(valueStrength);
             _accumulatedScore -= 1.0f;
         }
-        Debug.Log(_accumulatedScore);
     }
 }

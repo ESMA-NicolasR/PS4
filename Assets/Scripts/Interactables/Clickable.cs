@@ -52,12 +52,22 @@ public class Clickable : MonoBehaviour
         Debug.Log("Interact");
     }
 
-    private void OnMouseEnter()
+    protected virtual void OnMouseEnter()
+    {
+        DisplaySelected();
+    }
+    
+    protected virtual void OnMouseExit()
+    {
+        DisplayNotSelected();
+    }
+
+    private void DisplaySelected()
     {
         _meshRenderer.material = selectedMaterial;
     }
     
-    private void OnMouseExit()
+    private void DisplayNotSelected()
     {
         _meshRenderer.material = baseMaterial;
     }
