@@ -8,7 +8,6 @@ public class Focusable : Clickable
     public Transform pov;
     private List<Clickable> _clickables;
     public static event Action<Focusable> OnGainFocus;
-    public bool isFocused;
 
     protected override void Awake()
     {
@@ -23,8 +22,6 @@ public class Focusable : Clickable
 
     protected override void Interact()
     {
-        if (isFocused) return;
-        
         GainFocus();
     }
 
@@ -33,7 +30,6 @@ public class Focusable : Clickable
         OnGainFocus?.Invoke(this);
         EnableInteractables();
         Disable();
-        isFocused = true;
     }
 
     public override void EnableHighlight()
@@ -65,7 +61,6 @@ public class Focusable : Clickable
     public void LoseFocus()
     {
         Enable();
-        isFocused = false;
     }
     
     

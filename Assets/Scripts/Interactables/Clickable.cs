@@ -7,12 +7,12 @@ public class Clickable : MonoBehaviour
     private LayerMask defaultLayer;
     private LayerMask interactableLayer;
     private LayerMask highlightLayer;
-    protected bool _canBeUsed;
+    public bool canBeUsed;
     public Focusable focusParent;
 
     protected virtual void Awake()
     {
-        _canBeUsed = true;
+        canBeUsed = true;
         defaultLayer = LayerMask.NameToLayer("Default");
         interactableLayer = LayerMask.NameToLayer("Interactable");
         highlightLayer = LayerMask.NameToLayer("Highlight");
@@ -26,24 +26,23 @@ public class Clickable : MonoBehaviour
 
     public void Disable()
     {
-        _canBeUsed = false;
+        canBeUsed = false;
         gameObject.layer = defaultLayer;
     }
 
     public void Enable()
     {
-        _canBeUsed = true;
+        canBeUsed = true;
         gameObject.layer = interactableLayer;
     }
 
     private void OnMouseDown()
     {
-        // Determine if we let the parent handle this
-        if (focusParent != null && !focusParent.isFocused)
+        if (HasActiveParent())
         {
             focusParent.GainFocus();
         }
-        else if (_canBeUsed)
+        else if (canBeUsed)
         {
             OnClick?.Invoke();
             Interact();
@@ -57,23 +56,21 @@ public class Clickable : MonoBehaviour
 
     protected virtual void OnMouseEnter()
     {
-        // Determine if we let the parent handle this
-        if (focusParent != null && !focusParent.isFocused)
+        if (HasActiveParent())
         {
             focusParent.EnableHighlight();
         }
-        else if(_canBeUsed)
+        else if(canBeUsed)
             EnableHighlight();
     }
     
     protected virtual void OnMouseExit()
     {
-        // Determine if we let the parent handle this
-        if (focusParent != null && !focusParent.isFocused)
+        if (HasActiveParent())
         {
             focusParent.DisableHighlight();
         }
-        else if(_canBeUsed)
+        else if(canBeUsed)
             DisableHighlight();
     }
 
@@ -84,6 +81,11 @@ public class Clickable : MonoBehaviour
 
     public virtual void DisableHighlight()
     { 
-        gameObject.layer = _canBeUsed ? interactableLayer : defaultLayer;
+        gameObject.layer = canBeUsed ? interactableLayer : defaultLayer;
+    }
+
+    private bool HasActiveParent()
+    {
+        return focusParent != null && focusParent.canBeUsed;
     }
 }
