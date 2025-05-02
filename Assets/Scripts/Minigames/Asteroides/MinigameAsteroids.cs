@@ -8,7 +8,7 @@ public class MinigameAsteroids : ResourceSystem
     public GameObject cursor;
     public GameObject screen;
     public float cursorX, cursorY;
-    public int cursorMaxY, cursorMaxX, cursorMinY, cursorMinX;
+    public int cursorMaxY, cursorMaxX;
     public Asteroid asteroid;
     public float cursorStep;
     public int asteroidCount;
@@ -19,10 +19,10 @@ public class MinigameAsteroids : ResourceSystem
     {
         if (delta == 1)//left
         {
-            if (cursorX > cursorMinX)
+            if (cursorX > -cursorMaxX)
             {
                 cursorX -= 1;
-                cursor.transform.localPosition += new Vector3(-0.1f, 0, 0);
+                cursor.transform.localPosition += new Vector3(-cursorStep, 0, 0);
                 OnMoveCursor?.Invoke(cursor.transform);
             }
         }
@@ -31,7 +31,7 @@ public class MinigameAsteroids : ResourceSystem
             if (cursorX < cursorMaxX)
             {
                 cursorX += 1;
-                cursor.transform.localPosition += new Vector3(0.1f, 0, 0);
+                cursor.transform.localPosition += new Vector3(cursorStep, 0, 0);
                 OnMoveCursor?.Invoke(cursor.transform);
             }
         }
@@ -40,16 +40,16 @@ public class MinigameAsteroids : ResourceSystem
             if (cursorY < cursorMaxY)
             {
                 cursorY += 1;
-                cursor.transform.localPosition += new Vector3(0, 0.1f, 0);
+                cursor.transform.localPosition += new Vector3(0, cursorStep, 0);
                 OnMoveCursor?.Invoke(cursor.transform);
             }
         }
         else if (delta == 4)//down
         {
-            if (cursorY > cursorMinY)
+            if (cursorY > -cursorMaxY)
             {
                 cursorY -= 1;
-                cursor.transform.localPosition += new Vector3(0, -0.1f, 0);
+                cursor.transform.localPosition += new Vector3(0, -cursorStep, 0);
                 OnMoveCursor?.Invoke(cursor.transform);
             }
         }
@@ -67,8 +67,8 @@ public class MinigameAsteroids : ResourceSystem
         {
             Vector3 asteroidPosition;
             asteroidPosition.z = cursor.transform.localPosition.z;
-            asteroidPosition.x = cursorStep*Random.Range(cursorMinX, cursorMaxX);
-            asteroidPosition.y = cursorStep*Random.Range(cursorMinY, cursorMaxY);
+            asteroidPosition.x = cursorStep*Random.Range(-cursorMaxX, cursorMaxX);
+            asteroidPosition.y = cursorStep*Random.Range(-cursorMaxY, cursorMaxY);
             var newAsteroid = Instantiate(asteroid, screen.transform, false);
             newAsteroid.transform.localPosition = asteroidPosition;
             asteroidCount += 1;
