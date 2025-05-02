@@ -4839,7 +4839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exitFocus: {fileID: 2003891461}
   playerHead: {fileID: 1625713621}
-  playerPov: {fileID: 17070412}
+  headPivot: {fileID: 0}
   focusPov: {fileID: 0}
   timeToFocus: 0.5
   focusCurve:
@@ -4879,6 +4879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentStation: {fileID: 918514459}
+  headPivot: {fileID: 0}
   travelSpeed: 1.5
   lookDestinationCurve:
     serializedVersion: 2
@@ -4901,6 +4902,13 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0
       outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  speedToAdhereToLookAhead: 0
+  adhereToLookAheadCurve:
+    serializedVersion: 2
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -4928,7 +4936,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  lookTowardsPathSpeed: 180
   currentSpeed: 0
   timeToArrive: 0
 --- !u!114 &1408644794
@@ -4943,7 +4950,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c028146f088acc244ae8e2641f55615c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 242895562}
   playerHead: {fileID: 1625713621}
   maxHorizontalRotation: 15
   maxVerticalRotation: 10
