@@ -17,7 +17,7 @@ public class Draggable : Clickable
         FindFirstObjectByType<CursorMoveCamera>().canMove = false;
     }
 
-    private void OnMouseUp()
+    protected virtual void OnMouseUp()
     {
         //Mouse.current.WarpCursorPosition(_anchor.position);
         Cursor.visible = true;
