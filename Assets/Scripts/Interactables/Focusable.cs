@@ -14,15 +14,22 @@ public class Focusable : Clickable
         base.Awake();
         _clickables = GetComponentsInChildren<Clickable>().ToList();
         _clickables.Remove(this);
+        foreach (var clickable in _clickables)
+        {
+            clickable.OnClick.AddListener(Interact);
+        }
     }
 
     protected override void Interact()
     {
         OnGainFocus?.Invoke(this);
+        EnableInteractables();
+        Disable();
     }
 
     protected override void OnMouseEnter()
     {
+        if (!_canBeUsed) return;
         EnableHighlight();
         foreach (var clickable in _clickables)
         {
@@ -32,6 +39,7 @@ public class Focusable : Clickable
     
     protected override void OnMouseExit()
     {
+        if (!_canBeUsed) return;
         DisableHighlight();
         foreach (var clickable in _clickables)
         {
@@ -45,6 +53,11 @@ public class Focusable : Clickable
         {
             clickable.Enable();
         }
+    }
+
+    public void LoseFocus()
+    {
+        Enable();
     }
     
     public void DisableInteractables()

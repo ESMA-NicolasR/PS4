@@ -3,16 +3,16 @@ using UnityEngine.Events;
 
 public class Clickable : MonoBehaviour
 {
-    private Collider _collider;
     public UnityEvent OnClick;
+    private LayerMask defaultLayer;
     private LayerMask interactableLayer;
     private LayerMask highlightLayer;
     protected bool _canBeUsed;
 
     protected virtual void Awake()
     {
-        _collider = GetComponent<Collider>();
         _canBeUsed = true;
+        defaultLayer = LayerMask.NameToLayer("Default");
         interactableLayer = LayerMask.NameToLayer("Interactable");
         highlightLayer = LayerMask.NameToLayer("Highlight");
         // Disable so we can re-enable with first station
@@ -25,12 +25,14 @@ public class Clickable : MonoBehaviour
 
     public void Disable()
     {
-        _collider.enabled = false;
+        _canBeUsed = false;
+        gameObject.layer = defaultLayer;
     }
 
     public void Enable()
     {
-        _collider.enabled = true;
+        _canBeUsed = true;
+        gameObject.layer = interactableLayer;
     }
 
     private void OnMouseDown()
@@ -49,12 +51,14 @@ public class Clickable : MonoBehaviour
 
     protected virtual void OnMouseEnter()
     {
-        EnableHighlight();
+        if(_canBeUsed)
+            EnableHighlight();
     }
     
     protected virtual void OnMouseExit()
     {
-        DisableHighlight();
+        if(_canBeUsed)
+            DisableHighlight();
     }
 
     public void EnableHighlight()
@@ -64,6 +68,6 @@ public class Clickable : MonoBehaviour
 
     public void DisableHighlight()
     { 
-        gameObject.layer = interactableLayer;
+        gameObject.layer = _canBeUsed ? interactableLayer : defaultLayer;
     }
 }
