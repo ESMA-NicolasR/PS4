@@ -9,12 +9,17 @@ public class Asteroid : MonoBehaviour
     public float timeToBeDestroyed;
     public float timeToDestroy;
     public float speed;
+    private Vector3 _newPosition;
 
     private void OnEnable()
     {
         MinigameAsteroids.OnMoveCursor += OnMoveCursor;
         _minigameAsteroids = GameObject.Find("Asteroids").GetComponent<MinigameAsteroids>();
         StartCoroutine(DestroyShip());
+        if (speed != 0)
+        {
+            Moving();
+        }
     }
 
     private void OnDisable()
@@ -53,7 +58,7 @@ public class Asteroid : MonoBehaviour
 
     private void Moving()
     {
-        
+        Vector2.Lerp(transform.position, _newPosition, Time.deltaTime * speed);
     }
 }
 
