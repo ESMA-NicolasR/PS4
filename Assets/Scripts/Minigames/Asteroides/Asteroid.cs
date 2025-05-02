@@ -15,7 +15,6 @@ public class Asteroid : MonoBehaviour
 
     private void OnEnable()
     {
-        MinigameAsteroids.OnMoveCursor += OnMoveCursor;
         _minigameAsteroids = GameObject.Find("Asteroids").GetComponent<MinigameAsteroids>();
         StartCoroutine(DestroyShip());
         
@@ -47,25 +46,12 @@ public class Asteroid : MonoBehaviour
         transform.localScale = new Vector3(transform.localScale.x+(growUp*0.001f)*Time.deltaTime,transform.localScale.y+(growUp*0.001f)*Time.deltaTime,transform.localScale.z);
     }
 
-    private void OnDisable()
-    {
-        MinigameAsteroids.OnMoveCursor -= OnMoveCursor;
-    }
-    
-    private void OnMoveCursor(Transform cursorTransform)
-    {
-        if (_isDestroying)
-        {
-            _minigameAsteroids.ChangeAsteroidCount(1);
-            StartCoroutine(DestroyAsteroids(cursorTransform.gameObject));
-        }
-    }
-
     private IEnumerator DestroyAsteroids(GameObject cursor)
     {
         yield return new WaitForSeconds(timeToBeDestroyed);
         if (_isDestroying)
-        {
+        {   
+            _minigameAsteroids.ChangeAsteroidCount(1);
             Destroy(gameObject);
         }
     }
@@ -84,9 +70,11 @@ public class Asteroid : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _isDestroying = true;
+        StartCoroutine(DestroyAsteroids(_minigameAsteroids.cursor));
     }
     private void OnTriggerExit(Collider other)
     {
         _isDestroying = false;
+        StopCoroutine(DestroyAsteroids(_minigameAsteroids.cursor));
     }
 }

@@ -13,8 +13,6 @@ public class MinigameAsteroids : ResourceSystem
     public float cursorStep;
     public int asteroidCount;
     
-    public static event Action<Transform> OnMoveCursor;
-    
     public override void ChangeValue(int delta)
     {
         if (delta == 1)//left
@@ -23,7 +21,6 @@ public class MinigameAsteroids : ResourceSystem
             {
                 cursorX -= 1;
                 cursor.transform.localPosition += new Vector3(-cursorStep, 0, 0);
-                OnMoveCursor?.Invoke(cursor.transform);
             }
         }
         else if (delta == 2)//right
@@ -32,7 +29,6 @@ public class MinigameAsteroids : ResourceSystem
             {
                 cursorX += 1;
                 cursor.transform.localPosition += new Vector3(cursorStep, 0, 0);
-                OnMoveCursor?.Invoke(cursor.transform);
             }
         }
         else if (delta == 3)//up
@@ -41,7 +37,6 @@ public class MinigameAsteroids : ResourceSystem
             {
                 cursorY += 1;
                 cursor.transform.localPosition += new Vector3(0, cursorStep, 0);
-                OnMoveCursor?.Invoke(cursor.transform);
             }
         }
         else if (delta == 4)//down
@@ -50,7 +45,6 @@ public class MinigameAsteroids : ResourceSystem
             {
                 cursorY -= 1;
                 cursor.transform.localPosition += new Vector3(0, -cursorStep, 0);
-                OnMoveCursor?.Invoke(cursor.transform);
             }
         }
     }
