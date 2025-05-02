@@ -44,7 +44,7 @@ public class Station : MonoBehaviour
         // Subcomponents of focusable should not be enabled
         foreach (var focusable in _focusables)
         {
-            focusable.DisableInteractables();            
+            focusable.LoseFocus();            
         }
     }
 }

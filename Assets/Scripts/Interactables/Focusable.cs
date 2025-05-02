@@ -28,8 +28,13 @@ public class Focusable : Clickable
             clickable.Enable();
         }
     }
+
+    public virtual void LoseFocus()
+    {
+        DisableInteractables();
+    }
     
-    public void DisableInteractables()
+    private void DisableInteractables()
     {
         foreach (var clickable in _clickables)
         {

@@ -1,46 +1,45 @@
 using System.Collections;
 using UnityEngine;
 
-public class Book : MonoBehaviour
+public class Book : Focusable
 {
     public bool open;
-
-    public bool canClick;
-
-    public GameObject obj1;
-
-    public GameObject obj2;
-    private void OnMouseDown()
+    
+    public Animator animator;
+    public Animator animator2;
+    protected override void Interact()
     {
-        if (!open && canClick)
-        {
-            StartCoroutine(OpenBook());
-            canClick = false;
-        }
-
-        else if ((canClick))
+        base.Interact();
+        StartCoroutine(OpenBook());
+        open = true;
+    }
+    
+    public override void LoseFocus()
+    {
+        base.LoseFocus();
+        if (open)
         {
             StartCoroutine(CloseBook());
-            canClick = false;
+            open = false;  
         }
-
     }
 
-    IEnumerator OpenBook()
+     IEnumerator OpenBook()
     {
-        obj1.transform.Rotate(0, 0, 90);
-        yield return new WaitForSeconds(0.5f);
-        obj2.transform.Rotate(0, 0, 90);
-        yield return new WaitForEndOfFrame();
-        canClick = true;
+        animator.SetBool("Open", true);
+        animator2.SetBool("Open", true);
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("Open", false);
+        animator2.SetBool("Open", false);
     }
 
-    IEnumerator CloseBook()
+    IEnumerator CloseBook() 
     {
-        obj1.transform.Rotate(0, 0, 0);
-        yield return new WaitForSeconds(0.5f);
-        obj2.transform.Rotate(0, 0, 0);
-        yield return new WaitForEndOfFrame();
-        canClick = true;
+        animator.SetBool("Close", true);
+        animator2.SetBool("Close", true);
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("Close", false);
+        animator2.SetBool("Close", false);
     }
+    
 }
