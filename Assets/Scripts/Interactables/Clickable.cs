@@ -1,25 +1,20 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Clickable : MonoBehaviour
 {
-    private MeshRenderer _meshRenderer;
     private Collider _collider;
-
-    public Material baseMaterial;
-    public Material selectedMaterial;
     public UnityEvent OnClick;
-
+    private LayerMask interactableLayer;
+    private LayerMask highlightLayer;
     protected bool _canBeUsed;
 
     protected virtual void Awake()
     {
-        _meshRenderer = GetComponent<MeshRenderer>();
-        _meshRenderer.material = baseMaterial;
         _collider = GetComponent<Collider>();
         _canBeUsed = true;
+        interactableLayer = LayerMask.NameToLayer("Interactable");
+        highlightLayer = LayerMask.NameToLayer("Highlight");
         // Disable so we can re-enable with first station
         Disable();
     }
@@ -52,13 +47,23 @@ public class Clickable : MonoBehaviour
         Debug.Log("Interact");
     }
 
-    private void OnMouseEnter()
+    protected virtual void OnMouseEnter()
     {
-        _meshRenderer.material = selectedMaterial;
+        EnableHighlight();
     }
     
-    private void OnMouseExit()
+    protected virtual void OnMouseExit()
     {
-        _meshRenderer.material = baseMaterial;
+        DisableHighlight();
+    }
+
+    public void EnableHighlight()
+    {
+        gameObject.layer = highlightLayer;
+    }
+
+    public void DisableHighlight()
+    { 
+        gameObject.layer = interactableLayer;
     }
 }

@@ -21,6 +21,24 @@ public class Focusable : Clickable
         OnGainFocus?.Invoke(this);
     }
 
+    protected override void OnMouseEnter()
+    {
+        EnableHighlight();
+        foreach (var clickable in _clickables)
+        {
+            clickable.EnableHighlight();
+        }
+    }
+    
+    protected override void OnMouseExit()
+    {
+        DisableHighlight();
+        foreach (var clickable in _clickables)
+        {
+            clickable.DisableHighlight();
+        }
+    }
+
     public void EnableInteractables()
     {
         foreach (var clickable in _clickables)
@@ -36,5 +54,7 @@ public class Focusable : Clickable
             clickable.Disable();
         }
     }
+    
+    
 
 }
