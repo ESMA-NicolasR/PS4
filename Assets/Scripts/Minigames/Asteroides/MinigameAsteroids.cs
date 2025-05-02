@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,6 +13,7 @@ public class MinigameAsteroids : ResourceSystem
     public Asteroid asteroid;
     public float cursorStep;
     public int asteroidCount;
+    public float timeToSpawnAsteroids;
     
     public override void ChangeValue(int delta)
     {
@@ -52,22 +54,23 @@ public class MinigameAsteroids : ResourceSystem
     public override void Break()
     {
         SetValue(SanitizeValue(Random.Range(minValue+minAsteroids, maxValue)));
-        SpawnAsteroids();
-    }
-
-    private void SpawnAsteroids()
-    {
         for (int i = 0; i < currentValue; i++)
         {
-            Vector3 asteroidPosition;
-            asteroidPosition.z = cursor.transform.localPosition.z;
-            asteroidPosition.x = cursorStep*Random.Range(-cursorMaxX, cursorMaxX);
-            asteroidPosition.y = cursorStep*Random.Range(-cursorMaxY, cursorMaxY);
-            var newAsteroid = Instantiate(asteroid, screen.transform, false);
-            newAsteroid.transform.localPosition = asteroidPosition;
-            asteroidCount += 1;
+            StartCoroutine(SpawnAsteroids());
         }
         SetValue(asteroidCount);
+    }
+
+    private IEnumerator SpawnAsteroids()
+    {
+        yield return new WaitForSeconds(Random.Range(0.1f, timeToSpawnAsteroids));
+        Vector3 asteroidPosition;
+        asteroidPosition.z = cursor.transform.localPosition.z;
+        asteroidPosition.x = cursorStep*Random.Range(-cursorMaxX, cursorMaxX);
+        asteroidPosition.y = cursorStep*Random.Range(-cursorMaxY, cursorMaxY);
+        var newAsteroid = Instantiate(asteroid, screen.transform, false);
+        newAsteroid.transform.localPosition = asteroidPosition;
+        asteroidCount += 1;
     }
 
     public void ChangeAsteroidCount(int newValue)
