@@ -8,6 +8,7 @@ public class Clickable : MonoBehaviour
     private LayerMask interactableLayer;
     private LayerMask highlightLayer;
     protected bool _canBeUsed;
+    public Focusable focusParent;
 
     protected virtual void Awake()
     {
@@ -37,7 +38,12 @@ public class Clickable : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (_canBeUsed)
+        // Determine if we let the parent handle this
+        if (focusParent != null && !focusParent.isFocused)
+        {
+            focusParent.GainFocus();
+        }
+        else if (_canBeUsed)
         {
             OnClick?.Invoke();
             Interact();
@@ -51,22 +57,32 @@ public class Clickable : MonoBehaviour
 
     protected virtual void OnMouseEnter()
     {
-        if(_canBeUsed)
+        // Determine if we let the parent handle this
+        if (focusParent != null && !focusParent.isFocused)
+        {
+            focusParent.EnableHighlight();
+        }
+        else if(_canBeUsed)
             EnableHighlight();
     }
     
     protected virtual void OnMouseExit()
     {
-        if(_canBeUsed)
+        // Determine if we let the parent handle this
+        if (focusParent != null && !focusParent.isFocused)
+        {
+            focusParent.DisableHighlight();
+        }
+        else if(_canBeUsed)
             DisableHighlight();
     }
 
-    public void EnableHighlight()
+    public virtual void EnableHighlight()
     {
         gameObject.layer = highlightLayer;
     }
 
-    public void DisableHighlight()
+    public virtual void DisableHighlight()
     { 
         gameObject.layer = _canBeUsed ? interactableLayer : defaultLayer;
     }

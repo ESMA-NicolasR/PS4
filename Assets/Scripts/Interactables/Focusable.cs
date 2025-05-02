@@ -8,6 +8,7 @@ public class Focusable : Clickable
     public Transform pov;
     private List<Clickable> _clickables;
     public static event Action<Focusable> OnGainFocus;
+    public bool isFocused;
 
     protected override void Awake()
     {
@@ -16,31 +17,37 @@ public class Focusable : Clickable
         _clickables.Remove(this);
         foreach (var clickable in _clickables)
         {
-            clickable.OnClick.AddListener(Interact);
+            clickable.focusParent = this;
         }
     }
 
     protected override void Interact()
     {
+        if (isFocused) return;
+        
+        GainFocus();
+    }
+
+    public void GainFocus()
+    {
         OnGainFocus?.Invoke(this);
         EnableInteractables();
         Disable();
+        isFocused = true;
     }
 
-    protected override void OnMouseEnter()
+    public override void EnableHighlight()
     {
-        if (!_canBeUsed) return;
-        EnableHighlight();
+        base.EnableHighlight();
         foreach (var clickable in _clickables)
         {
             clickable.EnableHighlight();
         }
     }
-    
-    protected override void OnMouseExit()
+
+    public override void DisableHighlight()
     {
-        if (!_canBeUsed) return;
-        DisableHighlight();
+        base.DisableHighlight();
         foreach (var clickable in _clickables)
         {
             clickable.DisableHighlight();
@@ -58,7 +65,9 @@ public class Focusable : Clickable
     public void LoseFocus()
     {
         Enable();
+        isFocused = false;
     }
+    
     
     public void DisableInteractables()
     {
@@ -67,7 +76,4 @@ public class Focusable : Clickable
             clickable.Disable();
         }
     }
-    
-    
-
 }
