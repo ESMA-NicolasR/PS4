@@ -9,17 +9,24 @@ public class MinigameAsteroids : ResourceSystem
     public GameObject cursor;
     public GameObject screen;
     public float cursorX, cursorY;
-    public int cursorMaxY, cursorMaxX;
+    public float cursorMaxY, cursorMaxX;
     public Asteroid asteroid;
     public float cursorStep;
     public int asteroidCount;
     public float timeToSpawnAsteroids;
+
+    private void Start()
+    {
+        cursorMaxX = (15*screen.GetComponent<Renderer>().bounds.size.x)-cursorStep;
+        cursorMaxY = (20*screen.GetComponent<Renderer>().bounds.size.y)-cursorStep;
+        //cursor.transform.localPosition += new Vector3(0, cursorMaxY*cursorStep, 0);//si point de pivot en bas
+    }
     
     public override void ChangeValue(int delta)
     {
         if (delta == 1)//left
         {
-            if (cursorX > -cursorMaxX)
+            if (cursorX-1 > -cursorMaxX)
             {
                 cursorX -= 1;
                 cursor.transform.localPosition += new Vector3(-cursorStep, 0, 0);
@@ -27,7 +34,7 @@ public class MinigameAsteroids : ResourceSystem
         }
         else if (delta == 2)//right
         {
-            if (cursorX < cursorMaxX)
+            if (cursorX+1 < cursorMaxX)
             {
                 cursorX += 1;
                 cursor.transform.localPosition += new Vector3(cursorStep, 0, 0);
@@ -35,7 +42,7 @@ public class MinigameAsteroids : ResourceSystem
         }
         else if (delta == 3)//up
         {
-            if (cursorY < cursorMaxY)
+            if (cursorY+1 < cursorMaxY)
             {
                 cursorY += 1;
                 cursor.transform.localPosition += new Vector3(0, cursorStep, 0);
@@ -43,7 +50,7 @@ public class MinigameAsteroids : ResourceSystem
         }
         else if (delta == 4)//down
         {
-            if (cursorY > -cursorMaxY)
+            if (cursorY-1 > -cursorMaxY)
             {
                 cursorY -= 1;
                 cursor.transform.localPosition += new Vector3(0, -cursorStep, 0);
