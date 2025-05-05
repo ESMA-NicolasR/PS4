@@ -10,8 +10,6 @@ public class Pump : Draggable
 
     private float _progress;
     private float _lastProgress;
-    private float _lastDirection;
-    private float _currentDirection;
     private float _accumulatedScore;
     
     public ResourceHandle resourceHandle;

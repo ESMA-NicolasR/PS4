@@ -11,6 +11,21 @@ public class Knob : Draggable
     public SplineContainer circle;
     public float turnSpeed;
     public float rotateTransmission;
+    // How much degrees are needed to change value
+    public int degreesForValue;
+    // How much the value changes at a time
+    public int valueStrength;
+    
+    // Dependencies
+    public ResourceHandle resourceHandle;
+
+    // Internal variables
+    private float _lastAngle;
+    private float _progress;
+    [SerializeField]
+    private float _minProgress;
+    [SerializeField]
+    private float _maxProgress;
 
 
     protected override void Start()
@@ -43,6 +58,7 @@ public class Knob : Draggable
 
     protected override void Drag(Vector2 delta)
     {
+        _lastAngle = target.eulerAngles.z;
         // Update fake cursor position
         fakeCursor.transform.position += turnSpeed*Time.deltaTime*new Vector3(-delta.x, delta.y, 0f).normalized;
         SnapCursorToCircle(fakeCursor.transform.position);
@@ -52,6 +68,7 @@ public class Knob : Draggable
         Quaternion newRotation = Quaternion.AngleAxis((angle - startAngle)*rotateTransmission , target.forward);
         newRotation.eulerAngles = new Vector3(0,0,newRotation.eulerAngles.z);
         target.rotation = originalRotation *  newRotation;
+        UpdateProgress(Mathf.DeltaAngle(target.eulerAngles.z, _lastAngle));
     }
     
     private void SnapCursorToCircle(Vector3 worldPosition)
@@ -60,5 +77,15 @@ public class Knob : Draggable
         SplineUtility.GetNearestPoint(circle.Spline, localSplinePoint, out float3 nearestPoint, out float normalizedPosition);
         Vector3 nearestWorldPosition = circle.transform.TransformPoint(nearestPoint);
         fakeCursor.transform.position = nearestWorldPosition;
+    }
+
+    private void UpdateProgress(float delta)
+    {
+        _progress = Mathf.Clamp(_progress+delta/degreesForValue*valueStrength, _minProgress, _maxProgress);
+        resourceHandle.SetValue(
+            _progress>0
+            ?Mathf.FloorToInt(_progress)
+            :Mathf.CeilToInt(_progress)
+        );
     }
 }
