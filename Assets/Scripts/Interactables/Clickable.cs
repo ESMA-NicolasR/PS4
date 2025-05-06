@@ -1,25 +1,21 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Clickable : MonoBehaviour
 {
-    private MeshRenderer _meshRenderer;
-    private Collider _collider;
-
-    public Material baseMaterial;
-    public Material selectedMaterial;
     public UnityEvent OnClick;
-
-    protected bool _canBeUsed;
+    private LayerMask defaultLayer;
+    private LayerMask interactableLayer;
+    private LayerMask highlightLayer;
+    public bool canBeUsed;
+    public Focusable focusParent;
 
     protected virtual void Awake()
     {
-        _meshRenderer = GetComponent<MeshRenderer>();
-        _meshRenderer.material = baseMaterial;
-        _collider = GetComponent<Collider>();
-        _canBeUsed = true;
+        canBeUsed = true;
+        defaultLayer = LayerMask.NameToLayer("Default");
+        interactableLayer = LayerMask.NameToLayer("Interactable");
+        highlightLayer = LayerMask.NameToLayer("Highlight");
         // Disable so we can re-enable with first station
         Disable();
     }
@@ -30,17 +26,23 @@ public class Clickable : MonoBehaviour
 
     public void Disable()
     {
-        _collider.enabled = false;
+        canBeUsed = false;
+        gameObject.layer = defaultLayer;
     }
 
     public void Enable()
     {
-        _collider.enabled = true;
+        canBeUsed = true;
+        gameObject.layer = interactableLayer;
     }
 
     private void OnMouseDown()
     {
-        if (_canBeUsed)
+        if (HasActiveParent())
+        {
+            focusParent.GainFocus();
+        }
+        else if (canBeUsed)
         {
             OnClick?.Invoke();
             Interact();
@@ -54,21 +56,36 @@ public class Clickable : MonoBehaviour
 
     protected virtual void OnMouseEnter()
     {
-        DisplaySelected();
+        if (HasActiveParent())
+        {
+            focusParent.EnableHighlight();
+        }
+        else if(canBeUsed)
+            EnableHighlight();
     }
     
     protected virtual void OnMouseExit()
     {
-        DisplayNotSelected();
+        if (HasActiveParent())
+        {
+            focusParent.DisableHighlight();
+        }
+        else if(canBeUsed)
+            DisableHighlight();
     }
 
-    private void DisplaySelected()
+    public virtual void EnableHighlight()
     {
-        _meshRenderer.material = selectedMaterial;
+        gameObject.layer = highlightLayer;
     }
-    
-    private void DisplayNotSelected()
+
+    public virtual void DisableHighlight()
+    { 
+        gameObject.layer = canBeUsed ? interactableLayer : defaultLayer;
+    }
+
+    private bool HasActiveParent()
     {
-        _meshRenderer.material = baseMaterial;
+        return focusParent != null && focusParent.canBeUsed;
     }
 }
