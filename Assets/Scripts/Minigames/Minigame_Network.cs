@@ -19,15 +19,16 @@ public class Minigame_Network : ResourceSystem
     private void Reset()
     {
         print(_casesSelected);
-        foreach (var caseSelected in _casesSelected)
+        foreach (var caseSelected in _casesList)
         {
+            caseSelected.GetComponent<SpriteRenderer>().color = caseSelected.baseColor;
             if (caseSelected != null && _casesList.Contains(caseSelected) == false)
             {
                 print(caseSelected);
-                caseSelected.GetComponent<SpriteRenderer>().color = caseSelected.baseColor;
                 _casesSelected.Remove(caseSelected);
             }
         }
+        actualColor = Color.white;
     }
     
     public void CaseSelected(CaseBehavior caseSelected)
