@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class Animatable : Clickable
 {
-    private Animator _animator;
+    
+    public Animator animator;
 
     protected override void Start()
     {
         base.Start();
-        _animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
     protected override void Interact()
     {
-        _animator.SetTrigger("Interact");
+        animator.SetTrigger("Interact");
     }
 }
