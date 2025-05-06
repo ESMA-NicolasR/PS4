@@ -1661,6 +1661,7 @@ GameObject:
   - component: {fileID: 767603870}
   - component: {fileID: 767603869}
   - component: {fileID: 767603868}
+  - component: {fileID: 767603871}
   m_Layer: 0
   m_Name: Screen
   m_TagString: Untagged
@@ -1759,6 +1760,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767603866}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &767603871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767603866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b8076c1e9d4fd4a89516bf85b83597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMaterial: {fileID: 2100000, guid: 02ee985ad6c085b41bd0f47ea6ca5e84, type: 2}
+  selectedMaterial: {fileID: 2100000, guid: 10c2ca7bfc4ee1045b6c7aaf60c25c3c, type: 2}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1925747299}
+        m_TargetAssemblyTypeName: Minigame_Network, Assembly-CSharp
+        m_MethodName: ActivateChildren
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  pov: {fileID: 509096696}
 --- !u!114 &793578655 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7457503460235704016, guid: 788d605d668368843bc52f45f4e31526, type: 3}
@@ -3472,7 +3503,6 @@ GameObject:
   - component: {fileID: 1925747297}
   - component: {fileID: 1925747299}
   - component: {fileID: 1925747298}
-  - component: {fileID: 1925747300}
   m_Layer: 0
   m_Name: Network
   m_TagString: Untagged
@@ -3529,24 +3559,6 @@ MonoBehaviour:
   step: 1
   minDistance: 2
   maxDistance: 2
---- !u!114 &1925747300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925747296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2b8076c1e9d4fd4a89516bf85b83597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseMaterial: {fileID: 2100000, guid: 02ee985ad6c085b41bd0f47ea6ca5e84, type: 2}
-  selectedMaterial: {fileID: 2100000, guid: 10c2ca7bfc4ee1045b6c7aaf60c25c3c, type: 2}
-  OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-  pov: {fileID: 509096696}
 --- !u!1001 &1926495135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3610,6 +3622,18 @@ PrefabInstance:
     - target: {fileID: 2015490008209574808, guid: 3a2f6e9e11ec5984b818008888da16b8, type: 3}
       propertyPath: m_Name
       value: Focusable
+      objectReference: {fileID: 0}
+    - target: {fileID: 3667635339692402965, guid: 3a2f6e9e11ec5984b818008888da16b8, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3667635339692402965, guid: 3a2f6e9e11ec5984b818008888da16b8, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1925747296}
+    - target: {fileID: 3667635339692402965, guid: 3a2f6e9e11ec5984b818008888da16b8, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -18,7 +18,7 @@ public class CaseBehavior : MonoBehaviour
         _collider = GetComponent<Collider>();
         _canBeUsed = true;
         // Disable so we can re-enable with first station
-        /*Disable();*/
+        Disable();
     }
 
     protected virtual void Start()
