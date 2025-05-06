@@ -60,7 +60,7 @@ public class Knob : Draggable
     {
         _lastAngle = target.eulerAngles.z;
         // Update fake cursor position
-        fakeCursor.transform.position += turnSpeed*Time.deltaTime*new Vector3(-delta.x, delta.y, 0f).normalized;
+        fakeCursor.transform.position += turnSpeed*Time.deltaTime*new Vector3(-delta.x, delta.y, 0f);
         SnapCursorToCircle(fakeCursor.transform.position);
         // Rotate according to fake cursor position        
         Vector3 vector = fakeCursor.transform.position - target.position;
@@ -74,7 +74,7 @@ public class Knob : Draggable
     private void SnapCursorToCircle(Vector3 worldPosition)
     {
         Vector3 localSplinePoint = circle.transform.InverseTransformPoint(worldPosition);
-        SplineUtility.GetNearestPoint(circle.Spline, localSplinePoint, out float3 nearestPoint, out float normalizedPosition);
+        SplineUtility.GetNearestPoint(circle.Spline, localSplinePoint, out float3 nearestPoint, out float _);
         Vector3 nearestWorldPosition = circle.transform.TransformPoint(nearestPoint);
         fakeCursor.transform.position = nearestWorldPosition;
     }
