@@ -26,7 +26,7 @@ public class SelectWheel : Draggable
     {
         _currentAngle = Mathf.Clamp(_currentAngle + delta.x, -_amplitudeMax, _amplitudeMax);
         currentValue = Mathf.RoundToInt(_currentAngle + _amplitudeMax)/_amplitudePerSection ;
-        target.eulerAngles = target.forward * (currentValue * _amplitudePerSection + _zeroAngle);
+        target.localEulerAngles = Vector3.forward * (currentValue * _amplitudePerSection + _zeroAngle);
         UpdateValue();
     }
 
