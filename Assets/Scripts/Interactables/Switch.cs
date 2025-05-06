@@ -16,6 +16,11 @@ public class Switch : Clickable
 
     protected override void Interact()
     {
+        Toggle();
+    }
+
+    public void Toggle()
+    {
         _isToggled = !_isToggled;
         RotateWithToggle();
         UpdateValue();
@@ -23,7 +28,7 @@ public class Switch : Clickable
 
     private void RotateWithToggle()
     {
-        target.eulerAngles = new Vector3(rotationAmplitude*(_isToggled?1:-1), 0, 0);
+        target.localEulerAngles = new Vector3(rotationAmplitude*(_isToggled?1:-1), 0, 0);
     }
 
     private void UpdateValue()
