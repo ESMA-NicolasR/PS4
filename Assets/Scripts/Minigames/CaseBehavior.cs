@@ -7,22 +7,16 @@ public class CaseBehavior : MonoBehaviour
     private Collider _collider;
 
     public Color baseColor;
-    public UnityEvent OnClick;
+    public Minigame_Network minigameNetwork;
 
-    protected bool _canBeUsed;
-
-    protected virtual void Awake()
+    protected virtual void OnEnable()
     {
+        minigameNetwork = GameObject.Find("Network").GetComponent<Minigame_Network>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _spriteRenderer.color = baseColor;
         _collider = GetComponent<Collider>();
-        _canBeUsed = true;
         // Disable so we can re-enable with first station
         Disable();
-    }
-
-    protected virtual void Start()
-    {
     }
 
     public void Disable()
@@ -37,28 +31,22 @@ public class CaseBehavior : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (_canBeUsed)
-        {
-            OnClick?.Invoke();
-            Interact();
-        }
-    }
-
-    protected virtual void Interact()
-    {
-        Debug.Log("Interact");
+        minigameNetwork.CaseClicked(this);
     }
 
     private void OnMouseEnter()
     {
         if (Input.GetMouseButton(0))
         {
-            print("lol");
+            minigameNetwork.CaseSelected(this);
         }
     }
     
     private void OnMouseExit()
     {
-
+        if (Input.GetMouseButton(0))
+        {
+            
+        }
     }
 }
