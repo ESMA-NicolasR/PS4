@@ -8,6 +8,7 @@ public class CursorMoveCamera : MonoBehaviour
     public float maxHorizontalRotation;
     public float maxVerticalRotation;
     public bool canMove;
+    public bool readInputs;
     [Header("Tweaking")]
     [Tooltip("Damp time when looking around")]
     public float dampTime;
@@ -26,7 +27,8 @@ public class CursorMoveCamera : MonoBehaviour
 
     void Update()
     {
-        if (canMove)
+        if (!canMove) return;
+        if(readInputs)
             _currentMousePosition = Input.mousePosition;
         // Deduce target angle from mouse position
         Vector2 mouseRelativePosition = new Vector2(_currentMousePosition.x / Screen.width, _currentMousePosition.y/Screen.height);

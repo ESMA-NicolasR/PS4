@@ -116,6 +116,7 @@ MonoBehaviour:
   maxHorizontalRotation: 15
   maxVerticalRotation: 10
   canMove: 1
+  readInputs: 1
   dampTime: 0.3
   deadZoneCurve:
     serializedVersion: 2

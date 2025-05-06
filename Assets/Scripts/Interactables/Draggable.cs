@@ -12,17 +12,15 @@ public class Draggable : Clickable
     protected override void Interact()
     {
         _isDragged = true;
-        //_startPosition = Mouse.current.position.ReadValue();
         Cursor.visible = false;
-        FindFirstObjectByType<CursorMoveCamera>().canMove = false;
+        FindFirstObjectByType<CursorMoveCamera>().readInputs = false;
     }
 
     protected virtual void OnMouseUp()
     {
-        //Mouse.current.WarpCursorPosition(_anchor.position);
         Cursor.visible = true;
         _isDragged = false;
-        FindFirstObjectByType<CursorMoveCamera>().canMove = true;
+        FindFirstObjectByType<CursorMoveCamera>().readInputs = true;
     }
 
     protected override void OnMouseEnter()
