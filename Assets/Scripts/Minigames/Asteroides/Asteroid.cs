@@ -10,7 +10,6 @@ public class Asteroid : MonoBehaviour
     public float timeToDestroy;
     public float speed;
     private Vector3 _newPosition;
-    private bool _isDestroying = false;
     public float growUp;
     private Coroutine destroyingCoroutine;
 
