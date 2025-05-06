@@ -12,6 +12,7 @@ public class Asteroid : MonoBehaviour
     private Vector3 _newPosition;
     private bool _isDestroying = false;
     public float growUp;
+    private Coroutine destroyingCoroutine;
 
     private void OnEnable()
     {
@@ -23,19 +24,19 @@ public class Asteroid : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (transform.localPosition.x > _minigameAsteroids.cursorStep*_minigameAsteroids.cursorMaxX)
+        if (transform.localPosition.x > _minigameAsteroids.cursorMaxX)
         {
             _newPosition = new Vector3(-_minigameAsteroids.cursorStep,_newPosition.y,0);
         }
-        if (transform.localPosition.x < -_minigameAsteroids.cursorStep*_minigameAsteroids.cursorMaxX)
+        if (transform.localPosition.x < -_minigameAsteroids.cursorMaxX)
         {
             _newPosition = new Vector3(_minigameAsteroids.cursorStep,_newPosition.y,0);
         }
-        if (transform.localPosition.y > _minigameAsteroids.cursorStep*_minigameAsteroids.cursorMaxY)
+        if (transform.localPosition.y > _minigameAsteroids.cursorMaxY)
         {
             _newPosition = new Vector3(_newPosition.x,-_minigameAsteroids.cursorStep,0);
         }
-        if (transform.localPosition.y < -_minigameAsteroids.cursorStep*_minigameAsteroids.cursorMaxY)
+        if (transform.localPosition.y < -_minigameAsteroids.cursorMaxY)
         {
             _newPosition = new Vector3(_newPosition.x,_minigameAsteroids.cursorStep,0);
         }
@@ -49,11 +50,8 @@ public class Asteroid : MonoBehaviour
     private IEnumerator DestroyAsteroids(GameObject cursor)
     {
         yield return new WaitForSeconds(timeToBeDestroyed);
-        if (_isDestroying)
-        {   
-            _minigameAsteroids.ChangeAsteroidCount(1);
-            Destroy(gameObject);
-        }
+        _minigameAsteroids.ChangeAsteroidCount(1);
+        Destroy(gameObject);
     }
 
     private IEnumerator DestroyShip()
@@ -69,12 +67,15 @@ public class Asteroid : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        _isDestroying = true;
-        StartCoroutine(DestroyAsteroids(_minigameAsteroids.cursor));
+        if(other.CompareTag("CursorAsteroid"))
+            destroyingCoroutine = StartCoroutine(DestroyAsteroids(_minigameAsteroids.cursor));
     }
     private void OnTriggerExit(Collider other)
     {
-        _isDestroying = false;
-        StopCoroutine(DestroyAsteroids(_minigameAsteroids.cursor));
+        if (other.CompareTag("CursorAsteroid"))
+        {
+            if(destroyingCoroutine != null)
+                StopCoroutine(destroyingCoroutine);
+        }
     }
 }

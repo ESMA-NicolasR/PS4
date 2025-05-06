@@ -103,9 +103,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToBeDestroyed: 0.5
-  timeToDestroy: 30
-  speed: 0
-  growUp: 0
+  timeToDestroy: 300
+  speed: 1
+  growUp: 5
 --- !u!65 &-4769447568602742275
 BoxCollider:
   m_ObjectHideFlags: 0
