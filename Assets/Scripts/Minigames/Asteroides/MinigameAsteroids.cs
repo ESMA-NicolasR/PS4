@@ -61,16 +61,17 @@ public class MinigameAsteroids : ResourceSystem
     public override void Break()
     {
         SetValue(SanitizeValue(Random.Range(minValue+minAsteroids, maxValue)));
+        StartCoroutine(SpawnAsteroids(0));
         for (int i = 0; i < currentValue; i++)
         {
-            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids(Random.Range(0.1f, timeToSpawnAsteroids)));
         }
         SetValue(asteroidCount);
     }
 
-    private IEnumerator SpawnAsteroids()
+    private IEnumerator SpawnAsteroids(float time)
     {
-        yield return new WaitForSeconds(Random.Range(0.1f, timeToSpawnAsteroids));
+        yield return new WaitForSeconds(time);
         Vector3 asteroidPosition;
         asteroidPosition.z = cursor.transform.localPosition.z;
         asteroidPosition.x = cursorStep*Random.Range(-cursorMaxX, cursorMaxX);

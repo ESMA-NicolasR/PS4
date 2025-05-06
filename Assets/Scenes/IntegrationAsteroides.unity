@@ -6668,6 +6668,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6042439405711259915, guid: 6311e8fc9fcaf144eb88da3d5fc14a2b, type: 3}
+      propertyPath: maxValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6042439405711259915, guid: 6311e8fc9fcaf144eb88da3d5fc14a2b, type: 3}
       propertyPath: cursorMaxX
       value: 0
       objectReference: {fileID: 0}
