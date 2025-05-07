@@ -93,9 +93,13 @@ public class Minigame_Network : ResourceSystem
 
     public void CaseClicked(CaseBehavior caseSelected)
     {
-        if (((caseSelected.baseColor == standardColor) || (caseSelected.endCase)) && (caseSelected != _lastColor1SelectedCase && caseSelected != _lastColor2SelectedCase))
+        if (caseSelected.baseColor == standardColor || (caseSelected.endCase))
         {
             Reset();
+        }
+        if ((caseSelected != _lastColor1SelectedCase && caseSelected != _lastColor2SelectedCase) && (caseSelected.baseColor == standardColor || (caseSelected.endCase)))
+        {
+            ResetColor(caseSelected.GetComponent<SpriteRenderer>().color);
         }
         else
         {
