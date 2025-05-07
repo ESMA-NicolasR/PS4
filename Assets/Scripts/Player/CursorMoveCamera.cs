@@ -8,6 +8,7 @@ public class CursorMoveCamera : MonoBehaviour
     public float maxHorizontalRotation;
     public float maxVerticalRotation;
     public bool canMove;
+    public bool readInputs;
     [Header("Tweaking")]
     [Tooltip("Damp time when looking around")]
     public float dampTime;
@@ -16,6 +17,8 @@ public class CursorMoveCamera : MonoBehaviour
     // Internal animation variables
     private Vector3 _rotation;
     private Vector3 _speed;
+    // Internal variables
+    private Vector3 _currentMousePosition;
     
     void Start()
     {
@@ -25,9 +28,10 @@ public class CursorMoveCamera : MonoBehaviour
     void Update()
     {
         if (!canMove) return;
+        if(readInputs)
+            _currentMousePosition = Input.mousePosition;
         // Deduce target angle from mouse position
-        Vector2 mouseScreenPosition = Input.mousePosition;
-        Vector2 mouseRelativePosition = new Vector2(mouseScreenPosition.x / Screen.width, mouseScreenPosition.y/Screen.height);
+        Vector2 mouseRelativePosition = new Vector2(_currentMousePosition.x / Screen.width, _currentMousePosition.y/Screen.height);
         var distance = Vector2.Distance(mouseRelativePosition, new Vector2(0.5f, 0.5f)); // (0.5, 0.5) is middle of the screen
         var deadZoneFactor = deadZoneCurve.Evaluate(distance / 0.5f); // 0.5 is the max distance to middle of screen
         var targetXRotation = Mathf.Lerp(maxVerticalRotation, -maxVerticalRotation, mouseRelativePosition.y)*deadZoneFactor;
