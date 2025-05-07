@@ -60,6 +60,14 @@ public class Minigame_Network : ResourceSystem
         _lastColor2SelectedCase = null;
         _lastColor1SelectedCase = null;
         SetValue(0);
+        if (color == color1)
+        {
+            _lastColor1SelectedCase = _lastCaseSelected;
+        }
+        if (color == color2)
+        {
+            _lastColor2SelectedCase = _lastCaseSelected;
+        }
     }
     
     public void CaseSelected(CaseBehavior caseSelected)
@@ -70,7 +78,7 @@ public class Minigame_Network : ResourceSystem
             {
                 Reset();
             }
-            else if(caseSelected != _lastColor1SelectedCase && caseSelected != _lastColor2SelectedCase)
+            else
             {
                 caseSelected.GetComponent<SpriteRenderer>().color = actualColor;
                 casesSelected.Add(caseSelected);
@@ -92,7 +100,7 @@ public class Minigame_Network : ResourceSystem
         else
         {
             isPathing = true;
-            if (caseSelected != _lastColor1SelectedCase && caseSelected != _lastColor2SelectedCase)
+            if (casesList.Contains(caseSelected) == false)
             {
                 casesSelected.Add(caseSelected);
             }
