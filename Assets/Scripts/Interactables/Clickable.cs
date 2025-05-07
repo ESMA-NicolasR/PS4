@@ -24,7 +24,7 @@ public class Clickable : MonoBehaviour
     {
     }
 
-    public void Disable()
+    public virtual void Disable()
     {
         canBeUsed = false;
         gameObject.layer = defaultLayer;
@@ -41,6 +41,10 @@ public class Clickable : MonoBehaviour
         if (HasActiveParent())
         {
             focusParent.GainFocus();
+            if (focusParent.TryGetComponent<Book>(out var book))
+            {
+                book.StartBook();
+            }
         }
         else if (canBeUsed)
         {

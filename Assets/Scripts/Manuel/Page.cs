@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -6,10 +7,23 @@ public class Page : Animatable
 {
     public bool turned;
 
+    public int index;
+
+    [SerializeField] private Book _book;
+
     protected override void Start()
     {
         base.Start();
     }
+
+    public void Update()
+    {
+        if (_book.open == false)
+        {
+            StartCoroutine(TurnRight());
+        }
+    }
+
     protected override void Interact()
     {
         if (!turned)
@@ -22,6 +36,11 @@ public class Page : Animatable
             StartCoroutine(TurnRight());
         }
             
+    }
+
+    public virtual void DisablePage()
+    {
+        base.Disable();
     }
     
     IEnumerator TurnLeft() 
