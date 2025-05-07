@@ -8,7 +8,7 @@ public class Minigame_Network : ResourceSystem
     public Color color1, color2, actualColor, standardColor;
     public bool isPathing;
     
-    private CaseBehavior _lastColor1SelectedCase, _lastColor2SelectedCase;
+    private CaseBehavior _lastCaseSelected, _lastColor1SelectedCase, _lastColor2SelectedCase;
 
     private void OnEnable()
     {
@@ -41,7 +41,7 @@ public class Minigame_Network : ResourceSystem
         SetValue(0);
     }
 
-    private void ResetColor(Color color)
+    private void ResetColor(Color color) //a continuer
     {
         foreach (var caseSelected in casesList)
         {
@@ -70,16 +70,16 @@ public class Minigame_Network : ResourceSystem
             {
                 Reset();
             }
-            else
+            else if(caseSelected != _lastColor1SelectedCase && caseSelected != _lastColor2SelectedCase)
             {
-                casesSelected.Add(caseSelected);
                 caseSelected.GetComponent<SpriteRenderer>().color = actualColor;
+                casesSelected.Add(caseSelected);
+                _lastCaseSelected = caseSelected;
             }
         }
         else if (caseSelected.endCase && caseSelected.baseColor == actualColor)
         {
             isPathing = false;
-            ChangeValue(1);
         }
     }
 
@@ -96,7 +96,7 @@ public class Minigame_Network : ResourceSystem
             {
                 casesSelected.Add(caseSelected);
             }
-            actualColor = caseSelected.baseColor;
+            actualColor = caseSelected.GetComponent<SpriteRenderer>().color;
         }
     }
 
@@ -104,11 +104,11 @@ public class Minigame_Network : ResourceSystem
     {
         if (caseSelected.GetComponent<SpriteRenderer>().color == color1)
         {
-            _lastColor1SelectedCase = caseSelected;
+            _lastColor1SelectedCase = _lastCaseSelected;
         }
         if (caseSelected.GetComponent<SpriteRenderer>().color == color2)
         {
-            _lastColor2SelectedCase = caseSelected;
+            _lastColor2SelectedCase = _lastCaseSelected;
         }
     }
     
