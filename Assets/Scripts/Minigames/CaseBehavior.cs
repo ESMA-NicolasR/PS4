@@ -6,10 +6,11 @@ public class CaseBehavior : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Collider _collider;
 
+    public bool endCase = false;
     public Color baseColor;
     public Minigame_Network minigameNetwork;
 
-    protected virtual void OnEnable()
+    protected void OnEnable()
     {
         minigameNetwork = GameObject.Find("Network").GetComponent<Minigame_Network>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -32,6 +33,10 @@ public class CaseBehavior : MonoBehaviour
     private void OnMouseDown()
     {
         minigameNetwork.CaseClicked(this);
+    }
+    private void OnMouseUp()
+    {
+        minigameNetwork.CaseUnclicked(this);
     }
 
     private void OnMouseEnter()
