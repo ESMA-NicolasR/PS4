@@ -30,7 +30,7 @@ public class Clickable : MonoBehaviour
         gameObject.layer = defaultLayer;
     }
 
-    public void Enable()
+    public virtual void Enable()
     {
         canBeUsed = true;
         gameObject.layer = interactableLayer;

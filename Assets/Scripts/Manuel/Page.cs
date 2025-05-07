@@ -7,7 +7,7 @@ public class Page : Animatable
 {
     public bool turned;
 
-    public int index;
+    [SerializeField] public int index;
 
     [SerializeField] private Book _book;
 
@@ -16,24 +16,16 @@ public class Page : Animatable
         base.Start();
     }
 
-    public void Update()
-    {
-        if (_book.open == false)
-        {
-            StartCoroutine(TurnRight());
-        }
-    }
-
     protected override void Interact()
     {
         if (!turned)
         {
-            StartCoroutine(TurnLeft());
+            StartTurnLeft();
         }
 
         else
         {
-            StartCoroutine(TurnRight());
+            StartTurnRight();
         }
             
     }
@@ -43,12 +35,39 @@ public class Page : Animatable
         base.Disable();
     }
     
+    public virtual void EnablePage()
+    {
+        base.Enable();
+    }
+
+       protected virtual void EnablePagesRight()
+    {
+        _book.pages[index+1].EnablePage();
+        Debug.Log("Active a Droite" + index);
+        if (index > 0)
+        {
+            _book.pages[index-1].DisablePage();
+        }
+
+    }
+
+         protected virtual void EnablePagesLeft()
+    {
+        _book.pages[index-1].EnablePage();
+        Debug.Log("Active a Gauche" + index);
+        if (index < _book.pages.Count)
+        {
+            _book.pages[index+1].DisablePage();
+        }
+    }
+    
     IEnumerator TurnLeft() 
     {
         animator.SetBool("TurningLeft", true);
         yield return new WaitForSeconds(1f);
         animator.SetBool("TurningLeft", false);
         turned = true;
+        EnablePagesRight();
     }
     
     IEnumerator TurnRight() 
@@ -57,5 +76,16 @@ public class Page : Animatable
         yield return new WaitForSeconds(1f);
         animator.SetBool("TurningRight", false);
         turned = false;
+        EnablePagesLeft();
+    }
+
+    public void StartTurnLeft()
+    {
+        StartCoroutine(TurnLeft());
+    }
+    
+    public void StartTurnRight()
+    {
+        StartCoroutine(TurnRight());
     }
 }

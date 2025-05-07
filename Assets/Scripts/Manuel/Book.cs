@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Book : Focusable
@@ -10,24 +11,44 @@ public class Book : Focusable
     public Animator animator;
     public Animator animator2;
     
+    public List<GameObject> pagesGameObjects;
     public List<Page> pages;
+    
 
     protected override void Start()
     {
         base.Start();
+        pages = new List<Page>();
+        
+        for (int i = 0; i < pagesGameObjects.Count; i++)
+        {
+            if (pagesGameObjects[i].TryGetComponent<Page>(out var page))
+            {
+                page.index = i;
+                page.DisablePage();
+                pages.Add(page);
+            }
+        }
+
     }
-    
+
+    private void Update()
+    {
+    }
+
 
     public void StartBook()
     {
         Interact();
-        for (int i = 0; i < pages.Count; i++)
+        foreach (Page page in pages)
         {
-            pages[i].index = i;
-            pages[i].DisablePage();
+            page.DisablePage();
         }
-        
+        pages[0].EnablePage();
+
     }
+    
+    
     
     protected override void Interact()
     {
@@ -43,7 +64,12 @@ public class Book : Focusable
         if (open)
         {
             StartCoroutine(CloseBook());
-            open = false;  
+            open = false;
+            foreach (Page page in pages)
+            {
+                page.StartTurnRight();
+                page.DisablePage();
+            }
         }
     }
 
