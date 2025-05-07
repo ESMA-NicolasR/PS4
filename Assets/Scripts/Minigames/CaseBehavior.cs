@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class CaseBehavior : MonoBehaviour
 {
@@ -44,14 +43,6 @@ public class CaseBehavior : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             minigameNetwork.CaseSelected(this);
-        }
-    }
-    
-    private void OnMouseExit()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            
         }
     }
 }

@@ -1,13 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using Random = UnityEngine.Random;
 
 public class Minigame_Network : ResourceSystem
 {
-    public List<CaseBehavior> _casesList, _casesSelected;
+    public List<CaseBehavior> casesList, casesSelected;
     public Color color1, color2, actualColor, standardColor;
     public bool isPathing;
     
@@ -17,7 +14,7 @@ public class Minigame_Network : ResourceSystem
     {
         isPathing = false;
         PlayerFocus.OnLoseFocus += OnLoseFocus;
-        _casesList = GetComponentsInChildren<CaseBehavior>().ToList();
+        casesList = GetComponentsInChildren<CaseBehavior>().ToList();
     }
 
     public override void Break()
@@ -29,32 +26,32 @@ public class Minigame_Network : ResourceSystem
     
     private void Reset()
     {
-        foreach (var caseSelected in _casesList)
+        foreach (var caseSelected in casesList)
         {
             caseSelected.GetComponent<SpriteRenderer>().color = caseSelected.baseColor;
-            if (caseSelected != null && _casesList.Contains(caseSelected) == false)
+            if (caseSelected != null && casesList.Contains(caseSelected) == false)
             {
                 print(caseSelected);
-                _casesSelected.Remove(caseSelected);
+                casesSelected.Remove(caseSelected);
             }
         }
         actualColor = standardColor;
         isPathing = false;
-        _casesSelected.Clear();
+        casesSelected.Clear();
         SetValue(0);
     }
 
     private void ResetColor(Color color)
     {
-        foreach (var caseSelected in _casesList)
+        foreach (var caseSelected in casesList)
         {
             if (caseSelected.baseColor == color)
             {
                 caseSelected.GetComponent<SpriteRenderer>().color = caseSelected.baseColor;
-                if (caseSelected != null && _casesList.Contains(caseSelected) == false)
+                if (caseSelected != null && casesList.Contains(caseSelected) == false)
                 {
                     print(caseSelected);
-                    _casesSelected.Remove(caseSelected);
+                    casesSelected.Remove(caseSelected);
                 }
             }
         }
@@ -69,13 +66,13 @@ public class Minigame_Network : ResourceSystem
     {
         if (isPathing && caseSelected.baseColor == standardColor)
         {
-            if (_casesSelected.Contains(caseSelected))
+            if (casesSelected.Contains(caseSelected))
             {
                 Reset();
             }
             else
             {
-                _casesSelected.Add(caseSelected);
+                casesSelected.Add(caseSelected);
                 caseSelected.GetComponent<SpriteRenderer>().color = actualColor;
             }
         }
@@ -88,16 +85,16 @@ public class Minigame_Network : ResourceSystem
 
     public void CaseClicked(CaseBehavior caseSelected)
     {
-        if (((caseSelected.baseColor == standardColor) || (caseSelected.endCase)) && (caseSelected != _lastColor1SelectedCase || caseSelected != _lastColor2SelectedCase))
+        if (((caseSelected.baseColor == standardColor) || (caseSelected.endCase)) && (caseSelected != _lastColor1SelectedCase && caseSelected != _lastColor2SelectedCase))
         {
             Reset();
         }
         else
         {
             isPathing = true;
-            if (caseSelected == _lastColor1SelectedCase || caseSelected == _lastColor2SelectedCase)
+            if (caseSelected != _lastColor1SelectedCase && caseSelected != _lastColor2SelectedCase)
             {
-                _casesSelected.Add(caseSelected);
+                casesSelected.Add(caseSelected);
             }
             actualColor = caseSelected.baseColor;
         }
@@ -105,22 +102,19 @@ public class Minigame_Network : ResourceSystem
 
     public void CaseUnclicked(CaseBehavior caseSelected)
     {
-        if (caseSelected.baseColor != standardColor)
+        if (caseSelected.GetComponent<SpriteRenderer>().color == color1)
         {
-            if (caseSelected.baseColor == color1)
-            {
-                _lastColor1SelectedCase = caseSelected;
-            }
-            if (caseSelected.baseColor == color2)
-            {
-                _lastColor2SelectedCase = caseSelected;
-            }
+            _lastColor1SelectedCase = caseSelected;
+        }
+        if (caseSelected.GetComponent<SpriteRenderer>().color == color2)
+        {
+            _lastColor2SelectedCase = caseSelected;
         }
     }
     
     private void OnLoseFocus()
     {
-        foreach (var clickable in _casesList)
+        foreach (var clickable in casesList)
         {
             clickable.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
@@ -128,7 +122,7 @@ public class Minigame_Network : ResourceSystem
 
     public void ActivateChildren()
     {
-        foreach (var clickable in _casesList)
+        foreach (var clickable in casesList)
         {
             clickable.gameObject.GetComponent<BoxCollider>().enabled = true;
         }
