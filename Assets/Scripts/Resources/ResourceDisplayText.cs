@@ -1,16 +1,17 @@
+using TMPro;
 using UnityEngine;
 
-public class ResourceDisplay : MonoBehaviour
+public class ResourceDisplayText : ResourceDisplay
 {
     [SerializeField]
-    protected ResourceSystem _resourceSystem;
+    protected TextMeshPro _text;
     
     void Start()
     {
         ResourceSystem.OnChangeValue += OnChangeValue;
         UpdateDisplay();
     }
-    
+
     private void OnChangeValue(ResourceSystem resourceSystem)
     {
         if (resourceSystem.name == _resourceSystem.name)
@@ -19,8 +20,13 @@ public class ResourceDisplay : MonoBehaviour
         }
     }
 
-    protected virtual void UpdateDisplay()
+    protected override void UpdateDisplay()
     {
-        Debug.Log($"{_resourceSystem.name}: {_resourceSystem.currentValue}");
+        _text.text = GetText();
+    }
+
+    protected virtual string GetText()
+    {
+        return $"{_resourceSystem.name} = {_resourceSystem.currentValue}";
     }
 }

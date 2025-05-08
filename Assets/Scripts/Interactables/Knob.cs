@@ -33,6 +33,7 @@ public class Knob : Draggable
         base.Start();
         // Hide fake cursor
         fakeCursor.enabled = false;
+        _progress = resourceHandle.GetCurrentValue();
     }
 
     protected override void Interact()
