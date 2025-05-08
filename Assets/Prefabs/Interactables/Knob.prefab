@@ -133,7 +133,7 @@ MonoBehaviour:
   circle: {fileID: 7711514038152739644}
   turnSpeed: 1
   rotateTransmission: 1
-  degreesForValue: 365
+  degreesForValue: 360
   valueStrength: 10
   resourceHandle: {fileID: 0}
   _minProgress: 0
