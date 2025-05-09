@@ -4433,6 +4433,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8704528711473018006, guid: 6e357f60e61a79946bf0a69e70087921, type: 3}
+      propertyPath: dragFactor
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8704528711473018006, guid: 6e357f60e61a79946bf0a69e70087921, type: 3}
       propertyPath: resourceHandle
       value: 
       objectReference: {fileID: 996280318}
