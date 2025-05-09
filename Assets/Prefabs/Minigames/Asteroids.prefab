@@ -154,8 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490da00823ac08e43bab8297659cf816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaterial: {fileID: 2100000, guid: c95efcb7892850f49bf94f24a9e3b234, type: 2}
-  selectedMaterial: {fileID: 2100000, guid: 10c2ca7bfc4ee1045b6c7aaf60c25c3c, type: 2}
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -171,6 +169,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  canBeUsed: 0
+  focusParent: {fileID: 0}
 --- !u!1 &2623905862274245445
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,8 +271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490da00823ac08e43bab8297659cf816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaterial: {fileID: 2100000, guid: c95efcb7892850f49bf94f24a9e3b234, type: 2}
-  selectedMaterial: {fileID: 2100000, guid: 10c2ca7bfc4ee1045b6c7aaf60c25c3c, type: 2}
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -288,6 +286,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  canBeUsed: 0
+  focusParent: {fileID: 0}
 --- !u!64 &3236363917328329266
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -582,8 +582,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490da00823ac08e43bab8297659cf816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaterial: {fileID: 2100000, guid: c95efcb7892850f49bf94f24a9e3b234, type: 2}
-  selectedMaterial: {fileID: 2100000, guid: 10c2ca7bfc4ee1045b6c7aaf60c25c3c, type: 2}
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -599,6 +597,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  canBeUsed: 0
+  focusParent: {fileID: 0}
 --- !u!64 &4901857591858487426
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -654,7 +654,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 729722507318379420}
   - {fileID: 8225826402717032829}
   - {fileID: 4968139717862349356}
   m_Father: {fileID: 6661427949569500882}
@@ -724,11 +723,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b8076c1e9d4fd4a89516bf85b83597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaterial: {fileID: 2100000, guid: 02ee985ad6c085b41bd0f47ea6ca5e84, type: 2}
-  selectedMaterial: {fileID: 2100000, guid: 10c2ca7bfc4ee1045b6c7aaf60c25c3c, type: 2}
   OnClick:
     m_PersistentCalls:
       m_Calls: []
+  canBeUsed: 0
+  focusParent: {fileID: 0}
   pov: {fileID: 729722507318379420}
 --- !u!64 &2603582740890173023
 MeshCollider:
@@ -776,12 +775,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4418189839555264009}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.10243238, y: 0.6805626, z: -0.0969583, w: 0.7189863}
-  m_LocalPosition: {x: -1.644, y: 0.321, z: -0.011}
-  m_LocalScale: {x: 0.21334015, y: 0.21334, z: 0.21334015}
+  m_LocalRotation: {x: 0.1409905, y: -0.02716964, z: 0.003870762, w: 0.9896305}
+  m_LocalPosition: {x: 0.9680088, y: 1.7349625, z: 0.6727934}
+  m_LocalScale: {x: 0.21334021, y: 0.21334, z: 0.21334018}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4676852106521813399}
+  m_Father: {fileID: 6661427949569500882}
   m_LocalEulerAnglesHint: {x: 16.216, y: 86.855, z: 0}
 --- !u!1 &5200043910953356670
 GameObject:
@@ -815,6 +814,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 729722507318379420}
   - {fileID: 4676852106521813399}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -996,8 +996,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490da00823ac08e43bab8297659cf816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaterial: {fileID: 2100000, guid: c95efcb7892850f49bf94f24a9e3b234, type: 2}
-  selectedMaterial: {fileID: 2100000, guid: 10c2ca7bfc4ee1045b6c7aaf60c25c3c, type: 2}
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1013,3 +1011,5 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  canBeUsed: 0
+  focusParent: {fileID: 0}
