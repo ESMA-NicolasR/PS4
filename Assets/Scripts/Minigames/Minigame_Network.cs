@@ -9,6 +9,7 @@ public class Minigame_Network : ResourceSystem
     public bool isPathing;
     
     private CaseBehavior _lastCaseSelected, _lastColor1SelectedCase, _lastColor2SelectedCase;
+    private Color _colorDone;
 
     private void OnEnable()
     {
@@ -58,11 +59,17 @@ public class Minigame_Network : ResourceSystem
                 }
             }
         }
+        if (currentValue == 1)
+        {
+            if (_colorDone == color)
+            {
+                ChangeValue(-1);
+            }
+        }
         actualColor = standardColor;
         isPathing = false;
         _lastColor2SelectedCase = null;
         _lastColor1SelectedCase = null;
-        SetValue(0);
         if (color == color1)
         {
             _lastColor1SelectedCase = _lastCaseSelected;
@@ -100,6 +107,8 @@ public class Minigame_Network : ResourceSystem
         else if (caseSelected.endCase && caseSelected.baseColor == actualColor)
         {
             isPathing = false;
+            ChangeValue(1);
+            _colorDone = actualColor;
         }
     }
 
