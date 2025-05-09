@@ -16,7 +16,7 @@ public class Knob : Draggable
     public int valueStrength;
     
     // Dependencies
-    public ResourceSystemInteger resourceSystem;
+    public ResourceSystemNumber resourceSystem;
 
     // Internal variables
     private float _lastAngle;

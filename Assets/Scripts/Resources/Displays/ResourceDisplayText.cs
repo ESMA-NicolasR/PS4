@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class ResourceDisplayText<T, U> : ResourceDisplay<T, U> where U : ResourceSystem<T>
+public class ResourceDisplayText<T> : ResourceDisplay<T> where T : ResourceSystem
 {
     [SerializeField]
     protected TextMeshPro _text;

@@ -4,6 +4,8 @@ using UnityEngine;
 public class ResourceObjectiveData : ScriptableObject
 {
     public SystemName systemName;
+    public int targetValue;
+    public int breakValue;
     public float time;
     public string description;
     public string winMessage;

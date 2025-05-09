@@ -1,7 +1,7 @@
 using System;
 using Random = UnityEngine.Random;
 
-public class ResourceSystemInteger : ResourceSystem<int>
+public class ResourceSystemNumber : ResourceSystem
 {
     public int minValue;
     public int maxValue;

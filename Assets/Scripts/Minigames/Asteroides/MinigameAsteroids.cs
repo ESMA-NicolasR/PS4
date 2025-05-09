@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class MinigameAsteroids : ResourceSystemInteger
+public class MinigameAsteroids : ResourceSystemNumber
 {
     public int minAsteroids;
     public GameObject cursor;

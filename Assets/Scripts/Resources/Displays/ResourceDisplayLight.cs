@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class ResourceDisplayLight : ResourceDisplay<int, ResourceSystemInteger>
+public class ResourceDisplayLight : ResourceDisplay<ResourceSystemNumber>
 {
     [SerializeField]
     private Light _light;
@@ -13,7 +13,7 @@ public class ResourceDisplayLight : ResourceDisplay<int, ResourceSystemInteger>
 
     private void OnValidate()
     {
-        if (!_resourceSystem is ResourceSystemInteger)
+        if (!_resourceSystem is ResourceSystemNumber)
         {
             throw new ArgumentException("ResourceSystem is not a ResourceSystemInteger.");
         }

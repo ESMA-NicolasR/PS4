@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -5,63 +6,71 @@ using UnityEngine.SceneManagement;
 
 public class MissionGiver : MonoBehaviour
 {
-    public List<IObjective> possibleObjectives;
+    public List<ResourceObjectiveData> objectives;
+    private Dictionary<SystemName, ResourceSystem> _namesToSystems;
+    public List<ResourceSystem> resourceSystems;
     public TextMeshPro text;
     private bool _isStarted;
     private int _progressionIndex;
-    private IObjective _currentObjective;
+    private ResourceObjectiveData _currentObjective;
     private int _nbSuccess;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private float _timeofStart;
+
+    private void Start()
     {
-        _isStarted = false;
-        _progressionIndex = 0;
+        _namesToSystems = new Dictionary<SystemName, ResourceSystem>();
+        foreach (var resourceSystem in resourceSystems)
+        {
+            _namesToSystems[resourceSystem.systemName] = resourceSystem;
+        }
     }
 
-    public void StartMission()
+    public void CheckInMission()
     {
         if (_isStarted)
         {
             CheckObjectiveIsDone();
         }
-        else if (_progressionIndex >= possibleObjectives.Count)
+        else if (_progressionIndex >= objectives.Count)
         {
             FinishGame();
         }
         else
         {
-            StartObjective();
+            StartMission();
         }
     }
-
-    private void StartObjective()
+    
+    private void StartMission()
     {
-        _currentObjective = possibleObjectives[_progressionIndex];
-        _currentObjective.CreateObjective();
+        // Read the objective
+        _currentObjective = objectives[_progressionIndex];
+        // Break the system accordingly
+        _namesToSystems[_currentObjective.systemName].Break(_currentObjective.targetValue, _currentObjective.breakValue);
+        // Start the mission
         _isStarted = true;
-        text.text = _currentObjective.GetDescription() +". Push the button when it's done.";
+        _timeofStart = Time.time;
+        text.text = _currentObjective.description +"\nPush the button when it's done.";
     }
     
     private void CheckObjectiveIsDone()
     {
-        if (_currentObjective.CheckIsCompleted())
+        if (_namesToSystems[_currentObjective.systemName].IsFixed())
         {
-
-            text.text = $"Mission completed, congratulations ! Press the button to get a new one.";
+            text.text = _currentObjective.winMessage;
             _nbSuccess++;
         }
         else
         {
-            text.text = $"Mission failed... Press the button to get a new one.";
+            text.text = _currentObjective.loseMessage;
         }
         _isStarted = false;
         _progressionIndex++;
         _currentObjective = null;
-        
-        if(_progressionIndex >= possibleObjectives.Count)
+        Debug.Log($"Mission finished in {(Time.time - _timeofStart):F2} seconds");
+        if(_progressionIndex >= objectives.Count)
         {
-            text.text = $"You completed all the missions, with a success rate of {(100f*_nbSuccess/possibleObjectives.Count):F2}%, thanks !";
+            text.text = $"You completed all the missions, with a success rate of {(100f*_nbSuccess/objectives.Count):F2}%, thanks !";
         }
     }
 

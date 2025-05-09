@@ -13,7 +13,7 @@ public class Pump : Draggable
     private float _lastProgress;
     private float _accumulatedScore;
     
-    public ResourceSystemInteger resourceSystem;
+    public ResourceSystemNumber resourceSystem;
 
     protected override void Start()
     {

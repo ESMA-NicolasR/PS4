@@ -9,7 +9,7 @@ public class Switch : Clickable
 
     protected override void Start()
     {
-        _isToggled = resourceSystem.currentValue;
+        _isToggled = resourceSystem.GetCurrentValueAsBool();
         RotateWithToggle();
     }
 

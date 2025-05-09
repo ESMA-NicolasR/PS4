@@ -2,7 +2,7 @@ using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class ResourceSystemEnum : ResourceSystem<int>
+public class ResourceSystemEnum : ResourceSystem
 {
     [SerializeField]
     private SelectEnums _enum;
@@ -16,7 +16,7 @@ public class ResourceSystemEnum : ResourceSystem<int>
 
     private void OnValidate()
     {
-        if (_enum != null)
+        if (_enum == null)
         {
             throw new ArgumentNullException("The enum must be set.");
         }
@@ -24,7 +24,7 @@ public class ResourceSystemEnum : ResourceSystem<int>
         switch (_enum)
         {
             case SelectEnums.CoordinatesRecipients:
-                _usedEnum = typeof(CoordinatesRecipients);
+                _usedEnum = typeof(CoordinatesRecipient);
                 break;
         }
     }

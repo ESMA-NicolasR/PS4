@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class ResourceDisplay<T,U> : MonoBehaviour where U : ResourceSystem<T>
+public class ResourceDisplay<T> : MonoBehaviour where T : ResourceSystem
 {
     [SerializeField]
-    protected U _resourceSystem;
+    protected T _resourceSystem;
     
     private void OnEnable()
     {
