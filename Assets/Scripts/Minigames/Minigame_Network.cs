@@ -167,4 +167,9 @@ public class Minigame_Network : ResourceSystem
             clickable.gameObject.GetComponent<BoxCollider>().enabled = true;
         }
     }
+
+    public void Out()
+    {
+        isPathing = false;
+    }
 }
