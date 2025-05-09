@@ -1,25 +1,11 @@
 using TMPro;
 using UnityEngine;
 
-public class ResourceDisplayText : ResourceDisplay
+public class ResourceDisplayText<T, U> : ResourceDisplay<T, U> where U : ResourceSystem<T>
 {
     [SerializeField]
     protected TextMeshPro _text;
     
-    void Start()
-    {
-        ResourceSystem.OnChangeValue += OnChangeValue;
-        UpdateDisplay();
-    }
-
-    private void OnChangeValue(ResourceSystem resourceSystem)
-    {
-        if (resourceSystem.name == _resourceSystem.name)
-        {
-            UpdateDisplay();
-        }
-    }
-
     protected override void UpdateDisplay()
     {
         _text.text = GetText();

@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MissionGiver : MonoBehaviour
 {
-    public List<ResourceObjective> possibleObjectives;
+    public List<IObjective> possibleObjectives;
     public TextMeshPro text;
     private bool _isStarted;
     private int _progressionIndex;
-    private ResourceObjective _currentObjective;
+    private IObjective _currentObjective;
     private int _nbSuccess;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -61,7 +61,7 @@ public class MissionGiver : MonoBehaviour
         
         if(_progressionIndex >= possibleObjectives.Count)
         {
-            text.text = $"You completed all the missions, with a success rate of {(100f*_nbSuccess/possibleObjectives.Count):F2}%, thanks !.";
+            text.text = $"You completed all the missions, with a success rate of {(100f*_nbSuccess/possibleObjectives.Count):F2}%, thanks !";
         }
     }
 

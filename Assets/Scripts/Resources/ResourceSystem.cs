@@ -1,41 +1,37 @@
 using System;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-public class ResourceSystem : MonoBehaviour
+public class ResourceSystem<T> : MonoBehaviour
 {
     public string resourceName;
-    public int currentValue;
-    public int targetValue;
-    public int minValue;
-    public int maxValue;
-    public int step;
-    public int minDistance;
-    public int maxDistance;
+    public T currentValue;
+    public T targetValue;
     
-    public static event Action<ResourceSystem> OnChangeValue;
+    public event Action OnChangeValue;
     
     public virtual void Break()
     {
-        targetValue = SanitizeValue(Random.Range(minValue+step, maxValue-step));
-        int randomSign = Random.Range(0, 2) * 2 - 1;
-        int randomDistance = Random.Range(step * minDistance, step * maxDistance);
-        SetValue(targetValue + randomSign*randomDistance);
+        throw new NotImplementedException();
     }
 
-    public virtual void ChangeValue(int delta)
+    public virtual void ChangeValue(T delta)
     {
-        SetValue(currentValue+delta*step);
+        SetValue(currentValue);
     }
     
-    public virtual void SetValue(int newValue)
+    public virtual void SetValue(T newValue)
     {
         currentValue = SanitizeValue(newValue);
-        OnChangeValue?.Invoke(this);
+        OnChangeValue?.Invoke();
     }
 
-    protected virtual int SanitizeValue(int value)
+    protected virtual T SanitizeValue(T value)
     {
-        return Math.Clamp(value - value % step, minValue, maxValue);
+        return value;
+    }
+
+    public bool IsFixed()
+    {
+        return currentValue.Equals(targetValue);
     }
 }

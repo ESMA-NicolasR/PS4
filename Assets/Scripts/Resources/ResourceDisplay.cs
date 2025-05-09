@@ -1,32 +1,23 @@
-using System;
 using UnityEngine;
 
-public class ResourceDisplay : MonoBehaviour
+public class ResourceDisplay<T,U> : MonoBehaviour where U : ResourceSystem<T>
 {
     [SerializeField]
-    protected ResourceSystem _resourceSystem;
-
+    protected U _resourceSystem;
+    
     private void OnEnable()
     {
-        ResourceSystem.OnChangeValue += OnChangeValue;
+        _resourceSystem.OnChangeValue += UpdateDisplay;
     }
 
     private void OnDisable()
     {
-        ResourceSystem.OnChangeValue -= OnChangeValue;
+        _resourceSystem.OnChangeValue -= UpdateDisplay;
     }
 
-    void Start()
+    private void Start()
     {
         UpdateDisplay();
-    }
-    
-    private void OnChangeValue(ResourceSystem resourceSystem)
-    {
-        if (resourceSystem.name == _resourceSystem.name)
-        {
-            UpdateDisplay();
-        }
     }
 
     protected virtual void UpdateDisplay()

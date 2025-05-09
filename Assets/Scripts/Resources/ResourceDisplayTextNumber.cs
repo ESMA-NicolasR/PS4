@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class ResourceDisplayTextNumber : ResourceDisplayText
+public class ResourceDisplayTextNumber : ResourceDisplayText<int, ResourceSystemInteger>
 {
     [SerializeField] private string _suffix;
     

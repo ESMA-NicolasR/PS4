@@ -2,16 +2,10 @@ using System;
 using TMPro;
 using UnityEngine;
 
-public class ResourceDisplayTextEnum : ResourceDisplayText
+public class ResourceDisplayTextEnum : ResourceDisplayText<int, ResourceSystemEnum>
 {
-    [SerializeField]
-    public SelectableValues enumToDisplay;
-    
-    [SerializeField]
-    private string _infix;
-
     protected override string GetText()
     {
-        return $"{_resourceSystem.name} {_infix}selected : {enumToDisplay.GetValueText(_resourceSystem.currentValue)}";
+        return $"{_resourceSystem.name} selected : {_resourceSystem.GetCurrentValueAsText()}";
     }
 }

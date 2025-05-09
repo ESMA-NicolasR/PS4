@@ -5,13 +5,11 @@ public class Switch : Clickable
     private bool _isToggled;
     public Transform target;
     public float rotationAmplitude;
-    public ResourceHandle resourceHandle;
-    public int valueOn;
-    public int valueOff;
+    public ResourceSystemBool resourceSystem;
 
     protected override void Start()
     {
-        _isToggled = resourceHandle.GetCurrentValue() != 0;
+        _isToggled = resourceSystem.currentValue;
         RotateWithToggle();
     }
 
@@ -34,6 +32,6 @@ public class Switch : Clickable
 
     private void UpdateValue()
     {
-        resourceHandle.SetValue(_isToggled?valueOn:valueOff);
+        resourceSystem.SetValue(_isToggled);
     }
 }
