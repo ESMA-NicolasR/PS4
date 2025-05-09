@@ -43,8 +43,10 @@ public class Pump : Draggable
         // If we pumped enough, use score to change system value
         if (_accumulatedScore >= 1.0f)
         {
-            resourceHandle.ChangeValue(valueStrength);
-            _accumulatedScore -= 1.0f;
+            var integerPart = Mathf.FloorToInt(_accumulatedScore);
+            resourceHandle.ChangeValue(valueStrength*integerPart);
+            // Keep the fractional part
+            _accumulatedScore -= integerPart;
         }
     }
 }

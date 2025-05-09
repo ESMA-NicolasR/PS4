@@ -33,6 +33,7 @@ public class Knob : Draggable
         base.Start();
         // Hide fake cursor
         fakeCursor.enabled = false;
+        _progress = resourceHandle.GetCurrentValue();
     }
 
     protected override void Interact()
@@ -41,11 +42,11 @@ public class Knob : Draggable
         // Setup fake cursor
         fakeCursor.enabled = true;
         Vector3 startPosition = Input.mousePosition;
-        startPosition.z = circle.transform.position.z;
+        startPosition.z = Vector3.Distance(target.position, Camera.main.transform.position);
         SnapCursorToCircle(Camera.main.ScreenToWorldPoint(startPosition));
         // Set up rotation
         originalRotation = target.rotation;
-        Vector3 vector = fakeCursor.transform.position - target.position;
+        Vector3 vector = fakeCursor.transform.localPosition;// - target.position;
         startAngle = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
     }
 
@@ -60,15 +61,13 @@ public class Knob : Draggable
     {
         _lastAngle = target.eulerAngles.z;
         // Update fake cursor position
-        fakeCursor.transform.position += turnSpeed*Time.deltaTime*new Vector3(-delta.x, delta.y, 0f);
+        fakeCursor.transform.localPosition += turnSpeed*Time.deltaTime*new Vector3(-delta.x, delta.y, 0f);
         SnapCursorToCircle(fakeCursor.transform.position);
         // Rotate according to fake cursor position        
-        Vector3 vector = fakeCursor.transform.position - target.position;
+        Vector3 vector = fakeCursor.transform.localPosition;// - target.position;
         float angle = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
-        Quaternion newRotation = Quaternion.AngleAxis((angle - startAngle)*rotateTransmission , target.forward);
-        newRotation.eulerAngles = new Vector3(0,0,newRotation.eulerAngles.z);
-        target.rotation = originalRotation *  newRotation;
-        UpdateProgress(Mathf.DeltaAngle(target.eulerAngles.z, _lastAngle));
+        target.localEulerAngles = new Vector3(0, 0, angle - startAngle);
+        UpdateProgress(Mathf.DeltaAngle(_lastAngle, target.eulerAngles.z));
     }
     
     private void SnapCursorToCircle(Vector3 worldPosition)

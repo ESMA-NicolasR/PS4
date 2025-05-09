@@ -20,14 +20,21 @@ public class SelectWheel : Draggable
         _amplitudePerSection = totalAngles / nbSections;
         _step = totalAngles / nbSections;
         _zeroAngle = Mathf.FloorToInt(-_step*(nbSections-1)/2.0f);
+        currentValue = resourceHandle.GetCurrentValue();
+        TurnToCurrentValue();
     }
 
     protected override void Drag(Vector2 delta)
     {
         _currentAngle = Mathf.Clamp(_currentAngle + delta.x, -_amplitudeMax, _amplitudeMax);
         currentValue = Mathf.RoundToInt(_currentAngle + _amplitudeMax)/_amplitudePerSection ;
-        target.localEulerAngles = Vector3.forward * (currentValue * _amplitudePerSection + _zeroAngle);
+        TurnToCurrentValue();
         UpdateValue();
+    }
+
+    private void TurnToCurrentValue()
+    {
+        target.localEulerAngles = Vector3.forward * (currentValue * _amplitudePerSection + _zeroAngle);
     }
 
     private void UpdateValue()
