@@ -6,7 +6,7 @@ public class ResourceObjective : MonoBehaviour
     [SerializeField]
     private ResourceSystem _resourceSystem;
 
-    public static event Action OnObjectiveCompleted;
+    public event Action OnObjectiveCompleted;
     void Start()
     {
         ResourceSystem.OnChangeValue += OnChangeValue;
@@ -25,12 +25,9 @@ public class ResourceObjective : MonoBehaviour
         }
     }
 
-    private void CheckIsCompleted()
+    public bool CheckIsCompleted()
     {
-        if (_resourceSystem.currentValue == _resourceSystem.targetValue)
-        {
-            OnObjectiveCompleted?.Invoke();
-        }
+        return _resourceSystem.currentValue == _resourceSystem.targetValue;
     }
 
     public string GetDescription()
