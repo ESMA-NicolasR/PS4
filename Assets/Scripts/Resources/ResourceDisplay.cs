@@ -1,13 +1,23 @@
+using System;
 using UnityEngine;
 
 public class ResourceDisplay : MonoBehaviour
 {
     [SerializeField]
     protected ResourceSystem _resourceSystem;
-    
-    void Start()
+
+    private void OnEnable()
     {
         ResourceSystem.OnChangeValue += OnChangeValue;
+    }
+
+    private void OnDisable()
+    {
+        ResourceSystem.OnChangeValue -= OnChangeValue;
+    }
+
+    void Start()
+    {
         UpdateDisplay();
     }
     

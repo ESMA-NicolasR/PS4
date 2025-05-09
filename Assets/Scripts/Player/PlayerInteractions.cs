@@ -15,7 +15,8 @@ public class PlayerInteractions : MonoBehaviour
 
     void Start()
     {
-        currentStation.EnableAllInteractables();
+        if(currentStation!=null)
+            currentStation.EnableAllInteractables();
     }
 
     private void OnGainFocus(Focusable focus)

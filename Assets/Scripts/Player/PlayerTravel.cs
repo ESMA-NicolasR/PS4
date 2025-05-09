@@ -38,10 +38,6 @@ public class PlayerTravel : MonoBehaviour
     private void Awake()
     {
         _cursorMoveCamera = GetComponent<CursorMoveCamera>();
-    }
-
-    void Start()
-    {
         transform.position = currentStation.transform.position;
         transform.rotation = currentStation.transform.rotation;
     }
