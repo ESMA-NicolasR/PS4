@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MissionGiver : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class MissionGiver : MonoBehaviour
     private bool _isStarted;
     private int _progressionIndex;
     private ResourceObjective _currentObjective;
-    private int _nbFail;
+    private int _nbSuccess;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,11 +49,11 @@ public class MissionGiver : MonoBehaviour
         {
 
             text.text = $"Mission completed, congratulations ! Press the button to get a new one.";
+            _nbSuccess++;
         }
         else
         {
             text.text = $"Mission failed... Press the button to get a new one.";
-            _nbFail++;
         }
         _isStarted = false;
         _progressionIndex++;
@@ -60,13 +61,13 @@ public class MissionGiver : MonoBehaviour
         
         if(_progressionIndex >= possibleObjectives.Count)
         {
-            text.text = $"You completed all the missions, with a success rate of {(100f*_nbFail/possibleObjectives.Count):F2}%, thanks !.";
+            text.text = $"You completed all the missions, with a success rate of {(100f*_nbSuccess/possibleObjectives.Count):F2}%, thanks !.";
         }
     }
 
     private void FinishGame()
     {
-        Debug.Log("FINISHED");
+        SceneManager.LoadScene("EndingScene");
     }
     
 }

@@ -1211,7 +1211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9fff2f8a66cca3488b88eb8a6055ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceName: quantum
+  resourceName: coordinates
   currentValue: 0
   targetValue: 0
   minValue: 0
@@ -1453,7 +1453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6f865a14d4c5e4ba75b955ecc63c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpline: {fileID: 405803198}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -5117,15 +5116,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872834228}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.13052586, z: -0, w: 0.99144495}
-  m_LocalPosition: {x: -1.846, y: 1.031, z: 1.926}
+  m_LocalRotation: {x: -0, y: 0.010566114, z: -0, w: 0.99994415}
+  m_LocalPosition: {x: -0.714, y: 1.588, z: 2.342}
   m_LocalScale: {x: 2.2021, y: 2.2021, z: 2.2021}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2114467908}
   - {fileID: 227613322}
   m_Father: {fileID: 4248485089221732110}
-  m_LocalEulerAnglesHint: {x: 0, y: -15, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 1.211, z: 0}
 --- !u!114 &1872834230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5141,6 +5140,9 @@ MonoBehaviour:
   possibleObjectives:
   - {fileID: 1134386099}
   - {fileID: 989253259}
+  - {fileID: 4853703404752952780}
+  - {fileID: 451904400}
+  - {fileID: 365333447}
   text: {fileID: 630358786}
 --- !u!1 &1900434785
 GameObject:
@@ -11146,6 +11148,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d043228df4d38845a98f37150aab2d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4853703404752952780 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6338297065373929411, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
+  m_PrefabInstance: {fileID: 2063214089893460627}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b7dd3444b57560499f75e8fcb75c8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &4857727711509666579
