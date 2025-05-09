@@ -22,12 +22,12 @@ public class PlayerInteractions : MonoBehaviour
     {
         currentStation.DisableAllInteractables();
         currentFocus = focus;
-        focus.EnableInteractables();
     }
 
     private void OnLoseFocus()
     {
         currentStation.EnableAllInteractables();
+        currentFocus.LoseFocus();
         currentFocus = null;
     }
 
