@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af40da97a589c094d9570773aa25c0bc, type: 3}
   m_Name: Objective_01_lights_easy
   m_EditorClassIdentifier: 
-  systemName: 2
+  systemName: 1
   targetValue: 100
   breakValue: 15
   time: 50

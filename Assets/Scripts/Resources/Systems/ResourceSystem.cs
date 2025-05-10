@@ -45,4 +45,12 @@ public class ResourceSystem : MonoBehaviour
     {
         return currentValue.Equals(targetValue);
     }
+
+    private void OnValidate()
+    {
+        if (systemName == SystemName.None)
+        {
+            throw new ArgumentNullException("SystemName", $"ResourceSystem {gameObject.name} needs a valid SystemName");
+        }
+    }
 }

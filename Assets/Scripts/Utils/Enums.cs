@@ -6,16 +6,29 @@ public enum TravelDirection{
 
 public enum SystemName
 {
-    Quantum,
-    Temperature,
+    None,
+    // Station 1
     Lights,
+    // Station 2
     Gates,
-    Coordinates
+    Temperature,
+    Oxygen,
+    Asteroids,
+    // Station 3
+    Network,
+    Coordinates,
+    Shields,
+    Quantum,
+    // Station 4
+    Fluids,
+    Pressure
 }
 
 public enum SelectEnums
 {
-    CoordinatesRecipients
+    None,
+    CoordinatesRecipients,
+    FluidsName
 }
 
 public enum CoordinatesRecipient
@@ -26,4 +39,12 @@ public enum CoordinatesRecipient
     Government,
     CEO,
     Pizza
+}
+
+public enum FluidsName
+{
+    Water,
+    Fuel,
+    Cooling,
+    Nuclear_waste
 }

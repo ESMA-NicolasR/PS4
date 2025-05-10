@@ -16,9 +16,9 @@ public class ResourceSystemEnum : ResourceSystem
 
     private void OnValidate()
     {
-        if (_enum == null)
+        if (_enum == SelectEnums.None)
         {
-            throw new ArgumentNullException("The enum must be set.");
+            throw new ArgumentNullException("SelectEnum", $"ResourceSystemEnum {gameObject.name} needs a valid SelectEnum");
         }
 
         switch (_enum)
