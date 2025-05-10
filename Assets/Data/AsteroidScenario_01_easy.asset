@@ -25,4 +25,22 @@ MonoBehaviour:
     growSpeed: 0.2
     scale: 1
     direction: {x: 1, y: 1}
-    position: {x: 1, y: 0}
+    position: {x: 2, y: 3}
+  - spawnDelay: 0.3
+    moveSpeed: 2
+    growSpeed: 0.4
+    scale: 1
+    direction: {x: -1, y: 1}
+    position: {x: 4, y: 1}
+  - spawnDelay: 0.1
+    moveSpeed: 0.5
+    growSpeed: 0.1
+    scale: 1.5
+    direction: {x: -1, y: -1}
+    position: {x: 1, y: -2}
+  - spawnDelay: 0.1
+    moveSpeed: 1.5
+    growSpeed: 1.2
+    scale: 0.6
+    direction: {x: -1, y: -0.5}
+    position: {x: -3, y: -2}

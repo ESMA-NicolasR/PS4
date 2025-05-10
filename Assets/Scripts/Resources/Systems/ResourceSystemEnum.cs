@@ -14,8 +14,9 @@ public class ResourceSystemEnum : ResourceSystem
         return Enum.GetName(_usedEnum, currentValue);
     }
 
-    private void OnValidate()
+    protected override void OnValidate()
     {
+        base.OnValidate();
         if (_enum == SelectEnums.None)
         {
             throw new ArgumentException($"ResourceSystemEnum {gameObject.name} needs a valid SelectEnum", "SelectEnum");

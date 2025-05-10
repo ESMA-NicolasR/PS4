@@ -10,4 +10,9 @@ public class ResourceObjectiveData : ScriptableObject
     public string description;
     public string winMessage;
     public string loseMessage;
+
+    public virtual void BreakSystem(ResourceSystem resourceSystem)
+    {
+        resourceSystem.Break(targetValue, breakValue);
+    }
 }

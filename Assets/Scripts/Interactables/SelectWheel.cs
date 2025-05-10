@@ -5,7 +5,7 @@ public class SelectWheel : Draggable
     public int nbSections;
     public int totalAngles;
     public Transform target;
-    public ResourceSystemEnum resourceSystem;
+    public ResourceSystem resourceSystem;
 
     private int _amplitudeMax;
     private int _amplitudePerSection;

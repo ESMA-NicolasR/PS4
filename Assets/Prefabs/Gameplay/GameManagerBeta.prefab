@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4055885500429674594}
-  - component: {fileID: 3127973716982400561}
+  - component: {fileID: 7663148210796135694}
   m_Layer: 0
   m_Name: Asteroids
   m_TagString: Untagged
@@ -132,7 +132,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 734853828552839769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3127973716982400561
+--- !u!114 &7663148210796135694
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,12 +141,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2148813410011518583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fff2f8a66cca3488b88eb8a6055ceb, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ee90f325c921794c8b67d5decb900bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   systemName: 5
   currentValue: 0
   targetValue: 0
+  minigameAsteroids: {fileID: 0}
 --- !u!1 &2293177757971728657
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +618,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 535892306324797734}
-  - component: {fileID: 8343393113083805318}
+  - component: {fileID: 7495208100990008459}
   m_Layer: 0
   m_Name: Gates
   m_TagString: Untagged
@@ -640,7 +641,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 734853828552839769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8343393113083805318
+--- !u!114 &7495208100990008459
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -654,7 +655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemName: 2
   currentValue: 0
-  targetValue: 1
+  targetValue: 0
 --- !u!1 &5578157902855932625
 GameObject:
   m_ObjectHideFlags: 0

@@ -2463,17 +2463,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99caa7025dc10d4a93f27f3b4b4adb0, type: 3}
---- !u!114 &989253259 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8343393113083805318, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
-  m_PrefabInstance: {fileID: 5633647657992790287}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07424c8ba6eb13b49a547cb1823dc4ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &996280317 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7511030528770840065, guid: 3617df12cf6408d4ab33c282327749dd, type: 3}
@@ -6640,6 +6629,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6720638562032629881, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
+      propertyPath: resourceSystem
+      value: 
+      objectReference: {fileID: 5633647657992790288}
     - target: {fileID: 6942673426506109601, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
@@ -6663,6 +6656,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
+--- !u!114 &2063214089893460628 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6720638562032629881, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
+  m_PrefabInstance: {fileID: 2063214089893460627}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d043228df4d38845a98f37150aab2d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &2123820453699889955
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10358,6 +10362,10 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 630358786}
+    - target: {fileID: 7663148210796135694, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: minigameAsteroids
+      value: 
+      objectReference: {fileID: 2063214089893460628}
     - target: {fileID: 8381509066146177639, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
       propertyPath: travelBack
       value: 
@@ -10379,6 +10387,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+--- !u!114 &5633647657992790288 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7663148210796135694, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+  m_PrefabInstance: {fileID: 5633647657992790287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee90f325c921794c8b67d5decb900bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5682037656605778818
 GameObject:
   m_ObjectHideFlags: 0
@@ -10791,7 +10810,7 @@ PrefabInstance:
     - target: {fileID: 7699930596721888110, guid: 2f41dd58254521743bfc60f6190e780d, type: 3}
       propertyPath: _resourceSystem
       value: 
-      objectReference: {fileID: 989253259}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

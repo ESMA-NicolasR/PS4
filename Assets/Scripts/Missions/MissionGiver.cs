@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -46,7 +45,7 @@ public class MissionGiver : MonoBehaviour
         // Read the objective
         _currentObjective = objectives[_progressionIndex];
         // Break the system accordingly
-        _namesToSystems[_currentObjective.systemName].Break(_currentObjective.targetValue, _currentObjective.breakValue);
+        _currentObjective.BreakSystem(_namesToSystems[_currentObjective.systemName]);
         // Start the mission
         _isStarted = true;
         _timeofStart = Time.time;
@@ -59,10 +58,12 @@ public class MissionGiver : MonoBehaviour
         {
             text.text = _currentObjective.winMessage;
             _nbSuccess++;
+            Debug.Log($"Mission {_currentObjective.name} won");
         }
         else
         {
             text.text = _currentObjective.loseMessage;
+            Debug.Log($"Mission {_currentObjective.name} failed");
         }
         _isStarted = false;
         _progressionIndex++;
@@ -78,5 +79,4 @@ public class MissionGiver : MonoBehaviour
     {
         SceneManager.LoadScene("EndingScene");
     }
-    
 }

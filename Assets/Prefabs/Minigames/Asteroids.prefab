@@ -154,23 +154,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490da00823ac08e43bab8297659cf816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaterial: {fileID: 2100000, guid: c95efcb7892850f49bf94f24a9e3b234, type: 2}
-  selectedMaterial: {fileID: 2100000, guid: 10c2ca7bfc4ee1045b6c7aaf60c25c3c, type: 2}
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6317130012529267550}
+      - m_Target: {fileID: 6720638562032629881}
         m_TargetAssemblyTypeName: MinigameAsteroids, Assembly-CSharp
-        m_MethodName: MoveCursor
-        m_Mode: 3
+        m_MethodName: MoveCursorDown
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
-          m_FloatArgument: -10
+          m_IntArgument: 0
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  canBeUsed: 0
+  focusParent: {fileID: 0}
 --- !u!1 &2623905862274245445
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,23 +271,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490da00823ac08e43bab8297659cf816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaterial: {fileID: 2100000, guid: c95efcb7892850f49bf94f24a9e3b234, type: 2}
-  selectedMaterial: {fileID: 2100000, guid: 10c2ca7bfc4ee1045b6c7aaf60c25c3c, type: 2}
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6317130012529267550}
+      - m_Target: {fileID: 6720638562032629881}
         m_TargetAssemblyTypeName: MinigameAsteroids, Assembly-CSharp
-        m_MethodName: MoveCursor
-        m_Mode: 3
+        m_MethodName: MoveCursorLeft
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: -10
+          m_IntArgument: 0
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  canBeUsed: 0
+  focusParent: {fileID: 0}
 --- !u!64 &3236363917328329266
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -582,23 +582,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490da00823ac08e43bab8297659cf816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaterial: {fileID: 2100000, guid: c95efcb7892850f49bf94f24a9e3b234, type: 2}
-  selectedMaterial: {fileID: 2100000, guid: 10c2ca7bfc4ee1045b6c7aaf60c25c3c, type: 2}
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6317130012529267550}
+      - m_Target: {fileID: 6720638562032629881}
         m_TargetAssemblyTypeName: MinigameAsteroids, Assembly-CSharp
-        m_MethodName: MoveCursor
-        m_Mode: 3
+        m_MethodName: MoveCursorUp
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: -10
+          m_IntArgument: 0
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  canBeUsed: 0
+  focusParent: {fileID: 0}
 --- !u!64 &4901857591858487426
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -724,11 +724,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b8076c1e9d4fd4a89516bf85b83597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaterial: {fileID: 2100000, guid: 02ee985ad6c085b41bd0f47ea6ca5e84, type: 2}
-  selectedMaterial: {fileID: 2100000, guid: 10c2ca7bfc4ee1045b6c7aaf60c25c3c, type: 2}
   OnClick:
     m_PersistentCalls:
       m_Calls: []
+  canBeUsed: 0
+  focusParent: {fileID: 0}
   pov: {fileID: 729722507318379420}
 --- !u!64 &2603582740890173023
 MeshCollider:
@@ -792,9 +792,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6661427949569500882}
-  - component: {fileID: 4386997770463092965}
-  - component: {fileID: 6338297065373929411}
-  - component: {fileID: 6317130012529267550}
+  - component: {fileID: 6720638562032629881}
   m_Layer: 0
   m_Name: Asteroids
   m_TagString: Untagged
@@ -818,33 +816,7 @@ Transform:
   - {fileID: 4676852106521813399}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4386997770463092965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5200043910953356670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e42682fdb0d5e2f4a8aeb9115c6ba1f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resourceSystem: {fileID: 6317130012529267550}
---- !u!114 &6338297065373929411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5200043910953356670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b7dd3444b57560499f75e8fcb75c8f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _resourceSystem: {fileID: 6317130012529267550}
---- !u!114 &6317130012529267550
+--- !u!114 &6720638562032629881
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -856,24 +828,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d043228df4d38845a98f37150aab2d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceName: Asteroides
-  currentValue: 10
-  targetValue: 0
-  minValue: 0
-  maxValue: 10
-  step: 1
-  minDistance: 3
-  maxDistance: 5
-  minAsteroids: 3
+  resourceSystem: {fileID: 0}
   cursor: {fileID: 3752170638536162745}
   screen: {fileID: 4208664088952131753}
   screenOffset: {fileID: 616759681895606610}
   cursorMaxY: 0
   cursorMaxX: 0
-  asteroid: {fileID: 2143426268764074388, guid: 5c7ea845fa9d69d4f946f4b374d376b5, type: 3}
-  cursorStep: 0.1
-  asteroidCount: 0
-  timeToSpawnAsteroids: 5
+  asteroidPrefab: {fileID: 4774470700079407404, guid: 5c7ea845fa9d69d4f946f4b374d376b5, type: 3}
+  cursorStep: 50
 --- !u!1 &8956301295809754645
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,20 +958,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490da00823ac08e43bab8297659cf816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaterial: {fileID: 2100000, guid: c95efcb7892850f49bf94f24a9e3b234, type: 2}
-  selectedMaterial: {fileID: 2100000, guid: 10c2ca7bfc4ee1045b6c7aaf60c25c3c, type: 2}
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6317130012529267550}
+      - m_Target: {fileID: 6720638562032629881}
         m_TargetAssemblyTypeName: MinigameAsteroids, Assembly-CSharp
-        m_MethodName: MoveCursor
-        m_Mode: 3
+        m_MethodName: MoveCursorRight
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: -10
+          m_IntArgument: 0
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  canBeUsed: 0
+  focusParent: {fileID: 0}

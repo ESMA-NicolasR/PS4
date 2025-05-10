@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MinigameAsteroids : ResourceSystem
+public class MinigameAsteroids : MonoBehaviour
 {
+    public ResourceSystemAsteroids resourceSystem;
     public GameObject cursor;
     public GameObject screen, screenOffset;
     public float cursorMaxY, cursorMaxX;
@@ -69,8 +70,7 @@ public class MinigameAsteroids : ResourceSystem
             Vector2.Max( // Lower bounds
                 cursor.transform.localPosition,
                 _lowerBounds)
-            ,
-            _higherBounds
+            ,_higherBounds
         );
         // Snap the cursor to a cursor step increment
         cursor.transform.localPosition = new Vector2(
@@ -79,20 +79,14 @@ public class MinigameAsteroids : ResourceSystem
         );
     }
     
-    public override void Break()
-    {
-        // TODO : generate random spawnList
-        base.Break();
-    }
-
-    public void Break(AsteroidScenarioData scenario)
+    public void PlayScenario(AsteroidScenarioData scenario)
     {
         StartCoroutine(SpawnAsteroids(scenario.spawnList));
     }
 
     private IEnumerator SpawnAsteroids(List<AsteroidSpawnData> spawnList)
     {
-        SetValue(spawnList.Count);
+        resourceSystem.SetValue(spawnList.Count);
         foreach (AsteroidSpawnData spawn in spawnList)
         {
             yield return new WaitForSeconds(spawn.spawnDelay);
@@ -103,12 +97,11 @@ public class MinigameAsteroids : ResourceSystem
 
     public void DestroyAsteroid()
     {
-        ChangeValue(-1);
+        resourceSystem.ChangeValue(-1);
     }
 
-    protected override void OnValidate()
+    private void OnValidate()
     {
-        base.OnValidate();
         if (asteroidPrefab == null)
         {
             throw new ArgumentNullException("AsteroidPrefab", $"MinigameAsteroids {gameObject.name} must have an Asteroid Prefab component");
@@ -117,12 +110,7 @@ public class MinigameAsteroids : ResourceSystem
         {
             throw new ArgumentException($"MinigameAsteroids {gameObject.name} must have an AsteroidPrefab component with an Asteroid script attached", "AsteroidPrefab");
         }
-
-        if (asteroidPrefab.GetComponent<SpriteRenderer>() == null)
-        {
-            throw new ArgumentException($"MinigameAsteroids {gameObject.name} must have an AsteroidPrefab component with a SpriteRender attached", "AsteroidPrefab");
-        }
-        if (cursor.GetComponent<SpriteRenderer>() == null)
+        if (cursor != null && cursor.GetComponent<SpriteRenderer>() == null)
         {
             throw new ArgumentException($"MinigameAsteroids {gameObject.name} must have a cursor with a SpriteRender attached", "Cursor");
         }

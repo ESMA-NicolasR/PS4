@@ -6,6 +6,9 @@ public class Asteroid : MonoBehaviour
     private MinigameAsteroids _minigameAsteroids;
     public float timeToBeDestroyed;
     public float timeToDestroy;
+    public float baseRotationSpeed;
+    [SerializeField]
+    private SpriteRenderer _spriteRenderer;
     private Vector2 _direction;
     private float _moveSpeed;
     private float _growSpeed;
@@ -25,12 +28,13 @@ public class Asteroid : MonoBehaviour
         _moveSpeed = spawn.moveSpeed * _minigameAsteroids.cursorStep;
         _growSpeed = spawn.growSpeed;
         transform.localScale = Vector3.one * spawn.scale;
-        _baseExtent = GetComponent<SpriteRenderer>().sprite.bounds.extents.x;
+        _baseExtent = _spriteRenderer.sprite.bounds.extents.x;
     }
     
     private void FixedUpdate()
     {
         Move();
+        Rotate();
         Grow();
     }
 
@@ -57,6 +61,11 @@ public class Asteroid : MonoBehaviour
         }
     }
 
+    private void Rotate()
+    {
+        _spriteRenderer.transform.localEulerAngles += baseRotationSpeed * _moveSpeed / transform.localScale.x * Vector3.forward;
+    }
+
     private void Grow()
     {
         transform.localScale += (Vector3)(_growSpeed * Time.fixedDeltaTime * Vector2.one); // Ignore z scale
@@ -80,11 +89,20 @@ public class Asteroid : MonoBehaviour
         if(other.CompareTag("CursorAsteroid"))
             destroyingCoroutine = StartCoroutine(DestroyAsteroid());
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("CursorAsteroid") && destroyingCoroutine != null)
         {
             StopCoroutine(destroyingCoroutine);
+        }
+    }
+
+    private void OnValidate()
+    {
+        if (_spriteRenderer == null)
+        {
+            throw new System.ArgumentNullException("SpriteRenderer", "Asteroid prefab must have a SpriteRenderer");
         }
     }
 }
