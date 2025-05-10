@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c784f610ed1f3648a0173fe9082449f, type: 3}
+  m_Name: AsteroidScenario_01_easy
+  m_EditorClassIdentifier: 
+  systemName: 5
+  targetValue: 0
+  breakValue: 0
+  time: 10
+  description: We are being destroyed, help !
+  winMessage: Thanks for saving us
+  loseMessage: . . . - everyone died - . . .
+  spawnList:
+  - spawnDelay: 0
+    moveSpeed: 1
+    growSpeed: 0.2
+    scale: 1
+    direction: {x: 1, y: 1}
+    position: {x: 1, y: 0}

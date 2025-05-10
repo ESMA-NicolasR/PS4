@@ -18,7 +18,7 @@ public class ResourceSystemEnum : ResourceSystem
     {
         if (_enum == SelectEnums.None)
         {
-            throw new ArgumentNullException("SelectEnum", $"ResourceSystemEnum {gameObject.name} needs a valid SelectEnum");
+            throw new ArgumentException($"ResourceSystemEnum {gameObject.name} needs a valid SelectEnum", "SelectEnum");
         }
 
         switch (_enum)

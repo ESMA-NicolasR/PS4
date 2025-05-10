@@ -998,7 +998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe08327b9b6c4ed47ad129ba4df3b565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resourceSystem: {fileID: 4853703404752952779}
+  _resourceSystem: {fileID: 0}
   _text: {fileID: 1435819325}
   _suffix: left
 --- !u!1 &405803196
@@ -6568,9 +6568,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 400488964}
     m_Modifications:
+    - target: {fileID: 3558392196557703282, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558392196557703282, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MoveCursorUp
+      objectReference: {fileID: 0}
     - target: {fileID: 5200043910953356670, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
       propertyPath: m_Name
       value: AsteroidsMinigame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743854486781324485, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743854486781324485, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MoveCursorDown
       objectReference: {fileID: 0}
     - target: {fileID: 6317130012529267550, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
       propertyPath: systemName
@@ -6580,6 +6596,10 @@ PrefabInstance:
       propertyPath: currentValue
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6317130012529267550, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
+      propertyPath: asteroidPrefab
+      value: 
+      objectReference: {fileID: 4774470700079407404, guid: 5c7ea845fa9d69d4f946f4b374d376b5, type: 3}
     - target: {fileID: 6661427949569500882, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6619,6 +6639,22 @@ PrefabInstance:
     - target: {fileID: 6661427949569500882, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6942673426506109601, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6942673426506109601, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MoveCursorRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 8430195134378352791, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8430195134378352791, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MoveCursorLeft
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4386997770463092965, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
@@ -9509,17 +9545,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7505430200367381107}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4853703404752952779 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6317130012529267550, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
-  m_PrefabInstance: {fileID: 2063214089893460627}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d043228df4d38845a98f37150aab2d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &4857727711509666579
 Transform:
   m_ObjectHideFlags: 0

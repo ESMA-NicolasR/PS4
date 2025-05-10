@@ -48,3 +48,11 @@ public enum FluidsName
     Cooling,
     Nuclear_waste
 }
+
+public enum AsteroidCursorMovement
+{
+    Up,
+    Down,
+    Left,
+    Right
+}
