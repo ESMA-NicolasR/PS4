@@ -5,7 +5,7 @@ public class CaseBehavior : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Collider _collider;
 
-    public bool endCase = false;
+    public bool endCase = false, startCase = false;
     public Color baseColor;
     public Minigame_Network minigameNetwork;
 

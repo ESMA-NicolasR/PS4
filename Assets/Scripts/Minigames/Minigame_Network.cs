@@ -66,6 +66,10 @@ public class Minigame_Network : ResourceSystem
                 ChangeValue(-1);
             }
         }
+        else if (currentValue == 2)
+        {
+            ChangeValue(-1);
+        }
         actualColor = standardColor;
         isPathing = false;
         _lastColor2SelectedCase = null;
@@ -104,7 +108,7 @@ public class Minigame_Network : ResourceSystem
                 _lastCaseSelected = caseSelected;
             }
         }
-        else if (caseSelected.endCase && caseSelected.baseColor == actualColor)
+        else if (isPathing && caseSelected.endCase)
         {
             isPathing = false;
             ChangeValue(1);
@@ -122,7 +126,11 @@ public class Minigame_Network : ResourceSystem
         {
             ResetColor(caseSelected.GetComponent<SpriteRenderer>().color);
         }
-        else
+        else if (caseSelected.endCase || ((casesSelectedColor1.Any() && caseSelected.baseColor == color1) || (casesSelectedColor2.Any() && caseSelected.baseColor == color2)))
+        {
+            isPathing = false;
+        }
+        else if(caseSelected.endCase == false)
         {
             isPathing = true;
             if (casesList.Contains(caseSelected) == false)
