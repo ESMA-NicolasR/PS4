@@ -8,7 +8,6 @@ public class MissionGiver : MonoBehaviour
 {
     public List<ResourceObjectiveData> objectives;
     private Dictionary<SystemName, ResourceSystem> _namesToSystems;
-    public List<ResourceSystem> resourceSystems;
     public TextMeshPro text;
     private bool _isStarted;
     private int _progressionIndex;
@@ -18,10 +17,10 @@ public class MissionGiver : MonoBehaviour
     public static event Action AnalyticsObjectiveStarted;
     public static event Action<AnalyticsObjectiveData> AnalyticsObjectiveFinished;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _namesToSystems = new Dictionary<SystemName, ResourceSystem>();
+        var resourceSystems = GetComponentsInChildren<ResourceSystem>();
         foreach (var resourceSystem in resourceSystems)
         {
             _namesToSystems[resourceSystem.systemName] = resourceSystem;
@@ -52,16 +51,17 @@ public class MissionGiver : MonoBehaviour
         _currentObjective.BreakSystem(_namesToSystems[_currentObjective.systemName]);
         // Start the mission
         _isStarted = true;
-        text.text = _currentObjective.GetDescription() +". Push the button when it's done.";
+        text.text = _currentObjective.description +". Push the button when it's done.";
+        // Analytics
         AnalyticsObjectiveStarted?.Invoke();
     }
     
     private void CheckObjectiveIsDone()
     {
-        bool isSuccess = _currentObjective.CheckIsCompleted();
+        bool isSuccess = _namesToSystems[_currentObjective.systemName].IsFixed();
         
         // Analytics
-        AnalyticsObjectiveData data = new AnalyticsObjectiveData(_currentObjective._resourceSystem.resourceName, isSuccess);
+        AnalyticsObjectiveData data = new AnalyticsObjectiveData(_currentObjective.systemName.ToString(), isSuccess);
         AnalyticsObjectiveFinished?.Invoke(data);
         
         // Next objective
@@ -81,7 +81,7 @@ public class MissionGiver : MonoBehaviour
         _currentObjective = null;
         
         // Check ending
-        if(_progressionIndex >= possibleObjectives.Count)
+        if(_progressionIndex >= objectives.Count)
         {
             text.text = $"You completed all the missions, with a success rate of {(100f*_nbSuccess/objectives.Count):F2}%, thanks !";
         }

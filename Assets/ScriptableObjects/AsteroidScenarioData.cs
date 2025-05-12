@@ -20,11 +20,11 @@ public class AsteroidScenarioData : ResourceObjectiveData
 
     public override void BreakSystem(ResourceSystem resourceSystem)
     {
-        var minigameAsteroids = resourceSystem as ResourceSystemAsteroids;
-        if (minigameAsteroids == null)
+        var systemAsteroids = resourceSystem as ResourceSystemAsteroids;
+        if (systemAsteroids == null)
         {
             throw new Exception($"ResourceSystem of AsteroidScenarioData {name} must be a MinigameAsteroids");
         }
-        minigameAsteroids.Break(this);
+        systemAsteroids.Break(this);
     }
 }

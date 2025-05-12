@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CaseBehavior : MonoBehaviour
 {
@@ -7,11 +8,10 @@ public class CaseBehavior : MonoBehaviour
 
     public bool endCase = false, startCase = false;
     public Color baseColor;
-    public Minigame_Network minigameNetwork;
+    public MinigameNetwork minigameNetwork;
 
     protected void OnEnable()
     {
-        minigameNetwork = FindFirstObjectByType<Minigame_Network>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _spriteRenderer.color = baseColor;
         _collider = GetComponent<Collider>();
@@ -27,6 +27,21 @@ public class CaseBehavior : MonoBehaviour
     public void Enable()
     {
         _collider.enabled = true;
+    }
+
+    public void ChangeColor(Color newColor)
+    {
+        _spriteRenderer.color = newColor;
+    }
+
+    public bool IsColor(Color other)
+    {
+        return _spriteRenderer.color == other;
+    }
+
+    public Color GetColor()
+    {
+        return _spriteRenderer.color;
     }
 
     private void OnMouseDown()
