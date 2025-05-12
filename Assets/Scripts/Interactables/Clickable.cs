@@ -10,6 +10,8 @@ public class Clickable : MonoBehaviour
     public bool canBeUsed;
     public Focusable focusParent;
 
+    public static int AnalyticsTotalClicks;
+
     protected virtual void Awake()
     {
         canBeUsed = true;
@@ -47,6 +49,8 @@ public class Clickable : MonoBehaviour
             OnClick?.Invoke();
             Interact();
         }
+        // Analytics
+        AnalyticsTotalClicks++;
     }
 
     protected virtual void Interact()

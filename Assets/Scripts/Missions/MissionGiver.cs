@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -11,6 +12,9 @@ public class MissionGiver : MonoBehaviour
     private int _progressionIndex;
     private ResourceObjective _currentObjective;
     private int _nbSuccess;
+
+    public static event Action AnalyticsObjectiveStarted;
+    public static event Action<AnalyticsObjectiveData> AnalyticsObjectiveFinished;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,11 +45,19 @@ public class MissionGiver : MonoBehaviour
         _currentObjective.CreateObjective();
         _isStarted = true;
         text.text = _currentObjective.GetDescription() +". Push the button when it's done.";
+        AnalyticsObjectiveStarted?.Invoke();
     }
     
     private void CheckObjectiveIsDone()
     {
-        if (_currentObjective.CheckIsCompleted())
+        bool isSuccess = _currentObjective.CheckIsCompleted();
+        
+        // Analytics
+        AnalyticsObjectiveData data = new AnalyticsObjectiveData(_currentObjective._resourceSystem.resourceName, isSuccess);
+        AnalyticsObjectiveFinished?.Invoke(data);
+        
+        // Next objective
+        if (isSuccess)
         {
 
             text.text = $"Mission completed, congratulations ! Press the button to get a new one.";
@@ -59,6 +71,7 @@ public class MissionGiver : MonoBehaviour
         _progressionIndex++;
         _currentObjective = null;
         
+        // Check ending
         if(_progressionIndex >= possibleObjectives.Count)
         {
             text.text = $"You completed all the missions, with a success rate of {(100f*_nbSuccess/possibleObjectives.Count):F2}%, thanks !.";
@@ -67,6 +80,7 @@ public class MissionGiver : MonoBehaviour
 
     private void FinishGame()
     {
+        AnalyticsManager.Instance.WriteAnalytics();
         SceneManager.LoadScene("EndingScene");
     }
     

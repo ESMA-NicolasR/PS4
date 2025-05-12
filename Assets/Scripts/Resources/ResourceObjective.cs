@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class ResourceObjective : MonoBehaviour
 {
-    [SerializeField]
-    private ResourceSystem _resourceSystem;
+    public ResourceSystem _resourceSystem;
 
     public event Action OnObjectiveCompleted;
     void Start()
