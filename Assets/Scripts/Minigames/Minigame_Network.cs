@@ -2,12 +2,16 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Minigame_Network : ResourceSystem
+public class Minigame_Network : MonoBehaviour
 {
     public List<CaseBehavior> casesList, casesSelectedColor1, casesSelectedColor2;
     public Color color1, color2, actualColor, standardColor;
     public bool isPathing;
-    
+
+    [SerializeField]
+    private Transform _pivotBoard;
+    [SerializeField]
+    private ResourceSystemNetwork _resourceSystemNetwork;
     private CaseBehavior _lastCaseSelected, _lastColor1SelectedCase, _lastColor2SelectedCase;
     private Color _colorDone;
 
@@ -15,13 +19,14 @@ public class Minigame_Network : ResourceSystem
     {
         isPathing = false;
         PlayerFocus.OnLoseFocus += OnLoseFocus;
-        casesList = GetComponentsInChildren<CaseBehavior>().ToList();
     }
-
-    public override void Break()
+    
+    public void PlayScenario(NetworkScenarioData scenarioData)
     {
-        targetValue = 2;
-        SetValue(0);
+        Instantiate(scenarioData.boardPrefab, _pivotBoard);
+        casesList = GetComponentsInChildren<CaseBehavior>().ToList();
+        _resourceSystemNetwork.targetValue = 2;
+        _resourceSystemNetwork.SetValue(0);
         Reset();
     }
     
@@ -41,10 +46,10 @@ public class Minigame_Network : ResourceSystem
         isPathing = false;
         casesSelectedColor1.Clear();
         casesSelectedColor2.Clear();
-        SetValue(0);
+        _resourceSystemNetwork.SetValue(0);
     }
 
-    private void ResetColor(Color color) //a continuer
+    private void ResetColor(Color color)
     {
         foreach (var caseSelected in casesList)
         {
@@ -53,22 +58,21 @@ public class Minigame_Network : ResourceSystem
                 caseSelected.GetComponent<SpriteRenderer>().color = caseSelected.baseColor;
                 if (caseSelected != null && casesList.Contains(caseSelected) == false)
                 {
-                    print(caseSelected);
                     casesSelectedColor1.Remove(caseSelected);
                     casesSelectedColor2.Remove(caseSelected);
                 }
             }
         }
-        if (currentValue == 1)
+        if (_resourceSystemNetwork.currentValue == 1)
         {
             if (_colorDone == color)
             {
-                ChangeValue(-1);
+                _resourceSystemNetwork.ChangeValue(-1);
             }
         }
-        else if (currentValue == 2)
+        else if (_resourceSystemNetwork.currentValue == 2)
         {
-            ChangeValue(-1);
+            _resourceSystemNetwork.ChangeValue(-1);
         }
         actualColor = standardColor;
         isPathing = false;
@@ -111,7 +115,7 @@ public class Minigame_Network : ResourceSystem
         else if (isPathing && caseSelected.endCase)
         {
             isPathing = false;
-            ChangeValue(1);
+            _resourceSystemNetwork.ChangeValue(1);
             _colorDone = actualColor;
         }
     }

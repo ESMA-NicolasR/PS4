@@ -11,7 +11,7 @@ public class CaseBehavior : MonoBehaviour
 
     protected void OnEnable()
     {
-        minigameNetwork = GameObject.Find("Network").GetComponent<Minigame_Network>();
+        minigameNetwork = FindFirstObjectByType<Minigame_Network>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _spriteRenderer.color = baseColor;
         _collider = GetComponent<Collider>();
