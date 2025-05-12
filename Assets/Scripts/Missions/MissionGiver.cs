@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -13,9 +14,12 @@ public class MissionGiver : MonoBehaviour
     private int _progressionIndex;
     private ResourceObjectiveData _currentObjective;
     private int _nbSuccess;
-    private float _timeofStart;
 
-    private void Start()
+    public static event Action AnalyticsObjectiveStarted;
+    public static event Action<AnalyticsObjectiveData> AnalyticsObjectiveFinished;
+    
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
     {
         _namesToSystems = new Dictionary<SystemName, ResourceSystem>();
         foreach (var resourceSystem in resourceSystems)
@@ -48,13 +52,20 @@ public class MissionGiver : MonoBehaviour
         _currentObjective.BreakSystem(_namesToSystems[_currentObjective.systemName]);
         // Start the mission
         _isStarted = true;
-        _timeofStart = Time.time;
-        text.text = _currentObjective.description +"\nPush the button when it's done.";
+        text.text = _currentObjective.GetDescription() +". Push the button when it's done.";
+        AnalyticsObjectiveStarted?.Invoke();
     }
     
     private void CheckObjectiveIsDone()
     {
-        if (_namesToSystems[_currentObjective.systemName].IsFixed())
+        bool isSuccess = _currentObjective.CheckIsCompleted();
+        
+        // Analytics
+        AnalyticsObjectiveData data = new AnalyticsObjectiveData(_currentObjective._resourceSystem.resourceName, isSuccess);
+        AnalyticsObjectiveFinished?.Invoke(data);
+        
+        // Next objective
+        if (isSuccess)
         {
             text.text = _currentObjective.winMessage;
             _nbSuccess++;
@@ -68,8 +79,9 @@ public class MissionGiver : MonoBehaviour
         _isStarted = false;
         _progressionIndex++;
         _currentObjective = null;
-        Debug.Log($"Mission finished in {(Time.time - _timeofStart):F2} seconds");
-        if(_progressionIndex >= objectives.Count)
+        
+        // Check ending
+        if(_progressionIndex >= possibleObjectives.Count)
         {
             text.text = $"You completed all the missions, with a success rate of {(100f*_nbSuccess/objectives.Count):F2}%, thanks !";
         }
@@ -77,6 +89,7 @@ public class MissionGiver : MonoBehaviour
 
     private void FinishGame()
     {
+        AnalyticsManager.Instance.WriteAnalytics();
         SceneManager.LoadScene("EndingScene");
     }
 }

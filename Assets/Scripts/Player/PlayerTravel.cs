@@ -34,6 +34,9 @@ public class PlayerTravel : MonoBehaviour
     public static event Action OnTravelStart;
     // Internal components
     private CursorMoveCamera _cursorMoveCamera;
+    // Analytics
+    public static int AnalyticsTotalTravels;
+    public static float AnalyticsTotalTimeTraveling;
     
     private void Awake()
     {
@@ -45,6 +48,8 @@ public class PlayerTravel : MonoBehaviour
     public void MoveDirection(TravelDirection direction)
     {
         StartCoroutine(MoveAlongTravelPath(currentStation.GetPath(direction)));
+        // Analytics
+        AnalyticsTotalTravels++;
     }
 
     private IEnumerator MoveAlongTravelPath(TravelPath path)
@@ -107,5 +112,8 @@ public class PlayerTravel : MonoBehaviour
             // Wait next frame
             yield return new WaitForEndOfFrame();
         }
+        
+        // Analytics
+        AnalyticsTotalTimeTraveling += totalTime;
     }
 }
