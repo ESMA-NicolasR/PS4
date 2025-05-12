@@ -1,13 +1,14 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class AnalyticsManager : MonoBehaviour
 {
     public static AnalyticsManager Instance;
-    private AnalyticsPlaytestData playtestData;
+    private List<AnalyticsObjectiveData> _dataList;
     private string _savePath;
 
     private float _timeGameStarted;
@@ -28,8 +29,8 @@ public class AnalyticsManager : MonoBehaviour
 
         Instance = this;
         
-        playtestData.objectivesData = new List<AnalyticsObjectiveData>();
-        _savePath = $"{Application.persistentDataPath}/Playtest-{DateTime.Now:yyyy-mm-dd_hh-mm-ss}.json";
+        _dataList = new List<AnalyticsObjectiveData>();
+        _savePath = $"{Application.persistentDataPath}/Playtest-{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.csv";
     }
 
     private void OnEnable()
@@ -60,7 +61,7 @@ public class AnalyticsManager : MonoBehaviour
         data.timeSpentDragging = Draggable.AnalyticsTotalTimeDragging - _timeDraggingBeforeObjective;
         data.nbTravels = PlayerTravel.AnalyticsTotalTravels - _nbMovementsBeforeObjective;
         data.timeSpentTraveling = PlayerTravel.AnalyticsTotalTimeTraveling - _timeTravelingBeforeObjective;
-        playtestData.objectivesData.Add(data);
+        _dataList.Add(data);
     }
 
     public void WriteAnalytics()
@@ -73,17 +74,17 @@ public class AnalyticsManager : MonoBehaviour
         totalData.nbTravels = PlayerTravel.AnalyticsTotalTravels;
         totalData.timeSpentTraveling = PlayerTravel.AnalyticsTotalTimeTraveling;
         // Add it to other data
-        playtestData.objectivesData.Add(totalData);
+        _dataList.Add(totalData);
         // Write data
-        File.AppendAllText(_savePath, JsonUtility.ToJson(playtestData, true));
+        StringBuilder sb = new StringBuilder();
+        sb.AppendLine("systemName;success;timeToComplete;nbClicks;timeSpentDragging;nbTravels;timeSpentTraveling");
+        foreach (var data in _dataList)
+        {
+            sb.AppendLine($"{data.systemName};{data.success};{data.timeToComplete:F2};{data.nbClicks:N0};{data.timeSpentDragging:00.00};{data.nbTravels:N0};{data.timeSpentTraveling:00.00}");
+        }
+        File.AppendAllText(_savePath, sb.ToString());
         Debug.Log($"Analytics written to {_savePath}");
     }
-}
-
-[Serializable]
-public struct AnalyticsPlaytestData
-{
-    public List<AnalyticsObjectiveData> objectivesData;
 }
 
 [Serializable]
