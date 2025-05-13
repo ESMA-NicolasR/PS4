@@ -5974,66 +5974,10 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 630358786}
-    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
-      propertyPath: objectives.Array.size
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
-      propertyPath: 'objectives.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: e0faf9aceeff6734b9e18948bb8ef1f5, type: 2}
-    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
-      propertyPath: 'objectives.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 522736f4fa4d0cc409b70cfe7b3cf260, type: 2}
-    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
-      propertyPath: 'objectives.Array.data[2]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 5204c53f661d3dd49894afc251913b2c, type: 2}
-    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
-      propertyPath: 'objectives.Array.data[3]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 098adbc9049af8d439cb5529a101a75b, type: 2}
-    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
-      propertyPath: 'objectives.Array.data[4]'
-      value: 
-      objectReference: {fileID: 11400000, guid: f9038c4f44899e74ca6f1c946fbc802e, type: 2}
-    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
-      propertyPath: 'objectives.Array.data[5]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 02e10280a1e65de459334978c8d19447, type: 2}
-    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
-      propertyPath: 'objectives.Array.data[6]'
-      value: 
-      objectReference: {fileID: 11400000, guid: ec6ac16a5ec612444ba4437894a78b1b, type: 2}
-    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
-      propertyPath: 'objectives.Array.data[7]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 0623d07a6aeef3945832e347553029c6, type: 2}
-    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
-      propertyPath: 'objectives.Array.data[8]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 7653ac0f659036b4abf6d99c546751d9, type: 2}
-    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
-      propertyPath: 'objectives.Array.data[9]'
-      value: 
-      objectReference: {fileID: 11400000, guid: ba97b6aab839c3b43b66db5b0e0d8f1f, type: 2}
-    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
-      propertyPath: 'objectives.Array.data[10]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 45028c3c53d922a49aa4d24034658ef1, type: 2}
-    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
-      propertyPath: 'objectives.Array.data[11]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 45028c3c53d922a49aa4d24034658ef1, type: 2}
     - target: {fileID: 7663148210796135694, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
       propertyPath: _minigameAsteroids
       value: 
       objectReference: {fileID: 2063214089893460628}
-    - target: {fileID: 7684483818661295449, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
-      propertyPath: maxValue
-      value: 1500
-      objectReference: {fileID: 0}
     - target: {fileID: 8381509066146177639, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
       propertyPath: travelBack
       value: 
