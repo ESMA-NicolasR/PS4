@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Pump : Draggable
 {
@@ -12,7 +13,7 @@ public class Pump : Draggable
     private float _lastProgress;
     private float _accumulatedScore;
     
-    public ResourceHandle resourceHandle;
+    public ResourceSystemNumber resourceSystem;
 
     protected override void Start()
     {
@@ -43,8 +44,10 @@ public class Pump : Draggable
         // If we pumped enough, use score to change system value
         if (_accumulatedScore >= 1.0f)
         {
-            resourceHandle.ChangeValue(valueStrength);
-            _accumulatedScore -= 1.0f;
+            var integerPart = Mathf.FloorToInt(_accumulatedScore);
+            resourceSystem.ChangeValue(valueStrength*integerPart);
+            // Keep the fractional part
+            _accumulatedScore -= integerPart;
         }
     }
 }

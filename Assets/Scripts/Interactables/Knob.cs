@@ -5,7 +5,6 @@ using UnityEngine.Splines;
 public class Knob : Draggable
 {
     public Transform target;
-    private Quaternion originalRotation;
     private float startAngle;
     public MeshRenderer fakeCursor;
     public SplineContainer circle;
@@ -17,7 +16,7 @@ public class Knob : Draggable
     public int valueStrength;
     
     // Dependencies
-    public ResourceHandle resourceHandle;
+    public ResourceSystemNumber resourceSystem;
 
     // Internal variables
     private float _lastAngle;
@@ -33,6 +32,7 @@ public class Knob : Draggable
         base.Start();
         // Hide fake cursor
         fakeCursor.enabled = false;
+        _progress = resourceSystem.currentValue;
     }
 
     protected override void Interact()
@@ -41,11 +41,10 @@ public class Knob : Draggable
         // Setup fake cursor
         fakeCursor.enabled = true;
         Vector3 startPosition = Input.mousePosition;
-        startPosition.z = circle.transform.position.z;
+        startPosition.z = Vector3.Distance(target.position, Camera.main.transform.position);
         SnapCursorToCircle(Camera.main.ScreenToWorldPoint(startPosition));
         // Set up rotation
-        originalRotation = target.rotation;
-        Vector3 vector = fakeCursor.transform.position - target.position;
+        Vector3 vector = fakeCursor.transform.localPosition;
         startAngle = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
     }
 
@@ -60,15 +59,13 @@ public class Knob : Draggable
     {
         _lastAngle = target.eulerAngles.z;
         // Update fake cursor position
-        fakeCursor.transform.position += turnSpeed*Time.deltaTime*new Vector3(-delta.x, delta.y, 0f);
+        fakeCursor.transform.localPosition += turnSpeed*Time.deltaTime*new Vector3(-delta.x, delta.y, 0f);
         SnapCursorToCircle(fakeCursor.transform.position);
         // Rotate according to fake cursor position        
-        Vector3 vector = fakeCursor.transform.position - target.position;
-        float angle = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
-        Quaternion newRotation = Quaternion.AngleAxis((angle - startAngle)*rotateTransmission , target.forward);
-        newRotation.eulerAngles = new Vector3(0,0,newRotation.eulerAngles.z);
-        target.rotation = originalRotation *  newRotation;
-        UpdateProgress(Mathf.DeltaAngle(target.eulerAngles.z, _lastAngle));
+        Vector3 vector = fakeCursor.transform.localPosition;
+        float angle = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg * rotateTransmission;
+        target.localEulerAngles = new Vector3(0, 0, angle - startAngle);
+        UpdateProgress(Mathf.DeltaAngle(_lastAngle, target.eulerAngles.z));
     }
     
     private void SnapCursorToCircle(Vector3 worldPosition)
@@ -82,7 +79,7 @@ public class Knob : Draggable
     private void UpdateProgress(float delta)
     {
         _progress = Mathf.Clamp(_progress+delta/degreesForValue*valueStrength, _minProgress, _maxProgress);
-        resourceHandle.SetValue(
+        resourceSystem.SetValue(
             _progress>0
             ?Mathf.FloorToInt(_progress)
             :Mathf.CeilToInt(_progress)

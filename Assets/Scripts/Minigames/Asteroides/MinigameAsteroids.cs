@@ -1,84 +1,118 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-public class MinigameAsteroids : ResourceSystem
+public class MinigameAsteroids : MonoBehaviour
 {
-    public int minAsteroids;
+    public ResourceSystemAsteroids resourceSystem;
     public GameObject cursor;
     public GameObject screen, screenOffset;
     public float cursorMaxY, cursorMaxX;
-    public Asteroid asteroid;
+    public GameObject asteroidPrefab;
     public float cursorStep;
-    public int asteroidCount;
-    public float timeToSpawnAsteroids;
+    private Vector2 _lowerBounds, _higherBounds;
 
     private void Start()
     {
-        cursorMaxX = screen.GetComponent<Renderer>().bounds.size.x/2-cursorStep;
-        cursorMaxY = screen.GetComponent<Renderer>().bounds.size.y/2-cursorStep;
-        //cursor.transform.localPosition += new Vector3(0, cursorMaxY*cursorStep, 0);//si point de pivot en bas
-    }
-    
-    public void MoveCursor(int direction)
-    {
-        if (direction == 1)//left
-        {
-            if (cursor.transform.localPosition.x-cursorStep > -cursorMaxX)
-            {
-                cursor.transform.localPosition += new Vector3(-cursorStep, 0, 0);
-            }
-        }
-        else if (direction == 2)//right
-        {
-            if (cursor.transform.localPosition.x+cursorStep < cursorMaxX)
-            {
-                cursor.transform.localPosition += new Vector3(cursorStep, 0, 0);
-            }
-        }
-        else if (direction == 3)//up
-        {
-            if (cursor.transform.localPosition.y+cursorStep < cursorMaxY)
-            {
-                cursor.transform.localPosition += new Vector3(0, cursorStep, 0);
-            }
-        }
-        else if (direction == 4)//down
-        {
-            if (cursor.transform.localPosition.y-cursorStep > -cursorMaxY)
-            {
-                cursor.transform.localPosition += new Vector3(0, -cursorStep, 0);
-            }
-        }
-    }
-    
-    public override void Break()
-    {
-        SetValue(SanitizeValue(Random.Range(minValue+minAsteroids, maxValue)));
-        StartCoroutine(SpawnAsteroids(0));
-        for (int i = 0; i < currentValue; i++)
-        {
-            StartCoroutine(SpawnAsteroids(Random.Range(0.1f, timeToSpawnAsteroids)));
-        }
-        SetValue(asteroidCount);
+        var extents = screen.GetComponent<MeshFilter>().mesh.bounds.extents;
+        cursorMaxX = extents.x;
+        cursorMaxY = extents.y;
+        
+        cursorStep = cursor.GetComponent<SpriteRenderer>().sprite.bounds.size.x * cursor.transform.localScale.x;
+        _lowerBounds = new Vector2(-cursorMaxX + cursorStep, -cursorMaxY + cursorStep);
+        _higherBounds = new Vector2(cursorMaxX - cursorStep, cursorMaxY - cursorStep);
     }
 
-    private IEnumerator SpawnAsteroids(float time)
+    public void MoveCursorUp()
     {
-        yield return new WaitForSeconds(time);
-        Vector3 asteroidPosition;
-        asteroidPosition.z = cursor.transform.localPosition.z;
-        asteroidPosition.x = cursorStep*Random.Range(-cursorMaxX, cursorMaxX);
-        asteroidPosition.y = cursorStep*Random.Range(-cursorMaxY, cursorMaxY);
-        var newAsteroid = Instantiate(asteroid, screenOffset.transform, false);
-        newAsteroid.transform.localPosition = asteroidPosition;
-        asteroidCount += 1;
+        MoveCursor(AsteroidCursorMovement.Up);
+    }
+    
+    public void MoveCursorDown()
+    {
+        MoveCursor(AsteroidCursorMovement.Down);
+    }
+    
+    public void MoveCursorLeft()
+    {
+        MoveCursor(AsteroidCursorMovement.Left);
+    }
+    
+    public void MoveCursorRight()
+    {
+        MoveCursor(AsteroidCursorMovement.Right);
+    }
+    
+    private void MoveCursor(AsteroidCursorMovement movement)
+    {
+        // Convert movement to direction
+        Vector3 direction = Vector3.zero;
+        switch (movement)
+        {
+            case AsteroidCursorMovement.Up:
+                direction = Vector3.up;
+                break;
+            case AsteroidCursorMovement.Down:
+                direction = Vector3.down;
+                break;
+            case AsteroidCursorMovement.Left:
+                direction = Vector3.left;
+                break;
+            case AsteroidCursorMovement.Right:
+                direction = Vector3.right;
+                break;
+        }
+        // Move the cursor
+        cursor.transform.localPosition += direction * cursorStep;
+        // Clamp the cursor to the bounds
+        cursor.transform.localPosition = Vector2.Min( // Higher bounds
+            Vector2.Max( // Lower bounds
+                cursor.transform.localPosition,
+                _lowerBounds)
+            ,_higherBounds
+        );
+        // Snap the cursor to a cursor step increment
+        cursor.transform.localPosition = new Vector2(
+            Mathf.Round(cursor.transform.localPosition.x / cursorStep) * cursorStep,
+            Mathf.Round(cursor.transform.localPosition.y / cursorStep) * cursorStep
+        );
+    }
+    
+    public void PlayScenario(AsteroidScenarioData scenario)
+    {
+        StartCoroutine(SpawnAsteroids(scenario.spawnList));
     }
 
-    public void ChangeAsteroidCount(int newValue)
+    private IEnumerator SpawnAsteroids(List<AsteroidSpawnData> spawnList)
     {
-        asteroidCount -= newValue;
-        SetValue(asteroidCount);
+        resourceSystem.SetValue(spawnList.Count);
+        foreach (AsteroidSpawnData spawn in spawnList)
+        {
+            yield return new WaitForSeconds(spawn.spawnDelay);
+            var newAsteroid = Instantiate(asteroidPrefab, screenOffset.transform, false).GetComponent<Asteroid>();
+            newAsteroid.Init(this, spawn);
+        }
+    }
+
+    public void DestroyAsteroid()
+    {
+        resourceSystem.ChangeValue(-1);
+    }
+
+    private void OnValidate()
+    {
+        if (asteroidPrefab == null)
+        {
+            throw new ArgumentNullException("AsteroidPrefab", $"MinigameAsteroids {gameObject.name} must have an Asteroid Prefab component");
+        }
+        if (asteroidPrefab.GetComponent<Asteroid>() == null)
+        {
+            throw new ArgumentException($"MinigameAsteroids {gameObject.name} must have an AsteroidPrefab component with an Asteroid script attached", "AsteroidPrefab");
+        }
+        if (cursor != null && cursor.GetComponent<SpriteRenderer>() == null)
+        {
+            throw new ArgumentException($"MinigameAsteroids {gameObject.name} must have a cursor with a SpriteRender attached", "Cursor");
+        }
     }
 }

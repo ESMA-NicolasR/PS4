@@ -1,55 +1,80 @@
-using System;
 using UnityEngine;
 using System.Collections;
-
 
 public class Asteroid : MonoBehaviour
 {
     private MinigameAsteroids _minigameAsteroids;
     public float timeToBeDestroyed;
     public float timeToDestroy;
-    public float speed;
-    private Vector3 _newPosition;
-    public float growUp;
+    public float baseRotationSpeed;
+    [SerializeField]
+    private SpriteRenderer _spriteRenderer;
+    private Vector2 _direction;
+    private float _moveSpeed;
+    private float _growSpeed;
     private Coroutine destroyingCoroutine;
+    private float _baseExtent;
 
-    private void OnEnable()
+    private void Start()
     {
-        _minigameAsteroids = GameObject.Find("Asteroids").GetComponent<MinigameAsteroids>();
         StartCoroutine(DestroyShip());
-        
-        _newPosition = new Vector3(_minigameAsteroids.cursorStep,_minigameAsteroids.cursorStep,0);
     }
 
+    public void Init(MinigameAsteroids minigame, AsteroidSpawnData spawn)
+    {
+        _minigameAsteroids = minigame;
+        transform.localPosition = spawn.position * _minigameAsteroids.cursorStep; // z is always 0
+        _direction = spawn.direction.normalized;
+        _moveSpeed = spawn.moveSpeed * _minigameAsteroids.cursorStep;
+        _growSpeed = spawn.growSpeed;
+        transform.localScale = Vector3.one * spawn.scale;
+        _baseExtent = _spriteRenderer.sprite.bounds.extents.x;
+    }
+    
     private void FixedUpdate()
     {
-        if (transform.localPosition.x > _minigameAsteroids.cursorMaxX)
-        {
-            _newPosition = new Vector3(-_minigameAsteroids.cursorStep,_newPosition.y,0);
-        }
-        if (transform.localPosition.x < -_minigameAsteroids.cursorMaxX)
-        {
-            _newPosition = new Vector3(_minigameAsteroids.cursorStep,_newPosition.y,0);
-        }
-        if (transform.localPosition.y > _minigameAsteroids.cursorMaxY)
-        {
-            _newPosition = new Vector3(_newPosition.x,-_minigameAsteroids.cursorStep,0);
-        }
-        if (transform.localPosition.y < -_minigameAsteroids.cursorMaxY)
-        {
-            _newPosition = new Vector3(_newPosition.x,_minigameAsteroids.cursorStep,0);
-        }
-        if (speed != 0)
-        {
-            Moving();
-        }
-        transform.localScale = new Vector3(transform.localScale.x+(growUp*0.001f)*Time.deltaTime,transform.localScale.y+(growUp*0.001f)*Time.deltaTime,transform.localScale.z);
+        Move();
+        Rotate();
+        Grow();
     }
 
-    private IEnumerator DestroyAsteroids(GameObject cursor)
+    private void Move()
+    {
+        float extent = _baseExtent * transform.localScale.x;
+        transform.Translate(_moveSpeed * Time.fixedDeltaTime * _direction, Space.Self);
+        // Bounce off the limits
+        if (_direction.x > 0 && transform.localPosition.x + extent > _minigameAsteroids.cursorMaxX)
+        {
+            _direction = Vector2.Reflect(_direction, Vector2.left);
+        }
+        else if (_direction.x < 0 && transform.localPosition.x -extent < -_minigameAsteroids.cursorMaxX)
+        {
+            _direction = Vector2.Reflect(_direction, Vector2.right);
+        }
+        else if (_direction.y > 0 && transform.localPosition.y + extent > _minigameAsteroids.cursorMaxY)
+        {
+            _direction = Vector2.Reflect(_direction, Vector2.down);
+        }
+        else if (_direction.y < 0 && transform.localPosition.y - extent < -_minigameAsteroids.cursorMaxY)
+        {
+            _direction = Vector2.Reflect(_direction, Vector2.up);
+        }
+    }
+
+    private void Rotate()
+    {
+        _spriteRenderer.transform.localEulerAngles += baseRotationSpeed * _moveSpeed / transform.localScale.x * Vector3.forward;
+    }
+
+    private void Grow()
+    {
+        transform.localScale += (Vector3)(_growSpeed * Time.fixedDeltaTime * Vector2.one); // Ignore z scale
+    }
+
+    private IEnumerator DestroyAsteroid()
     {
         yield return new WaitForSeconds(timeToBeDestroyed);
-        _minigameAsteroids.ChangeAsteroidCount(1);
+        _minigameAsteroids.DestroyAsteroid();
         Destroy(gameObject);
     }
 
@@ -59,22 +84,25 @@ public class Asteroid : MonoBehaviour
         print("kaboom");
     }
     
-    private void Moving()
-    {
-        transform.localPosition = Vector3.Lerp(transform.localPosition, transform.localPosition+_newPosition, Time.deltaTime * speed);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("CursorAsteroid"))
-            destroyingCoroutine = StartCoroutine(DestroyAsteroids(_minigameAsteroids.cursor));
+            destroyingCoroutine = StartCoroutine(DestroyAsteroid());
     }
+
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("CursorAsteroid"))
+        if (other.CompareTag("CursorAsteroid") && destroyingCoroutine != null)
         {
-            if(destroyingCoroutine != null)
-                StopCoroutine(destroyingCoroutine);
+            StopCoroutine(destroyingCoroutine);
+        }
+    }
+
+    private void OnValidate()
+    {
+        if (_spriteRenderer == null)
+        {
+            throw new System.ArgumentNullException("SpriteRenderer", "Asteroid prefab must have a SpriteRenderer");
         }
     }
 }

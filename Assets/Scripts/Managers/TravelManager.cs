@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class TravelManager : MonoBehaviour
@@ -7,12 +8,31 @@ public class TravelManager : MonoBehaviour
     // TODO use serializable dicts ?
     public GameObject travelLeft, travelRight, travelBack;
 
-    void Start()
+    private void OnEnable()
     {
-        // Singleton
-        Instance = this;
         PlayerTravel.OnDestinationReached += OnDestinationReached;
         PlayerTravel.OnTravelStart += OnTravelStart;
+    }
+
+    private void OnDisable()
+    {
+        PlayerTravel.OnDestinationReached -= OnDestinationReached;
+        PlayerTravel.OnTravelStart -= OnTravelStart;
+    }
+
+    void Awake()
+    {
+        // Singleton
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+
+    private void Start()
+    {
         OnDestinationReached(playerTravel.currentStation);
     }
 

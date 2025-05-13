@@ -25,10 +25,9 @@ public class HeadMovement : MonoBehaviour
         PlayerFocus.OnLoseFocus -= OnLoseFocus;
     }
 
-    void Start()
+    private void Awake()
     {
         _animator = GetComponent<Animator>();
-
     }
 
     private void OnTravelStart()
