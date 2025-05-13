@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Book : Focusable
@@ -13,6 +12,8 @@ public class Book : Focusable
     
     public List<GameObject> pagesGameObjects;
     public List<Page> pages;
+
+    public List<Collider> helperColliders;
     
 
     protected override void Start()
@@ -32,11 +33,6 @@ public class Book : Focusable
 
     }
 
-    private void Update()
-    {
-    }
-
-
     public void StartBook()
     {
         Interact();
@@ -45,7 +41,6 @@ public class Book : Focusable
             page.DisablePage();
         }
         pages[0].EnablePage();
-
     }
     
     
@@ -75,6 +70,10 @@ public class Book : Focusable
 
      IEnumerator OpenBook()
     {
+        foreach (var collider in helperColliders)
+        {
+            collider.enabled = false;
+        }
         animator.SetBool("Open", true);
         animator2.SetBool("Open", true);
         yield return new WaitForSeconds(1f);
@@ -89,6 +88,10 @@ public class Book : Focusable
         yield return new WaitForSeconds(1f);
         animator.SetBool("Close", false);
         animator2.SetBool("Close", false);
+        foreach (var collider in helperColliders)
+        {
+            collider.enabled = true;
+        }
     }
     
 }

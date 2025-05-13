@@ -43,7 +43,7 @@ public class Clickable : MonoBehaviour
         if (HasActiveParent())
         {
             focusParent.GainFocus();
-            if (focusParent.TryGetComponent<Book>(out var book))
+            if (focusParent.TryGetComponent<Book>(out Book book))
             {
                 book.StartBook();
             }
