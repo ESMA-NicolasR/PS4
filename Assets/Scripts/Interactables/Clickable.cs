@@ -10,6 +10,8 @@ public class Clickable : MonoBehaviour
     public bool canBeUsed;
     public Focusable focusParent;
 
+    public static int AnalyticsTotalClicks;
+
     protected virtual void Awake()
     {
         canBeUsed = true;
@@ -24,13 +26,13 @@ public class Clickable : MonoBehaviour
     {
     }
 
-    public void Disable()
+    public virtual void Disable()
     {
         canBeUsed = false;
         gameObject.layer = defaultLayer;
     }
 
-    public void Enable()
+    public virtual void Enable()
     {
         canBeUsed = true;
         gameObject.layer = interactableLayer;
@@ -41,12 +43,18 @@ public class Clickable : MonoBehaviour
         if (HasActiveParent())
         {
             focusParent.GainFocus();
+            if (focusParent.TryGetComponent<Book>(out var book))
+            {
+                book.StartBook();
+            }
         }
         else if (canBeUsed)
         {
             OnClick?.Invoke();
             Interact();
         }
+        // Analytics
+        AnalyticsTotalClicks++;
     }
 
     protected virtual void Interact()

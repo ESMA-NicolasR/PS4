@@ -8,6 +8,8 @@ public class Draggable : Clickable
     [SerializeField]
     private Transform _anchor;
     public float dragFactor;
+
+    public static float AnalyticsTotalTimeDragging;
     
     protected override void Interact()
     {
@@ -42,7 +44,8 @@ public class Draggable : Clickable
         if (!_isDragged) return;
         Drag(Mouse.current.delta.ReadValue() * dragFactor);
         Mouse.current.WarpCursorPosition(Camera.main.WorldToScreenPoint(_anchor.position));
-
+        // Analytics
+        AnalyticsTotalTimeDragging += Time.deltaTime;
     }
 
     protected virtual void Drag(Vector2 delta)

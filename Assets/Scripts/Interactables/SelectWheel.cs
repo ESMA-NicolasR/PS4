@@ -5,7 +5,7 @@ public class SelectWheel : Draggable
     public int nbSections;
     public int totalAngles;
     public Transform target;
-    public ResourceHandle resourceHandle;
+    public ResourceSystem resourceSystem;
 
     private int _amplitudeMax;
     private int _amplitudePerSection;
@@ -20,7 +20,7 @@ public class SelectWheel : Draggable
         _amplitudePerSection = totalAngles / nbSections;
         _step = totalAngles / nbSections;
         _zeroAngle = Mathf.FloorToInt(-_step*(nbSections-1)/2.0f);
-        currentValue = resourceHandle.GetCurrentValue();
+        currentValue = resourceSystem.currentValue;
         TurnToCurrentValue();
     }
 
@@ -39,7 +39,7 @@ public class SelectWheel : Draggable
 
     private void UpdateValue()
     {
-        resourceHandle.SetValue(currentValue);
+        resourceSystem.SetValue(currentValue);
     }
     
 }

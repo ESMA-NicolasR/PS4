@@ -58,13 +58,12 @@ public class Focusable : Clickable
         }
     }
 
-    public void LoseFocus()
+    public virtual void LoseFocus()
     {
-        Enable();
+        DisableInteractables();
     }
     
-    
-    public void DisableInteractables()
+    private void DisableInteractables()
     {
         foreach (var clickable in _clickables)
         {
