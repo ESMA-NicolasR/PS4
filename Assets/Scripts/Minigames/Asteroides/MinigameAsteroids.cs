@@ -8,16 +8,19 @@ public class MinigameAsteroids : MonoBehaviour
     public ResourceSystemAsteroids resourceSystem;
     public GameObject cursor;
     public GameObject screen, screenOffset;
+    public float inset;
+    [HideInInspector]
     public float cursorMaxY, cursorMaxX;
     public GameObject asteroidPrefab;
+    [HideInInspector]
     public float cursorStep;
     private Vector2 _lowerBounds, _higherBounds;
 
     private void Start()
     {
         var extents = screen.GetComponent<MeshFilter>().mesh.bounds.extents;
-        cursorMaxX = extents.x;
-        cursorMaxY = extents.y;
+        cursorMaxX = extents.x - inset;
+        cursorMaxY = extents.y - inset;
         
         cursorStep = cursor.GetComponent<SpriteRenderer>().sprite.bounds.size.x * cursor.transform.localScale.x;
         _lowerBounds = new Vector2(-cursorMaxX + cursorStep, -cursorMaxY + cursorStep);
