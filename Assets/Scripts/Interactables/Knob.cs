@@ -6,7 +6,8 @@ public class Knob : Draggable
 {
     public Transform target;
     private float startAngle;
-    public MeshRenderer fakeCursor;
+    public Transform fakeCursor;
+    public Transform handlePivot;
     public SplineContainer circle;
     public float turnSpeed;
     public float rotateTransmission;
@@ -31,7 +32,6 @@ public class Knob : Draggable
     {
         base.Start();
         // Hide fake cursor
-        fakeCursor.enabled = false;
         _progress = resourceSystem.currentValue;
     }
 
@@ -39,20 +39,11 @@ public class Knob : Draggable
     {
         base.Interact();
         // Setup fake cursor
-        fakeCursor.enabled = true;
-        Vector3 startPosition = Input.mousePosition;
-        startPosition.z = Vector3.Distance(target.position, Camera.main.transform.position);
-        SnapCursorToCircle(Camera.main.ScreenToWorldPoint(startPosition));
+        Vector3 startPosition = handlePivot.position;
+        SnapCursorToCircle(startPosition);
         // Set up rotation
         Vector3 vector = fakeCursor.transform.localPosition;
         startAngle = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
-    }
-
-    protected override void OnMouseUp()
-    {
-        base.OnMouseUp();
-        // Hide fake cursor
-        fakeCursor.enabled = false;
     }
 
     protected override void Drag(Vector2 delta)
