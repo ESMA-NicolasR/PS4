@@ -51,7 +51,7 @@ public class MissionGiver : MonoBehaviour
         _currentObjective.BreakSystem(_namesToSystems[_currentObjective.systemName]);
         // Start the mission
         _isStarted = true;
-        text.text = _currentObjective.description +". Push the button when it's done.";
+        text.text = _currentObjective.description +" Push the button when it's done.";
         // Analytics
         AnalyticsObjectiveStarted?.Invoke();
     }

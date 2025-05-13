@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af40da97a589c094d9570773aa25c0bc, type: 3}
-  m_Name: Objective_01_lights_easy
+  m_Name: Objective_03_quantic_medium
   m_EditorClassIdentifier: 
-  systemName: 1
+  systemName: 9
   targetValue: 100
-  breakValue: 15
-  time: 50
-  description: Fix the lights (under the desk)
-  winMessage: Thanks !
-  loseMessage: You failed...
+  breakValue: 0
+  time: 0
+  description: Max out the quantum agitation
+  winMessage: We are ready to work
+  loseMessage: Our research is ruined

@@ -281,6 +281,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little Pump Handle
       objectReference: {fileID: 0}
+    - target: {fileID: 9025422979728431854, guid: de9fbf2d991220b47947942a98c46541, type: 3}
+      propertyPath: dragFactor
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9025422979728431854, guid: de9fbf2d991220b47947942a98c46541, type: 3}
+      propertyPath: amplitudeWeight
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

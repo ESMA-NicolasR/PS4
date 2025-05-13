@@ -243,9 +243,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectives:
-  - {fileID: 11400000, guid: 45028c3c53d922a49aa4d24034658ef1, type: 2}
   - {fileID: 11400000, guid: e0faf9aceeff6734b9e18948bb8ef1f5, type: 2}
+  - {fileID: 11400000, guid: 522736f4fa4d0cc409b70cfe7b3cf260, type: 2}
+  - {fileID: 11400000, guid: 5204c53f661d3dd49894afc251913b2c, type: 2}
+  - {fileID: 11400000, guid: 098adbc9049af8d439cb5529a101a75b, type: 2}
   - {fileID: 11400000, guid: f9038c4f44899e74ca6f1c946fbc802e, type: 2}
+  - {fileID: 11400000, guid: 02e10280a1e65de459334978c8d19447, type: 2}
+  - {fileID: 11400000, guid: ec6ac16a5ec612444ba4437894a78b1b, type: 2}
+  - {fileID: 11400000, guid: 0623d07a6aeef3945832e347553029c6, type: 2}
+  - {fileID: 11400000, guid: 7653ac0f659036b4abf6d99c546751d9, type: 2}
+  - {fileID: 11400000, guid: ba97b6aab839c3b43b66db5b0e0d8f1f, type: 2}
+  - {fileID: 11400000, guid: 45028c3c53d922a49aa4d24034658ef1, type: 2}
   text: {fileID: 0}
 --- !u!114 &4762873382987384640
 MonoBehaviour:
@@ -307,7 +315,7 @@ MonoBehaviour:
   currentValue: 0
   targetValue: 0
   minValue: 500
-  maxValue: 1000
+  maxValue: 1500
   step: 100
   minDistance: 10
   maxDistance: 50

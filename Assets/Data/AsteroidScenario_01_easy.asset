@@ -20,7 +20,7 @@ MonoBehaviour:
   winMessage: Thanks for saving us
   loseMessage: . . . - everyone died - . . .
   spawnList:
-  - spawnDelay: 0
+  - spawnDelay: 1
     moveSpeed: 1
     growSpeed: 0.2
     scale: 1
@@ -44,3 +44,21 @@ MonoBehaviour:
     scale: 0.6
     direction: {x: -1, y: -0.5}
     position: {x: -3, y: -2}
+  - spawnDelay: 0.2
+    moveSpeed: 1
+    growSpeed: 1.2
+    scale: 0.6
+    direction: {x: 2, y: -0.5}
+    position: {x: 1, y: -2}
+  - spawnDelay: 0.1
+    moveSpeed: 1.5
+    growSpeed: 1.2
+    scale: 0.6
+    direction: {x: -3, y: 1}
+    position: {x: 0, y: 1}
+  - spawnDelay: 0.2
+    moveSpeed: 1.5
+    growSpeed: 1.2
+    scale: 0.6
+    direction: {x: 1, y: 10}
+    position: {x: 0, y: 0}

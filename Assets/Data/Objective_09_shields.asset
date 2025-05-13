@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af40da97a589c094d9570773aa25c0bc, type: 3}
-  m_Name: Objective_01_lights_easy
+  m_Name: Objective_09_shields
   m_EditorClassIdentifier: 
-  systemName: 1
-  targetValue: 100
-  breakValue: 15
-  time: 50
-  description: Fix the lights (under the desk)
-  winMessage: Thanks !
-  loseMessage: You failed...
+  systemName: 8
+  targetValue: 0
+  breakValue: 1
+  time: 0
+  description: We are overloading, bring down our shields
+  winMessage: We avoided the worst
+  loseMessage: . . . - - - . . .

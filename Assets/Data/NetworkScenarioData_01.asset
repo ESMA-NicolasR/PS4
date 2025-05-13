@@ -16,7 +16,7 @@ MonoBehaviour:
   targetValue: 0
   breakValue: 0
   time: 0
-  description: Please fix Network T-T
-  winMessage: Network is goood
-  loseMessage: Nahh Network Failed
+  description: Fix the network
+  winMessage: Connection established !
+  loseMessage: Connection lost...
   boardPrefab: {fileID: 2066718368306942282, guid: 0fcfe72cc97fdf64a9713af8ae4415ed, type: 3}
