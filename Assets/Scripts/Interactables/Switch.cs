@@ -11,6 +11,7 @@ public class Switch : Clickable
 
     protected override void Start()
     {
+        _isToggled = resourceHandle.GetCurrentValue() != 0;
         RotateWithToggle();
     }
 

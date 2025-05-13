@@ -15,7 +15,7 @@ public class Asteroid : MonoBehaviour
 
     private void OnEnable()
     {
-        _minigameAsteroids = GameObject.Find("Asteroids").GetComponent<MinigameAsteroids>();
+        _minigameAsteroids = FindFirstObjectByType<MinigameAsteroids>();
         StartCoroutine(DestroyShip());
         
         _newPosition = new Vector3(_minigameAsteroids.cursorStep,_minigameAsteroids.cursorStep,0);

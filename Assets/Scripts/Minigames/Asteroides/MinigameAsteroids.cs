@@ -16,11 +16,11 @@ public class MinigameAsteroids : ResourceSystem
 
     private void Start()
     {
-        cursorMaxX = screen.GetComponent<Renderer>().bounds.size.x/2-cursorStep;
-        cursorMaxY = screen.GetComponent<Renderer>().bounds.size.y/2-cursorStep;
-        //cursor.transform.localPosition += new Vector3(0, cursorMaxY*cursorStep, 0);//si point de pivot en bas
+        var extents = screen.GetComponent<MeshFilter>().mesh.bounds.extents;
+        cursorMaxX = extents.x * screen.transform.localScale.x - cursorStep;
+        cursorMaxY = extents.y * screen.transform.localScale.y - cursorStep;
     }
-    
+
     public void MoveCursor(int direction)
     {
         if (direction == 1)//left
