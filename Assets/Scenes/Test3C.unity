@@ -8733,14 +8733,14 @@ PrefabInstance:
     - target: {fileID: 324669277020941547, guid: a25d557b44675bc4fb8caa9cf095df72, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 339762894}
     - target: {fileID: 324669277020941547, guid: a25d557b44675bc4fb8caa9cf095df72, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 324669277020941547, guid: a25d557b44675bc4fb8caa9cf095df72, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Break
+      value: PlayScenario
       objectReference: {fileID: 0}
     - target: {fileID: 324669277020941547, guid: a25d557b44675bc4fb8caa9cf095df72, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
