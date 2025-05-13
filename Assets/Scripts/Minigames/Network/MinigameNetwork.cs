@@ -124,11 +124,16 @@ public class MinigameNetwork : MonoBehaviour
                 _lastCaseSelected = caseSelected;
             }
         }
-        else if (isPathing && caseSelected.endCase)
+        else if (isPathing && (caseSelected.endCase && caseSelected.baseColor == actualColor))
         {
             isPathing = false;
             _resourceSystemNetwork.ChangeValue(1);
             _colorDone = actualColor;
+        }
+        else if (isPathing && caseSelected.startCase)
+        {
+            print("heho");
+            ResetColor(actualColor);
         }
     }
 
