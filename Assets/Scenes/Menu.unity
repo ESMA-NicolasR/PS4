@@ -1093,6 +1093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc06ac842d8138446bbc1b8f29ec2c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToLoad: BetaLevel
 --- !u!1 &1725449241
 GameObject:
   m_ObjectHideFlags: 0

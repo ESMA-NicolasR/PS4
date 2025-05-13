@@ -279,7 +279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5376003069610111060, guid: 7b814758b75cf1a4192565139d29121f, type: 3}
       propertyPath: dragDownMultiplier
-      value: 0.3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6013426804954097220, guid: 7b814758b75cf1a4192565139d29121f, type: 3}
       propertyPath: m_Name

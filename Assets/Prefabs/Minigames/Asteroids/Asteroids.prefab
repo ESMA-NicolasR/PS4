@@ -81,7 +81,7 @@ MonoBehaviour:
   cursor: {fileID: 5951997103241345525}
   screen: {fileID: 5281743979411093040}
   screenOffset: {fileID: 6539467291517285887}
-  inset: 0.1
+  inset: 0.05
   cursorMaxY: 0
   cursorMaxX: 0
   asteroidPrefab: {fileID: 4774470700079407404, guid: 5c7ea845fa9d69d4f946f4b374d376b5, type: 3}

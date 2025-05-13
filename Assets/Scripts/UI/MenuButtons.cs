@@ -4,9 +4,10 @@ using UnityEditor;
 
 public class MenuButtons : MonoBehaviour
 {
+    public string sceneToLoad;
     public void Play()
     {
-        SceneManager.LoadScene("AlphaLevel");
+        SceneManager.LoadScene(sceneToLoad);
     }
 
     public void Quit()
