@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 7e8135bf2ca4b3848aa0f7ccbf217e21
+guid: 74cf4a6cc43240246a022c7c6894e64f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Room_001
+    second: {fileID: 2100000, guid: 8e192603b261a4046a50ad3e587c9ca9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 1
@@ -91,7 +96,7 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
