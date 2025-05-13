@@ -42,7 +42,7 @@ public class Page : Animatable
 
        protected virtual void EnablePagesRight()
     {
-        if (index < _book.pages.Count - 1)
+        if (index < _book.pages.Count-1)
         {
             _book.pages[index + 1].EnablePage();
         }
