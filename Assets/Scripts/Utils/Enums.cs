@@ -28,7 +28,7 @@ public enum SelectEnums
 {
     None,
     CoordinatesRecipients,
-    FluidsName
+    FluidsNames
 }
 
 public enum CoordinatesRecipient
@@ -46,7 +46,7 @@ public enum FluidsName
     Water,
     Fuel,
     Cooling,
-    Nuclear_waste
+    Nuclear
 }
 
 public enum AsteroidCursorMovement

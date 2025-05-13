@@ -8,6 +8,18 @@ public class ResourceSystemEnum : ResourceSystem
     private SelectEnums _enum;
     private Type _usedEnum;
 
+    private void Awake()
+    {
+        switch (_enum)
+        {
+            case SelectEnums.CoordinatesRecipients:
+                _usedEnum = typeof(CoordinatesRecipient);
+                break;
+            case SelectEnums.FluidsNames:
+                _usedEnum = typeof(FluidsName);
+                break;
+        }
+    }
 
     public string GetCurrentValueAsText()
     {
@@ -20,13 +32,6 @@ public class ResourceSystemEnum : ResourceSystem
         if (_enum == SelectEnums.None)
         {
             throw new ArgumentException($"ResourceSystemEnum {gameObject.name} needs a valid SelectEnum", "SelectEnum");
-        }
-
-        switch (_enum)
-        {
-            case SelectEnums.CoordinatesRecipients:
-                _usedEnum = typeof(CoordinatesRecipient);
-                break;
         }
     }
 }
