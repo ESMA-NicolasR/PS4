@@ -42,7 +42,10 @@ public class Page : Animatable
 
        protected virtual void EnablePagesRight()
     {
-        _book.pages[index+1].EnablePage();
+        if (index < _book.pages.Count - 1)
+        {
+            _book.pages[index + 1].EnablePage();
+        }
         Debug.Log("Active a Droite" + index);
         if (index > 0)
         {
@@ -53,9 +56,12 @@ public class Page : Animatable
 
          protected virtual void EnablePagesLeft()
     {
-        _book.pages[index-1].EnablePage();
+        if (index > 0)
+        {
+            _book.pages[index - 1].EnablePage();
+        }
         Debug.Log("Active a Gauche" + index);
-        if (index < _book.pages.Count)
+        if (index < _book.pages.Count-1)
         {
             _book.pages[index+1].DisablePage();
         }
