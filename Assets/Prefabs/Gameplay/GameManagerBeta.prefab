@@ -244,6 +244,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectives:
   - {fileID: 11400000, guid: e0faf9aceeff6734b9e18948bb8ef1f5, type: 2}
+  - {fileID: 11400000, guid: f9038c4f44899e74ca6f1c946fbc802e, type: 2}
+  - {fileID: 11400000, guid: 45028c3c53d922a49aa4d24034658ef1, type: 2}
   text: {fileID: 0}
 --- !u!114 &4762873382987384640
 MonoBehaviour:
@@ -395,7 +397,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5070283761515621802}
-  - component: {fileID: 4977350856293404951}
+  - component: {fileID: 7310523675803423193}
   m_Layer: 0
   m_Name: Fluids
   m_TagString: Untagged
@@ -418,7 +420,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 734853828552839769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4977350856293404951
+--- !u!114 &7310523675803423193
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -427,12 +429,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3160302041247883486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fff2f8a66cca3488b88eb8a6055ceb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d1e140ff0dcc264d946338692ab95a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   systemName: 10
   currentValue: 0
   targetValue: 0
+  minValue: 0
+  maxValue: 100
+  step: 1
+  minDistance: 10
+  maxDistance: 50
 --- !u!1 &3864970918420122136
 GameObject:
   m_ObjectHideFlags: 0
