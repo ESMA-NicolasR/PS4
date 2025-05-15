@@ -24,6 +24,16 @@ public enum SystemName
     Pressure
 }
 
+public enum StationName{
+    None,
+    Central,
+    Navigation,
+    Communication,
+    Engineering,
+    Entrance,
+    Rest
+}
+
 public enum SelectEnums
 {
     None,

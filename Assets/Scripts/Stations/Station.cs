@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 public class Station : MonoBehaviour
 {
     public TravelPath leftPath, rightPath, backPath;
+    public StationName stationName;
     private Clickable[] _clickables;
     private Focusable[] _focusables;
     
@@ -45,6 +47,14 @@ public class Station : MonoBehaviour
         foreach (var focusable in _focusables)
         {
             focusable.LoseFocus();            
+        }
+    }
+
+    private void OnValidate()
+    {
+        if (stationName == StationName.None)
+        {
+            throw new ArgumentException($"Station {gameObject.name} needs a valid StationName", "StationName");
         }
     }
 }

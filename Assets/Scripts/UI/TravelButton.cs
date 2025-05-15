@@ -1,9 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 public class TravelButton : MonoBehaviour
 {
     public TravelDirection travelDirection;
     public GameObject panel;
+    public TextMeshProUGUI text;
 
     private void OnEnable()
     {
@@ -31,5 +33,10 @@ public class TravelButton : MonoBehaviour
     private void Show()
     {
         panel.SetActive(true);
+    }
+
+    public void SetDestinationName(string destination)
+    {
+        text.text = $"Go to {destination}";
     }
 }

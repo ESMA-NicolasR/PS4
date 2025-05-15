@@ -98,6 +98,7 @@ MonoBehaviour:
   leftPath: {fileID: 8156647177455084243}
   rightPath: {fileID: 1883517220911942518}
   backPath: {fileID: 3011277770511931235}
+  stationName: 1
 --- !u!1 &2803259299002271358
 GameObject:
   m_ObjectHideFlags: 0
