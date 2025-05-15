@@ -26,6 +26,12 @@ public class ResourceSystemEnum : ResourceSystem
         return Enum.GetName(_usedEnum, currentValue);
     }
 
+    protected override int SanitizeValue(int value)
+    {
+        // Maximum is the amount of values in the enum
+        return Math.Clamp(value, 0, Enum.GetValues(_usedEnum).Length-1);
+    }
+
     protected override void OnValidate()
     {
         base.OnValidate();
