@@ -2,15 +2,23 @@ using UnityEngine;
 
 public class Switch : Clickable
 {
-    private bool _isToggled;
     public Transform target;
     public float rotationAmplitude;
     public ResourceSystemBool resourceSystem;
 
+    private void OnEnable()
+    {
+        resourceSystem.OnChangeValue += UpdateDisplay;
+    }
+
+    private void OnDisable()
+    {
+        resourceSystem.OnChangeValue -= UpdateDisplay;
+    }
+
     protected override void Start()
     {
-        _isToggled = resourceSystem.GetCurrentValueAsBool();
-        RotateWithToggle();
+        UpdateDisplay();
     }
 
     protected override void Interact()
@@ -20,18 +28,16 @@ public class Switch : Clickable
 
     public void Toggle()
     {
-        _isToggled = !_isToggled;
-        RotateWithToggle();
         UpdateValue();
     }
 
-    private void RotateWithToggle()
+    private void UpdateDisplay()
     {
-        target.localEulerAngles = new Vector3(rotationAmplitude*(_isToggled?1:-1), 0, 0);
+        target.localEulerAngles = new Vector3(rotationAmplitude*(resourceSystem.GetCurrentValueAsBool()? 1 : -1), 0, 0);
     }
 
     private void UpdateValue()
     {
-        resourceSystem.SetValue(_isToggled);
+        resourceSystem.Flip();
     }
 }

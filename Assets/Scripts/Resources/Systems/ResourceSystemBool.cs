@@ -15,6 +15,11 @@ public class ResourceSystemBool : ResourceSystem
         return currentValue == 1;
     }
 
+    public void Flip()
+    {
+        SetValue(!GetCurrentValueAsBool());
+    }
+
     public void SetValue(bool newValue)
     {
         SetValue(newValue?1:0);
