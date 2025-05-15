@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,14 +14,18 @@ public class Draggable : Clickable
     {
         _isDragged = true;
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         FindFirstObjectByType<CursorMoveCamera>().readInputs = false;
     }
 
     protected virtual void OnMouseUp()
     {
-        Cursor.visible = true;
         _isDragged = false;
+        Cursor.lockState = CursorLockMode.None;
+        Mouse.current.WarpCursorPosition(Camera.main.WorldToScreenPoint(_anchor.position));
+        Cursor.visible = true;
         FindFirstObjectByType<CursorMoveCamera>().readInputs = true;
+        
     }
 
     protected override void OnMouseEnter()
@@ -43,7 +46,6 @@ public class Draggable : Clickable
     {
         if (!_isDragged) return;
         Drag(Mouse.current.delta.ReadValue() * dragFactor);
-        Mouse.current.WarpCursorPosition(Camera.main.WorldToScreenPoint(_anchor.position));
         // Analytics
         AnalyticsTotalTimeDragging += Time.deltaTime;
     }
