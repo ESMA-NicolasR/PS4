@@ -197,7 +197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb08367a18775fe42a022af71c4baebc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb08367a18775fe42a022af71c4baebc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -231,6 +231,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5754084199372789682, guid: eb08367a18775fe42a022af71c4baebc, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -6740594415527560520, guid: 6f33c7526eeea8e429716459e2fda513, type: 3}
     - target: {fileID: 919132149155446097, guid: eb08367a18775fe42a022af71c4baebc, type: 3}
       propertyPath: m_Name
       value: SM_Roof
@@ -293,6 +297,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5754084199372789682, guid: 4229f0fd4bbe38c4f850610d8c967ac6, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -7850726491245994243, guid: 4229f0fd4bbe38c4f850610d8c967ac6, type: 3}
     - target: {fileID: 919132149155446097, guid: 4229f0fd4bbe38c4f850610d8c967ac6, type: 3}
       propertyPath: m_Name
       value: SM_Room
