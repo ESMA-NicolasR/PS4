@@ -9,7 +9,7 @@ public class MeteorCaseBehavior : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            minigameNetwork.Out();
+
         }
     }
 }
