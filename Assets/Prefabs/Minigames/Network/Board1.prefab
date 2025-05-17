@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2822677173198549367}
   - component: {fileID: 197549239688606992}
-  - component: {fileID: 4906517613393468454}
   - component: {fileID: 5297952242384316855}
+  - component: {fileID: 6277936080387793270}
   m_Layer: 0
   m_Name: Case (8)
   m_TagString: Untagged
@@ -89,22 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4906517613393468454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 303636058710204280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0235fb764e6d8594c959a8ec8aa82af6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endCase: 0
-  startCase: 0
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  minigameNetwork: {fileID: 0}
 --- !u!65 &5297952242384316855
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -126,6 +110,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000005, y: 1.0000001, z: 0.20000009}
   m_Center: {x: 0.0000076293945, y: 0.0000038146973, z: -0.0000038146973}
+--- !u!114 &6277936080387793270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303636058710204280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ff50a4c9c558048b3f1dc440a524e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionX: 0
+  positionY: 0
+  isConnected: 0
+  colorNb: 0
+  minigame: {fileID: 0}
 --- !u!1 &498807942961864975
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,8 +137,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3701940362294141430}
   - component: {fileID: 1707341111416323917}
-  - component: {fileID: 536741865900850103}
   - component: {fileID: 2649345685952702531}
+  - component: {fileID: 8382839336643594459}
   m_Layer: 0
   m_Name: Case (10)
   m_TagString: Untagged
@@ -215,22 +216,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &536741865900850103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 498807942961864975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0235fb764e6d8594c959a8ec8aa82af6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endCase: 1
-  startCase: 0
-  baseColor: {r: 1, g: 0.5, b: 0, a: 1}
-  minigameNetwork: {fileID: 0}
 --- !u!65 &2649345685952702531
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -252,6 +237,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000005, y: 1.0000001, z: 0.20000009}
   m_Center: {x: 0.0000076293945, y: 0.0000038146973, z: -0.0000038146973}
+--- !u!114 &8382839336643594459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498807942961864975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ff50a4c9c558048b3f1dc440a524e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionX: 0
+  positionY: 0
+  isConnected: 0
+  colorNb: 0
+  minigame: {fileID: 0}
 --- !u!1 &592749171685316164
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,8 +264,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2742540006606319727}
   - component: {fileID: 1829589073545698515}
-  - component: {fileID: 7144231942521897094}
   - component: {fileID: 985816901000626049}
+  - component: {fileID: 4191667002439533548}
   m_Layer: 0
   m_Name: Case (6)
   m_TagString: Untagged
@@ -341,22 +343,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7144231942521897094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 592749171685316164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0235fb764e6d8594c959a8ec8aa82af6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endCase: 0
-  startCase: 1
-  baseColor: {r: 0, g: 0, b: 1, a: 1}
-  minigameNetwork: {fileID: 0}
 --- !u!65 &985816901000626049
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -378,6 +364,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000005, y: 1.0000001, z: 0.20000009}
   m_Center: {x: 0.0000076293945, y: 0.0000038146973, z: -0.0000038146973}
+--- !u!114 &4191667002439533548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592749171685316164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ff50a4c9c558048b3f1dc440a524e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionX: 0
+  positionY: 0
+  isConnected: 0
+  colorNb: 0
+  minigame: {fileID: 0}
 --- !u!1 &986091624342237725
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,8 +391,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1437597906178468584}
   - component: {fileID: 2006144541088812981}
-  - component: {fileID: 7623694874942463423}
   - component: {fileID: 4785811098632847445}
+  - component: {fileID: 4251770075712773251}
   m_Layer: 0
   m_Name: Case (4)
   m_TagString: Untagged
@@ -467,22 +470,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7623694874942463423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 986091624342237725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0235fb764e6d8594c959a8ec8aa82af6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endCase: 0
-  startCase: 0
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  minigameNetwork: {fileID: 0}
 --- !u!65 &4785811098632847445
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -504,6 +491,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000005, y: 1.0000001, z: 0.20000009}
   m_Center: {x: 0.0000076293945, y: 0.0000038146973, z: -0.0000038146973}
+--- !u!114 &4251770075712773251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986091624342237725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ff50a4c9c558048b3f1dc440a524e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionX: 0
+  positionY: 0
+  isConnected: 0
+  colorNb: 0
+  minigame: {fileID: 0}
 --- !u!1 &1540272500750120166
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +519,6 @@ GameObject:
   - component: {fileID: 7278708422977853557}
   - component: {fileID: 2350872629518688606}
   - component: {fileID: 2699637661495246737}
-  - component: {fileID: 2835711921653136911}
   m_Layer: 0
   m_Name: Meteor (2)
   m_TagString: Untagged
@@ -614,19 +617,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000005, y: 1.0000001, z: 0.20000009}
   m_Center: {x: 0.0000076293945, y: 0.0000038146973, z: -0.0000038146973}
---- !u!114 &2835711921653136911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1540272500750120166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 660737077f49436428891cd431ca690a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minigameNetwork: {fileID: 0}
 --- !u!1 &1862582435196689374
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,8 +627,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6322719301040521935}
   - component: {fileID: 8228865513085538042}
-  - component: {fileID: 8175260504400660378}
   - component: {fileID: 59906655253655339}
+  - component: {fileID: 662053593643296784}
   m_Layer: 0
   m_Name: Case (2)
   m_TagString: Untagged
@@ -716,22 +706,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8175260504400660378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1862582435196689374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0235fb764e6d8594c959a8ec8aa82af6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endCase: 0
-  startCase: 1
-  baseColor: {r: 1, g: 0.5, b: 0, a: 1}
-  minigameNetwork: {fileID: 0}
 --- !u!65 &59906655253655339
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -753,6 +727,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000005, y: 1.0000001, z: 0.20000009}
   m_Center: {x: 0.0000076293945, y: 0.0000038146973, z: -0.0000038146973}
+--- !u!114 &662053593643296784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862582435196689374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ff50a4c9c558048b3f1dc440a524e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionX: 0
+  positionY: 0
+  isConnected: 0
+  colorNb: 0
+  minigame: {fileID: 0}
 --- !u!1 &2066718368306942282
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,8 +801,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1318239758718939515}
   - component: {fileID: 6828100429387867265}
-  - component: {fileID: 217296570643205690}
   - component: {fileID: 550891953922610645}
+  - component: {fileID: 8135163601406771790}
   m_Layer: 0
   m_Name: Case (5)
   m_TagString: Untagged
@@ -889,22 +880,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &217296570643205690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3236471876421294429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0235fb764e6d8594c959a8ec8aa82af6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endCase: 0
-  startCase: 0
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  minigameNetwork: {fileID: 0}
 --- !u!65 &550891953922610645
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -926,6 +901,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000005, y: 1.0000001, z: 0.20000009}
   m_Center: {x: 0.0000076293945, y: 0.0000038146973, z: -0.0000038146973}
+--- !u!114 &8135163601406771790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3236471876421294429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ff50a4c9c558048b3f1dc440a524e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionX: 0
+  positionY: 0
+  isConnected: 0
+  colorNb: 0
+  minigame: {fileID: 0}
 --- !u!1 &5783641567815279723
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,8 +928,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7233365283482183049}
   - component: {fileID: 5987276738299064017}
-  - component: {fileID: 7039198912413329683}
   - component: {fileID: 6742727882438723857}
+  - component: {fileID: 4925578569435389546}
   m_Layer: 0
   m_Name: Case (1)
   m_TagString: Untagged
@@ -1015,22 +1007,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7039198912413329683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5783641567815279723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0235fb764e6d8594c959a8ec8aa82af6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endCase: 0
-  startCase: 0
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  minigameNetwork: {fileID: 0}
 --- !u!65 &6742727882438723857
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1052,6 +1028,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000005, y: 1.0000001, z: 0.20000009}
   m_Center: {x: 0.0000076293945, y: 0.0000038146973, z: -0.0000038146973}
+--- !u!114 &4925578569435389546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5783641567815279723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ff50a4c9c558048b3f1dc440a524e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionX: 0
+  positionY: 0
+  isConnected: 0
+  colorNb: 0
+  minigame: {fileID: 0}
 --- !u!1 &5888843255515038192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,7 +1056,6 @@ GameObject:
   - component: {fileID: 6485022228102694513}
   - component: {fileID: 4807269795218234963}
   - component: {fileID: 2503520435119152678}
-  - component: {fileID: 1756202039230997233}
   m_Layer: 0
   m_Name: Meteor (3)
   m_TagString: Untagged
@@ -1162,19 +1154,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000005, y: 1.0000001, z: 0.20000009}
   m_Center: {x: 0.0000076293945, y: 0.0000038146973, z: -0.0000038146973}
---- !u!114 &1756202039230997233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5888843255515038192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 660737077f49436428891cd431ca690a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minigameNetwork: {fileID: 0}
 --- !u!1 &6240202997899762603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,7 +1165,6 @@ GameObject:
   - component: {fileID: 3480362419606008790}
   - component: {fileID: 8572981118518330252}
   - component: {fileID: 3301462079685983606}
-  - component: {fileID: 2045553231729015532}
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Untagged
@@ -1285,19 +1263,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000005, y: 1.0000001, z: 0.20000009}
   m_Center: {x: 0.0000076293945, y: 0.0000038146973, z: -0.0000038146973}
---- !u!114 &2045553231729015532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6240202997899762603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 660737077f49436428891cd431ca690a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minigameNetwork: {fileID: 0}
 --- !u!1 &6732871810272504068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,7 +1274,6 @@ GameObject:
   - component: {fileID: 8686743116837679425}
   - component: {fileID: 2856087999926009410}
   - component: {fileID: 7902749400899033188}
-  - component: {fileID: 3966489943902937223}
   m_Layer: 0
   m_Name: Meteor (1)
   m_TagString: Untagged
@@ -1408,19 +1372,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000005, y: 1.0000001, z: 0.20000009}
   m_Center: {x: 0.0000076293945, y: 0.0000038146973, z: -0.0000038146973}
---- !u!114 &3966489943902937223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6732871810272504068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 660737077f49436428891cd431ca690a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minigameNetwork: {fileID: 0}
 --- !u!1 &7055694063323375627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,8 +1382,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1544612785909981863}
   - component: {fileID: 4031885923711779707}
-  - component: {fileID: 849390950333429065}
   - component: {fileID: 1981602638131204117}
+  - component: {fileID: 4773859984847144154}
   m_Layer: 0
   m_Name: Case (11)
   m_TagString: Untagged
@@ -1510,22 +1461,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &849390950333429065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7055694063323375627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0235fb764e6d8594c959a8ec8aa82af6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endCase: 0
-  startCase: 0
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  minigameNetwork: {fileID: 0}
 --- !u!65 &1981602638131204117
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1547,6 +1482,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000005, y: 1.0000001, z: 0.20000009}
   m_Center: {x: 0.0000076293945, y: 0.0000038146973, z: -0.0000038146973}
+--- !u!114 &4773859984847144154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7055694063323375627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ff50a4c9c558048b3f1dc440a524e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionX: 0
+  positionY: 0
+  isConnected: 0
+  colorNb: 0
+  minigame: {fileID: 0}
 --- !u!1 &7651523962046750805
 GameObject:
   m_ObjectHideFlags: 0
@@ -1557,8 +1509,8 @@ GameObject:
   m_Component:
   - component: {fileID: 108278547921833012}
   - component: {fileID: 3857899764416302933}
-  - component: {fileID: 7679023280412613867}
   - component: {fileID: 4971277698431349963}
+  - component: {fileID: 5403174599154807760}
   m_Layer: 0
   m_Name: Case (3)
   m_TagString: Untagged
@@ -1636,22 +1588,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7679023280412613867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7651523962046750805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0235fb764e6d8594c959a8ec8aa82af6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endCase: 0
-  startCase: 0
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  minigameNetwork: {fileID: 0}
 --- !u!65 &4971277698431349963
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1673,6 +1609,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000005, y: 1.0000001, z: 0.20000009}
   m_Center: {x: 0.0000076293945, y: 0.0000038146973, z: -0.0000038146973}
+--- !u!114 &5403174599154807760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7651523962046750805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ff50a4c9c558048b3f1dc440a524e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionX: 0
+  positionY: 0
+  isConnected: 0
+  colorNb: 0
+  minigame: {fileID: 0}
 --- !u!1 &8664952047214033380
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,8 +1636,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4261288221753232017}
   - component: {fileID: 3194349594677021923}
-  - component: {fileID: 3333095910083059029}
   - component: {fileID: 3569479397066735491}
+  - component: {fileID: 6227962778490769088}
   m_Layer: 0
   m_Name: Case (9)
   m_TagString: Untagged
@@ -1762,22 +1715,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3333095910083059029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8664952047214033380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0235fb764e6d8594c959a8ec8aa82af6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endCase: 0
-  startCase: 0
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  minigameNetwork: {fileID: 0}
 --- !u!65 &3569479397066735491
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1799,6 +1736,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000005, y: 1.0000001, z: 0.20000009}
   m_Center: {x: 0.0000076293945, y: 0.0000038146973, z: -0.0000038146973}
+--- !u!114 &6227962778490769088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8664952047214033380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ff50a4c9c558048b3f1dc440a524e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionX: 0
+  positionY: 0
+  isConnected: 0
+  colorNb: 0
+  minigame: {fileID: 0}
 --- !u!1 &9112852156533244952
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,8 +1763,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3878255931109190012}
   - component: {fileID: 6219097889244802141}
-  - component: {fileID: 8896418286265126860}
   - component: {fileID: 5651332357222584606}
+  - component: {fileID: 1388611404781510714}
   m_Layer: 0
   m_Name: Case
   m_TagString: Untagged
@@ -1888,22 +1842,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8896418286265126860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9112852156533244952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0235fb764e6d8594c959a8ec8aa82af6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endCase: 1
-  startCase: 0
-  baseColor: {r: 0, g: 0, b: 1, a: 1}
-  minigameNetwork: {fileID: 0}
 --- !u!65 &5651332357222584606
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1925,6 +1863,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000005, y: 1.0000001, z: 0.20000009}
   m_Center: {x: 0.0000076293945, y: 0.0000038146973, z: -0.0000038146973}
+--- !u!114 &1388611404781510714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9112852156533244952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ff50a4c9c558048b3f1dc440a524e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionX: 0
+  positionY: 0
+  isConnected: 0
+  colorNb: 0
+  minigame: {fileID: 0}
 --- !u!1 &9145053610111549753
 GameObject:
   m_ObjectHideFlags: 0
@@ -1935,8 +1890,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1596865541003179472}
   - component: {fileID: 3324452980378252535}
-  - component: {fileID: 5424465047628784041}
   - component: {fileID: 2282477385597896004}
+  - component: {fileID: 8563949394331133374}
   m_Layer: 0
   m_Name: Case (7)
   m_TagString: Untagged
@@ -2014,22 +1969,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5424465047628784041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9145053610111549753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0235fb764e6d8594c959a8ec8aa82af6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endCase: 0
-  startCase: 0
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  minigameNetwork: {fileID: 0}
 --- !u!65 &2282477385597896004
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2051,3 +1990,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000005, y: 1.0000001, z: 0.20000009}
   m_Center: {x: 0.0000076293945, y: 0.0000038146973, z: -0.0000038146973}
+--- !u!114 &8563949394331133374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9145053610111549753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ff50a4c9c558048b3f1dc440a524e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionX: 0
+  positionY: 0
+  isConnected: 0
+  colorNb: 0
+  minigame: {fileID: 0}

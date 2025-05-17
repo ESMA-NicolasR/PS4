@@ -1,16 +1,6 @@
 using UnityEngine;
 
-public class CellMeteor : MonoBehaviour
+public class CellMeteor : Cell
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
