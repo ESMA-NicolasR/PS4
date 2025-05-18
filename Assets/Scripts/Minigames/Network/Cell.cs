@@ -7,6 +7,10 @@ public class Cell : MonoBehaviour
     public int colorNb; //0 = none, 1 =  color1, 2 = color2
     public MinigameNetwork minigame;
 
+    private void OnEnable()
+    {
+        minigame = GetComponentInParent<MinigameNetwork>();
+    }
     public void ConnectColor(int ColorNb)
     {
         colorNb = ColorNb;
@@ -34,13 +38,13 @@ public class Cell : MonoBehaviour
         return CellType.Neutral;
     }
 
-    public virtual void OnMouseOn()
+    public virtual void OnMouseDown()
     {
         minigame.StartPathFromCell(this);
     }
     
     public void OnMouseDrag()
     {
-        minigame.DrawPathOnCell(colorNb, this);
+        minigame.DrawPathOnCell(this);
     }
 }
