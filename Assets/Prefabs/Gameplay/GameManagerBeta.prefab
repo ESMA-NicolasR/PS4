@@ -259,6 +259,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ba97b6aab839c3b43b66db5b0e0d8f1f, type: 2}
   - {fileID: 11400000, guid: 45028c3c53d922a49aa4d24034658ef1, type: 2}
   text: {fileID: 0}
+  _timeBetweenMissions: 5
 --- !u!114 &4762873382987384640
 MonoBehaviour:
   m_ObjectHideFlags: 0

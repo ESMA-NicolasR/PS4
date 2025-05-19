@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -11,10 +12,13 @@ public class MissionManager : MonoBehaviour
     public List<ResourceObjectiveData> objectives;
     private Dictionary<SystemName, ResourceSystem> _namesToSystems;
     public TextMeshPro text;
-    private bool _isStarted;
+    private bool _isObjectiveStarted;
+    private bool _isDayStarted;
     private int _progressionIndex;
     private ResourceObjectiveData _currentObjective;
     private int _nbSuccess;
+    private Coroutine _triggerMissionCoroutine;
+    [SerializeField] private float _timeBetweenMissions;
 
     public static event Action AnalyticsObjectiveStarted;
     public static event Action<AnalyticsObjectiveData> AnalyticsObjectiveFinished;
@@ -28,6 +32,7 @@ public class MissionManager : MonoBehaviour
     private void OnDisable()
     {
         MissionTimer.OnMissionTimerExpire -= OnMissionTimerExpire;
+        MissionButton.OnMissionAccepted -= StartMission;
     }
 
     void Start()
@@ -42,7 +47,11 @@ public class MissionManager : MonoBehaviour
 
     public void CheckInMission()
     {
-        if (_isStarted)
+        if (!_isDayStarted)
+        {
+            StartDay();
+        }
+        else if (_isObjectiveStarted)
         {
             CheckObjectiveIsDone();
         }
@@ -52,12 +61,19 @@ public class MissionManager : MonoBehaviour
         }
         else
         {
-            TriggerMission();
+            Debug.Log("Just wait");
         }
     }
 
-    private void TriggerMission()
+    private void StartDay()
     {
+        _isDayStarted = true;
+        _triggerMissionCoroutine = StartCoroutine(TriggerMissionCo());
+    }
+
+    private IEnumerator TriggerMissionCo()
+    {
+        yield return new WaitForSeconds(_timeBetweenMissions);
         missionGiver.StartSignal();
     }
     
@@ -68,7 +84,7 @@ public class MissionManager : MonoBehaviour
         // Break the system accordingly
         _currentObjective.BreakSystem(_namesToSystems[_currentObjective.systemName]);
         // Start the mission
-        _isStarted = true;
+        _isObjectiveStarted = true;
         text.text = _currentObjective.description +" Pull the button when it's done.";
         missionTimer.StartTimer(_currentObjective.time);
         // Analytics
@@ -83,8 +99,7 @@ public class MissionManager : MonoBehaviour
         AnalyticsObjectiveData data = new AnalyticsObjectiveData(_currentObjective.systemName.ToString(), isSuccess);
         AnalyticsObjectiveFinished?.Invoke(data);
         
-        // Next objective
-        missionTimer.StopTimer();
+        // Rewards
         if (isSuccess)
         {
             text.text = _currentObjective.winMessage;
@@ -96,7 +111,11 @@ public class MissionManager : MonoBehaviour
             text.text = _currentObjective.loseMessage;
             Debug.Log($"Mission {_currentObjective.name} failed");
         }
-        _isStarted = false;
+        
+        // Next objective
+        missionTimer.StopTimer();
+        StartCoroutine(TriggerMissionCo());
+        _isObjectiveStarted = false;
         _progressionIndex++;
         _currentObjective = null;
         
@@ -116,7 +135,7 @@ public class MissionManager : MonoBehaviour
     private void OnMissionTimerExpire()
     {
         missionTimer.StopTimer();
-        if (_isStarted)
+        if (_isObjectiveStarted)
         {
             CheckInMission();
         }
