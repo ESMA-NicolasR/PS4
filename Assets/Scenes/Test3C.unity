@@ -7642,11 +7642,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!4 &1940979506 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6166314639967630891, guid: 6e357f60e61a79946bf0a69e70087921, type: 3}
-  m_PrefabInstance: {fileID: 8340787471952140147}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1941962616
 GameObject:
   m_ObjectHideFlags: 0
@@ -8352,33 +8347,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4319021150521932677}
     m_Modifications:
-    - target: {fileID: 2010896596158384419, guid: 6e357f60e61a79946bf0a69e70087921, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.68979526
-      objectReference: {fileID: 0}
-    - target: {fileID: 2010896596158384419, guid: 6e357f60e61a79946bf0a69e70087921, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6897953
-      objectReference: {fileID: 0}
-    - target: {fileID: 2010896596158384419, guid: 6e357f60e61a79946bf0a69e70087921, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6897954
-      objectReference: {fileID: 0}
     - target: {fileID: 6104797416631371565, guid: 6e357f60e61a79946bf0a69e70087921, type: 3}
       propertyPath: m_Name
       value: Knob 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6166314639967630891, guid: 6e357f60e61a79946bf0a69e70087921, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6166314639967630891, guid: 6e357f60e61a79946bf0a69e70087921, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.228
-      objectReference: {fileID: 0}
-    - target: {fileID: 6166314639967630891, guid: 6e357f60e61a79946bf0a69e70087921, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.049
       objectReference: {fileID: 0}
     - target: {fileID: 8216981594853482695, guid: 6e357f60e61a79946bf0a69e70087921, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8419,22 +8390,6 @@ PrefabInstance:
     - target: {fileID: 8216981594853482695, guid: 6e357f60e61a79946bf0a69e70087921, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704528711473018006, guid: 6e357f60e61a79946bf0a69e70087921, type: 3}
-      propertyPath: dragFactor
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704528711473018006, guid: 6e357f60e61a79946bf0a69e70087921, type: 3}
-      propertyPath: fakeCursor
-      value: 
-      objectReference: {fileID: 1940979506}
-    - target: {fileID: 8704528711473018006, guid: 6e357f60e61a79946bf0a69e70087921, type: 3}
-      propertyPath: handlePivot
-      value: 
-      objectReference: {fileID: 1940979506}
-    - target: {fileID: 8704528711473018006, guid: 6e357f60e61a79946bf0a69e70087921, type: 3}
-      propertyPath: resourceHandle
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8704528711473018006, guid: 6e357f60e61a79946bf0a69e70087921, type: 3}
       propertyPath: resourceSystem
