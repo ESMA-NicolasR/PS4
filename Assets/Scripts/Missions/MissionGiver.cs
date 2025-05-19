@@ -1,112 +1,37 @@
-using System;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class MissionGiver : MonoBehaviour
 {
-    public MissionTimer missionTimer;
-    public List<ResourceObjectiveData> objectives;
-    private Dictionary<SystemName, ResourceSystem> _namesToSystems;
-    public TextMeshPro text;
-    private bool _isStarted;
-    private int _progressionIndex;
-    private ResourceObjectiveData _currentObjective;
-    private int _nbSuccess;
-
-    public static event Action AnalyticsObjectiveStarted;
-    public static event Action<AnalyticsObjectiveData> AnalyticsObjectiveFinished;
+    private MissionButton[] _missionButtons;
+    public GameObject missionButtons;
+    private int _currentButtonIndex;
 
     private void OnEnable()
     {
-        MissionTimer.OnMissionTimerExpire += OnMissionTimerExpire;
+        MissionButton.OnMissionAccepted += EndSignal;
     }
 
-    void Start()
+    private void OnDisable()
     {
-        _namesToSystems = new Dictionary<SystemName, ResourceSystem>();
-        var resourceSystems = GetComponentsInChildren<ResourceSystem>();
-        foreach (var resourceSystem in resourceSystems)
-        {
-            _namesToSystems[resourceSystem.systemName] = resourceSystem;
-        }
+        MissionButton.OnMissionAccepted -= EndSignal;
     }
 
-    public void CheckInMission()
+    private void Awake()
     {
-        if (_isStarted)
-        {
-            CheckObjectiveIsDone();
-        }
-        else if (_progressionIndex >= objectives.Count)
-        {
-            FinishGame();
-        }
-        else
-        {
-            StartMission();
-        }
-    }
-    
-    private void StartMission()
-    {
-        // Read the objective
-        _currentObjective = objectives[_progressionIndex];
-        // Break the system accordingly
-        _currentObjective.BreakSystem(_namesToSystems[_currentObjective.systemName]);
-        // Start the mission
-        _isStarted = true;
-        text.text = _currentObjective.description +" Pull the button when it's done.";
-        missionTimer.StartTimer(_currentObjective.time);
-        // Analytics
-        AnalyticsObjectiveStarted?.Invoke();
-    }
-    
-    private void CheckObjectiveIsDone()
-    {
-        bool isSuccess = _namesToSystems[_currentObjective.systemName].IsFixed();
-        
-        // Analytics
-        AnalyticsObjectiveData data = new AnalyticsObjectiveData(_currentObjective.systemName.ToString(), isSuccess);
-        AnalyticsObjectiveFinished?.Invoke(data);
-        
-        // Next objective
-        missionTimer.StopTimer();
-        if (isSuccess)
-        {
-            text.text = _currentObjective.winMessage;
-            _nbSuccess++;
-            Debug.Log($"Mission {_currentObjective.name} won");
-        }
-        else
-        {
-            text.text = _currentObjective.loseMessage;
-            Debug.Log($"Mission {_currentObjective.name} failed");
-        }
-        _isStarted = false;
-        _progressionIndex++;
-        _currentObjective = null;
-        
-        // Check ending
-        if(_progressionIndex >= objectives.Count)
-        {
-            text.text = $"You completed all the missions, with a success rate of {(100f*_nbSuccess/objectives.Count):F2}%, thanks !";
-        }
+        _missionButtons = missionButtons.GetComponentsInChildren<MissionButton>();
     }
 
-    private void FinishGame()
+    public void StartSignal()
     {
-        AnalyticsManager.Instance.WriteAnalytics();
-        SceneManager.LoadScene("EndingScene");
+        _currentButtonIndex = Random.Range(0, _missionButtons.Length);
+        _missionButtons[_currentButtonIndex].SwitchLight();
     }
 
-    private void OnMissionTimerExpire()
+    private void EndSignal()
     {
-        missionTimer.StopTimer();
-        if (_isStarted)
-        {
-            CheckInMission();
-        }
+        if (_currentButtonIndex != -1)
+            _missionButtons[_currentButtonIndex].SwitchLight();
+        _currentButtonIndex = -1;
     }
 }

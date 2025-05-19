@@ -1,5 +1,5 @@
+using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class MissionButton : MonoBehaviour
 {
@@ -7,6 +7,8 @@ public class MissionButton : MonoBehaviour
     public MeshRenderer lightMeshRenderer;
     private bool _isActive;
     private Animator _animator;
+
+    public static event Action OnMissionAccepted;
 
     private void Awake()
     {
@@ -29,5 +31,11 @@ public class MissionButton : MonoBehaviour
     {
         lightMeshRenderer.material.DisableKeyword("_EMISSION");
         lightMeshRenderer.material.globalIlluminationFlags = MaterialGlobalIlluminationFlags.EmissiveIsBlack;
+    }
+
+    public void AcceptMission()
+    {
+        if(_isActive)
+            OnMissionAccepted?.Invoke();
     }
 }

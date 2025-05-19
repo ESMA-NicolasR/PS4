@@ -743,17 +743,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resourceSystem: {fileID: 1352681570}
   _text: {fileID: 110757077}
---- !u!114 &81047215 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9121853874920543368, guid: 7e38315ce0b0a7a4d806d444936e2dfc, type: 3}
-  m_PrefabInstance: {fileID: 978639970}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca6bf2440dfb81f4bb09d976f09051a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &87616912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4137,7 +4126,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6234787586347182963, guid: 7e38315ce0b0a7a4d806d444936e2dfc, type: 3}
       propertyPath: m_Name
-      value: Mission Buttons
+      value: MissionButtons
       objectReference: {fileID: 0}
     - target: {fileID: 8361724951882320347, guid: 7e38315ce0b0a7a4d806d444936e2dfc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4182,10 +4171,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6258657952509120538, guid: 7e38315ce0b0a7a4d806d444936e2dfc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1347698841}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e38315ce0b0a7a4d806d444936e2dfc, type: 3}
 --- !u!4 &978639971 stripped
 Transform:
@@ -5220,6 +5206,11 @@ MonoBehaviour:
         m_CallState: 2
   canBeUsed: 0
   focusParent: {fileID: 0}
+--- !u!1 &1272528995 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6234787586347182963, guid: 7e38315ce0b0a7a4d806d444936e2dfc, type: 3}
+  m_PrefabInstance: {fileID: 978639970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1291450966 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1864193744677673943, guid: bd0e00d6b4a8e7f469caf1e5b26d0a99, type: 3}
@@ -5599,40 +5590,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.057}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1347698839 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6258657952509120538, guid: 7e38315ce0b0a7a4d806d444936e2dfc, type: 3}
-  m_PrefabInstance: {fileID: 978639970}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1347698841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1347698839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 490da00823ac08e43bab8297659cf816, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 81047215}
-        m_TargetAssemblyTypeName: MissionButton, Assembly-CSharp
-        m_MethodName: SwitchLight
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  canBeUsed: 0
-  focusParent: {fileID: 0}
 --- !u!114 &1352681570 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 265545297593430614, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
@@ -6312,7 +6269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1493312094}
   m_Layer: 0
-  m_Name: MissionGiver
+  m_Name: MissionScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6684,6 +6641,10 @@ PrefabInstance:
       propertyPath: 'resourceSystems.Array.data[2]'
       value: 
       objectReference: {fileID: 476530732}
+    - target: {fileID: 7084918817261159154, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: missionButtons
+      value: 
+      objectReference: {fileID: 1272528995}
     - target: {fileID: 7663148210796135694, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
       propertyPath: minigameAsteroids
       value: 

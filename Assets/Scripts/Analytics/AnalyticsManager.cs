@@ -35,14 +35,14 @@ public class AnalyticsManager : MonoBehaviour
 
     private void OnEnable()
     {
-        MissionGiver.AnalyticsObjectiveStarted += OnObjectiveStarted;
-        MissionGiver.AnalyticsObjectiveFinished += OnObjectiveFinished;
+        MissionManager.AnalyticsObjectiveStarted += OnObjectiveStarted;
+        MissionManager.AnalyticsObjectiveFinished += OnObjectiveFinished;
     }
 
     private void OnDisable()
     {
-        MissionGiver.AnalyticsObjectiveStarted -= OnObjectiveStarted;
-        MissionGiver.AnalyticsObjectiveFinished -= OnObjectiveFinished;
+        MissionManager.AnalyticsObjectiveStarted -= OnObjectiveStarted;
+        MissionManager.AnalyticsObjectiveFinished -= OnObjectiveFinished;
     }
 
     private void OnObjectiveStarted()
