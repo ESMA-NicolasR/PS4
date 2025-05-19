@@ -165,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStation: {fileID: 0}
   headPivot: {fileID: 1844476819577645644}
-  travelSpeed: 1.5
+  travelSpeed: 2.6
   lookDestinationCurve:
     serializedVersion: 2
     m_Curve:
@@ -190,7 +190,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  speedToAdhereToLookAhead: 30
+  speedToAdhereToLookAhead: 40
   adhereToLookAheadCurve:
     serializedVersion: 2
     m_Curve:
