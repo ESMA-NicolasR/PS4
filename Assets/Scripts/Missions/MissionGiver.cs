@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MissionGiver : MonoBehaviour
 {
+    public MissionTimer missionTimer;
     public List<ResourceObjectiveData> objectives;
     private Dictionary<SystemName, ResourceSystem> _namesToSystems;
     public TextMeshPro text;
@@ -16,7 +17,12 @@ public class MissionGiver : MonoBehaviour
 
     public static event Action AnalyticsObjectiveStarted;
     public static event Action<AnalyticsObjectiveData> AnalyticsObjectiveFinished;
-    
+
+    private void OnEnable()
+    {
+        MissionTimer.OnMissionTimerExpire += OnMissionTimerExpire;
+    }
+
     void Start()
     {
         _namesToSystems = new Dictionary<SystemName, ResourceSystem>();
@@ -51,7 +57,8 @@ public class MissionGiver : MonoBehaviour
         _currentObjective.BreakSystem(_namesToSystems[_currentObjective.systemName]);
         // Start the mission
         _isStarted = true;
-        text.text = _currentObjective.description +" Push the button when it's done.";
+        text.text = _currentObjective.description +" Pull the button when it's done.";
+        missionTimer.StartTimer(_currentObjective.time);
         // Analytics
         AnalyticsObjectiveStarted?.Invoke();
     }
@@ -65,6 +72,7 @@ public class MissionGiver : MonoBehaviour
         AnalyticsObjectiveFinished?.Invoke(data);
         
         // Next objective
+        missionTimer.StopTimer();
         if (isSuccess)
         {
             text.text = _currentObjective.winMessage;
@@ -91,5 +99,14 @@ public class MissionGiver : MonoBehaviour
     {
         AnalyticsManager.Instance.WriteAnalytics();
         SceneManager.LoadScene("EndingScene");
+    }
+
+    private void OnMissionTimerExpire()
+    {
+        missionTimer.StopTimer();
+        if (_isStarted)
+        {
+            CheckInMission();
+        }
     }
 }

@@ -392,6 +392,11 @@ MonoBehaviour:
       m_Data: []
   m_Knots:
     m_KnotsLink: []
+--- !u!1 &162034906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8704698963705134618, guid: bd0e00d6b4a8e7f469caf1e5b26d0a99, type: 3}
+  m_PrefabInstance: {fileID: 1241809144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &164102918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4266,6 +4271,17 @@ MonoBehaviour:
       m_Data: []
   m_Knots:
     m_KnotsLink: []
+--- !u!114 &1882315857 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6410094866446473172, guid: bd0e00d6b4a8e7f469caf1e5b26d0a99, type: 3}
+  m_PrefabInstance: {fileID: 1241809144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1895996399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4440,6 +4456,17 @@ MonoBehaviour:
       m_Data: []
   m_Knots:
     m_KnotsLink: []
+--- !u!114 &1942060595 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1891687448047454294, guid: bd0e00d6b4a8e7f469caf1e5b26d0a99, type: 3}
+  m_PrefabInstance: {fileID: 1241809144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2022735337
 GameObject:
   m_ObjectHideFlags: 0
@@ -6329,6 +6356,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3414790546830611490, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: timerBar
+      value: 
+      objectReference: {fileID: 162034906}
+    - target: {fileID: 3414790546830611490, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1882315857}
+    - target: {fileID: 3414790546830611490, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: timerBarFG
+      value: 
+      objectReference: {fileID: 1942060595}
     - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
       propertyPath: text
       value: 

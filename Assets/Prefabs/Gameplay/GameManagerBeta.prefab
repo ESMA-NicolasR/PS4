@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 8381509066146177639}
   - component: {fileID: 5202662728669813818}
   - component: {fileID: 4762873382987384640}
+  - component: {fileID: 3414790546830611490}
   m_Layer: 0
   m_Name: GameManagerBeta
   m_TagString: Untagged
@@ -242,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa9fc79aec8bf841b333cc1e26daf07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missionTimer: {fileID: 3414790546830611490}
   objectives:
   - {fileID: 11400000, guid: e0faf9aceeff6734b9e18948bb8ef1f5, type: 2}
   - {fileID: 11400000, guid: 522736f4fa4d0cc409b70cfe7b3cf260, type: 2}
@@ -267,6 +269,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f3e534b096365f4ea506ac0b63a0718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3414790546830611490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2452877499753427418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4272fb5a392ec544caa5066c0684de42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerBar: {fileID: 0}
+  timerBarFG: {fileID: 0}
+  timerText: {fileID: 0}
 --- !u!1 &2560929877033882945
 GameObject:
   m_ObjectHideFlags: 0
