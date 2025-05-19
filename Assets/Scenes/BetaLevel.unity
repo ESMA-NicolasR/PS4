@@ -2093,6 +2093,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1ff173d99572349a62978ed7cc015d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &845883946 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6141102538050377550, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
+  m_PrefabInstance: {fileID: 209263181771041829}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26dfb84a6f57ef346836bf371a862441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &850192689 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5261663578754427630, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
@@ -3250,6 +3261,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3871561454661424005, guid: bd0e00d6b4a8e7f469caf1e5b26d0a99, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 845883946}
+    - target: {fileID: 3871561454661424005, guid: bd0e00d6b4a8e7f469caf1e5b26d0a99, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoseFocus
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3619,6 +3638,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1446638770}
     m_Modifications:
+    - target: {fileID: 18194309503708342, guid: 810ade7c99d38c44e94e6f2b85f8b781, type: 3}
+      propertyPath: pov
+      value: 
+      objectReference: {fileID: 1556271223}
     - target: {fileID: 18194309503708342, guid: 810ade7c99d38c44e94e6f2b85f8b781, type: 3}
       propertyPath: _resourceSystemNetwork
       value: 
@@ -4009,6 +4032,11 @@ Transform:
   - {fileID: 2259472829783071717}
   m_Father: {fileID: 4798465558498499961}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1556271223 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1707470146823337197, guid: 810ade7c99d38c44e94e6f2b85f8b781, type: 3}
+  m_PrefabInstance: {fileID: 1473167503}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1652772326 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7684483818661295449, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
@@ -4777,6 +4805,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07424c8ba6eb13b49a547cb1823dc4ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2102731088 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 729722507318379420, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
+  m_PrefabInstance: {fileID: 2063214089893460627}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2130751337 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1292513449026208664, guid: 670c7c1b946037743904837d682142b1, type: 3}
@@ -5372,6 +5405,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6720638562032629881, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
+      propertyPath: pov
+      value: 
+      objectReference: {fileID: 2102731088}
     - target: {fileID: 6720638562032629881, guid: 5e884c5f361fff74b84ff6c695877a6a, type: 3}
       propertyPath: resourceSystem
       value: 
@@ -6333,6 +6370,22 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 630358786}
+    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: objectives.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: 'objectives.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f9038c4f44899e74ca6f1c946fbc802e, type: 2}
+    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: 'objectives.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 45028c3c53d922a49aa4d24034658ef1, type: 2}
+    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: 'objectives.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 45028c3c53d922a49aa4d24034658ef1, type: 2}
     - target: {fileID: 7663148210796135694, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
       propertyPath: _minigameAsteroids
       value: 

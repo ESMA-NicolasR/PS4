@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MinigameAsteroids : MonoBehaviour
+public class MinigameAsteroids : MiniGame
 {
     public ResourceSystemAsteroids resourceSystem;
     public GameObject cursor;
@@ -18,6 +18,8 @@ public class MinigameAsteroids : MonoBehaviour
 
     private void Start()
     {
+        cursor.SetActive(false);
+        
         var extents = screen.GetComponent<MeshFilter>().mesh.bounds.extents;
         cursorMaxX = extents.x - inset;
         cursorMaxY = extents.y - inset;
@@ -117,5 +119,30 @@ public class MinigameAsteroids : MonoBehaviour
         {
             throw new ArgumentException($"MinigameAsteroids {gameObject.name} must have a cursor with a SpriteRender attached", "Cursor");
         }
+    }
+
+    public override void TurnOff()
+    {
+        cursor.SetActive(false);
+    }
+    
+    public override void TurnOn(Focusable focusable)
+    {
+        if (focusable.GetComponentInParent<MiniGame>() != null && canPlay == true)
+        {
+            if (GetComponent<MinigameNetwork>() == true)
+            {
+                print("huh");
+                GetComponent<MinigameNetwork>().PlayScenario(_networkScenarioData);
+                canPlay = false;
+            }
+            else if (GetComponent<MinigameAsteroids>() == true)
+            {
+                GetComponent<MinigameAsteroids>().PlayScenario(_asteroidsScenarioData);
+                GetComponent<MinigameAsteroids>().cursor.SetActive(true);
+                canPlay = false;
+            }
+        }
+        cursor.SetActive(true);
     }
 }
