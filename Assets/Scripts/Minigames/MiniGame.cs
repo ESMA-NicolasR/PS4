@@ -17,21 +17,23 @@ public class MiniGame : MonoBehaviour
         Focusable.OnGainFocus += TurnOn;
     }
     
-    public void MiniGameNetworkCanStart(NetworkScenarioData scenarioData)
+    public void MiniGameNetworkCanStart(NetworkScenarioData networkScenarioData)
     {
         canPlay = true;
-        _networkScenarioData = scenarioData;
+        _networkScenarioData = networkScenarioData;
     }
-    public void MiniGameAsteroidsCanStart(AsteroidScenarioData scenarioData)
+    public void MiniGameAsteroidsCanStart(AsteroidScenarioData asteroidsScenarioData)
     {
         canPlay = true;
-        _asteroidsScenarioData = scenarioData;
+        _asteroidsScenarioData = asteroidsScenarioData;
     }
 
     public virtual void TurnOn(Focusable focusable)
     {
+        print(canPlay);
         if (focusable.GetComponentInParent<MiniGame>() != null && canPlay == true)
         {
+            print("heho");
             if (GetComponent<MinigameNetwork>() == true)
             {
                 print("huh");

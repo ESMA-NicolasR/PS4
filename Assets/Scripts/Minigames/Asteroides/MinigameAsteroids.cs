@@ -130,6 +130,7 @@ public class MinigameAsteroids : MiniGame
     {
         if (focusable.GetComponentInParent<MiniGame>() != null && canPlay == true)
         {
+            Debug.Log(GetComponent<MinigameNetwork>() == true);
             if (GetComponent<MinigameNetwork>() == true)
             {
                 print("huh");
