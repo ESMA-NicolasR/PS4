@@ -42,7 +42,11 @@ public class MissionTimer : MonoBehaviour
 
     private void UpdateDisplay()
     {
-        timerBarFG.fillAmount = _timeLeft / _timeMax;
+        // Bar foreground
+        var ratio = _timeLeft / _timeMax;
+        timerBarFG.fillAmount = ratio;
+        timerBarFG.color = Color.Lerp(Color.red, Color.white, Mathf.Sqrt(ratio)); // Sqrt so it takes longer to display red
+        // Timer text
         var minutes = Mathf.FloorToInt(_timeLeft / 60);
         var reprTime = minutes > 0 ? $"{minutes}m " : "";
         reprTime += $"{_timeLeft % 60:00}s";

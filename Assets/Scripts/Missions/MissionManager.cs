@@ -11,13 +11,12 @@ public class MissionManager : MonoBehaviour
     public MissionGiver missionGiver;
     public List<ResourceObjectiveData> objectives;
     private Dictionary<SystemName, ResourceSystem> _namesToSystems;
-    public TextMeshPro text;
+    public TextMeshPro missionText;
     private bool _isObjectiveStarted;
     private bool _isDayStarted;
     private int _progressionIndex;
     private ResourceObjectiveData _currentObjective;
     private int _nbSuccess;
-    private Coroutine _triggerMissionCoroutine;
     [SerializeField] private float _timeBetweenMissions;
 
     public static event Action AnalyticsObjectiveStarted;
@@ -68,7 +67,8 @@ public class MissionManager : MonoBehaviour
     private void StartDay()
     {
         _isDayStarted = true;
-        _triggerMissionCoroutine = StartCoroutine(TriggerMissionCo());
+        StartCoroutine(TriggerMissionCo());
+        missionText.text = "Awaiting orders...";
     }
 
     private IEnumerator TriggerMissionCo()
@@ -85,7 +85,7 @@ public class MissionManager : MonoBehaviour
         _currentObjective.BreakSystem(_namesToSystems[_currentObjective.systemName]);
         // Start the mission
         _isObjectiveStarted = true;
-        text.text = _currentObjective.description +" Pull the button when it's done.";
+        missionText.text = _currentObjective.description +" Pull the cord when it's done.";
         missionTimer.StartTimer(_currentObjective.time);
         // Analytics
         AnalyticsObjectiveStarted?.Invoke();
@@ -102,13 +102,13 @@ public class MissionManager : MonoBehaviour
         // Rewards
         if (isSuccess)
         {
-            text.text = _currentObjective.winMessage;
+            missionText.text = _currentObjective.winMessage +" Awaiting new orders...";
             _nbSuccess++;
             Debug.Log($"Mission {_currentObjective.name} won");
         }
         else
         {
-            text.text = _currentObjective.loseMessage;
+            missionText.text = _currentObjective.loseMessage +" Awaiting new orders...";
             Debug.Log($"Mission {_currentObjective.name} failed");
         }
         
@@ -122,7 +122,7 @@ public class MissionManager : MonoBehaviour
         // Check ending
         if(_progressionIndex >= objectives.Count)
         {
-            text.text = $"You completed all the missions, with a success rate of {(100f*_nbSuccess/objectives.Count):F2}%, thanks !";
+            missionText.text = $"You completed all the missions, with a success rate of {(100f*_nbSuccess/objectives.Count):F2}%, thanks !";
         }
     }
 
