@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class MinigameNetwork : MonoBehaviour
 {
-    public List<Cell> _cells = new List<Cell>();//pub à changer
+    private List<Cell> _cells = new List<Cell>();
     private List<List<Cell>> _board = new List<List<Cell>>();
     private NetworkScenarioData _currentScenario;
     public bool _isPathing;
-    private int _currentPathColor;
     private Cell _lastCellUsed, _lastCellUsedColor1, _lastCellUsedColor2, _cellEndColor1, _cellEndColor2;
-    private List<Cell> _usedColor1Cells, _usedColor2Cells;
+    private List<Cell> _usedColor1Cells = new List<Cell>(), _usedColor2Cells = new List<Cell>();
     [SerializeField]
     private Sprite _spriteColor1Start, _spriteColor1End, _spriteColor1Travel, _spriteColor2Start, _spriteColor2End, _spriteColor2Travel, _spriteMeteor, _spriteNeutral;
     private int _columnNb = 0, _rowNb = 0;
@@ -91,12 +90,10 @@ public class MinigameNetwork : MonoBehaviour
 
     private void MoveFromTo(Cell Cell1, Cell Cell2)
     {
-        Debug.Log(Cell1);
-        Debug.Log(Cell2);
         if ((Cell1.positionX - Cell2.positionX <= 1 && Cell1.positionX - Cell2.positionX >= -1 || Cell1.positionY - Cell2.positionY <= 1 && Cell1.positionY - Cell2.positionY >= -1) &&
             (Cell1.positionX - Cell2.positionX == 0 || Cell1.positionY - Cell2.positionY == 0)) //check if the cells are nearby
         {
-            if (Cell1.CanMoveColor(Cell2.colorNb))
+            if (Cell2.CanMoveColor(Cell2.colorNb))
             {
                 Cell2.ConnectColor(Cell1.colorNb);
                 if (Cell2.GetCellType() == CellType.Neutral)
@@ -130,7 +127,7 @@ public class MinigameNetwork : MonoBehaviour
             }
             else if (Cell2 != Cell1)
             {
-                ResetColor(_currentPathColor);
+                ResetColor(_lastCellUsed.colorNb);
             }
         }
     }

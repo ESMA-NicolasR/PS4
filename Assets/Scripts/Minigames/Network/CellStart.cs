@@ -6,4 +6,9 @@ public class CellStart : Cell
     {
         return CellType.Start;
     }
+    
+    public override void ResetCell()
+    {
+        isConnected = false;
+    }
 }

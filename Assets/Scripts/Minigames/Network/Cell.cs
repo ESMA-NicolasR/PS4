@@ -17,7 +17,7 @@ public class Cell : MonoBehaviour
         isConnected = true;
     }
 
-    public void ResetCell()
+    public virtual void ResetCell()
     {
         colorNb = 0;
         isConnected = false;
@@ -43,8 +43,11 @@ public class Cell : MonoBehaviour
         minigame.StartPathFromCell(this);
     }
     
-    public void OnMouseDrag()
+    public void OnMouseEnter()
     {
-        minigame.DrawPathOnCell(this);
+        if (Input.GetMouseButton(0))
+        {
+            minigame.DrawPathOnCell(this);
+        }
     }
 }
