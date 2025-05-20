@@ -76,6 +76,8 @@ public class MissionGiver : MonoBehaviour
             text.text = _currentObjective.loseMessage;
             Debug.Log($"Mission {_currentObjective.name} failed");
         }
+
+        _currentObjective.End(_namesToSystems[_currentObjective.systemName]);
         _isStarted = false;
         _progressionIndex++;
         _currentObjective = null;

@@ -134,4 +134,13 @@ public class MinigameAsteroids : MiniGame<AsteroidScenarioData>
         base.LoseFocus();
         cursor.SetActive(false);
     }
+
+    public override void CleanUp()
+    {
+        base.CleanUp();
+        foreach (var asteroid in screenOffset.GetComponentsInChildren<Asteroid>())
+        {
+            Destroy(asteroid.gameObject);
+        }
+    }
 }

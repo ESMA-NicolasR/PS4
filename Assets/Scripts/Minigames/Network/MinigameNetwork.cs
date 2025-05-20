@@ -14,11 +14,12 @@ public class MinigameNetwork : MiniGame<NetworkScenarioData>
     private ResourceSystemNetwork _resourceSystemNetwork;
     private CaseBehavior _lastCaseSelected, _lastColor1SelectedCase, _lastColor2SelectedCase;
     private Color _colorDone;
+    private GameObject _currentBoard;
 
     public override void LaunchScenario()
     {
         base.LaunchScenario();
-        Instantiate(_scenario.boardPrefab, _pivotBoard);
+        _currentBoard = Instantiate(_scenario.boardPrefab, _pivotBoard);
         // Init cases
         casesList = GetComponentsInChildren<CaseBehavior>().ToList();
         foreach (CaseBehavior caseBehavior in casesList)
@@ -206,5 +207,16 @@ public class MinigameNetwork : MiniGame<NetworkScenarioData>
     public void Out()
     {
         isPathing = false;
+    }
+    
+    public override void CleanUp()
+    {
+        base.CleanUp();
+        casesList = new List<CaseBehavior>();
+        if (_currentBoard != null)
+        {
+            Destroy(_currentBoard);
+            _currentBoard = null;
+        }
     }
 }

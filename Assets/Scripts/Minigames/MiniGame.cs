@@ -37,4 +37,11 @@ public class MiniGame<T> : Focusable where T : ResourceObjectiveData
         mustLaunchScenario = false;
         stateText.text = "";
     }
+
+    public virtual void CleanUp()
+    {
+        stateText.text = textWhenInactive;
+        stateText.color = Color.green;
+        _scenario = null;
+    }
 }
