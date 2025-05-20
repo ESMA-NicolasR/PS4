@@ -15,4 +15,14 @@ public class NetworkScenarioData : ResourceObjectiveData
         }
         systemNetwork.Break(this);
     }
+    
+    public override void End(ResourceSystem resourceSystem)
+    {
+        var systemNetwork = resourceSystem as ResourceSystemNetwork;
+        if (systemNetwork == null)
+        {
+            throw new Exception($"ResourceSystem of NetworkScenarioData {name} must be a ResourceSystemNetwork");
+        }
+        systemNetwork.minigameNetwork.CleanUp();
+    }
 }

@@ -25,7 +25,7 @@ public class Focusable : Clickable
         GainFocus();
     }
 
-    public void GainFocus()
+    public virtual void GainFocus()
     {
         OnGainFocus?.Invoke(this);
         EnableInteractables();

@@ -16,4 +16,9 @@ public class ResourceObjectiveData : ScriptableObject
     {
         resourceSystem.Break(targetValue, breakValue);
     }
+
+    public virtual void End(ResourceSystem resourceSystem)
+    {
+        Debug.Log("Objective ended");
+    }
 }

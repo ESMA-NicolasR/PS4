@@ -115,7 +115,7 @@ public class MissionGiver : MonoBehaviour
                 Debug.Log("No human won");
             }
         }
-        
+        _currentObjective.End(_namesToSystems[_currentObjective.systemName]);
         _isStarted = false;
         _progressionIndex++;
         _currentObjective = null;

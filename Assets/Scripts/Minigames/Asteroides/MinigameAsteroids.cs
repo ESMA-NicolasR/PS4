@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MinigameAsteroids : MonoBehaviour
+public class MinigameAsteroids : MiniGame<AsteroidScenarioData>
 {
     public ResourceSystemAsteroids resourceSystem;
     public GameObject cursor;
@@ -16,8 +16,11 @@ public class MinigameAsteroids : MonoBehaviour
     public float cursorStep;
     private Vector2 _lowerBounds, _higherBounds;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+        cursor.SetActive(false);
+        
         var extents = screen.GetComponent<MeshFilter>().mesh.bounds.extents;
         cursorMaxX = extents.x - inset;
         cursorMaxY = extents.y - inset;
@@ -82,9 +85,10 @@ public class MinigameAsteroids : MonoBehaviour
         );
     }
     
-    public void PlayScenario(AsteroidScenarioData scenario)
+    public override void LaunchScenario()
     {
-        StartCoroutine(SpawnAsteroids(scenario.spawnList));
+        base.LaunchScenario();
+        StartCoroutine(SpawnAsteroids(_scenario.spawnList));
     }
 
     private IEnumerator SpawnAsteroids(List<AsteroidSpawnData> spawnList)
@@ -116,6 +120,27 @@ public class MinigameAsteroids : MonoBehaviour
         if (cursor != null && cursor.GetComponent<SpriteRenderer>() == null)
         {
             throw new ArgumentException($"MinigameAsteroids {gameObject.name} must have a cursor with a SpriteRender attached", "Cursor");
+        }
+    }
+
+    public override void GainFocus()
+    {
+        base.GainFocus();
+        cursor.SetActive(true);
+    }
+
+    public override void LoseFocus()
+    {
+        base.LoseFocus();
+        cursor.SetActive(false);
+    }
+
+    public override void CleanUp()
+    {
+        base.CleanUp();
+        foreach (var asteroid in screenOffset.GetComponentsInChildren<Asteroid>())
+        {
+            Destroy(asteroid.gameObject);
         }
     }
 }
