@@ -15,7 +15,7 @@ MonoBehaviour:
   systemName: 2
   targetValue: 1
   breakValue: 0
-  time: 0
+  time: 30
   description: Open the gates, there is a fire !
   winMessage: We made it out !
   loseMessage: We lost half the crew...
