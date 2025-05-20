@@ -176,6 +176,38 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 6800686128510913374}
   m_maskType: 0
+--- !u!1 &4310866754022302148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 780741888600473779}
+  m_Layer: 0
+  m_Name: Knob Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &780741888600473779
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4310866754022302148}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.004239037, y: -0.23574954, z: -0.9718046, w: 0.00027780232}
+  m_LocalPosition: {x: -0.843, y: -0.195, z: 0.079}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5389460830129036380}
+  m_Father: {fileID: 4016001611660955902}
+  m_LocalEulerAnglesHint: {x: 207.271, y: 179.46, z: 0.16400146}
 --- !u!1 &8877091081433049209
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,7 +241,7 @@ Transform:
   - {fileID: 2821280419149942792}
   - {fileID: 3513921203062856278}
   - {fileID: 2728580912827287118}
-  - {fileID: 5389460830129036380}
+  - {fileID: 780741888600473779}
   - {fileID: 2557942000561611894}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -15, z: 0}
@@ -455,19 +487,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4016001611660955902}
+    m_TransformParent: {fileID: 780741888600473779}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c1277030826135e439b09ec0eb2bb9c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.725
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c1277030826135e439b09ec0eb2bb9c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.196
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c1277030826135e439b09ec0eb2bb9c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c1277030826135e439b09ec0eb2bb9c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -537,7 +569,6 @@ MonoBehaviour:
   totalAngles: 180
   target: {fileID: 5389460830129036380}
   resourceSystem: {fileID: 0}
-  currentValue: 0
 --- !u!4 &5389460830129036380 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c1277030826135e439b09ec0eb2bb9c4, type: 3}
