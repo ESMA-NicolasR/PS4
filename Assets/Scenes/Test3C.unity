@@ -5218,6 +5218,9 @@ MonoBehaviour:
         m_CallState: 2
   canBeUsed: 0
   focusParent: {fileID: 0}
+  timeBetweenClicksSlow: 0.2
+  timeBetweenClicksFast: 0.1
+  timeToFast: 0.5
 --- !u!1 &1272528995 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6234787586347182963, guid: 7e38315ce0b0a7a4d806d444936e2dfc, type: 3}
@@ -6630,6 +6633,10 @@ PrefabInstance:
       objectReference: {fileID: 756530730}
     - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
       propertyPath: text
+      value: 
+      objectReference: {fileID: 1340779631}
+    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: missionText
       value: 
       objectReference: {fileID: 1340779631}
     - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
