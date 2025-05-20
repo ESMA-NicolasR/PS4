@@ -40,7 +40,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1684584059045115508}
-  - component: {fileID: 18194309503708342}
   m_Layer: 0
   m_Name: Network
   m_TagString: Untagged
@@ -64,28 +63,6 @@ Transform:
   - {fileID: 439857932036881172}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &18194309503708342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6310342450350508861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6d11eea1bb431748b01188e91c41afd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  casesList: []
-  casesSelectedColor1: []
-  casesSelectedColor2: []
-  color1: {r: 1, g: 0.5, b: 0, a: 1}
-  color2: {r: 0, g: 0, b: 1, a: 1}
-  actualColor: {r: 1, g: 1, b: 1, a: 1}
-  standardColor: {r: 1, g: 1, b: 1, a: 1}
-  isPathing: 0
-  _pivotBoard: {fileID: 309142570317139391}
-  _resourceSystemNetwork: {fileID: 0}
 --- !u!1 &8994903295009695127
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +158,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9fed4c13b9e862348979df038d0fe496, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3570735918999504002}
+      addedObject: {fileID: 4141189293120404174}
   m_SourcePrefab: {fileID: 100100000, guid: 9fed4c13b9e862348979df038d0fe496, type: 3}
 --- !u!4 &439857932036881172 stripped
 Transform:
@@ -193,7 +170,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9fed4c13b9e862348979df038d0fe496, type: 3}
   m_PrefabInstance: {fileID: 112599920918093055}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3570735918999504002
+--- !u!114 &4141189293120404174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,24 +179,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 959654684824592814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2b8076c1e9d4fd4a89516bf85b83597, type: 3}
+  m_Script: {fileID: 11500000, guid: e6d11eea1bb431748b01188e91c41afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 18194309503708342}
-        m_TargetAssemblyTypeName: Minigame_Network, Assembly-CSharp
-        m_MethodName: ActivateChildren
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   canBeUsed: 0
   focusParent: {fileID: 0}
   pov: {fileID: 1707470146823337197}
+  mustLaunchScenario: 0
+  casesList: []
+  casesSelectedColor1: []
+  casesSelectedColor2: []
+  color1: {r: 1, g: 0.5, b: 0, a: 1}
+  color2: {r: 0, g: 0, b: 1, a: 1}
+  actualColor: {r: 1, g: 1, b: 1, a: 1}
+  standardColor: {r: 1, g: 1, b: 1, a: 1}
+  isPathing: 0
+  _pivotBoard: {fileID: 309142570317139391}
+  _resourceSystemNetwork: {fileID: 0}

@@ -7,6 +7,6 @@ public class ResourceSystemNetwork : ResourceSystem
 
     public void Break(NetworkScenarioData scenarioData)
     {
-        _minigameNetwork.MiniGameNetworkCanStart(scenarioData);
+        _minigameNetwork.PlayScenario(scenarioData);
     }
 }

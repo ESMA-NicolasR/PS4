@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class MinigameNetwork : MiniGame
+public class MinigameNetwork : MiniGame<NetworkScenarioData>
 {
     public List<CaseBehavior> casesList, casesSelectedColor1, casesSelectedColor2;
     public Color color1, color2, actualColor, standardColor;
@@ -15,18 +15,10 @@ public class MinigameNetwork : MiniGame
     private CaseBehavior _lastCaseSelected, _lastColor1SelectedCase, _lastColor2SelectedCase;
     private Color _colorDone;
 
-    public override void OnEnable()
+    public override void LaunchScenario()
     {
-        PlayerFocus.OnLoseFocus += TurnOff;
-        Focusable.OnGainFocus += TurnOn;
-        isPathing = false;
-        PlayerFocus.OnLoseFocus += OnLoseFocus;
-        ActivateChildren();
-    }
-    
-    public void PlayScenario(NetworkScenarioData scenarioData)
-    {
-        Instantiate(scenarioData.boardPrefab, _pivotBoard);
+        base.LaunchScenario();
+        Instantiate(_scenario.boardPrefab, _pivotBoard);
         // Init cases
         casesList = GetComponentsInChildren<CaseBehavior>().ToList();
         foreach (CaseBehavior caseBehavior in casesList)
@@ -42,8 +34,8 @@ public class MinigameNetwork : MiniGame
         _resourceSystemNetwork.SetValue(0);
         // Prepare for interaction
         Reset();
-        ActivateChildren();
     }
+    
     
     private void Reset()
     {
@@ -184,11 +176,22 @@ public class MinigameNetwork : MiniGame
         }
     }
     
-    private void OnLoseFocus()
+    public override void GainFocus()
+    {
+        base.GainFocus();
+        ActivateChildren();
+    }
+
+    public override void LoseFocus()
+    {
+        base.LoseFocus();
+        DesactivateChildren();
+    }
+    private void DesactivateChildren()
     {
         foreach (CaseBehavior caseBehaviour in casesList)
         {
-            
+            caseBehaviour.Disable();
         }
     }
 
