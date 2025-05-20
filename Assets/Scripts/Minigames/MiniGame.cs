@@ -3,8 +3,10 @@ using UnityEngine;
 public class MiniGame : MonoBehaviour
 {
     public bool canPlay = false;
-    public NetworkScenarioData _networkScenarioData;
-    public AsteroidScenarioData _asteroidsScenarioData;
+    public NetworkScenarioData networkScenarioData;
+    public AsteroidScenarioData asteroidsScenarioData;
+    public GameObject screenCheck;
+    
     public virtual void OnEnable()
     {
         PlayerFocus.OnLoseFocus += TurnOff;
@@ -20,12 +22,14 @@ public class MiniGame : MonoBehaviour
     public void MiniGameNetworkCanStart(NetworkScenarioData networkScenarioData)
     {
         canPlay = true;
-        _networkScenarioData = networkScenarioData;
+        screenCheck.SetActive(true);
+        networkScenarioData = networkScenarioData;
     }
     public void MiniGameAsteroidsCanStart(AsteroidScenarioData asteroidsScenarioData)
     {
         canPlay = true;
-        _asteroidsScenarioData = asteroidsScenarioData;
+        screenCheck.SetActive(true);
+        asteroidsScenarioData = asteroidsScenarioData;
     }
 
     public virtual void TurnOn(Focusable focusable)
@@ -34,13 +38,15 @@ public class MiniGame : MonoBehaviour
         {
             if (GetComponent<MinigameNetwork>() == true)
             {
-                GetComponent<MinigameNetwork>().PlayScenario(_networkScenarioData);
+                GetComponent<MinigameNetwork>().PlayScenario(networkScenarioData);
+                screenCheck.SetActive(false);
                 canPlay = false;
             }
             else if (GetComponent<MinigameAsteroids>() == true)
             {
-                GetComponent<MinigameAsteroids>().PlayScenario(_asteroidsScenarioData);
+                GetComponent<MinigameAsteroids>().PlayScenario(asteroidsScenarioData);
                 GetComponent<MinigameAsteroids>().cursor.SetActive(true);
+                screenCheck.SetActive(false);
                 canPlay = false;
             }
         }

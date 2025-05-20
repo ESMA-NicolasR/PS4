@@ -134,13 +134,15 @@ public class MinigameAsteroids : MiniGame
             if (GetComponent<MinigameNetwork>() == true)
             {
                 print("huh");
-                GetComponent<MinigameNetwork>().PlayScenario(_networkScenarioData);
+                GetComponent<MinigameNetwork>().PlayScenario(networkScenarioData);
+                screenCheck.SetActive(false);
                 canPlay = false;
             }
             else if (GetComponent<MinigameAsteroids>() == true)
             {
-                GetComponent<MinigameAsteroids>().PlayScenario(_asteroidsScenarioData);
+                GetComponent<MinigameAsteroids>().PlayScenario(asteroidsScenarioData);
                 GetComponent<MinigameAsteroids>().cursor.SetActive(true);
+                screenCheck.SetActive(false);
                 canPlay = false;
             }
         }
