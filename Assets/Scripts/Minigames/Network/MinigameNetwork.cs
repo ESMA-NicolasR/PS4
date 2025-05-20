@@ -15,10 +15,13 @@ public class MinigameNetwork : MiniGame
     private CaseBehavior _lastCaseSelected, _lastColor1SelectedCase, _lastColor2SelectedCase;
     private Color _colorDone;
 
-    private void OnEnable()
+    public override void OnEnable()
     {
+        PlayerFocus.OnLoseFocus += TurnOff;
+        Focusable.OnGainFocus += TurnOn;
         isPathing = false;
         PlayerFocus.OnLoseFocus += OnLoseFocus;
+        ActivateChildren();
     }
     
     public void PlayScenario(NetworkScenarioData scenarioData)
@@ -185,7 +188,7 @@ public class MinigameNetwork : MiniGame
     {
         foreach (CaseBehavior caseBehaviour in casesList)
         {
-            caseBehaviour.Disable();
+            
         }
     }
 

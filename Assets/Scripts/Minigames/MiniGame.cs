@@ -5,7 +5,7 @@ public class MiniGame : MonoBehaviour
     public bool canPlay = false;
     public NetworkScenarioData _networkScenarioData;
     public AsteroidScenarioData _asteroidsScenarioData;
-    private void OnEnable()
+    public virtual void OnEnable()
     {
         PlayerFocus.OnLoseFocus += TurnOff;
         Focusable.OnGainFocus += TurnOn;
@@ -30,13 +30,10 @@ public class MiniGame : MonoBehaviour
 
     public virtual void TurnOn(Focusable focusable)
     {
-        print(canPlay);
-        if (focusable.GetComponentInParent<MiniGame>() != null && canPlay == true)
+        if (focusable.GetComponentInParent<MiniGame>() != null && canPlay)
         {
-            print("heho");
             if (GetComponent<MinigameNetwork>() == true)
             {
-                print("huh");
                 GetComponent<MinigameNetwork>().PlayScenario(_networkScenarioData);
                 canPlay = false;
             }
