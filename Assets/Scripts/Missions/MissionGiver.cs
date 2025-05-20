@@ -13,6 +13,7 @@ public class MissionGiver : MonoBehaviour
     private int _progressionIndex;
     private ResourceObjectiveData _currentObjective;
     private int _nbSuccess;
+    private int _totalHumans, _totalMoney;
 
     public static event Action AnalyticsObjectiveStarted;
     public static event Action<AnalyticsObjectiveData> AnalyticsObjectiveFinished;
@@ -70,12 +71,51 @@ public class MissionGiver : MonoBehaviour
             text.text = _currentObjective.winMessage;
             _nbSuccess++;
             Debug.Log($"Mission {_currentObjective.name} won");
+            
+            if (_currentObjective.humans > 0)
+            {
+                Debug.Log("money :" + _currentObjective.money);
+                _totalMoney += _currentObjective.money;
+            }
+            else
+            {
+                Debug.Log("No money loss");
+            }
+            if (_currentObjective.humans > 0)
+            {
+                Debug.Log("humans :" + _currentObjective.humans);
+                _totalHumans += _currentObjective.humans;
+            }
+            else
+            {
+                Debug.Log("No human loss");
+            }
         }
-        else
+        else //fail
         {
             text.text = _currentObjective.loseMessage;
             Debug.Log($"Mission {_currentObjective.name} failed");
+            
+            if (_currentObjective.money < 0)
+            {
+                Debug.Log("money :" + _currentObjective.money);
+                _totalMoney += _currentObjective.money;
+            }
+            else
+            {
+                Debug.Log("No money won");
+            }
+            if (_currentObjective.humans < 0)
+            {
+                Debug.Log("humans :" + _currentObjective.humans);
+                _totalHumans += _currentObjective.humans;
+            }
+            else
+            {
+                Debug.Log("No human won");
+            }
         }
+        
         _isStarted = false;
         _progressionIndex++;
         _currentObjective = null;
@@ -90,6 +130,7 @@ public class MissionGiver : MonoBehaviour
     private void FinishGame()
     {
         AnalyticsManager.Instance.WriteAnalytics();
-        SceneManager.LoadScene("EndingScene");
+        Debug.Log("Game finished with humans :"+ _totalHumans + " money :" + _totalMoney);
+        //SceneManager.LoadScene("EndingScene");
     }
 }

@@ -19,3 +19,5 @@ MonoBehaviour:
   description: Max out the quantum agitation
   winMessage: We are ready to work
   loseMessage: Our research is ruined
+  humans: -6
+  money: 0
