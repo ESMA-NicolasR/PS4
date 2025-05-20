@@ -275,7 +275,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5376003069610111060, guid: 7b814758b75cf1a4192565139d29121f, type: 3}
       propertyPath: dragFactor
-      value: 0.2
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376003069610111060, guid: 7b814758b75cf1a4192565139d29121f, type: 3}
+      propertyPath: amplitudeWeight
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5376003069610111060, guid: 7b814758b75cf1a4192565139d29121f, type: 3}
       propertyPath: dragDownMultiplier

@@ -8,7 +8,13 @@ public class ResourceSystem : MonoBehaviour
     public int targetValue;
     
     public event Action OnChangeValue;
-    
+
+    private void Start()
+    {
+        // Make sure initial value is ok
+        SetValue(currentValue);
+    }
+
     public virtual void Break()
     {
         throw new NotImplementedException();

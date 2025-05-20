@@ -285,7 +285,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bca1520a8f53c0943bd42910f1cb87ec, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5358357079657623544}
+      addedObject: {fileID: 2837015135613499131}
   m_SourcePrefab: {fileID: 100100000, guid: bca1520a8f53c0943bd42910f1cb87ec, type: 3}
 --- !u!4 &1365341049230086057 stripped
 Transform:
@@ -297,7 +297,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bca1520a8f53c0943bd42910f1cb87ec, type: 3}
   m_PrefabInstance: {fileID: 1547007423693400130}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5358357079657623544
+--- !u!114 &2837015135613499131
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1853647823429309715}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 490da00823ac08e43bab8297659cf816, type: 3}
+  m_Script: {fileID: 11500000, guid: 0007c01026a773f459e43279977ba79d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnClick:
@@ -326,6 +326,9 @@ MonoBehaviour:
         m_CallState: 2
   canBeUsed: 0
   focusParent: {fileID: 0}
+  timeBetweenClicksSlow: 0.2
+  timeBetweenClicksFast: 0.1
+  timeToFast: 0.5
 --- !u!1001 &6446256626016300538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -384,14 +387,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bca1520a8f53c0943bd42910f1cb87ec, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 581489229898544550}
+      addedObject: {fileID: 3868196795702791829}
   m_SourcePrefab: {fileID: 100100000, guid: bca1520a8f53c0943bd42910f1cb87ec, type: 3}
 --- !u!1 &6175805005463326891 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bca1520a8f53c0943bd42910f1cb87ec, type: 3}
   m_PrefabInstance: {fileID: 6446256626016300538}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &581489229898544550
+--- !u!114 &3868196795702791829
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -400,7 +403,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6175805005463326891}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 490da00823ac08e43bab8297659cf816, type: 3}
+  m_Script: {fileID: 11500000, guid: 0007c01026a773f459e43279977ba79d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnClick:
@@ -420,6 +423,9 @@ MonoBehaviour:
         m_CallState: 2
   canBeUsed: 0
   focusParent: {fileID: 0}
+  timeBetweenClicksSlow: 0.2
+  timeBetweenClicksFast: 0.1
+  timeToFast: 0.5
 --- !u!4 &6845204536182229521 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bca1520a8f53c0943bd42910f1cb87ec, type: 3}
