@@ -16,8 +16,9 @@ public class MinigameAsteroids : MiniGame<AsteroidScenarioData>
     public float cursorStep;
     private Vector2 _lowerBounds, _higherBounds;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         cursor.SetActive(false);
         
         var extents = screen.GetComponent<MeshFilter>().mesh.bounds.extents;
