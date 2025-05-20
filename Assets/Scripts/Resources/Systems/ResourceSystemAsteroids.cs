@@ -14,6 +14,6 @@ public class ResourceSystemAsteroids : ResourceSystem
 
     public void Break(AsteroidScenarioData scenarioData)
     {
-        _minigameAsteroids.MiniGameAsteroidsCanStart(scenarioData);
+        _minigameAsteroids.PlayScenario(scenarioData);
     }
 }

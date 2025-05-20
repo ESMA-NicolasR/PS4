@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MinigameAsteroids : MiniGame
+public class MinigameAsteroids : MiniGame<AsteroidScenarioData>
 {
     public ResourceSystemAsteroids resourceSystem;
     public GameObject cursor;
@@ -84,9 +84,10 @@ public class MinigameAsteroids : MiniGame
         );
     }
     
-    public void PlayScenario(AsteroidScenarioData scenario)
+    public override void LaunchScenario()
     {
-        StartCoroutine(SpawnAsteroids(scenario.spawnList));
+        base.LaunchScenario();
+        StartCoroutine(SpawnAsteroids(_scenario.spawnList));
     }
 
     private IEnumerator SpawnAsteroids(List<AsteroidSpawnData> spawnList)
@@ -121,31 +122,15 @@ public class MinigameAsteroids : MiniGame
         }
     }
 
-    public override void TurnOff()
+    public override void GainFocus()
     {
-        cursor.SetActive(false);
-    }
-    
-    public override void TurnOn(Focusable focusable)
-    {
-        if (focusable.GetComponentInParent<MiniGame>() != null && canPlay == true)
-        {
-            Debug.Log(GetComponent<MinigameNetwork>() == true);
-            if (GetComponent<MinigameNetwork>() == true)
-            {
-                print("huh");
-                GetComponent<MinigameNetwork>().PlayScenario(networkScenarioData);
-                screenCheck.SetActive(false);
-                canPlay = false;
-            }
-            else if (GetComponent<MinigameAsteroids>() == true)
-            {
-                GetComponent<MinigameAsteroids>().PlayScenario(asteroidsScenarioData);
-                GetComponent<MinigameAsteroids>().cursor.SetActive(true);
-                screenCheck.SetActive(false);
-                canPlay = false;
-            }
-        }
+        base.GainFocus();
         cursor.SetActive(true);
+    }
+
+    public override void LoseFocus()
+    {
+        base.LoseFocus();
+        cursor.SetActive(false);
     }
 }

@@ -20,7 +20,7 @@ MonoBehaviour:
   winMessage: Thanks for saving us
   loseMessage: . . . - everyone died - . . .
   spawnList:
-  - spawnDelay: 5
+  - spawnDelay: 0
     moveSpeed: 1
     growSpeed: 0.2
     scale: 0.2
