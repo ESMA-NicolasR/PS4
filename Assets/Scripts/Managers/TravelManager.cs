@@ -5,7 +5,6 @@ public class TravelManager : MonoBehaviour
 {
     public static TravelManager Instance;
     public PlayerTravel playerTravel;
-    // TODO use serializable dicts ?
     public TravelButton travelLeft, travelRight, travelBack;
 
     private void OnEnable()

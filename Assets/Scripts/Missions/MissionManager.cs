@@ -56,7 +56,7 @@ public class MissionManager : MonoBehaviour
         }
         else if (_progressionIndex >= objectives.Count)
         {
-            FinishGame();
+            FindFirstObjectByType<LastStation>().GoToLastStation();
         }
         else
         {
@@ -112,9 +112,8 @@ public class MissionManager : MonoBehaviour
             Debug.Log($"Mission {_currentObjective.name} failed");
         }
         
-        // Next objective
+        // Clear current objective
         missionTimer.StopTimer();
-        StartCoroutine(TriggerMissionCo());
         _isObjectiveStarted = false;
         _progressionIndex++;
         _currentObjective = null;
@@ -122,11 +121,15 @@ public class MissionManager : MonoBehaviour
         // Check ending
         if(_progressionIndex >= objectives.Count)
         {
-            missionText.text = $"You completed all the missions, with a success rate of {(100f*_nbSuccess/objectives.Count):F2}%, thanks !";
+            missionText.text = $"Your shift is now over, pull the cord to call it a day.";
+        }
+        else
+        { // Next objective
+            StartCoroutine(TriggerMissionCo());
         }
     }
 
-    private void FinishGame()
+    public void FinishGame()
     {
         AnalyticsManager.Instance.WriteAnalytics();
         SceneManager.LoadScene("EndingScene");

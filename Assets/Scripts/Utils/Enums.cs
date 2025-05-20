@@ -1,7 +1,8 @@
 public enum TravelDirection{
     Left,
     Right,
-    Back
+    Back,
+    Front
 }
 
 public enum SystemName

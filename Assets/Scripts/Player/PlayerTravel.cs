@@ -42,7 +42,7 @@ public class PlayerTravel : MonoBehaviour
     {
         _cursorMoveCamera = GetComponent<CursorMoveCamera>();
         transform.position = currentStation.transform.position;
-        transform.rotation = currentStation.transform.rotation;
+        headPivot.rotation = currentStation.transform.rotation;
     }
 
     public void MoveDirection(TravelDirection direction)
@@ -89,6 +89,8 @@ public class PlayerTravel : MonoBehaviour
         timeToArrive = totalTime;
         // We need to know hom much time is necessary to face the path
         var lookAheadTime = Quaternion.Angle(headPivot.rotation, Quaternion.LookRotation(spline.EvaluateTangent(0)))/speedToAdhereToLookAhead;
+        // Prevent division by zero when angle is too low
+        lookAheadTime = Mathf.Max(lookAheadTime, 0.1f);
         // We eventually want to look at what's right in front of the last node
         Vector3 aimDestination = (Vector3)lastNode.Position + new Quaternion(lastNode.Rotation.value.x,
             lastNode.Rotation.value.y, lastNode.Rotation.value.z, lastNode.Rotation.value.w) * Vector3.forward;
@@ -96,6 +98,7 @@ public class PlayerTravel : MonoBehaviour
         {
             elapsedTime = Mathf.Min(elapsedTime+Time.deltaTime, totalTime);
             float ratio = elapsedTime / totalTime;
+            Debug.Log($"ratio1={ratio};;;ratio2={elapsedTime/lookAheadTime}");
             // Move along spline
             transform.position = spline.EvaluatePosition(movementCurve.Evaluate(ratio));
             // Compute speed with f'(x) ~= (f(x+dt)-f(x))/dt
