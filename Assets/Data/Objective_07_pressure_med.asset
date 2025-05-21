@@ -15,7 +15,9 @@ MonoBehaviour:
   systemName: 11
   targetValue: 1500
   breakValue: 500
-  time: 0
+  time: 30
   description: Our engine is slowing down, max out the pressure !
   winMessage: We are up and running
   loseMessage: Our whole ship just shut down
+  humans: 5
+  money: 5000

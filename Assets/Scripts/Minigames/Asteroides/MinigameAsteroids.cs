@@ -93,7 +93,6 @@ public class MinigameAsteroids : MiniGame<AsteroidScenarioData>
 
     private IEnumerator SpawnAsteroids(List<AsteroidSpawnData> spawnList)
     {
-        resourceSystem.SetValue(spawnList.Count);
         foreach (AsteroidSpawnData spawn in spawnList)
         {
             yield return new WaitForSeconds(spawn.spawnDelay);

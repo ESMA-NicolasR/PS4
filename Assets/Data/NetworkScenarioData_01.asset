@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: NetworkScenarioData_01
   m_EditorClassIdentifier: 
   systemName: 6
-  targetValue: 0
+  targetValue: 2
   breakValue: 0
-  time: 0
+  time: 30
   description: Fix the network
   winMessage: Connection established !
   loseMessage: Connection lost...
+  humans: 0
+  money: 1000
   boardPrefab: {fileID: 2066718368306942282, guid: 0fcfe72cc97fdf64a9713af8ae4415ed, type: 3}

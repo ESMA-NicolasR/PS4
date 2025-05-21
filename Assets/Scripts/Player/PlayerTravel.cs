@@ -98,7 +98,6 @@ public class PlayerTravel : MonoBehaviour
         {
             elapsedTime = Mathf.Min(elapsedTime+Time.deltaTime, totalTime);
             float ratio = elapsedTime / totalTime;
-            Debug.Log($"ratio1={ratio};;;ratio2={elapsedTime/lookAheadTime}");
             // Move along spline
             transform.position = spline.EvaluatePosition(movementCurve.Evaluate(ratio));
             // Compute speed with f'(x) ~= (f(x+dt)-f(x))/dt

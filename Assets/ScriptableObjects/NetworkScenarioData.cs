@@ -18,6 +18,7 @@ public class NetworkScenarioData : ResourceObjectiveData
     
     public override void End(ResourceSystem resourceSystem)
     {
+        base.End(resourceSystem);
         var systemNetwork = resourceSystem as ResourceSystemNetwork;
         if (systemNetwork == null)
         {

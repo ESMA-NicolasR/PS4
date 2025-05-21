@@ -7,6 +7,8 @@ public class ResourceSystemNetwork : ResourceSystem
 
     public void Break(NetworkScenarioData scenarioData)
     {
+        SetValue(scenarioData.breakValue);
+        SetTargetValue(scenarioData.targetValue);
         minigameNetwork.PlayScenario(scenarioData);
     }
 }

@@ -15,7 +15,9 @@ MonoBehaviour:
   systemName: 8
   targetValue: 0
   breakValue: 1
-  time: 0
+  time: 30
   description: We are overloading, bring down our shields
   winMessage: We avoided the worst
   loseMessage: . . . - - - . . .
+  humans: 40000
+  money: 0

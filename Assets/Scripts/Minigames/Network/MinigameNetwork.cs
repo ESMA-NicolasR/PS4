@@ -30,9 +30,6 @@ public class MinigameNetwork : MiniGame<NetworkScenarioData>
         {
             meteor.minigameNetwork = this;
         }
-        // Set system values
-        _resourceSystemNetwork.targetValue = 2;
-        _resourceSystemNetwork.SetValue(0);
         // Prepare for interaction
         Reset();
     }

@@ -14,6 +14,8 @@ public class ResourceSystemAsteroids : ResourceSystem
 
     public void Break(AsteroidScenarioData scenarioData)
     {
+        SetValue(scenarioData.breakValue);
+        SetTargetValue(scenarioData.spawnList.Count);
         minigameAsteroids.PlayScenario(scenarioData);
     }
 }

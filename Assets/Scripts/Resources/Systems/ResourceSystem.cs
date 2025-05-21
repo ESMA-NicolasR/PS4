@@ -37,7 +37,7 @@ public class ResourceSystem : MonoBehaviour
         OnChangeValue?.Invoke();
     }
 
-    private void SetTargetValue(int newValue)
+    protected void SetTargetValue(int newValue)
     {
         targetValue = SanitizeValue(newValue);
     }

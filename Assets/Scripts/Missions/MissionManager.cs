@@ -18,6 +18,7 @@ public class MissionManager : MonoBehaviour
     private ResourceObjectiveData _currentObjective;
     private int _nbSuccess;
     [SerializeField] private float _timeBetweenMissions;
+    private int _totalHumans, _totalMoney;
 
     public static event Action AnalyticsObjectiveStarted;
     public static event Action<AnalyticsObjectiveData> AnalyticsObjectiveFinished;
@@ -116,6 +117,7 @@ public class MissionManager : MonoBehaviour
         missionTimer.StopTimer();
         _isObjectiveStarted = false;
         _progressionIndex++;
+        _currentObjective.End(_namesToSystems[_currentObjective.systemName]);
         _currentObjective = null;
         
         // Check ending
