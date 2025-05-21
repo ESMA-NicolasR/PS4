@@ -3655,6 +3655,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: ecadf67785d6b1149b8c67fa89093c7d, type: 3}
     - target: {fileID: 18194309503708342, guid: 810ade7c99d38c44e94e6f2b85f8b781, type: 3}
+      propertyPath: _spriteColor1Ship
+      value: 
+      objectReference: {fileID: 21300000, guid: 2872830c5afd0ad4aa6f7946709b7a82, type: 3}
+    - target: {fileID: 18194309503708342, guid: 810ade7c99d38c44e94e6f2b85f8b781, type: 3}
+      propertyPath: _spriteColor2Ship
+      value: 
+      objectReference: {fileID: 21300000, guid: d844399726947384691bd27315b53344, type: 3}
+    - target: {fileID: 18194309503708342, guid: 810ade7c99d38c44e94e6f2b85f8b781, type: 3}
       propertyPath: _spriteColor1Start
       value: 
       objectReference: {fileID: 21300000, guid: a335c8519dee85e40b71d3cbb1324b94, type: 3}
@@ -3663,9 +3671,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: ab5027f05807e55468dcba991bae7ac8, type: 3}
     - target: {fileID: 18194309503708342, guid: 810ade7c99d38c44e94e6f2b85f8b781, type: 3}
+      propertyPath: _spriteColor1Finish
+      value: 
+      objectReference: {fileID: 21300000, guid: b310b9cde844a174ebc21a442450c743, type: 3}
+    - target: {fileID: 18194309503708342, guid: 810ade7c99d38c44e94e6f2b85f8b781, type: 3}
       propertyPath: _spriteColor1Travel
       value: 
       objectReference: {fileID: 21300000, guid: da88a79f25540f84e8fe68258bd0c4f1, type: 3}
+    - target: {fileID: 18194309503708342, guid: 810ade7c99d38c44e94e6f2b85f8b781, type: 3}
+      propertyPath: _spriteColor2Finish
+      value: 
+      objectReference: {fileID: 21300000, guid: fab5fa35c76138249b043406872887e3, type: 3}
     - target: {fileID: 18194309503708342, guid: 810ade7c99d38c44e94e6f2b85f8b781, type: 3}
       propertyPath: _spriteColor2Travel
       value: 

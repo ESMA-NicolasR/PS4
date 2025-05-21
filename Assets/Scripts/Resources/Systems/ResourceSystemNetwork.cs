@@ -9,4 +9,9 @@ public class ResourceSystemNetwork : ResourceSystem
     {
         _minigameNetwork.PlayScenario(scenarioData);
     }
+    
+    public override bool IsFixed()
+    {
+        return _minigameNetwork.CheckIsWon();
+    }
 }

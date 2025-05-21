@@ -11,15 +11,13 @@ public class MinigameNetwork : MonoBehaviour
     public bool _isPathing;
     private Cell _lastCellUsed, _lastCellUsedColor1, _lastCellUsedColor2, _cellEndColor1, _cellEndColor2;
     private List<Cell> _usedColor1Cells = new List<Cell>(), _usedColor2Cells = new List<Cell>();
-    [SerializeField]
-    private Sprite _spriteColor1Start, _spriteColor1End, _spriteColor1Travel, _spriteColor2Start, _spriteColor2End, _spriteColor2Travel, _spriteMeteor, _spriteNeutral;
-    private int _columnNb = 0, _rowNb = 0;
+    [SerializeField] private Sprite _spriteColor1Start, _spriteColor1End, _spriteColor1Finish, _spriteColor1Travel, _spriteColor1Ship;
+    [SerializeField] private Sprite _spriteColor2Start, _spriteColor2End, _spriteColor2Finish, _spriteColor2Travel, _spriteColor2Ship;
+    [SerializeField] private Sprite _spriteMeteor, _spriteNeutral;
     
     public void PlayScenario(NetworkScenarioData scenarioData)
     {
-        _columnNb = 3; //change once we can initiate the board
-        _rowNb = 4;
-        InitBoard(_columnNb, _rowNb);
+        InitBoard(scenarioData.nbRows, scenarioData.nbColumns);
     }
 
     private void OnEnable()
@@ -42,7 +40,7 @@ public class MinigameNetwork : MonoBehaviour
         }
     }
 
-    private void InitBoard(int columnNb, int rowNb)
+    private void InitBoard(int rowNb, int columnNb)
     {
         var allCells = GetComponentsInChildren<Cell>().ToList();
         var cellPosition = 0;
@@ -95,9 +93,6 @@ public class MinigameNetwork : MonoBehaviour
 
     private void MoveFromTo(Cell cell1, Cell cell2)
     {
-        Debug.Log(Math.Abs(cell1.positionX - cell2.positionX) == 1);
-        Debug.Log(Math.Abs(cell1.positionY - cell2.positionY) == 1);
-        Debug.Log(!(Math.Abs(cell1.positionX - cell2.positionX) != 0 ^ Math.Abs(cell1.positionY - cell2.positionY) == 1));
         // If it is more than 1 movement or diagonal movement, exit
         if (
             !(
@@ -119,27 +114,47 @@ public class MinigameNetwork : MonoBehaviour
         }
         // We know we can move
         cell2.ConnectColor(cell1.colorNb);
-        if (cell2.GetCellType() == CellType.Neutral)
+        // Change sprite of previous if neutral
+        if (cell1.GetCellType() == CellType.Neutral)
         {
             switch (cell1.colorNb)
             {
                 case 1:
-                    cell2.ChangeSprite(_spriteColor1Travel);
+                    cell1.ChangeSprite(_spriteColor1Travel);
                     break;
                 case 2:
-                    cell2.ChangeSprite(_spriteColor2Travel);
+                    cell1.ChangeSprite(_spriteColor2Travel);
                     break;
             }
         }
+        // Do things depending on type of next case
         switch (cell2.colorNb)
         {
             case 1:
                 _lastCellUsedColor1 = cell2;
                 _usedColor1Cells.Add(cell2);
+                if (cell2.GetCellType() == CellType.Neutral)
+                {
+                    cell2.ChangeSprite(_spriteColor1Ship);
+                }
+                else if (cell2.GetCellType() == CellType.End)
+                {
+                    cell2.ChangeSprite(_spriteColor1Finish);
+                    _isPathing = false;
+                }
                 break;
             case 2:
                 _lastCellUsedColor2 = cell2;
                 _usedColor2Cells.Add(cell2);
+                if (cell2.GetCellType() == CellType.Neutral)
+                {
+                    cell2.ChangeSprite(_spriteColor2Ship);
+                }
+                else if (cell2.GetCellType() == CellType.End)
+                {
+                    cell2.ChangeSprite(_spriteColor2Finish);
+                    _isPathing = false;
+                }
                 break;
         }
         _lastCellUsed = cell2;
@@ -200,9 +215,14 @@ public class MinigameNetwork : MonoBehaviour
                 foreach (Cell cell in _usedColor1Cells)
                 {
                     cell.ResetCell();
-                    if (cell.GetCellType() == CellType.Neutral)
+                    switch (cell.GetCellType())
                     {
-                        cell.ChangeSprite(_spriteNeutral);
+                        case CellType.Neutral:
+                            cell.ChangeSprite(_spriteNeutral);
+                            break;
+                        case CellType.End:
+                            cell.ChangeSprite(_spriteColor1End);
+                            break;
                     }
                 }
                 _usedColor1Cells.Clear();
@@ -211,9 +231,14 @@ public class MinigameNetwork : MonoBehaviour
                 foreach (Cell cell in _usedColor2Cells)
                 {
                     cell.ResetCell();
-                    if (cell.GetCellType() == CellType.Neutral)
+                    switch (cell.GetCellType())
                     {
-                        cell.ChangeSprite(_spriteNeutral);
+                        case CellType.Neutral:
+                            cell.ChangeSprite(_spriteNeutral);
+                            break;
+                        case CellType.End:
+                            cell.ChangeSprite(_spriteColor2End);
+                            break;
                     }
                 }
                 _usedColor2Cells.Clear();

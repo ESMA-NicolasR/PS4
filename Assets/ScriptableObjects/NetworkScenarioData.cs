@@ -5,6 +5,8 @@ using UnityEngine;
 public class NetworkScenarioData : ResourceObjectiveData
 {
     public GameObject boardPrefab;
+    public int nbRows;
+    public int nbColumns;
     
     public override void BreakSystem(ResourceSystem resourceSystem)
     {
