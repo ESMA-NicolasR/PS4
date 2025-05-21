@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CellMeteor : Cell
 {
-    public override bool CanMoveColor(int ColorNb)
+    public override bool CanMoveColor(int _colorNb)
     {
         return false;
     }
@@ -10,10 +10,5 @@ public class CellMeteor : Cell
     public override CellType GetCellType()
     {
         return CellType.Meteor;
-    }
-
-    public override void OnMouseDown()
-    {
-        minigame.ResetAllColors();
     }
 }

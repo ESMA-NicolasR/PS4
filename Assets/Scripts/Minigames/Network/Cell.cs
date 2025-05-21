@@ -7,13 +7,13 @@ public class Cell : MonoBehaviour
     public int colorNb; //0 = none, 1 =  color1, 2 = color2
     public MinigameNetwork minigame;
 
-    private void OnEnable()
+    private void Awake()
     {
         minigame = GetComponentInParent<MinigameNetwork>();
     }
-    public void ConnectColor(int ColorNb)
+    public void ConnectColor(int _colorNb)
     {
-        colorNb = ColorNb;
+        colorNb = _colorNb;
         isConnected = true;
     }
 
@@ -28,7 +28,7 @@ public class Cell : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = sprite;
     }
 
-    public virtual bool CanMoveColor(int ColorNb)
+    public virtual bool CanMoveColor(int _colorNb)
     {
         return !isConnected;
     }

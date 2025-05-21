@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class CellEnd : Cell
 {
-    public override bool CanMoveColor(int ColorNb)
+    public override bool CanMoveColor(int _colorNb)
     {
-        return ColorNb == colorNb;
+        return _colorNb == colorNb;
     }
 
     public override CellType GetCellType()
@@ -16,6 +16,11 @@ public class CellEnd : Cell
     public override void OnMouseDown()
     {
         
+    }
+
+    public override void ResetCell()
+    {
+        isConnected = false;
     }
 
     public void OnMouseUp()

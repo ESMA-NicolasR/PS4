@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -43,158 +44,186 @@ public class MinigameNetwork : MonoBehaviour
 
     private void InitBoard(int columnNb, int rowNb)
     {
+        var allCells = GetComponentsInChildren<Cell>().ToList();
         var cellPosition = 0;
         for (var i = 0; i < rowNb; i++)
         {
             _board.Add(new List<Cell>());
             for (var j = 0; j < columnNb; j++)
             {
-                _cells[cellPosition].positionX = j;
-                _cells[cellPosition].positionY = i;
-                _board[i].Add(_cells[cellPosition]);
-                switch (_cells[cellPosition].GetCellType())
+                var cell = allCells[cellPosition];
+                cell.positionX = j;
+                cell.positionY = i;
+                _board[i].Add(cell);
+                Sprite sprite = _spriteNeutral;
+                switch (cell.GetCellType())
                 {
                     case CellType.Start:
-                        switch (_cells[cellPosition].colorNb)
+                        switch (cell.colorNb)
                         {
                             case 1:
-                                _cells[cellPosition].ChangeSprite(_spriteColor1Start);
+                                sprite = _spriteColor1Start;
                                 break;
                             case 2:
-                                _cells[cellPosition].ChangeSprite(_spriteColor2Start);
+                                sprite =  _spriteColor2Start;
                                 break;
                         }
                         break;
-                    case CellType.Neutral:
-                        _cells[cellPosition].ChangeSprite(_spriteNeutral);
-                        break;
                     case CellType.End:
-                        switch (_cells[cellPosition].colorNb)
+                        switch (cell.colorNb)
                         {
                             case 1:
-                                _cells[cellPosition].ChangeSprite(_spriteColor1End);
+                                sprite = _spriteColor1End;
+                                _cellEndColor1 = cell;
                                 break;
                             case 2:
-                                _cells[cellPosition].ChangeSprite(_spriteColor2End);
+                                sprite = _spriteColor2End;
+                                _cellEndColor2 = cell;
                                 break;
                         }
                         break;
                     case CellType.Meteor:
-                        _cells[cellPosition].ChangeSprite(_spriteMeteor);
+                        sprite = _spriteMeteor;
                         break;
+                    
                 }
+                cell.ChangeSprite(sprite);
                 cellPosition +=1;
             }
         }
     }
 
-    private void MoveFromTo(Cell Cell1, Cell Cell2)
+    private void MoveFromTo(Cell cell1, Cell cell2)
     {
-        if ((Cell1.positionX - Cell2.positionX <= 1 && Cell1.positionX - Cell2.positionX >= -1 || Cell1.positionY - Cell2.positionY <= 1 && Cell1.positionY - Cell2.positionY >= -1) &&
-            (Cell1.positionX - Cell2.positionX == 0 || Cell1.positionY - Cell2.positionY == 0)) //check if the cells are nearby
+        Debug.Log(Math.Abs(cell1.positionX - cell2.positionX) == 1);
+        Debug.Log(Math.Abs(cell1.positionY - cell2.positionY) == 1);
+        Debug.Log(!(Math.Abs(cell1.positionX - cell2.positionX) != 0 ^ Math.Abs(cell1.positionY - cell2.positionY) == 1));
+        // If it is more than 1 movement or diagonal movement, exit
+        if (
+            !(
+                (Math.Abs(cell1.positionX - cell2.positionX) == 1 && cell1.positionY==cell2.positionY)
+                ^ 
+                (Math.Abs(cell1.positionY - cell2.positionY) == 1 && cell1.positionX==cell2.positionX)
+            )
+        )
         {
-            if (Cell2.CanMoveColor(Cell2.colorNb))
+            _isPathing = false;
+            return;
+        }
+        // If move is not allow, reset color and exit
+        if (!cell2.CanMoveColor(cell1.colorNb))
+        {
+            _isPathing = false;
+            ResetColor(cell1.colorNb);
+            return;
+        }
+        // We know we can move
+        cell2.ConnectColor(cell1.colorNb);
+        if (cell2.GetCellType() == CellType.Neutral)
+        {
+            switch (cell1.colorNb)
             {
-                Cell2.ConnectColor(Cell1.colorNb);
-                if (Cell2.GetCellType() == CellType.Neutral)
-                {
-                    switch (Cell2.colorNb)
-                    {
-                        case 1:
-                            Cell2.ChangeSprite(_spriteColor1Travel);
-                            break;
-                        case 2:
-                            Cell2.ChangeSprite(_spriteColor1Start);
-                            break;
-                    }
-                }
-                switch (Cell2.colorNb)
-                {
-                    case 1:
-                        _lastCellUsedColor1 = Cell2;
-                        _usedColor1Cells.Add(Cell2);
-                        break;
-                    case 2:
-                        _lastCellUsedColor2 = Cell2;
-                        _usedColor2Cells.Add(Cell2);
-                        break;
-                }
-                _lastCellUsed = Cell2;
-                if (CheckIsWon())
-                {
-                    Debug.Log("Won");
-                }
+                case 1:
+                    cell2.ChangeSprite(_spriteColor1Travel);
+                    break;
+                case 2:
+                    cell2.ChangeSprite(_spriteColor2Travel);
+                    break;
             }
-            else if (Cell2 != Cell1)
-            {
-                ResetColor(_lastCellUsed.colorNb);
-            }
+        }
+        switch (cell2.colorNb)
+        {
+            case 1:
+                _lastCellUsedColor1 = cell2;
+                _usedColor1Cells.Add(cell2);
+                break;
+            case 2:
+                _lastCellUsedColor2 = cell2;
+                _usedColor2Cells.Add(cell2);
+                break;
+        }
+        _lastCellUsed = cell2;
+        if (CheckIsWon())
+        {
+            Debug.Log("Won");
         }
     }
 
-    public void StartPathFromCell(Cell Cell)
+    public void StartPathFromCell(Cell cell)
     {
-        switch (Cell.GetCellType())
+        switch (cell.GetCellType())
         {
             case CellType.Start:
-                ResetColor(Cell.colorNb);
+                ResetColor(cell.colorNb);
                 _isPathing = true;
-                _lastCellUsed = Cell;
-                Cell.ConnectColor(Cell.colorNb);
+                _lastCellUsed = cell;
+                //cell.ConnectColor(cell.colorNb);
                 break;
             case CellType.Neutral:
-                if (Cell == _lastCellUsedColor1 || Cell == _lastCellUsedColor2)
+                if (cell.isConnected && (cell == _lastCellUsedColor1 || cell == _lastCellUsedColor2))
                 {
                     _isPathing = true;
-                    Cell.ConnectColor(Cell.colorNb);
+                    //cell.ConnectColor(cell.colorNb);
                 }
                 else
                 {
-                    ResetColor(Cell.colorNb);
+                    _isPathing = false;
+                    ResetColor(cell.colorNb);
                 }
-                _lastCellUsed  = Cell;
+                _lastCellUsed  = cell;
                 break;
             case CellType.Meteor:
+                _isPathing = false;
                 ResetAllColors();
                 break;
         }
     }
 
-    public void DrawPathOnCell(Cell Cell)
+    public void DrawPathOnCell(Cell cell)
     {
-        if (_isPathing)
+        if (_isPathing && cell != _lastCellUsed)
         {
-            if (Cell != _lastCellUsed)
-            {
-                MoveFromTo(_lastCellUsed, Cell);
-            }
+            MoveFromTo(_lastCellUsed, cell);
         }
     }
 
     public bool CheckIsWon()
     {
-        return (_cellEndColor1.isConnected == true && _cellEndColor2.isConnected == true);
+        return (_cellEndColor1.isConnected && _cellEndColor2.isConnected);
     }
 
-    public void ResetColor(int ColorNb)
+    public void ResetColor(int colorNb)
     {
-        if (_cells.Count > 0)
+        switch (colorNb)
         {
-            foreach (Cell cell in _cells)
-            {
-                if (cell.colorNb == ColorNb)
+            case 1:
+                foreach (Cell cell in _usedColor1Cells)
                 {
                     cell.ResetCell();
+                    if (cell.GetCellType() == CellType.Neutral)
+                    {
+                        cell.ChangeSprite(_spriteNeutral);
+                    }
                 }
-            }
+                _usedColor1Cells.Clear();
+                break;
+            case 2:
+                foreach (Cell cell in _usedColor2Cells)
+                {
+                    cell.ResetCell();
+                    if (cell.GetCellType() == CellType.Neutral)
+                    {
+                        cell.ChangeSprite(_spriteNeutral);
+                    }
+                }
+                _usedColor2Cells.Clear();
+                break;
         }
     }
 
     public void ResetAllColors()   
     {
-        foreach (Cell cell in _cells)
-        {
-            cell.ResetCell();
-        }
+        ResetColor(1);
+        ResetColor(2);
     }
 }
