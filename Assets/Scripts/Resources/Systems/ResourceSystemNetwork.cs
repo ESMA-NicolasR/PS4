@@ -1,12 +1,12 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ResourceSystemNetwork : ResourceSystem
 {
-    [SerializeField]
-    private MinigameNetwork _minigameNetwork;
+    [FormerlySerializedAs("_minigameNetwork")] public MinigameNetwork minigameNetwork;
 
     public void Break(NetworkScenarioData scenarioData)
     {
-        _minigameNetwork.PlayScenario(scenarioData);
+        minigameNetwork.PlayScenario(scenarioData);
     }
 }

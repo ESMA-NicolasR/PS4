@@ -27,4 +27,15 @@ public class AsteroidScenarioData : ResourceObjectiveData
         }
         systemAsteroids.Break(this);
     }
+
+    public override void End(ResourceSystem resourceSystem)
+    {
+        base.End(resourceSystem);
+        var systemAsteroids = resourceSystem as ResourceSystemAsteroids;
+        if (systemAsteroids == null)
+        {
+            throw new Exception($"ResourceSystem of AsteroidScenarioData {name} must be a MinigameAsteroids");
+        }
+        systemAsteroids.minigameAsteroids.CleanUp();
+    }
 }
