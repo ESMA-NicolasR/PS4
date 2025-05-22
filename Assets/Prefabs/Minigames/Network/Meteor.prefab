@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4650266464496787416}
   - component: {fileID: 2437242789988406921}
   - component: {fileID: 9195816619586696}
-  - component: {fileID: 5798677971610983996}
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Untagged
@@ -110,16 +109,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000005, y: 1.0000001, z: 0.20000009}
   m_Center: {x: 0.0000076293945, y: 0.0000038146973, z: -0.0000038146973}
---- !u!114 &5798677971610983996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5907865969349189210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 660737077f49436428891cd431ca690a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minigameNetwork: {fileID: 0}

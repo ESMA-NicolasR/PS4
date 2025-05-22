@@ -1,176 +1,188 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class MinigameNetwork : MiniGame<NetworkScenarioData>
 {
-    public List<CaseBehavior> casesList, casesSelectedColor1, casesSelectedColor2;
-    public Color color1, color2, actualColor, standardColor;
-    public bool isPathing;
-
-    [SerializeField]
-    private Transform _pivotBoard;
-    [SerializeField]
-    private ResourceSystemNetwork _resourceSystemNetwork;
-    private CaseBehavior _lastCaseSelected, _lastColor1SelectedCase, _lastColor2SelectedCase;
-    private Color _colorDone;
+    private List<Cell> _allCells = new();
+    private NetworkScenarioData _currentScenario;
+    public bool _isPathing;
+    private Cell _lastCellUsed, _lastCellUsedColor1, _lastCellUsedColor2, _cellEndColor1, _cellEndColor2;
+    private List<Cell> _usedColor1Cells = new(), _usedColor2Cells = new();
+    [SerializeField] private Sprite _spriteColor1Start, _spriteColor1End, _spriteColor1Finish, _spriteColor1Travel, _spriteColor1Ship;
+    [SerializeField] private Sprite _spriteColor2Start, _spriteColor2End, _spriteColor2Finish, _spriteColor2Travel, _spriteColor2Ship;
+    [SerializeField] private Sprite _spriteMeteor, _spriteNeutral;
     private GameObject _currentBoard;
+    private Transform _pivotBoard;
 
     public override void LaunchScenario()
     {
         base.LaunchScenario();
         _currentBoard = Instantiate(_scenario.boardPrefab, _pivotBoard);
-        // Init cases
-        casesList = GetComponentsInChildren<CaseBehavior>().ToList();
-        foreach (CaseBehavior caseBehavior in casesList)
-        {
-            caseBehavior.minigameNetwork = this;
-        }
-        foreach (MeteorCaseBehavior meteor in GetComponentsInChildren<MeteorCaseBehavior>())
-        {
-            meteor.minigameNetwork = this;
-        }
         // Prepare for interaction
-        Reset();
+        InitBoard(_currentScenario.nbRows, _currentScenario.nbColumns);
     }
+       
     
-    
-    private void Reset()
+    public void PlayScenario(NetworkScenarioData scenarioData)
     {
-        foreach (var caseSelected in casesList)
-        {
-            caseSelected.ChangeColor(caseSelected.baseColor);
-            if (caseSelected != null && casesList.Contains(caseSelected) == false)
-            {
-                print(caseSelected);
-                casesSelectedColor1.Remove(caseSelected);
-                casesSelectedColor2.Remove(caseSelected);
-            }
-        }
-        actualColor = standardColor;
-        isPathing = false;
-        casesSelectedColor1.Clear();
-        casesSelectedColor2.Clear();
-        _resourceSystemNetwork.SetValue(0);
+        _currentScenario = scenarioData;
     }
 
-    private void ResetColor(Color color)
+    private void InitBoard(int rowNb, int columnNb)
     {
-        foreach (var caseSelected in casesList)
+        _allCells = GetComponentsInChildren<Cell>().ToList();
+        var cellPosition = 0;
+        for (var i = 0; i < rowNb; i++)
         {
-            if (caseSelected.IsColor(color))
+            for (var j = 0; j < columnNb; j++)
             {
-                caseSelected.ChangeColor(caseSelected.baseColor);
-                if (caseSelected != null && casesList.Contains(caseSelected) == false)
+                var cell = _allCells[cellPosition];
+                Sprite sprite = _spriteNeutral;
+                switch (cell.GetCellType())
                 {
-                    casesSelectedColor1.Remove(caseSelected);
-                    casesSelectedColor2.Remove(caseSelected);
+                    case CellType.Start:
+                        switch (cell.colorNb)
+                        {
+                            case 1:
+                                sprite = _spriteColor1Start;
+                                break;
+                            case 2:
+                                sprite =  _spriteColor2Start;
+                                break;
+                        }
+                        break;
+                    case CellType.End:
+                        switch (cell.colorNb)
+                        {
+                            case 1:
+                                sprite = _spriteColor1End;
+                                _cellEndColor1 = cell;
+                                break;
+                            case 2:
+                                sprite = _spriteColor2End;
+                                _cellEndColor2 = cell;
+                                break;
+                        }
+                        break;
+                    case CellType.Meteor:
+                        sprite = _spriteMeteor;
+                        break;
                 }
+                cell.Init(j, i, this);
+                cell.ChangeSprite(sprite);
+                cellPosition +=1;
             }
-        }
-        if (_resourceSystemNetwork.currentValue == 1)
-        {
-            if (_colorDone == color)
-            {
-                _resourceSystemNetwork.ChangeValue(-1);
-            }
-        }
-        else if (_resourceSystemNetwork.currentValue == 2)
-        {
-            _resourceSystemNetwork.ChangeValue(-1);
-        }
-        actualColor = standardColor;
-        isPathing = false;
-        _lastColor2SelectedCase = null;
-        _lastColor1SelectedCase = null;
-        if (color == color1)
-        {
-            _lastColor1SelectedCase = _lastCaseSelected;
-            casesSelectedColor1.Clear();
-        }
-        if (color == color2)
-        {
-            _lastColor2SelectedCase = _lastCaseSelected;
-            casesSelectedColor2.Clear();
-        }
-    }
-    
-    public void CaseSelected(CaseBehavior caseSelected)
-    {
-        if (isPathing && caseSelected.baseColor == standardColor)
-        {
-            if (casesSelectedColor1.Contains(caseSelected) || casesSelectedColor2.Contains(caseSelected))
-            {
-                Reset();
-            }
-            else
-            {
-                caseSelected.ChangeColor(actualColor);
-                if (caseSelected.IsColor(color1))
-                {
-                    casesSelectedColor1.Add(caseSelected);
-                }
-                if (caseSelected.IsColor(color2))
-                {
-                    casesSelectedColor2.Add(caseSelected);
-                }
-                _lastCaseSelected = caseSelected;
-            }
-        }
-        else if (isPathing && (caseSelected.endCase && caseSelected.baseColor == actualColor))
-        {
-            isPathing = false;
-            _resourceSystemNetwork.ChangeValue(1);
-            _colorDone = actualColor;
-        }
-        else if (isPathing && caseSelected.startCase)
-        {
-            print("heho");
-            ResetColor(actualColor);
         }
     }
 
-    public void CaseClicked(CaseBehavior caseSelected)
+    private void MoveFromTo(Cell cell1, Cell cell2)
     {
-        if (caseSelected.IsColor(standardColor) && caseSelected.endCase == false)
+        // If it is more than 1 movement or diagonal movement, exit
+        if (
+            !(
+                (Math.Abs(cell1.positionX - cell2.positionX) == 1 && cell1.positionY==cell2.positionY)
+                ^ 
+                (Math.Abs(cell1.positionY - cell2.positionY) == 1 && cell1.positionX==cell2.positionX)
+            )
+        )
         {
-            Reset();
+            _isPathing = false;
+            return;
         }
-        if ((caseSelected != _lastColor1SelectedCase && caseSelected != _lastColor2SelectedCase) && (caseSelected.baseColor == standardColor && (caseSelected.endCase == false)))
+        // If move is not allow, reset color and exit
+        if (!cell2.CanMoveColor(cell1.colorNb))
         {
-            ResetColor(caseSelected.GetColor());
+            _isPathing = false;
+            ResetColor(cell1.colorNb);
+            return;
         }
-        else if (caseSelected.endCase || ((casesSelectedColor1.Any() && caseSelected.baseColor == color1) || (casesSelectedColor2.Any() && caseSelected.baseColor == color2)))
+        // We know we can move
+        cell2.ConnectColor(cell1.colorNb);
+        // Change sprite of previous if neutral
+        if (cell1.GetCellType() == CellType.Neutral)
         {
-            isPathing = false;
-        }
-        else if(caseSelected.endCase == false)
-        {
-            isPathing = true;
-            if (casesList.Contains(caseSelected) == false)
+            switch (cell1.colorNb)
             {
-                if (caseSelected.IsColor(color1))
-                {
-                    casesSelectedColor1.Add(caseSelected);
-                }
-                if (caseSelected.IsColor(color2))
-                {
-                    casesSelectedColor2.Add(caseSelected);
-                }
+                case 1:
+                    cell1.ChangeSprite(_spriteColor1Travel);
+                    break;
+                case 2:
+                    cell1.ChangeSprite(_spriteColor2Travel);
+                    break;
             }
-            actualColor = caseSelected.GetColor();
+        }
+        // Do things depending on type of next case
+        switch (cell2.colorNb)
+        {
+            case 1:
+                _lastCellUsedColor1 = cell2;
+                _usedColor1Cells.Add(cell2);
+                if (cell2.GetCellType() == CellType.Neutral)
+                {
+                    cell2.ChangeSprite(_spriteColor1Ship);
+                }
+                else if (cell2.GetCellType() == CellType.End)
+                {
+                    cell2.ChangeSprite(_spriteColor1Finish);
+                    _isPathing = false;
+                }
+                break;
+            case 2:
+                _lastCellUsedColor2 = cell2;
+                _usedColor2Cells.Add(cell2);
+                if (cell2.GetCellType() == CellType.Neutral)
+                {
+                    cell2.ChangeSprite(_spriteColor2Ship);
+                }
+                else if (cell2.GetCellType() == CellType.End)
+                {
+                    cell2.ChangeSprite(_spriteColor2Finish);
+                    _isPathing = false;
+                }
+                break;
+        }
+        _lastCellUsed = cell2;
+        if (CheckIsWon())
+        {
+            Debug.Log("Won");
         }
     }
 
-    public void CaseUnclicked(CaseBehavior caseSelected)
+    public void StartPathFromCell(Cell cell)
     {
-        if (caseSelected.IsColor(color1))
+        switch (cell.GetCellType())
         {
-            _lastColor1SelectedCase = _lastCaseSelected;
+            case CellType.Start:
+                ResetColor(cell.colorNb);
+                _isPathing = true;
+                _lastCellUsed = cell;
+                break;
+            case CellType.Neutral:
+                if (cell.isConnected && (cell == _lastCellUsedColor1 || cell == _lastCellUsedColor2))
+                {
+                    _isPathing = true;
+                }
+                else
+                {
+                    _isPathing = false;
+                    ResetColor(cell.colorNb);
+                }
+                _lastCellUsed  = cell;
+                break;
+            case CellType.Meteor:
+                _isPathing = false;
+                ResetAllColors();
+                break;
         }
-        if (caseSelected.IsColor(color2))
+    }
+
+    public void DrawPathOnCell(Cell cell)
+    {
+        if (_isPathing && cell != _lastCellUsed)
         {
-            _lastColor2SelectedCase = _lastCaseSelected;
+            MoveFromTo(_lastCellUsed, cell);
         }
     }
     
@@ -185,31 +197,82 @@ public class MinigameNetwork : MiniGame<NetworkScenarioData>
         base.LoseFocus();
         DesactivateChildren();
     }
+
+    private void ActivateChildren(){
+        foreach(Cell cell in _allCells){
+            cell.Disable();
+        }
+    }
+
     private void DesactivateChildren()
     {
-        foreach (CaseBehavior caseBehaviour in casesList)
-        {
-            caseBehaviour.Disable();
+        foreach(Cell cell in _allCells){
+            cell.Enable();
         }
     }
 
-    public void ActivateChildren()
+    public bool CheckIsWon()
     {
-        foreach (CaseBehavior caseBehaviour in casesList)
+        return (_cellEndColor1.isConnected && _cellEndColor2.isConnected);
+    }
+
+    public void ResetColor(int colorNb)
+    {
+        switch (colorNb)
         {
-            caseBehaviour.Enable();
+            case 1:
+                foreach (Cell cell in _usedColor1Cells)
+                {
+                    cell.ResetCell();
+                    switch (cell.GetCellType())
+                    {
+                        case CellType.Neutral:
+                            cell.ChangeSprite(_spriteNeutral);
+                            break;
+                        case CellType.End:
+                            cell.ChangeSprite(_spriteColor1End);
+                            break;
+                    }
+                }
+                _usedColor1Cells.Clear();
+                break;
+            case 2:
+                foreach (Cell cell in _usedColor2Cells)
+                {
+                    cell.ResetCell();
+                    switch (cell.GetCellType())
+                    {
+                        case CellType.Neutral:
+                            cell.ChangeSprite(_spriteNeutral);
+                            break;
+                        case CellType.End:
+                            cell.ChangeSprite(_spriteColor2End);
+                            break;
+                    }
+                }
+                _usedColor2Cells.Clear();
+                break;
         }
     }
 
-    public void Out()
+    public void ResetAllColors()   
     {
-        isPathing = false;
+        ResetColor(1);
+        ResetColor(2);
     }
     
     public override void CleanUp()
     {
         base.CleanUp();
-        casesList = new List<CaseBehavior>();
+        // Clear lists
+        _allCells.Clear();
+        _usedColor1Cells.Clear();
+        _usedColor2Cells.Clear();
+        // Clear cell references
+        _lastCellUsed = null;
+        _lastCellUsedColor1 = null;
+        _lastCellUsedColor2 = null;
+        // Clear board
         if (_currentBoard != null)
         {
             Destroy(_currentBoard);

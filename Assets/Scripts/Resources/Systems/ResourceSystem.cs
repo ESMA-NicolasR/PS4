@@ -47,7 +47,7 @@ public class ResourceSystem : MonoBehaviour
         return value;
     }
 
-    public bool IsFixed()
+    public virtual bool IsFixed()
     {
         return currentValue.Equals(targetValue);
     }

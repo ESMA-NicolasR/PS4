@@ -46,18 +46,18 @@ public class CaseBehavior : MonoBehaviour
 
     private void OnMouseDown()
     {
-        minigameNetwork.CaseClicked(this);
+
     }
     private void OnMouseUp()
     {
-        minigameNetwork.CaseUnclicked(this);
+
     }
 
     private void OnMouseEnter()
     {
         if (Input.GetMouseButton(0))
         {
-            minigameNetwork.CaseSelected(this);
+
         }
     }
 }

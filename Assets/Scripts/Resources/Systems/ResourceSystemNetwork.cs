@@ -11,4 +11,9 @@ public class ResourceSystemNetwork : ResourceSystem
         SetTargetValue(scenarioData.targetValue);
         minigameNetwork.PlayScenario(scenarioData);
     }
+    
+    public override bool IsFixed()
+    {
+        return _minigameNetwork.CheckIsWon();
+    }
 }
