@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2d0b21357f2b2418b0a86dc86aa7da, type: 3}
+  m_Name: FluidsScenarioData_01_easy
+  m_EditorClassIdentifier: 
+  systemName: 10
+  targetValue: 0
+  breakValue: 0
+  time: 40
+  description: Water=50; Fuel=75; Nuclear=40
+  winMessage: Yeah
+  loseMessage: Nay
+  humans: 0
+  money: 500
+  targetValues: 320000004b00000028000000
