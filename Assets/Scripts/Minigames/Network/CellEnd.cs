@@ -1,6 +1,3 @@
-using System;
-using UnityEngine;
-
 public class CellEnd : Cell
 {
     public override bool CanMoveColor(int _colorNb)
@@ -15,16 +12,11 @@ public class CellEnd : Cell
 
     public override void OnMouseDown()
     {
-        
+        // Nothing should happen
     }
 
     public override void ResetCell()
     {
         isConnected = false;
-    }
-
-    public void OnMouseUp()
-    {
-        Debug.Log("Feedback OnMouseUp");
     }
 }

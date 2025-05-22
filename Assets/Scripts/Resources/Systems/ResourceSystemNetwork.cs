@@ -3,7 +3,7 @@ using UnityEngine.Serialization;
 
 public class ResourceSystemNetwork : ResourceSystem
 {
-    [FormerlySerializedAs("_minigameNetwork")] public MinigameNetwork minigameNetwork;
+    public MinigameNetwork minigameNetwork;
 
     public void Break(NetworkScenarioData scenarioData)
     {
@@ -14,6 +14,6 @@ public class ResourceSystemNetwork : ResourceSystem
     
     public override bool IsFixed()
     {
-        return _minigameNetwork.CheckIsWon();
+        return minigameNetwork.CheckIsWon();
     }
 }

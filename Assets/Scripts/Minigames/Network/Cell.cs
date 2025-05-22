@@ -5,12 +5,21 @@ public class Cell : MonoBehaviour
     public int positionX, positionY;
     public bool isConnected;
     public int colorNb; //0 = none, 1 =  color1, 2 = color2
-    public MinigameNetwork minigame;
+    private MinigameNetwork _minigame;
+    private Collider _collider;
 
     private void Awake()
     {
-        minigame = GetComponentInParent<MinigameNetwork>();
+        _collider = GetComponent<Collider>();
     }
+
+    public void Init(int _positionX, int _positionY, MinigameNetwork minigame)
+    {
+        positionX = _positionX;
+        positionY = _positionY;
+        _minigame = minigame;
+    }
+    
     public void ConnectColor(int _colorNb)
     {
         colorNb = _colorNb;
@@ -40,14 +49,24 @@ public class Cell : MonoBehaviour
 
     public virtual void OnMouseDown()
     {
-        minigame.StartPathFromCell(this);
+        _minigame.StartPathFromCell(this);
     }
     
     public void OnMouseEnter()
     {
         if (Input.GetMouseButton(0))
         {
-            minigame.DrawPathOnCell(this);
+            _minigame.DrawPathOnCell(this);
         }
+    }
+    
+    public void Disable()
+    {
+        _collider.enabled = false;
+    }
+
+    public void Enable()
+    {
+        _collider.enabled = true;
     }
 }

@@ -147,7 +147,7 @@ MonoBehaviour:
   systemName: 5
   currentValue: 0
   targetValue: 0
-  _minigameAsteroids: {fileID: 0}
+  minigameAsteroids: {fileID: 0}
 --- !u!1 &2293177757971728657
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 4762873382987384640}
   - component: {fileID: 3414790546830611490}
   - component: {fileID: 7084918817261159154}
+  - component: {fileID: 8540456782299279873}
   m_Layer: 0
   m_Name: GameManagerBeta
   m_TagString: Untagged
@@ -259,7 +260,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ba97b6aab839c3b43b66db5b0e0d8f1f, type: 2}
   - {fileID: 11400000, guid: 45028c3c53d922a49aa4d24034658ef1, type: 2}
   missionText: {fileID: 0}
-  _timeBetweenMissions: 5
+  _timeBetweenMissions: 2.5
 --- !u!114 &4762873382987384640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +301,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missionButtons: {fileID: 0}
+--- !u!114 &8540456782299279873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2452877499753427418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4487b30d11a49d04ca69774b0dc72dfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2560929877033882945
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,4 +849,4 @@ MonoBehaviour:
   systemName: 6
   currentValue: 0
   targetValue: 0
-  _minigameNetwork: {fileID: 0}
+  minigameNetwork: {fileID: 0}

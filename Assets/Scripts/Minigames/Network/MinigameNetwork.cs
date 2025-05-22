@@ -6,7 +6,6 @@ using UnityEngine;
 public class MinigameNetwork : MiniGame<NetworkScenarioData>
 {
     private List<Cell> _allCells = new();
-    private NetworkScenarioData _currentScenario;
     public bool _isPathing;
     private Cell _lastCellUsed, _lastCellUsedColor1, _lastCellUsedColor2, _cellEndColor1, _cellEndColor2;
     private List<Cell> _usedColor1Cells = new(), _usedColor2Cells = new();
@@ -14,26 +13,21 @@ public class MinigameNetwork : MiniGame<NetworkScenarioData>
     [SerializeField] private Sprite _spriteColor2Start, _spriteColor2End, _spriteColor2Finish, _spriteColor2Travel, _spriteColor2Ship;
     [SerializeField] private Sprite _spriteMeteor, _spriteNeutral;
     private GameObject _currentBoard;
-    private Transform _pivotBoard;
+    public Transform pivotBoard;
 
     public override void LaunchScenario()
     {
         base.LaunchScenario();
-        _currentBoard = Instantiate(_scenario.boardPrefab, _pivotBoard);
+        _currentBoard = Instantiate(_scenario.boardPrefab, pivotBoard);
         // Prepare for interaction
-        InitBoard(_currentScenario.nbRows, _currentScenario.nbColumns);
-    }
-       
-    
-    public void PlayScenario(NetworkScenarioData scenarioData)
-    {
-        _currentScenario = scenarioData;
+        InitBoard(_scenario.nbRows, _scenario.nbColumns);
     }
 
     private void InitBoard(int rowNb, int columnNb)
     {
-        _allCells = GetComponentsInChildren<Cell>().ToList();
+        _allCells = _currentBoard.GetComponentsInChildren<Cell>().ToList();
         var cellPosition = 0;
+        // Init cells
         for (var i = 0; i < rowNb; i++)
         {
             for (var j = 0; j < columnNb; j++)
@@ -144,10 +138,6 @@ public class MinigameNetwork : MiniGame<NetworkScenarioData>
                 break;
         }
         _lastCellUsed = cell2;
-        if (CheckIsWon())
-        {
-            Debug.Log("Won");
-        }
     }
 
     public void StartPathFromCell(Cell cell)
@@ -200,23 +190,27 @@ public class MinigameNetwork : MiniGame<NetworkScenarioData>
 
     private void ActivateChildren(){
         foreach(Cell cell in _allCells){
-            cell.Disable();
+            cell.Enable();
         }
     }
 
     private void DesactivateChildren()
     {
         foreach(Cell cell in _allCells){
-            cell.Enable();
+            cell.Disable();
         }
     }
 
     public bool CheckIsWon()
     {
+        // Minigame was never initialized
+        if (_cellEndColor1 == null || _cellEndColor2 == null)
+            return false;
+        // Proper win condition
         return (_cellEndColor1.isConnected && _cellEndColor2.isConnected);
     }
 
-    public void ResetColor(int colorNb)
+    private void ResetColor(int colorNb)
     {
         switch (colorNb)
         {
@@ -255,7 +249,7 @@ public class MinigameNetwork : MiniGame<NetworkScenarioData>
         }
     }
 
-    public void ResetAllColors()   
+    private void ResetAllColors()   
     {
         ResetColor(1);
         ResetColor(2);

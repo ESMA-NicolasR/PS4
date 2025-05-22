@@ -24,12 +24,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1400662335047503517}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.12}
+  m_LocalRotation: {x: -0.000000011706898, y: 1, z: -0.000000040978183, w: -0.00000020830623}
+  m_LocalPosition: {x: -0, y: 0, z: 0.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3713552841613065165}
+  m_Children: []
   m_Father: {fileID: 439857932036881172}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2651062586139635753
@@ -242,27 +241,6 @@ Transform:
   - {fileID: 439857932036881172}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &18194309503708342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6310342450350508861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6d11eea1bb431748b01188e91c41afd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cells: []
-  _spriteColor1Start: {fileID: 21300000, guid: e6eb99eb86df7ff4d920b419e7ffcbaa, type: 3}
-  _spriteColor1End: {fileID: 21300000, guid: e6eb99eb86df7ff4d920b419e7ffcbaa, type: 3}
-  _spriteColor1Travel: {fileID: 21300000, guid: e6eb99eb86df7ff4d920b419e7ffcbaa, type: 3}
-  _spriteColor2Start: {fileID: 21300000, guid: e6eb99eb86df7ff4d920b419e7ffcbaa, type: 3}
-  _spriteColor2End: {fileID: 21300000, guid: e6eb99eb86df7ff4d920b419e7ffcbaa, type: 3}
-  _spriteColor2Travel: {fileID: 21300000, guid: e6eb99eb86df7ff4d920b419e7ffcbaa, type: 3}
-  _spriteMeteor: {fileID: 21300000, guid: c85caafd38ed5e942a6162b5af513993, type: 3}
-  _spriteNeutral: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &8994903295009695127
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,13 +373,17 @@ MonoBehaviour:
   stateText: {fileID: 553366504690493698}
   textWhenInactive: Network connected
   textWhenBroken: Network disconnected
-  casesList: []
-  casesSelectedColor1: []
-  casesSelectedColor2: []
-  color1: {r: 1, g: 0.5, b: 0, a: 1}
-  color2: {r: 0, g: 0, b: 1, a: 1}
-  actualColor: {r: 1, g: 1, b: 1, a: 1}
-  standardColor: {r: 1, g: 1, b: 1, a: 1}
-  isPathing: 0
-  _pivotBoard: {fileID: 309142570317139391}
-  _resourceSystemNetwork: {fileID: 0}
+  _isPathing: 0
+  _spriteColor1Start: {fileID: 21300000, guid: a335c8519dee85e40b71d3cbb1324b94, type: 3}
+  _spriteColor1End: {fileID: 21300000, guid: aaa6acf76e76ba84a9bcf7792afd6431, type: 3}
+  _spriteColor1Finish: {fileID: 21300000, guid: b310b9cde844a174ebc21a442450c743, type: 3}
+  _spriteColor1Travel: {fileID: 21300000, guid: da88a79f25540f84e8fe68258bd0c4f1, type: 3}
+  _spriteColor1Ship: {fileID: 21300000, guid: 2872830c5afd0ad4aa6f7946709b7a82, type: 3}
+  _spriteColor2Start: {fileID: 21300000, guid: ab5027f05807e55468dcba991bae7ac8, type: 3}
+  _spriteColor2End: {fileID: 21300000, guid: ecadf67785d6b1149b8c67fa89093c7d, type: 3}
+  _spriteColor2Finish: {fileID: 21300000, guid: fab5fa35c76138249b043406872887e3, type: 3}
+  _spriteColor2Travel: {fileID: 21300000, guid: 96ca061dd55dce04782cb2d4bd8e925f, type: 3}
+  _spriteColor2Ship: {fileID: 21300000, guid: d844399726947384691bd27315b53344, type: 3}
+  _spriteMeteor: {fileID: 21300000, guid: 7badabcba8dd95a4da062d6e213450c4, type: 3}
+  _spriteNeutral: {fileID: 21300000, guid: acfc116f9ec7ff44e95289603c7fa402, type: 3}
+  pivotBoard: {fileID: 309142570317139391}
