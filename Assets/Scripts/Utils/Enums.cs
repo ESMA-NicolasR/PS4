@@ -69,3 +69,9 @@ public enum AsteroidCursorMovement
     Left,
     Right
 }
+
+public enum SwitchRowState{
+    Off,
+    Partial,
+    On
+}

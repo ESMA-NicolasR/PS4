@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHead: {fileID: 4946831128095872782}
-  maxHorizontalRotation: 15
+  maxHorizontalRotation: 30
   maxVerticalRotation: 10
   canMove: 1
   readInputs: 1
