@@ -22,7 +22,9 @@ public enum SystemName
     Quantum,
     // Station 4
     Fluids,
-    Pressure
+    Pressure,
+    // Subsystems
+    Subsystem
 }
 
 public enum StationName{
