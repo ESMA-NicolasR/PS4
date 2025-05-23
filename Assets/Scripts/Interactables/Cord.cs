@@ -17,13 +17,13 @@ public class Cord : Draggable
     {
         base.Interact();
         _isReturning = false;
+        _canTrigger = true;
     }
 
     protected override void OnMouseUp()
     {
         base.OnMouseUp();
         _isReturning = true;
-        _canTrigger = true;
     }
 
     protected override void Update()
