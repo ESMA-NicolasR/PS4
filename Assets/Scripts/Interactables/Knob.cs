@@ -40,11 +40,11 @@ public class Knob : Draggable
 
     protected override void Start()
     {
-        base.Start();
         _progress = resourceSystem.currentValue;
         // Setup fake cursor
         fakeCursor.position = handlePivot.position;
         SnapCursorToCircle(fakeCursor.position);
+        cursorType = CursorType.Circle;
     }
 
     protected override void Interact()

@@ -10,6 +10,12 @@ public class Draggable : Clickable
 
     public static float AnalyticsTotalTimeDragging;
     
+    protected override void Start()
+    {
+        base.Start();
+        cursorType = CursorType.Close;
+    }
+    
     protected override void Interact()
     {
         _isDragged = true;

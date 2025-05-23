@@ -9,6 +9,7 @@ public class Clickable : MonoBehaviour
     private LayerMask highlightLayer;
     public bool canBeUsed;
     public Focusable focusParent;
+    public CursorType cursorType;
 
     public static int AnalyticsTotalClicks;
 
@@ -24,6 +25,7 @@ public class Clickable : MonoBehaviour
 
     protected virtual void Start()
     {
+        cursorType = CursorType.Open;
     }
 
     public virtual void Disable()
@@ -85,11 +87,14 @@ public class Clickable : MonoBehaviour
     public virtual void EnableHighlight()
     {
         gameObject.layer = highlightLayer;
+        CursorManager.Instance.ChangeCursor(cursorType);
+        
     }
 
     public virtual void DisableHighlight()
     { 
         gameObject.layer = canBeUsed ? interactableLayer : defaultLayer;
+        CursorManager.Instance.ChangeCursor(CursorType.Open);
     }
 
     private bool HasActiveParent()

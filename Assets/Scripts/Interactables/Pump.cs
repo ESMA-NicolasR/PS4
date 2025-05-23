@@ -19,6 +19,7 @@ public class Pump : Draggable
     {
         pump.transform.position = lowEnd.position;
         progress = 0f;
+        cursorType = CursorType.UpDown;
     }
 
     protected override void Drag(Vector2 delta)

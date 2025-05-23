@@ -22,6 +22,7 @@ public class SelectWheel : Draggable
         _zeroAngle = Mathf.FloorToInt(-_step*(nbSections-1)/2.0f);
         _displayedValue = -1; // Force update display for the first frame
         UpdateDisplay();
+        cursorType = CursorType.LeftRight;
     }
 
     private void OnEnable()

@@ -67,3 +67,12 @@ public enum AsteroidCursorMovement
     Left,
     Right
 }
+
+public enum CursorType
+{
+    Open,
+    Close,
+    Circle,
+    LeftRight,
+    UpDown
+}

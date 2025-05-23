@@ -8,7 +8,7 @@ public class Focusable : Clickable
     public Transform pov;
     private List<Clickable> _clickables;
     public static event Action<Focusable> OnGainFocus;
-
+    
     protected override void Awake()
     {
         base.Awake();
