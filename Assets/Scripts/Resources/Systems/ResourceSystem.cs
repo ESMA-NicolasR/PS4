@@ -20,7 +20,7 @@ public class ResourceSystem : MonoBehaviour
         throw new NotImplementedException();
     }
     
-    public void Break(int newTargetValue, int breakValue)
+    public virtual void Break(int newTargetValue, int breakValue)
     {
         SetTargetValue(newTargetValue);
         SetValue(breakValue);
@@ -37,9 +37,9 @@ public class ResourceSystem : MonoBehaviour
         OnChangeValue?.Invoke();
     }
 
-    protected void SetTargetValue(int newValue)
+    protected void SetTargetValue(int value)
     {
-        targetValue = SanitizeValue(newValue);
+        targetValue = SanitizeValue(value);
     }
 
     protected virtual int SanitizeValue(int value)

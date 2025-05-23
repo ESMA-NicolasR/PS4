@@ -9,15 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af40da97a589c094d9570773aa25c0bc, type: 3}
-  m_Name: Objective_09_shields
+  m_Script: {fileID: 11500000, guid: 3d2d0b21357f2b2418b0a86dc86aa7da, type: 3}
+  m_Name: FluidsScenarioData_01_easy
   m_EditorClassIdentifier: 
-  systemName: 8
+  systemName: 10
   targetValue: 0
-  breakValue: 1
-  time: 30
-  description: We are overloading, bring down our shields
-  winMessage: We avoided the worst
-  loseMessage: . . . - - - . . .
-  humans: 40000
-  money: 0
+  breakValue: 0
+  time: 40
+  description: Water=50; Fuel=75; Nuclear=40
+  winMessage: Yeah
+  loseMessage: Nay
+  humans: 0
+  money: 500
+  targetValues: 320000004b00000028000000

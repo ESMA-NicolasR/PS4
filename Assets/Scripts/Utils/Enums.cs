@@ -22,7 +22,9 @@ public enum SystemName
     Quantum,
     // Station 4
     Fluids,
-    Pressure
+    Pressure,
+    // Subsystems
+    Subsystem
 }
 
 public enum StationName{
@@ -77,4 +79,11 @@ public enum CursorType
     UpDown,
     Finger,
     Eye
+}
+
+public enum SwitchRowState
+{
+    Off,
+    Partial,
+    On
 }

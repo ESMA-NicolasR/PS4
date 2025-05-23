@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4891405329421020455}
-  - component: {fileID: 6228197378425995758}
+  - component: {fileID: 3793760913276691144}
   m_Layer: 0
   m_Name: Shields
   m_TagString: Untagged
@@ -31,15 +31,15 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3650566170003495837}
-  - {fileID: 5387700391181443287}
-  - {fileID: 3734462828728246839}
-  - {fileID: 6563327217246319498}
-  - {fileID: 256805124955495882}
-  - {fileID: 6144279762091333009}
   - {fileID: 7381858226646074568}
+  - {fileID: 6144279762091333009}
+  - {fileID: 256805124955495882}
+  - {fileID: 6563327217246319498}
+  - {fileID: 3734462828728246839}
+  - {fileID: 5387700391181443287}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -135, y: -15, z: -2.6920166}
---- !u!114 &6228197378425995758
+--- !u!114 &3793760913276691144
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,13 +48,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1243556970758527724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 304d1e4dd2237564d9d33aba18890307, type: 3}
+  m_Script: {fileID: 11500000, guid: e43284b5c6cae694d8ffa3de38bfa7ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _resourceSystem: {fileID: 0}
   _text: {fileID: 6097647029559806359}
-  _onValue: Online
-  _offValue: Offline
+  _offValue: Down
+  _partialValue: Mixed
+  _onValue: Up
 --- !u!1 &3913278002467447486
 GameObject:
   m_ObjectHideFlags: 0
@@ -67,7 +68,7 @@ GameObject:
   - component: {fileID: 5809566706730470236}
   - component: {fileID: 6097647029559806359}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: TextShields
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,15 +185,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
-  m_fontSizeBase: 36
+  m_fontSize: 0.5
+  m_fontSizeBase: 0.5
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 0.5
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -200,7 +201,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -222,7 +223,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -0.24798174, w: 0.122660905}
+  m_margin: {x: -0.01223262, y: 0, z: -0.37197864, w: 0.18738364}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -281,7 +282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c28de03606bb89a438947223d6570ef3, type: 3}
       propertyPath: m_Name
-      value: SM_Switch_002 (3)
+      value: SM_Switch_Shield_3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -371,7 +372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c28de03606bb89a438947223d6570ef3, type: 3}
       propertyPath: m_Name
-      value: SM_Switch_002 (1)
+      value: SM_Switch_Shield_5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -461,7 +462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c28de03606bb89a438947223d6570ef3, type: 3}
       propertyPath: m_Name
-      value: SM_Switch_002
+      value: SM_Switch_Shield_6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -551,7 +552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c28de03606bb89a438947223d6570ef3, type: 3}
       propertyPath: m_Name
-      value: SM_Switch_002 (4)
+      value: SM_Switch_Shield_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -641,7 +642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c28de03606bb89a438947223d6570ef3, type: 3}
       propertyPath: m_Name
-      value: SM_Switch_002 (2)
+      value: SM_Switch_Shield_4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -731,7 +732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c28de03606bb89a438947223d6570ef3, type: 3}
       propertyPath: m_Name
-      value: SM_Switch_002 (5)
+      value: SM_Switch_Shield_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
