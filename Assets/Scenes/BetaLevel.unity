@@ -6052,11 +6052,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66d9ba692042fa74586b495a2b4f8222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cursorOpen: {fileID: 2800000, guid: 24e3a508cf9c13c4986b4bcf6cbbd0a2, type: 3}
-  _cursorClose: {fileID: 2800000, guid: 6219f3047eaad38458ffa85a89bf7ccf, type: 3}
-  _cursorLeftRight: {fileID: 2800000, guid: a15749b0f43951f49b2c92f1bca453ce, type: 3}
-  _cursorUpDown: {fileID: 2800000, guid: bfeea5e872e55c343b74e7dd5149b49b, type: 3}
-  _cursorCircle: {fileID: 2800000, guid: cf6a28b4874fbd549ab618a860ad773d, type: 3}
+  _cursorOpen: {fileID: 2800000, guid: 634b1c2459d97db4ba867c2909bf2956, type: 3}
+  _cursorClose: {fileID: 2800000, guid: 7ae841a9beaf8e74196f0a85edc2c83d, type: 3}
+  _cursorLeftRight: {fileID: 2800000, guid: 19583ace994c65043b3be3d022c4ab7a, type: 3}
+  _cursorUpDown: {fileID: 2800000, guid: 1ad7f866e51b6084f9c816af319ceef5, type: 3}
+  _cursorCircle: {fileID: 2800000, guid: adba24796f4071f429357483101d3ea5, type: 3}
+  _cursorFinger: {fileID: 2800000, guid: 41f1ee2ae91ac0f48bae3783de0bb391, type: 3}
+  _cursorEye: {fileID: 2800000, guid: c0bc2e051bcd967428e4429760395e56, type: 3}
   _hotSpot: {x: 256, y: 256}
 --- !u!4 &2655828106704361722 stripped
 Transform:

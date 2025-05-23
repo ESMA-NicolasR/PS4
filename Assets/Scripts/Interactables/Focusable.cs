@@ -30,6 +30,7 @@ public class Focusable : Clickable
     {
         OnGainFocus?.Invoke(this);
         EnableInteractables();
+        CursorManager.Instance.ChangeCursor(CursorType.Open);
         Disable();
     }
 

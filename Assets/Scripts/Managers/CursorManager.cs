@@ -4,7 +4,7 @@ using UnityEngine;
 public class CursorManager : MonoBehaviour
 {
     [SerializeField]
-    private Texture2D _cursorOpen, _cursorClose, _cursorLeftRight, _cursorUpDown, _cursorCircle;
+    private Texture2D _cursorOpen, _cursorClose, _cursorLeftRight, _cursorUpDown, _cursorCircle, _cursorFinger, _cursorEye;
     [SerializeField]
     private Vector2 _hotSpot;
     public static CursorManager Instance;
@@ -41,6 +41,12 @@ public class CursorManager : MonoBehaviour
                 break;
             case CursorType.Circle :
                 Cursor.SetCursor(_cursorCircle, _hotSpot, CursorMode.Auto);
+                break;
+            case CursorType.Finger :
+                Cursor.SetCursor(_cursorFinger, _hotSpot, CursorMode.Auto);
+                break;
+            case CursorType.Eye :
+                Cursor.SetCursor(_cursorEye, _hotSpot, CursorMode.Auto);
                 break;
         }
     }
