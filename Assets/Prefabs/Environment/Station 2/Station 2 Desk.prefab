@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6948981781298013093
 Transform:
@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5633524420086190297}
+  - {fileID: 927250244404321320}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &5306636610786604850
@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 59a60564fe262274b98d4477b66c2079, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 59a60564fe262274b98d4477b66c2079, type: 3}
       propertyPath: m_Name
       value: SM_AsteroidGameTerminal001
@@ -89,8 +93,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59a60564fe262274b98d4477b66c2079, type: 3}
---- !u!4 &5633524420086190297 stripped
+--- !u!4 &927250244404321320 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 59a60564fe262274b98d4477b66c2079, type: 3}
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 59a60564fe262274b98d4477b66c2079, type: 3}
   m_PrefabInstance: {fileID: 5306636610786604850}
   m_PrefabAsset: {fileID: 0}
