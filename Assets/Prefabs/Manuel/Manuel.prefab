@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7151031304503935469}
   - component: {fileID: 2362154952086709964}
   - component: {fileID: 7544785092150327875}
+  - component: {fileID: 8037706448058100538}
   m_Layer: 0
   m_Name: SM_Page1
   m_TagString: Untagged
@@ -178,6 +179,7 @@ MonoBehaviour:
       m_Calls: []
   canBeUsed: 0
   focusParent: {fileID: 0}
+  clickableSound: {fileID: 0}
   animator: {fileID: 0}
   turned: 0
   index: 0
@@ -203,6 +205,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2307839, y: 0.2829916, z: 1.6824602}
   m_Center: {x: 0.60924643, y: 0.017974075, z: 0.8441589}
+--- !u!114 &8037706448058100538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944768317847267736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
 --- !u!1 &2679156766914814587
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,6 +380,7 @@ MonoBehaviour:
         m_CallState: 2
   canBeUsed: 0
   focusParent: {fileID: 0}
+  clickableSound: {fileID: 0}
 --- !u!1 &3043923189851365034
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,6 +528,7 @@ GameObject:
   - component: {fileID: 4000662466172503017}
   - component: {fileID: 7186937415573706739}
   - component: {fileID: 4651531049857315115}
+  - component: {fileID: 8582112154359343914}
   m_Layer: 0
   m_Name: SM_Page4
   m_TagString: Untagged
@@ -676,6 +693,7 @@ MonoBehaviour:
       m_Calls: []
   canBeUsed: 0
   focusParent: {fileID: 0}
+  clickableSound: {fileID: 0}
   animator: {fileID: 0}
   turned: 0
   index: 0
@@ -701,6 +719,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2307839, y: 0.2829916, z: 1.6824602}
   m_Center: {x: 0.60924643, y: 0.017974075, z: 0.8441589}
+--- !u!114 &8582112154359343914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3523102629569332998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
 --- !u!1 &4096252906534576743
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,6 +901,7 @@ GameObject:
   - component: {fileID: 8936104730078644969}
   - component: {fileID: 3337885365491323729}
   - component: {fileID: 8119610181733264206}
+  - component: {fileID: 5444469739562391555}
   m_Layer: 0
   m_Name: SM_Page5
   m_TagString: Untagged
@@ -1034,6 +1066,7 @@ MonoBehaviour:
       m_Calls: []
   canBeUsed: 0
   focusParent: {fileID: 0}
+  clickableSound: {fileID: 0}
   animator: {fileID: 0}
   turned: 0
   index: 0
@@ -1059,6 +1092,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2307839, y: 0.2829916, z: 1.6824602}
   m_Center: {x: 0.60924643, y: 0.017974075, z: 0.8441589}
+--- !u!114 &5444469739562391555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6506130828055510193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
 --- !u!1 &6673078888659401789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,6 +1283,7 @@ MonoBehaviour:
       m_Calls: []
   canBeUsed: 0
   focusParent: {fileID: 0}
+  clickableSound: {fileID: 0}
   animator: {fileID: 0}
   turned: 0
   index: 0
@@ -1276,6 +1323,7 @@ GameObject:
   - component: {fileID: 2579915659372431966}
   - component: {fileID: 7586087065419444543}
   - component: {fileID: 1089277218397128220}
+  - component: {fileID: 4663638583955673737}
   m_Layer: 0
   m_Name: SM_Page3
   m_TagString: Untagged
@@ -1440,6 +1488,7 @@ MonoBehaviour:
       m_Calls: []
   canBeUsed: 0
   focusParent: {fileID: 0}
+  clickableSound: {fileID: 0}
   animator: {fileID: 0}
   turned: 0
   index: 0
@@ -1465,6 +1514,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2307839, y: 0.2829916, z: 1.6824602}
   m_Center: {x: 0.60924643, y: 0.017974075, z: 0.8441589}
+--- !u!114 &4663638583955673737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7171489873757727088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
 --- !u!1 &7952220213736189927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,6 +1541,7 @@ GameObject:
   - component: {fileID: 5115152929218114078}
   - component: {fileID: 8298361496822873085}
   - component: {fileID: 3484443271071508070}
+  - component: {fileID: 7608301730711963646}
   m_Layer: 0
   m_Name: SM_Page6
   m_TagString: Untagged
@@ -1643,6 +1706,7 @@ MonoBehaviour:
       m_Calls: []
   canBeUsed: 0
   focusParent: {fileID: 0}
+  clickableSound: {fileID: 0}
   animator: {fileID: 0}
   turned: 0
   index: 0
@@ -1668,6 +1732,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2307839, y: 0.2829916, z: 1.6824602}
   m_Center: {x: 0.60924643, y: 0.017974075, z: 0.8441589}
+--- !u!114 &7608301730711963646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7952220213736189927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
 --- !u!1 &8100071478368087160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1678,6 +1755,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1292513449026208664}
   - component: {fileID: 9056534995243479481}
+  - component: {fileID: 356122262366234245}
   m_Layer: 0
   m_Name: Manuel
   m_TagString: Untagged
@@ -1721,6 +1799,7 @@ MonoBehaviour:
       m_Calls: []
   canBeUsed: 0
   focusParent: {fileID: 0}
+  clickableSound: {fileID: 0}
   pov: {fileID: 3081984937634070776}
   open: 0
   animator: {fileID: 4984556022992219505}
@@ -1736,3 +1815,16 @@ MonoBehaviour:
   helperColliders:
   - {fileID: 8971599639097156654}
   - {fileID: 5108696946268827218}
+--- !u!114 &356122262366234245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8100071478368087160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
