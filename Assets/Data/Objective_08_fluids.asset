@@ -15,7 +15,9 @@ MonoBehaviour:
   systemName: 10
   targetValue: 0
   breakValue: 2
-  time: 0
+  time: 30
   description: We need to fill our water tanks
   winMessage: Thanks, we can now start our trip
   loseMessage: Uh.. are you sure about that ?
+  humans: 0
+  money: 1000

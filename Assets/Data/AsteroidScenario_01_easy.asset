@@ -15,12 +15,14 @@ MonoBehaviour:
   systemName: 5
   targetValue: 0
   breakValue: 0
-  time: 10
+  time: 30
   description: We are being destroyed, help !
   winMessage: Thanks for saving us
   loseMessage: . . . - everyone died - . . .
+  humans: 100
+  money: 0
   spawnList:
-  - spawnDelay: 5
+  - spawnDelay: 0
     moveSpeed: 1
     growSpeed: 0.2
     scale: 0.2

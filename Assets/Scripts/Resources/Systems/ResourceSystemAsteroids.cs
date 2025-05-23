@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ResourceSystemAsteroids : ResourceSystem
 {
-    [SerializeField]
-    private MinigameAsteroids _minigameAsteroids;
+    public MinigameAsteroids minigameAsteroids;
 
     public override void Break()
     {
@@ -14,6 +14,8 @@ public class ResourceSystemAsteroids : ResourceSystem
 
     public void Break(AsteroidScenarioData scenarioData)
     {
-        _minigameAsteroids.PlayScenario(scenarioData);
+        SetValue(scenarioData.breakValue);
+        SetTargetValue(scenarioData.spawnList.Count);
+        minigameAsteroids.PlayScenario(scenarioData);
     }
 }

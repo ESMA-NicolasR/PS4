@@ -15,7 +15,9 @@ MonoBehaviour:
   systemName: 3
   targetValue: 20
   breakValue: 40
-  time: 0
+  time: 30
   description: "It's really hot, bring down the temperature to 20\xB0C"
   winMessage: We can breathe now
   loseMessage: All our plants died
+  humans: 30
+  money: 3000

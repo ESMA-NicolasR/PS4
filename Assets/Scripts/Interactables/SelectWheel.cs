@@ -6,6 +6,7 @@ public class SelectWheel : Draggable
     public int totalAngles;
     public Transform target;
     public ResourceSystem resourceSystem;
+    protected override CursorType cursorType => CursorType.LeftRight;
 
     private int _amplitudeMax;
     private int _amplitudePerSection;

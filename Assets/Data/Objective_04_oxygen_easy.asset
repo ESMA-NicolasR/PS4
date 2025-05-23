@@ -15,7 +15,9 @@ MonoBehaviour:
   systemName: 4
   targetValue: 70
   breakValue: 45
-  time: 0
+  time: 30
   description: We have a breach, raise the oxygen to 70%
   winMessage: We are safe now
   loseMessage: Our lives are compromised
+  humans: 50
+  money: 500

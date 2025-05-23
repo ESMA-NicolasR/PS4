@@ -16,7 +16,7 @@ public class MissionGiver : MonoBehaviour
     {
         MissionButton.OnMissionAccepted -= EndSignal;
     }
-
+    
     private void Awake()
     {
         _missionButtons = missionButtons.GetComponentsInChildren<MissionButton>();

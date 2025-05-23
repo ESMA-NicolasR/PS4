@@ -9,6 +9,8 @@ public class Pump : Draggable
     public float dragDownMultiplier;
     public int valueStrength;
 
+    protected override CursorType cursorType => CursorType.UpDown;
+    
     public float progress;
     private float _lastProgress;
     private float _accumulatedScore;

@@ -4,11 +4,13 @@ using UnityEngine;
 public class FirstStation : MonoBehaviour
 {
     private TravelManager travelManager;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+
     private IEnumerator Start()
     {
-        yield return new WaitForSeconds(0.1f);
+        FindFirstObjectByType<CursorMoveCamera>().canMove = false;
+        yield return new WaitForSeconds(1.5f);
         travelManager = FindFirstObjectByType<TravelManager>();
-        travelManager.Travel(TravelDirection.Back);
+        travelManager.Travel(TravelDirection.Front);
     }
 }

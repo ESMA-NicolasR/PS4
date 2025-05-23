@@ -19,3 +19,5 @@ MonoBehaviour:
   description: Open the gates, there is a fire !
   winMessage: We made it out !
   loseMessage: We lost half the crew...
+  humans: 500
+  money: 0

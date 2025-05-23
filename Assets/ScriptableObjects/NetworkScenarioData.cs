@@ -5,6 +5,8 @@ using UnityEngine;
 public class NetworkScenarioData : ResourceObjectiveData
 {
     public GameObject boardPrefab;
+    public int nbRows;
+    public int nbColumns;
     
     public override void BreakSystem(ResourceSystem resourceSystem)
     {
@@ -14,5 +16,16 @@ public class NetworkScenarioData : ResourceObjectiveData
             throw new Exception($"ResourceSystem of NetworkScenarioData {name} must be a ResourceSystemNetwork");
         }
         systemNetwork.Break(this);
+    }
+    
+    public override void End(ResourceSystem resourceSystem)
+    {
+        base.End(resourceSystem);
+        var systemNetwork = resourceSystem as ResourceSystemNetwork;
+        if (systemNetwork == null)
+        {
+            throw new Exception($"ResourceSystem of NetworkScenarioData {name} must be a ResourceSystemNetwork");
+        }
+        systemNetwork.minigameNetwork.CleanUp();
     }
 }

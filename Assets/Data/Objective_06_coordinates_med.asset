@@ -15,8 +15,10 @@ MonoBehaviour:
   systemName: 7
   targetValue: 2
   breakValue: 5
-  time: 0
+  time: 30
   description: We found something life changing, send our coordinates to the scientists
     !
   winMessage: This is a breakthrough for humankind
   loseMessage: What have you done ??!
+  humans: 0
+  money: 7000

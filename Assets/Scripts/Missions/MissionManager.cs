@@ -18,6 +18,7 @@ public class MissionManager : MonoBehaviour
     private ResourceObjectiveData _currentObjective;
     private int _nbSuccess;
     [SerializeField] private float _timeBetweenMissions;
+    private int _totalHumans, _totalMoney;
 
     public static event Action AnalyticsObjectiveStarted;
     public static event Action<AnalyticsObjectiveData> AnalyticsObjectiveFinished;
@@ -56,7 +57,7 @@ public class MissionManager : MonoBehaviour
         }
         else if (_progressionIndex >= objectives.Count)
         {
-            FinishGame();
+            FindFirstObjectByType<LastStation>().GoToLastStation();
         }
         else
         {
@@ -112,21 +113,25 @@ public class MissionManager : MonoBehaviour
             Debug.Log($"Mission {_currentObjective.name} failed");
         }
         
-        // Next objective
+        // Clear current objective
         missionTimer.StopTimer();
-        StartCoroutine(TriggerMissionCo());
         _isObjectiveStarted = false;
         _progressionIndex++;
+        _currentObjective.End(_namesToSystems[_currentObjective.systemName]);
         _currentObjective = null;
         
         // Check ending
         if(_progressionIndex >= objectives.Count)
         {
-            missionText.text = $"You completed all the missions, with a success rate of {(100f*_nbSuccess/objectives.Count):F2}%, thanks !";
+            missionText.text = $"Your shift is now over, pull the cord to call it a day.";
+        }
+        else
+        { // Next objective
+            StartCoroutine(TriggerMissionCo());
         }
     }
 
-    private void FinishGame()
+    public void FinishGame()
     {
         AnalyticsManager.Instance.WriteAnalytics();
         SceneManager.LoadScene("EndingScene");
