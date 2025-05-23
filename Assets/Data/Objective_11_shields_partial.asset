@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af40da97a589c094d9570773aa25c0bc, type: 3}
+  m_Name: Objective_11_shields_partial
+  m_EditorClassIdentifier: 
+  systemName: 8
+  targetValue: 4
+  breakValue: 2
+  time: 30
+  description: We need 4 shields up
+  winMessage: Yes
+  loseMessage: No
+  humans: 0
+  money: 100

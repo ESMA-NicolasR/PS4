@@ -9,7 +9,9 @@ public class Pump : Draggable
     public float dragDownMultiplier;
     public int valueStrength;
 
-    private float _progress;
+    protected override CursorType cursorType => CursorType.UpDown;
+    
+    public float progress;
     private float _lastProgress;
     private float _accumulatedScore;
     
@@ -18,20 +20,19 @@ public class Pump : Draggable
     protected override void Start()
     {
         pump.transform.position = lowEnd.position;
-        _progress = 0f;
+        progress = 0f;
     }
 
     protected override void Drag(Vector2 delta)
     {
-        //base.Drag(delta);
-        _lastProgress = _progress;
+        _lastProgress = progress;
         if (delta.y < 0)
         {
             delta *= dragDownMultiplier;
         }
-        _progress = Mathf.Clamp01(_progress + delta.y / Screen.height);
-        UpdateScore(_progress - _lastProgress);
-        pump.transform.position = Vector3.Lerp(lowEnd.position, highEnd.position, _progress);
+        progress = Mathf.Clamp01(progress + delta.y / Screen.height);
+        UpdateScore(progress - _lastProgress);
+        pump.transform.position = Vector3.Lerp(lowEnd.position, highEnd.position, progress);
     }
 
     private void UpdateScore(float delta)

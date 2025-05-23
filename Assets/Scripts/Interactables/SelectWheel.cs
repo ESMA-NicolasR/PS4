@@ -6,6 +6,7 @@ public class SelectWheel : Draggable
     public int totalAngles;
     public Transform target;
     public ResourceSystem resourceSystem;
+    protected override CursorType cursorType => CursorType.LeftRight;
 
     private int _amplitudeMax;
     private int _amplitudePerSection;
@@ -23,7 +24,7 @@ public class SelectWheel : Draggable
         _displayedValue = -1; // Force update display for the first frame
         UpdateDisplay();
     }
-
+    
     private void OnEnable()
     {
         resourceSystem.OnChangeValue += UpdateDisplay;

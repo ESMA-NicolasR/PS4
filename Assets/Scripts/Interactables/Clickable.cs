@@ -10,10 +10,15 @@ public class Clickable : MonoBehaviour
     public bool canBeUsed;
     public Focusable focusParent;
 
+    public ClickableSound clickableSound;
+
+    protected virtual CursorType cursorType => CursorType.Finger;
+
     public static int AnalyticsTotalClicks;
 
     protected virtual void Awake()
     {
+        clickableSound = GetComponent<ClickableSound>();
         canBeUsed = true;
         defaultLayer = LayerMask.NameToLayer("Default");
         interactableLayer = LayerMask.NameToLayer("Interactable");
@@ -24,6 +29,7 @@ public class Clickable : MonoBehaviour
 
     protected virtual void Start()
     {
+        
     }
 
     public virtual void Disable()
@@ -60,6 +66,7 @@ public class Clickable : MonoBehaviour
     protected virtual void Interact()
     {
         Debug.Log("Interact");
+        clickableSound.PlayMySound();
     }
 
     protected virtual void OnMouseEnter()
@@ -85,11 +92,14 @@ public class Clickable : MonoBehaviour
     public virtual void EnableHighlight()
     {
         gameObject.layer = highlightLayer;
+        CursorManager.Instance.ChangeCursor(cursorType);
+        
     }
 
     public virtual void DisableHighlight()
     { 
         gameObject.layer = canBeUsed ? interactableLayer : defaultLayer;
+        CursorManager.Instance.ChangeCursor(CursorType.Open);
     }
 
     private bool HasActiveParent()

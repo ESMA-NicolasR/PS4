@@ -8,13 +8,19 @@ public class ResourceSystem : MonoBehaviour
     public int targetValue;
     
     public event Action OnChangeValue;
-    
+
+    private void Start()
+    {
+        // Make sure initial value is ok
+        SetValue(currentValue);
+    }
+
     public virtual void Break()
     {
         throw new NotImplementedException();
     }
     
-    public void Break(int newTargetValue, int breakValue)
+    public virtual void Break(int newTargetValue, int breakValue)
     {
         SetTargetValue(newTargetValue);
         SetValue(breakValue);
@@ -31,9 +37,9 @@ public class ResourceSystem : MonoBehaviour
         OnChangeValue?.Invoke();
     }
 
-    private void SetTargetValue(int newValue)
+    protected void SetTargetValue(int value)
     {
-        targetValue = SanitizeValue(newValue);
+        targetValue = SanitizeValue(value);
     }
 
     protected virtual int SanitizeValue(int value)
@@ -41,7 +47,7 @@ public class ResourceSystem : MonoBehaviour
         return value;
     }
 
-    public bool IsFixed()
+    public virtual bool IsFixed()
     {
         return currentValue.Equals(targetValue);
     }

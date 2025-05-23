@@ -15,7 +15,9 @@ MonoBehaviour:
   systemName: 9
   targetValue: 100
   breakValue: 0
-  time: 0
+  time: 30
   description: Max out the quantum agitation
   winMessage: We are ready to work
   loseMessage: Our research is ruined
+  humans: 0
+  money: 5000

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Station : MonoBehaviour
 {
-    public TravelPath leftPath, rightPath, backPath;
+    public TravelPath leftPath, rightPath, backPath, frontPath;
     public StationName stationName;
     private Clickable[] _clickables;
     private Focusable[] _focusables;
@@ -24,6 +24,8 @@ public class Station : MonoBehaviour
                 return rightPath;
             case TravelDirection.Back:
                 return backPath;
+            case TravelDirection.Front:
+                return frontPath;
             default:
                 return null;
         }

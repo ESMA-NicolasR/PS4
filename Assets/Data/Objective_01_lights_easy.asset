@@ -15,7 +15,9 @@ MonoBehaviour:
   systemName: 1
   targetValue: 100
   breakValue: 15
-  time: 50
+  time: 30
   description: Fix the lights (under the desk)
   winMessage: Thanks !
   loseMessage: You failed...
+  humans: 2
+  money: 500
