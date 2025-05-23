@@ -2111,6 +2111,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &845522861 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2506259166758375619, guid: 2f41dd58254521743bfc60f6190e780d, type: 3}
+  m_PrefabInstance: {fileID: 6182345882325714972}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &845522867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845522861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
 --- !u!114 &845883943 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1216700630285079548, guid: 4f61ebae25eadac42b1100f2a56ddaeb, type: 3}
@@ -7655,6 +7673,34 @@ PrefabInstance:
       propertyPath: missionText
       value: 
       objectReference: {fileID: 630358786}
+    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: 'objectives.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: e0faf9aceeff6734b9e18948bb8ef1f5, type: 2}
+    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: 'objectives.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 522736f4fa4d0cc409b70cfe7b3cf260, type: 2}
+    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: 'objectives.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5204c53f661d3dd49894afc251913b2c, type: 2}
+    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: 'objectives.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 098adbc9049af8d439cb5529a101a75b, type: 2}
+    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: 'objectives.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a0c8a8bcc722a1047a2b6a66180709f1, type: 2}
+    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: 'objectives.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f9038c4f44899e74ca6f1c946fbc802e, type: 2}
+    - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: 'objectives.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 02e10280a1e65de459334978c8d19447, type: 2}
     - target: {fileID: 7084918817261159154, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
       propertyPath: missionButtons
       value: 
@@ -8081,6 +8127,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2506259166758375619, guid: 2f41dd58254521743bfc60f6190e780d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 845522867}
     - targetCorrespondingSourceObject: {fileID: 8419455463545153668, guid: 2f41dd58254521743bfc60f6190e780d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
