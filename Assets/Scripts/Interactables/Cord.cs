@@ -1,11 +1,16 @@
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class Cord : Draggable
 {
     public Transform highPoint, lowPoint;
     private float _progress = 1f;
-    public float speedReturning;
+    [SerializeField] private float _speedReturning;
+    [SerializeField] private float _triggerThreshold;
     private bool _isReturning;
+    private bool _canTrigger;
+    public UnityEvent OnTrigger;
     
 
     protected override void Interact()
@@ -18,40 +23,39 @@ public class Cord : Draggable
     {
         base.OnMouseUp();
         _isReturning = true;
+        _canTrigger = true;
     }
 
     protected override void Update()
     {
         base.Update();
-        if(_isReturning)
-            _progress += speedReturning * Time.deltaTime;
         
+        // Automatically go up
+        if(_isReturning)
+            _progress += _speedReturning * Time.deltaTime;
+        
+        // Move according to progress
         _progress = Mathf.Clamp01(_progress);
         
-        // Limiter le mouvement entre la position haute et la position basse
+        // Move between highPoint and LowPoint
         float newY = Mathf.Lerp(lowPoint.position.y, highPoint.position.y, _progress);
         
-        // Appliquer la nouvelle position
+        // Apply new position
         transform.position = new Vector3(
             transform.position.x,
             newY,
             transform.position.z
         );
-        return;
-        /*if (isReturning)
-        {
-            transform.position = Vector3.Lerp(transform.position, initialPosition, 3f * Time.deltaTime);
-        }*/
     }
 
     protected override void Drag(Vector2 delta)
     {
-        // On ne prend en compte que le mouvement vertical (Y)
+        // Only take into account vertical movement (Y axis)
         _progress += delta.y/Screen.height;
-        if (_progress <= 0.1f)
+        if (_progress <= _triggerThreshold && _canTrigger)
         {
-            Debug.Log("TchouTchou");
+            OnTrigger?.Invoke();
+            _canTrigger = false;
         }
-        
     }
 }
