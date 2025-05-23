@@ -23,7 +23,7 @@ public class SelectWheel : Draggable
         _displayedValue = -1; // Force update display for the first frame
         UpdateDisplay();
     }
-
+    
     private void OnEnable()
     {
         resourceSystem.OnChangeValue += UpdateDisplay;

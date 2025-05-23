@@ -23,6 +23,7 @@ public class Focusable : Clickable
     protected override void Interact()
     {
         GainFocus();
+        clickableSound.PlayMySound();
     }
 
     public void GainFocus()
