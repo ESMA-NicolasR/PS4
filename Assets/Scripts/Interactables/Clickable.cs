@@ -66,7 +66,7 @@ public class Clickable : MonoBehaviour
     protected virtual void Interact()
     {
         Debug.Log("Interact");
-        clickableSound.PlayMySound();
+        clickableSound?.PlayMySound();
     }
 
     protected virtual void OnMouseEnter()
