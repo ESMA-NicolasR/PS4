@@ -50,7 +50,6 @@ public class Book : Focusable
         base.Interact();
         StartCoroutine(OpenBook());
         open = true;
-        clickableSound.PlayMySound();
     }
     
 
