@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b8527dc2fb2a4a64e98d4f2cf44859c8
+guid: a76f4ff8df57ed0428ae3711eb7668d1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,18 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_COUVERTURE
-    second: {fileID: 2100000, guid: 246b533823d5b15439978f8b75ddd283, type: 2}
+      name: M_GLASS
+    second: {fileID: 2100000, guid: 740ae5d28fac5bb4e8968289498a8fbe, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_PAGE
-    second: {fileID: 2100000, guid: fc4403437295f55418e32caefc8168ea, type: 2}
+      name: M_GLASSGLASS
+    second: {fileID: 2100000, guid: d32515f0ad60c884497729d4b7462bdf, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_PAGEBASE
-    second: {fileID: 2100000, guid: e9cc5db328fc3e940a09fd5c2e9a57dd, type: 2}
+      name: M_WHISKY
+    second: {fileID: 2100000, guid: c8749396bc680e349a7d6b53b36231cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_WHISKYGLASS
+    second: {fileID: 2100000, guid: 6fbe3221d24545e40927ce1235d5fe5a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
