@@ -26,6 +26,7 @@ public class Knob : Draggable
     private float _minProgress;
     [SerializeField]
     private float _maxProgress;
+    protected override CursorType cursorType => CursorType.Circle;
 
     private void OnEnable()
     {
@@ -40,7 +41,6 @@ public class Knob : Draggable
 
     protected override void Start()
     {
-        base.Start();
         _progress = resourceSystem.currentValue;
         // Setup fake cursor
         fakeCursor.position = handlePivot.position;

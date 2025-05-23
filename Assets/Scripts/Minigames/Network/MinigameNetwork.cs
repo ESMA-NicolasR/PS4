@@ -6,7 +6,7 @@ using UnityEngine;
 public class MinigameNetwork : MiniGame<NetworkScenarioData>
 {
     private List<Cell> _allCells = new();
-    public bool _isPathing;
+    private bool _isPathing;
     private Cell _lastCellUsed, _lastCellUsedColor1, _lastCellUsedColor2, _cellEndColor1, _cellEndColor2;
     private List<Cell> _usedColor1Cells = new(), _usedColor2Cells = new();
     [SerializeField] private Sprite _spriteColor1Start, _spriteColor1End, _spriteColor1Finish, _spriteColor1Travel, _spriteColor1Ship;
@@ -15,7 +15,7 @@ public class MinigameNetwork : MiniGame<NetworkScenarioData>
     private GameObject _currentBoard;
     public Transform pivotBoard;
 
-    public override void LaunchScenario()
+    protected override void LaunchScenario()
     {
         base.LaunchScenario();
         _currentBoard = Instantiate(_scenario.boardPrefab, pivotBoard);

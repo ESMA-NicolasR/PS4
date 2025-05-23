@@ -85,7 +85,7 @@ public class MinigameAsteroids : MiniGame<AsteroidScenarioData>
         );
     }
     
-    public override void LaunchScenario()
+    protected override void LaunchScenario()
     {
         base.LaunchScenario();
         StartCoroutine(SpawnAsteroids(_scenario.spawnList));

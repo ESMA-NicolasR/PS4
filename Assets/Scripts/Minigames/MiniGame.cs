@@ -32,7 +32,7 @@ public class MiniGame<T> : Focusable where T : ResourceObjectiveData
     }
 
 
-    public virtual void LaunchScenario()
+    protected virtual void LaunchScenario()
     {
         mustLaunchScenario = false;
         stateText.text = "";
@@ -43,5 +43,6 @@ public class MiniGame<T> : Focusable where T : ResourceObjectiveData
         stateText.text = textWhenInactive;
         stateText.color = Color.green;
         _scenario = null;
+        mustLaunchScenario = false;
     }
 }

@@ -11,7 +11,7 @@ public class ScoreManager : MonoBehaviour
     private void Awake()
     {
         // Singleton
-        if (Instance == null || Instance != this)
+        if (Instance == null)
         {
             Instance = this;
         }

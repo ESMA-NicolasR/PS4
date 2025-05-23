@@ -8,7 +8,8 @@ public class Focusable : Clickable
     public Transform pov;
     private List<Clickable> _clickables;
     public static event Action<Focusable> OnGainFocus;
-
+    protected override CursorType cursorType => CursorType.Eye;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -29,25 +30,27 @@ public class Focusable : Clickable
     {
         OnGainFocus?.Invoke(this);
         EnableInteractables();
+        CursorManager.Instance.ChangeCursor(CursorType.Open);
         Disable();
+        clickableSound.PlayMySound();
     }
 
     public override void EnableHighlight()
     {
-        base.EnableHighlight();
         foreach (var clickable in _clickables)
         {
             clickable.EnableHighlight();
         }
+        base.EnableHighlight();
     }
 
     public override void DisableHighlight()
     {
-        base.DisableHighlight();
         foreach (var clickable in _clickables)
         {
             clickable.DisableHighlight();
         }
+        base.DisableHighlight();
     }
 
     public void EnableInteractables()
