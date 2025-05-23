@@ -74,5 +74,7 @@ public enum CursorType
     Close,
     Circle,
     LeftRight,
-    UpDown
+    UpDown,
+    Finger,
+    Eye
 }

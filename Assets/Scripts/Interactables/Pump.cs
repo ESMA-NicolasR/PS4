@@ -9,6 +9,8 @@ public class Pump : Draggable
     public float dragDownMultiplier;
     public int valueStrength;
 
+    protected override CursorType cursorType => CursorType.UpDown;
+    
     public float progress;
     private float _lastProgress;
     private float _accumulatedScore;
@@ -19,7 +21,6 @@ public class Pump : Draggable
     {
         pump.transform.position = lowEnd.position;
         progress = 0f;
-        cursorType = CursorType.UpDown;
     }
 
     protected override void Drag(Vector2 delta)

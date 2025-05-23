@@ -5,7 +5,8 @@ public class CursorManager : MonoBehaviour
 {
     [SerializeField]
     private Texture2D _cursorOpen, _cursorClose, _cursorLeftRight, _cursorUpDown, _cursorCircle;
-    private Vector2 _hotSpot = new Vector2(258, 126);
+    [SerializeField]
+    private Vector2 _hotSpot;
     public static CursorManager Instance;
 
     private void Start()

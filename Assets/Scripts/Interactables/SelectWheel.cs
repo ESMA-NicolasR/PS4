@@ -6,6 +6,7 @@ public class SelectWheel : Draggable
     public int totalAngles;
     public Transform target;
     public ResourceSystem resourceSystem;
+    protected override CursorType cursorType => CursorType.LeftRight;
 
     private int _amplitudeMax;
     private int _amplitudePerSection;
@@ -22,7 +23,6 @@ public class SelectWheel : Draggable
         _zeroAngle = Mathf.FloorToInt(-_step*(nbSections-1)/2.0f);
         _displayedValue = -1; // Force update display for the first frame
         UpdateDisplay();
-        cursorType = CursorType.LeftRight;
     }
 
     private void OnEnable()

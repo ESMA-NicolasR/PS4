@@ -9,7 +9,7 @@ public class Clickable : MonoBehaviour
     private LayerMask highlightLayer;
     public bool canBeUsed;
     public Focusable focusParent;
-    public CursorType cursorType;
+    protected virtual CursorType cursorType => CursorType.Finger;
 
     public static int AnalyticsTotalClicks;
 
@@ -25,7 +25,7 @@ public class Clickable : MonoBehaviour
 
     protected virtual void Start()
     {
-        cursorType = CursorType.Open;
+        
     }
 
     public virtual void Disable()

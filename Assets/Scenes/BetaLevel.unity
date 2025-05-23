@@ -6057,6 +6057,7 @@ MonoBehaviour:
   _cursorLeftRight: {fileID: 2800000, guid: a15749b0f43951f49b2c92f1bca453ce, type: 3}
   _cursorUpDown: {fileID: 2800000, guid: bfeea5e872e55c343b74e7dd5149b49b, type: 3}
   _cursorCircle: {fileID: 2800000, guid: cf6a28b4874fbd549ab618a860ad773d, type: 3}
+  _hotSpot: {x: 256, y: 256}
 --- !u!4 &2655828106704361722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4891405329421020455, guid: e1a3a46f974a4334ea630ae8f768b16f, type: 3}
