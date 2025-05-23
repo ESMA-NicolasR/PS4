@@ -24,7 +24,6 @@ public class Focusable : Clickable
     protected override void Interact()
     {
         GainFocus();
-        clickableSound.PlayMySound();
     }
 
     public virtual void GainFocus()
@@ -33,6 +32,7 @@ public class Focusable : Clickable
         EnableInteractables();
         CursorManager.Instance.ChangeCursor(CursorType.Open);
         Disable();
+        clickableSound.PlayMySound();
     }
 
     public override void EnableHighlight()
