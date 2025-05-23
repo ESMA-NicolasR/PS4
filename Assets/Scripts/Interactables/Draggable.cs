@@ -42,7 +42,7 @@ public class Draggable : Clickable
         base.OnMouseExit();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (!_isDragged) return;
         Drag(Mouse.current.delta.ReadValue() * dragFactor);
