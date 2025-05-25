@@ -69,6 +69,7 @@ public class Page : Animatable
     
     IEnumerator TurnLeft() 
     {
+        clickableSound?.PlayMySound();
         animator.SetBool("TurningLeft", true);
         yield return new WaitForSeconds(1f);
         animator.SetBool("TurningLeft", false);
@@ -78,6 +79,7 @@ public class Page : Animatable
     
     IEnumerator TurnRight() 
     {
+        clickableSound?.PlayMySound();
         animator.SetBool("TurningRight", true);
         yield return new WaitForSeconds(1f);
         animator.SetBool("TurningRight", false);
