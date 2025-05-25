@@ -28,6 +28,11 @@ public class PlayerFocus : MonoBehaviour
     //Delegates
     public static event Action OnLoseFocus;
     
+    [SerializeField]
+    private SoundManager _soundManager;
+    [SerializeField]
+    private AudioClip _loseFocusSound;
+    
     private void OnEnable()
     {
         Focusable.OnGainFocus += OnGainFocus;
@@ -70,6 +75,8 @@ public class PlayerFocus : MonoBehaviour
         
         _isFocused = false;
         StartCoroutine(LoseFocusCoroutine());
+        _soundManager.PlaySound(_loseFocusSound, 0.1f);
+        
     }
 
     private IEnumerator LoseFocusCoroutine()

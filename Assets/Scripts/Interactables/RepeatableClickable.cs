@@ -11,6 +11,7 @@ public class RepeatableClickable : Clickable
     protected override void Interact()
     {
         _autoclickCoroutine = StartCoroutine(AutoClick());
+        clickableSound?.PlayMySound(0.1f);
     }
 
     private IEnumerator AutoClick()
@@ -21,6 +22,7 @@ public class RepeatableClickable : Clickable
         {
             yield return new WaitForSeconds(timeBetweenClicksSlow);
             OnClick?.Invoke();
+            clickableSound?.PlayMySound(0.1f);
             timer += timeBetweenClicksSlow;
         }
         // Increase to fast auto after set time
