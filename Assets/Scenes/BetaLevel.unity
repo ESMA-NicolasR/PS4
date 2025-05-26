@@ -1055,10 +1055,18 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2086408068360208776, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1697485023}
     - targetCorrespondingSourceObject: {fileID: 1843352384849930307, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
+--- !u!1 &255927056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2086408068360208776, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
+  m_PrefabInstance: {fileID: 255927055}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &270486701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4138322348049047482, guid: b5c1a7b2c3e5f584c9d0443b1ba472fb, type: 3}
@@ -5056,6 +5064,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3857646613940682740, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
   m_PrefabInstance: {fileID: 255927055}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1697485023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255927056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa28e4b15712d04cb320cec3c47f970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 630358786}
+  timeBetweenChars: 0.02
 --- !u!114 &1723001395 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 91124537498897937, guid: 3f94038625d6ae540adf84cbfe6d58ca, type: 3}
@@ -5620,6 +5642,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.17, y: 0.06, z: 0.17}
   m_Center: {x: -0.00000023492612, y: -0.0000014179968, z: 0.0781239}
+--- !u!114 &2003494374 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7827907524279390184, guid: bd0e00d6b4a8e7f469caf1e5b26d0a99, type: 3}
+  m_PrefabInstance: {fileID: 1241809144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 380dbfdac080fcb4fbb2dac6c121392a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2022735337
 GameObject:
   m_ObjectHideFlags: 0
@@ -7731,7 +7764,7 @@ PrefabInstance:
     - target: {fileID: 5202662728669813818, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
       propertyPath: missionText
       value: 
-      objectReference: {fileID: 630358786}
+      objectReference: {fileID: 1697485023}
     - target: {fileID: 7084918817261159154, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
       propertyPath: missionButtons
       value: 
@@ -7756,6 +7789,10 @@ PrefabInstance:
       propertyPath: playerTravel
       value: 
       objectReference: {fileID: 845883943}
+    - target: {fileID: 8540456782299279873, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: _floatingText
+      value: 
+      objectReference: {fileID: 2003494374}
     - target: {fileID: 9060480851385771319, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
       propertyPath: minigameNetwork
       value: 

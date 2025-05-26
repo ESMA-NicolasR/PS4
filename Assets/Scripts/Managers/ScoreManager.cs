@@ -7,6 +7,8 @@ public class ScoreManager : MonoBehaviour
     private int _scoreMoneyGained;
     private int _scoreMoneyLost;
     public static ScoreManager Instance;
+    [SerializeField] private FloatingText _floatingText;
+
 
     private void Awake()
     {
@@ -74,7 +76,7 @@ public class ScoreManager : MonoBehaviour
 
     private void DisplayFloatingText(string text, Color color)
     {
-        Debug.Log(text);
+        _floatingText.DisplayText(text);
     }
 
     public string GetFinalScore()
