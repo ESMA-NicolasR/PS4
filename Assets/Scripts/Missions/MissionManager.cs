@@ -93,6 +93,7 @@ public class MissionManager : MonoBehaviour
     private IEnumerator TriggerMissionCo()
     {
         yield return new WaitForSeconds(_timeBetweenMissions);
+        _feedbackMissionReceived.PlayMySound();
         missionGiver.StartSignal();
     }
     
