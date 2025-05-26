@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Gen_Screens_001
+    second: {fileID: 2100000, guid: b9e29a6f406751849a11890ace7f62ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_Room_001
     second: {fileID: 2100000, guid: 29fcfd4bd7ceee0448fdb7a401d51f47, type: 2}
   materials:

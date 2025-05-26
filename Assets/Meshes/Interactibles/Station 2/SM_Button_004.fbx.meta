@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 6333bf9a3d942764b9f1c686c4ff3ea3
+guid: d7b7dce0b57c6924db014872e7672523
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Handles_001
+    second: {fileID: 2100000, guid: a294a92a99cdefb4fb819b2d3a908ff4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
