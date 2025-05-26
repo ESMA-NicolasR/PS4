@@ -11,7 +11,7 @@ public class MissionManager : MonoBehaviour
     public MissionGiver missionGiver;
     public List<ResourceObjectiveData> objectives;
     private Dictionary<SystemName, ResourceSystem> _namesToSystems;
-    public TextMeshPro missionText;
+    public MissionText missionText;
     private bool _isObjectiveStarted;
     private bool _isDayStarted;
     private int _progressionIndex;
@@ -73,7 +73,7 @@ public class MissionManager : MonoBehaviour
     {
         _isDayStarted = true;
         StartCoroutine(TriggerMissionCo());
-        missionText.text = "Awaiting orders...";
+        missionText.DisplayText("Awaiting orders...");
     }
 
     private IEnumerator TriggerMissionCo()
@@ -90,7 +90,7 @@ public class MissionManager : MonoBehaviour
         _currentObjective.BreakSystem(_namesToSystems[_currentObjective.systemName]);
         // Start the mission
         _isObjectiveStarted = true;
-        missionText.text = _currentObjective.description +" Pull the cord when it's done.";
+        missionText.DisplayText(_currentObjective.description +" Pull the cord when it's done.");
         missionTimer.StartTimer(_currentObjective.time);
         // Analytics
         AnalyticsObjectiveStarted?.Invoke();
@@ -107,14 +107,14 @@ public class MissionManager : MonoBehaviour
         // Rewards
         if (isSuccess)
         {
-            missionText.text = _currentObjective.winMessage +" Awaiting new orders...";
+            missionText.DisplayText(_currentObjective.winMessage +" Awaiting new orders...");
             _nbSuccess++;
             Debug.Log($"Mission {_currentObjective.name} won");
             _soundManager.PlaySound(_winSound);
         }
         else
         {
-            missionText.text = _currentObjective.loseMessage +" Awaiting new orders...";
+            missionText.DisplayText(_currentObjective.loseMessage +" Awaiting new orders...");
             Debug.Log($"Mission {_currentObjective.name} failed");
             _soundManager.PlaySound(_failSound);
         }
@@ -129,7 +129,7 @@ public class MissionManager : MonoBehaviour
         // Check ending
         if(_progressionIndex >= objectives.Count)
         {
-            missionText.text = $"Your shift is now over, pull the cord to call it a day.";
+            missionText.DisplayText($"Your shift is now over, pull the cord to call it a day.");
         }
         else
         { // Next objective
