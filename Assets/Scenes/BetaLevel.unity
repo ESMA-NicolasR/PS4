@@ -7356,6 +7356,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1446638770}
     m_Modifications:
+    - target: {fileID: 2735180224913275545, guid: a6bfb087c65b8744ab602a36a78af1f3, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735180224913275545, guid: a6bfb087c65b8744ab602a36a78af1f3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f765646f33017354d98e2952c4ca9f06, type: 3}
+    - target: {fileID: 2735180224913275545, guid: a6bfb087c65b8744ab602a36a78af1f3, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735180224913275545, guid: a6bfb087c65b8744ab602a36a78af1f3, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3775643167498518548, guid: a6bfb087c65b8744ab602a36a78af1f3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c2507a488dd31c547b5591b40730758d, type: 3}
     - target: {fileID: 4107787073491475428, guid: a6bfb087c65b8744ab602a36a78af1f3, type: 3}
       propertyPath: m_Name
       value: Quantum
@@ -7364,6 +7384,10 @@ PrefabInstance:
       propertyPath: _resourceSystem
       value: 
       objectReference: {fileID: 451904402}
+    - target: {fileID: 5317786265767947982, guid: a6bfb087c65b8744ab602a36a78af1f3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d664fdbfe3185a34dbd89781e0fe1d36, type: 3}
     - target: {fileID: 5409107083982393622, guid: a6bfb087c65b8744ab602a36a78af1f3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.3633249
@@ -7412,6 +7436,10 @@ PrefabInstance:
       propertyPath: _resourceSystem
       value: 
       objectReference: {fileID: 451904402}
+    - target: {fileID: 7318902453670098133, guid: a6bfb087c65b8744ab602a36a78af1f3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fd529fd6f4ae07f47a9b550aa837b9dd, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8294,6 +8322,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1370121475}
     m_Modifications:
+    - target: {fileID: 880349496191379476, guid: b5c1a7b2c3e5f584c9d0443b1ba472fb, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 977441964996381359, guid: b5c1a7b2c3e5f584c9d0443b1ba472fb, type: 3}
       propertyPath: _resourceSystem
       value: 
@@ -8306,6 +8338,10 @@ PrefabInstance:
       propertyPath: _resourceSystem
       value: 
       objectReference: {fileID: 1279639644}
+    - target: {fileID: 4026109691617985067, guid: b5c1a7b2c3e5f584c9d0443b1ba472fb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -685829588, guid: 2b516a2f93068d743983ef30d0194309, type: 3}
     - target: {fileID: 4138322348049047482, guid: b5c1a7b2c3e5f584c9d0443b1ba472fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.438
@@ -8366,6 +8402,26 @@ PrefabInstance:
       propertyPath: _resourceSystem
       value: 
       objectReference: {fileID: 1279639644}
+    - target: {fileID: 7362168348122625770, guid: b5c1a7b2c3e5f584c9d0443b1ba472fb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1688158477, guid: 2b516a2f93068d743983ef30d0194309, type: 3}
+    - target: {fileID: 8627530758106942567, guid: b5c1a7b2c3e5f584c9d0443b1ba472fb, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8627530758106942567, guid: b5c1a7b2c3e5f584c9d0443b1ba472fb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f765646f33017354d98e2952c4ca9f06, type: 3}
+    - target: {fileID: 8627530758106942567, guid: b5c1a7b2c3e5f584c9d0443b1ba472fb, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8627530758106942567, guid: b5c1a7b2c3e5f584c9d0443b1ba472fb, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8847404438370016997, guid: b5c1a7b2c3e5f584c9d0443b1ba472fb, type: 3}
       propertyPath: _resourceSystem
       value: 
