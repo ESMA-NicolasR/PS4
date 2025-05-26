@@ -11,19 +11,8 @@ public class CoordinatesScenarioData : ResourceObjectiveData
         var systemNetwork = resourceSystem as ResourceSystemCoordinates;
         if (systemNetwork == null)
         {
-            throw new Exception($"ResourceSystem of NetworkScenarioData {name} must be a ResourceSystemNetwork");
+            throw new Exception($"ResourceSystem of CoordinatesScenarioData {name} must be a ResourceSystemCoordinates");
         }
         systemNetwork.Break(this);
-    }
-    
-    public override void End(ResourceSystem resourceSystem)
-    {
-        base.End(resourceSystem);
-        var systemNetwork = resourceSystem as ResourceSystemNetwork;
-        if (systemNetwork == null)
-        {
-            throw new Exception($"ResourceSystem of NetworkScenarioData {name} must be a ResourceSystemNetwork");
-        }
-        systemNetwork.minigameNetwork.CleanUp();
     }
 }

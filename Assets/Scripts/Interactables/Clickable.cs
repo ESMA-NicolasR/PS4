@@ -9,12 +9,16 @@ public class Clickable : MonoBehaviour
     private LayerMask highlightLayer;
     public bool canBeUsed;
     public Focusable focusParent;
+
+    public ClickableSound clickableSound;
+
     protected virtual CursorType cursorType => CursorType.Finger;
 
     public static int AnalyticsTotalClicks;
 
     protected virtual void Awake()
     {
+        clickableSound = GetComponent<ClickableSound>();
         canBeUsed = true;
         defaultLayer = LayerMask.NameToLayer("Default");
         interactableLayer = LayerMask.NameToLayer("Interactable");
@@ -62,6 +66,7 @@ public class Clickable : MonoBehaviour
     protected virtual void Interact()
     {
         Debug.Log("Interact");
+        clickableSound?.PlayMySound();
     }
 
     protected virtual void OnMouseEnter()
