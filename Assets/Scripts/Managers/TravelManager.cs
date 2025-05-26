@@ -7,6 +7,8 @@ public class TravelManager : MonoBehaviour
     public PlayerTravel playerTravel;
     public TravelButton travelLeft, travelRight, travelBack;
 
+    [SerializeField] private FeedbackSound _walkingSound;
+    
     private void OnEnable()
     {
         PlayerTravel.OnDestinationReached += OnDestinationReached;
@@ -82,5 +84,7 @@ public class TravelManager : MonoBehaviour
         travelLeft.gameObject.SetActive(false);
         travelRight.gameObject.SetActive(false);
         travelBack.gameObject.SetActive(false);
+        _walkingSound.PlayMySound();
+        
     }
 }

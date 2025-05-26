@@ -18,6 +18,7 @@ public class MissionManager : MonoBehaviour
     private ResourceObjectiveData _currentObjective;
     private int _nbSuccess;
     [SerializeField] private float _timeBetweenMissions;
+    public static MissionManager Instance;
 
     public static event Action AnalyticsObjectiveStarted;
     public static event Action<AnalyticsObjectiveData> AnalyticsObjectiveFinished;
@@ -37,6 +38,19 @@ public class MissionManager : MonoBehaviour
     {
         MissionTimer.OnMissionTimerExpire -= OnMissionTimerExpire;
         MissionButton.OnMissionAccepted -= StartMission;
+    }
+
+    private void Awake()
+    {
+        // Singleton
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Start()
