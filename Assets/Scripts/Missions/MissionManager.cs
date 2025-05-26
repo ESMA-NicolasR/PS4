@@ -27,6 +27,7 @@ public class MissionManager : MonoBehaviour
     [SerializeField] private FeedbackSound _feedbackWin;
     [SerializeField] private FeedbackSound _feedbackLose;
     [SerializeField] private FeedbackSound _feedbackMissionReceived;
+    [SerializeField] private FeedbackSound _feedbackGameScore;
 
     private void OnEnable()
     {
