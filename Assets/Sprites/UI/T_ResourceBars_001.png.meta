@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3e982dd07e5db9743b31b8f30137aba5
+guid: daa21bd642a9ebf4d8878595aad74933
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: T_FluideJauge_002_0
+      name: T_ResourceBars_001_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 270
-        width: 512
-        height: 90
+        y: 80
+        width: 480
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,64 +112,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 476195a58d7454047a1a4085ee41f0ed
-      internalID: 255168449
+      spriteID: 5f10c8126dbc7c44285459dcb255f9d9
+      internalID: 1281516814
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_FluideJauge_002_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 180
-        width: 512
-        height: 90
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eb61acaed4c70654c9025c7eb63fe496
-      internalID: -2088337476
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: T_FluideJauge_002_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 90
-        width: 512
-        height: 90
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9587c13a38108e5449cdde7bc23ba9b1
-      internalID: -1310458178
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: T_FluideJauge_002_3
+      name: T_ResourceBars_001_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 512
-        height: 90
+        width: 480
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,8 +134,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2492dfe2d7b14f94cb0d0404e1f640e5
-      internalID: -1079607419
+      spriteID: f2ae6a7bb24662d468ad76323bf3bc44
+      internalID: -1689537435
       vertices: []
       indices: 
       edges: []
@@ -188,7 +144,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 93f7b9088c7fab3489093f4aa04496a2
+    spriteID: 850cd8bd6b450de4eac29614159a5172
     internalID: 0
     vertices: []
     indices: 
@@ -198,10 +154,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      T_FluideJauge_002_0: 255168449
-      T_FluideJauge_002_1: -2088337476
-      T_FluideJauge_002_2: -1310458178
-      T_FluideJauge_002_3: -1079607419
+      T_ResourceBars_001_0: 1281516814
+      T_ResourceBars_001_1: -1689537435
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
