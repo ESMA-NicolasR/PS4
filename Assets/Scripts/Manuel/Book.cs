@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
@@ -6,6 +5,7 @@ using UnityEngine;
 public class Book : Focusable
 {
     public bool open;
+    public int currentPage;
     
     public Animator animator;
     public Animator animator2;
@@ -25,12 +25,11 @@ public class Book : Focusable
         {
             if (pagesGameObjects[i].TryGetComponent<Page>(out var page))
             {
-                page.index = i;
                 page.DisablePage();
+                page.Init(this, i);
                 pages.Add(page);
             }
         }
-
     }
 
     public void StartBook()
@@ -40,7 +39,10 @@ public class Book : Focusable
         {
             page.DisablePage();
         }
+        int pagesToOpen = currentPage;
         pages[0].EnablePage();
+        for(int i=0; i<pagesToOpen; i++)
+            TurnPageToLeft(i);
     }
     
     
@@ -93,5 +95,34 @@ public class Book : Focusable
             collider.enabled = true;
         }
     }
-    
+
+    public void TurnPageToRight(int index)
+    {
+        pages[index].StartTurnRight();
+        if (index > 0)
+        {
+            pages[index - 1].EnablePage();
+        }
+        if (index < pages.Count-1)
+        {
+            pages[index+1].DisablePage();
+        }
+
+        currentPage = index;
+    }
+
+    public void TurnPageToLeft(int index)
+    {
+        pages[index].StartTurnLeft();
+        if (index < pages.Count-1)
+        {
+            pages[index + 1].EnablePage();
+        }
+        if (index > 0)
+        {
+            pages[index-1].DisablePage();
+        }
+        
+        currentPage = index + 1;
+    }
 }
