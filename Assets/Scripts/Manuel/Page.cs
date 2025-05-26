@@ -46,7 +46,6 @@ public class Page : Animatable
         {
             _book.pages[index + 1].EnablePage();
         }
-        Debug.Log("Active a Droite" + index);
         if (index > 0)
         {
             _book.pages[index-1].DisablePage();
@@ -60,7 +59,6 @@ public class Page : Animatable
         {
             _book.pages[index - 1].EnablePage();
         }
-        Debug.Log("Active a Gauche" + index);
         if (index < _book.pages.Count-1)
         {
             _book.pages[index+1].DisablePage();
