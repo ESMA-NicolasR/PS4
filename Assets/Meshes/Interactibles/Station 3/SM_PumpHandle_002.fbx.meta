@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9d2541dda4d7b8e4f910542d87d4f69a
+guid: 9b26b7599b3c9e042ae38de3dad81173
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_Room_001
-    second: {fileID: 2100000, guid: 29fcfd4bd7ceee0448fdb7a401d51f47, type: 2}
+      name: M_Handles_001
+    second: {fileID: 2100000, guid: a294a92a99cdefb4fb819b2d3a908ff4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 1

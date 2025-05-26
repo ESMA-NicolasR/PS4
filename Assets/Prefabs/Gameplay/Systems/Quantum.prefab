@@ -226,113 +226,6 @@ MonoBehaviour:
   _text: {fileID: 4053189687893777722}
   _showOnlyNumber: 0
   _suffix: '%'
---- !u!1001 &3904283843811379174
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 4540374857790446218}
-    m_Modifications:
-    - target: {fileID: 771371587673584683, guid: de9fbf2d991220b47947942a98c46541, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 3040227872894359217, guid: de9fbf2d991220b47947942a98c46541, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4382911482866533113, guid: de9fbf2d991220b47947942a98c46541, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4382911482866533113, guid: de9fbf2d991220b47947942a98c46541, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.633
-      objectReference: {fileID: 0}
-    - target: {fileID: 4382911482866533113, guid: de9fbf2d991220b47947942a98c46541, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4382911482866533113, guid: de9fbf2d991220b47947942a98c46541, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9659258
-      objectReference: {fileID: 0}
-    - target: {fileID: 4382911482866533113, guid: de9fbf2d991220b47947942a98c46541, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4382911482866533113, guid: de9fbf2d991220b47947942a98c46541, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.25881898
-      objectReference: {fileID: 0}
-    - target: {fileID: 4382911482866533113, guid: de9fbf2d991220b47947942a98c46541, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4382911482866533113, guid: de9fbf2d991220b47947942a98c46541, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4382911482866533113, guid: de9fbf2d991220b47947942a98c46541, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4382911482866533113, guid: de9fbf2d991220b47947942a98c46541, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5108144284771951635, guid: de9fbf2d991220b47947942a98c46541, type: 3}
-      propertyPath: m_Name
-      value: Little Pump Handle
-      objectReference: {fileID: 0}
-    - target: {fileID: 5108144284771951635, guid: de9fbf2d991220b47947942a98c46541, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 5851287102383288386, guid: de9fbf2d991220b47947942a98c46541, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025422979728431854, guid: de9fbf2d991220b47947942a98c46541, type: 3}
-      propertyPath: dragFactor
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025422979728431854, guid: de9fbf2d991220b47947942a98c46541, type: 3}
-      propertyPath: amplitudeWeight
-      value: 15
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 770217176049203160, guid: de9fbf2d991220b47947942a98c46541, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6052213626632862507}
-  m_SourcePrefab: {fileID: 100100000, guid: de9fbf2d991220b47947942a98c46541, type: 3}
---- !u!4 &792061504878871839 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4382911482866533113, guid: de9fbf2d991220b47947942a98c46541, type: 3}
-  m_PrefabInstance: {fileID: 3904283843811379174}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4368088154406498366 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 770217176049203160, guid: de9fbf2d991220b47947942a98c46541, type: 3}
-  m_PrefabInstance: {fileID: 3904283843811379174}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6052213626632862507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4368088154406498366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
 --- !u!1001 &7656141097847442135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -341,10 +234,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5409107083982393622}
     m_Modifications:
-    - target: {fileID: 4322886098719771642, guid: 1461c278b80da174ab4ef744100b0528, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 6143672004265480285, guid: 1461c278b80da174ab4ef744100b0528, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -389,16 +278,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Little Pump
       objectReference: {fileID: 0}
-    - target: {fileID: 8472615797328488210, guid: 1461c278b80da174ab4ef744100b0528, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 6143672004265480285, guid: 1461c278b80da174ab4ef744100b0528, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 792061504878871839}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1461c278b80da174ab4ef744100b0528, type: 3}
 --- !u!4 &4540374857790446218 stripped
