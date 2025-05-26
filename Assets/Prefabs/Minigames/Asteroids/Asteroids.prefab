@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 6184727902116024054}
   - component: {fileID: 6483755187586003750}
   - component: {fileID: 3685043282759058390}
+  - component: {fileID: 2525928312446287440}
   m_Layer: 0
   m_Name: Cursor
   m_TagString: CursorAsteroid
@@ -173,6 +174,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.100000024, y: 0.1, z: 0.01}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &2525928312446287440
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951997103241345525}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6539467291517285887
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +226,7 @@ Transform:
   m_GameObject: {fileID: 6539467291517285887}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.00000008940696}
-  m_LocalPosition: {x: 0, y: 0, z: 0.009699419}
+  m_LocalPosition: {x: -0, y: 0, z: 0.062}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -231,7 +259,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8042767857555141840}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.015999392}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0208}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -239,7 +267,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0, y: 0}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &7397268812573257403
@@ -309,7 +337,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Asteroids state :
 
-    Incative'
+    Inactive'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -431,10 +459,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 636092226239571493, guid: 3d675c425eb41a544a520fc07854d051, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4056913670185846014}
+    - target: {fileID: 3213725134686514699, guid: 3d675c425eb41a544a520fc07854d051, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4056913670185846014}
     - target: {fileID: 4632114066664378865, guid: 3d675c425eb41a544a520fc07854d051, type: 3}
       propertyPath: m_Name
       value: Asteroid Buttons
       objectReference: {fileID: 0}
+    - target: {fileID: 7099865485979466733, guid: 3d675c425eb41a544a520fc07854d051, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4056913670185846014}
     - target: {fileID: 7292796795774114651, guid: 3d675c425eb41a544a520fc07854d051, type: 3}
       propertyPath: m_Name
       value: SM_AsteroidGameButton_Down
@@ -451,6 +491,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_AsteroidGameButton_Up
       objectReference: {fileID: 0}
+    - target: {fileID: 9092969738474256436, guid: 3d675c425eb41a544a520fc07854d051, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4056913670185846014}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -560,7 +604,7 @@ MonoBehaviour:
   textWhenBroken: Asteroids detected !
   resourceSystem: {fileID: 0}
   cursor: {fileID: 5951997103241345525}
-  screen: {fileID: 0}
+  screen: {fileID: 4921530247591120425}
   screenOffset: {fileID: 6539467291517285887}
   inset: 0.05
   cursorMaxY: 0
