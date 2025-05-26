@@ -28,10 +28,7 @@ public class PlayerFocus : MonoBehaviour
     //Delegates
     public static event Action OnLoseFocus;
     
-    [SerializeField]
-    private SoundManager _soundManager;
-    [SerializeField]
-    private AudioClip _loseFocusSound;
+    private FeedbackSound _feedbackSound;
     
     private void OnEnable()
     {
@@ -46,6 +43,7 @@ public class PlayerFocus : MonoBehaviour
     private void Awake()
     {
         _cursorMoveCamera = GetComponent<CursorMoveCamera>();
+        _feedbackSound = GetComponent<FeedbackSound>();
     }
 
     private void Start()
@@ -75,8 +73,7 @@ public class PlayerFocus : MonoBehaviour
         
         _isFocused = false;
         StartCoroutine(LoseFocusCoroutine());
-        _soundManager.PlaySound(_loseFocusSound, 0.1f);
-        
+        _feedbackSound?.PlayMySound();
     }
 
     private IEnumerator LoseFocusCoroutine()

@@ -32,7 +32,7 @@ public class Focusable : Clickable
         EnableInteractables();
         CursorManager.Instance.ChangeCursor(CursorType.Open);
         Disable();
-        clickableSound?.PlayMySound(0.1f);
+        feedbackSound?.PlayMySound();
     }
 
     public override void EnableHighlight()

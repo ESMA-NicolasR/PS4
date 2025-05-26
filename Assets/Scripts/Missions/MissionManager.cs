@@ -18,13 +18,14 @@ public class MissionManager : MonoBehaviour
     private ResourceObjectiveData _currentObjective;
     private int _nbSuccess;
     [SerializeField] private float _timeBetweenMissions;
-    private int _totalHumans, _totalMoney;
-    [SerializeField] private AudioClip _failSound;
-    [SerializeField] private AudioClip _winSound;
-    private SoundManager _soundManager;
 
     public static event Action AnalyticsObjectiveStarted;
     public static event Action<AnalyticsObjectiveData> AnalyticsObjectiveFinished;
+    
+    [Header("Feedbacks")]
+    [SerializeField] private FeedbackSound _feedbackWin;
+    [SerializeField] private FeedbackSound _feedbackLose;
+    [SerializeField] private FeedbackSound _feedbackMissionReceived;
 
     private void OnEnable()
     {
@@ -40,7 +41,6 @@ public class MissionManager : MonoBehaviour
 
     void Start()
     {
-        _soundManager = GetComponent<SoundManager>();
         _namesToSystems = new Dictionary<SystemName, ResourceSystem>();
         var resourceSystems = GetComponentsInChildren<ResourceSystem>();
         foreach (var resourceSystem in resourceSystems)
@@ -110,13 +110,13 @@ public class MissionManager : MonoBehaviour
             missionText.text = _currentObjective.winMessage +" Awaiting new orders...";
             _nbSuccess++;
             Debug.Log($"Mission {_currentObjective.name} won");
-            _soundManager.PlaySound(_winSound);
+            _feedbackWin.PlayMySound();
         }
         else
         {
             missionText.text = _currentObjective.loseMessage +" Awaiting new orders...";
             Debug.Log($"Mission {_currentObjective.name} failed");
-            _soundManager.PlaySound(_failSound);
+            _feedbackLose.PlayMySound();
         }
         
         // Clear current objective
