@@ -11,4 +11,9 @@ public class FeedbackSound : MonoBehaviour
     {
         SoundManager.Instance.PlaySound(audioClip, _volume);
     }
+
+    public void StopAllSounds()
+    {
+        SoundManager.Instance.StopSound();
+    }
 }

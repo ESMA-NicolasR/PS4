@@ -55,6 +55,8 @@ public class SelectWheel : Draggable
             _displayedValue = resourceSystem.currentValue;
             _currentAngle = _displayedValue * _amplitudePerSection + _zeroAngle;
             target.localEulerAngles = Vector3.forward * _currentAngle;
+            if(canBeUsed)
+                feedbackSound?.PlayMySound();
         }
     }
 }

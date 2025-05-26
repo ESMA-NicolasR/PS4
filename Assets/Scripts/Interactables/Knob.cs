@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Splines;
@@ -26,6 +28,10 @@ public class Knob : Draggable
     private float _minProgress;
     [SerializeField]
     private float _maxProgress;
+
+    private float _time;
+    private float _timeBeforePlayingAgain;
+    private bool _isPlayingSound = false;
     protected override CursorType cursorType => CursorType.Circle;
 
     private void OnEnable()
@@ -68,6 +74,10 @@ public class Knob : Draggable
         float angle = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
         target.localEulerAngles = new Vector3(0, 0, _startAngleTarget + angle-_startAngleCursor);
         UpdateProgress(Mathf.DeltaAngle(_lastAngle, target.eulerAngles.z));
+        if (delta.magnitude > 0)
+        {
+            PlayNoise();
+        }
     }
     
     private void SnapCursorToCircle(Vector3 worldPosition)
@@ -93,5 +103,35 @@ public class Knob : Draggable
         // Only take the update if the rounded value changes
         if((int)_progress!=resourceSystem.currentValue)
             _progress = resourceSystem.currentValue;
+    }
+
+    private void PlayNoise()
+    {
+        _time = Time.time;
+        if (!_isPlayingSound)
+        {
+            _isPlayingSound = true;
+            feedbackSound?.PlayMySound();
+            _timeBeforePlayingAgain = Time.time + 1f;
+            StartCoroutine(CheckIfSoundIsStillPlaying());
+        }
+    }
+
+    private IEnumerator CheckIfSoundIsStillPlaying()
+    {
+        while (_isPlayingSound)
+        {
+            yield return new WaitForSeconds(0.1f);
+            if (Time.time > _time+0.1f)
+            {
+                _isPlayingSound = false;
+                feedbackSound?.StopAllSounds();
+            }
+            else if( _timeBeforePlayingAgain < Time.time)
+            {
+                feedbackSound?.PlayMySound();
+                _timeBeforePlayingAgain = Time.time + 1f;
+            }
+        }
     }
 }

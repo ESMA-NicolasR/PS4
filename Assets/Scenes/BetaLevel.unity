@@ -6408,7 +6408,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 49c4e8013a0ebc34594e9ac6a18e791e, type: 3}
   m_Resource: {fileID: 8300000, guid: 49c4e8013a0ebc34594e9ac6a18e791e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.005
+  m_Volume: 0.01
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -7921,6 +7921,10 @@ PrefabInstance:
       propertyPath: resourceSystem
       value: 
       objectReference: {fileID: 1652772326}
+    - target: {fileID: 91124537498897937, guid: 3f94038625d6ae540adf84cbfe6d58ca, type: 3}
+      propertyPath: _timeCheckContinueSound
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 827595559598432068, guid: 3f94038625d6ae540adf84cbfe6d58ca, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -8074,7 +8078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 349debe21f149f64a93d50a5943e5455, type: 3}
+  audioClip: {fileID: 8300000, guid: 59d062e70fc52534b88f7673d93e4e8a, type: 3}
   _volume: 0.5
 --- !u!1 &3889816405987153606
 GameObject:
@@ -8391,10 +8395,14 @@ PrefabInstance:
       propertyPath: resourceSystem
       value: 
       objectReference: {fileID: 451904402}
+    - target: {fileID: 5435408354764709128, guid: a6bfb087c65b8744ab602a36a78af1f3, type: 3}
+      propertyPath: _timeCheckContinueSound
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6052213626632862507, guid: a6bfb087c65b8744ab602a36a78af1f3, type: 3}
       propertyPath: audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 349debe21f149f64a93d50a5943e5455, type: 3}
+      objectReference: {fileID: 8300000, guid: 59d062e70fc52534b88f7673d93e4e8a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

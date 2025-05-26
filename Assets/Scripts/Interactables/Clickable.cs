@@ -11,7 +11,7 @@ public class Clickable : MonoBehaviour
     public bool canBeUsed;
     public Focusable focusParent;
 
-    [FormerlySerializedAs("clickableSound")] public FeedbackSound feedbackSound;
+    protected FeedbackSound feedbackSound;
 
     protected virtual CursorType cursorType => CursorType.Finger;
 
