@@ -9,9 +9,16 @@ public class MissionTimer : MonoBehaviour
     public Image timerBarFG;
     public TextMeshProUGUI timerText;
 
+    public FeedbackSound feedbackHalfTime;
+    public FeedbackSound feedbackLittleTime;
+    [Tooltip("How much time left to play a feedback")]
+    public float littleTime;
+
     private float _timeLeft;
     private float _timeMax;
     private bool _isTicking;
+    private bool _hasTriggeredHalfTime;
+    private bool _hasTriggeredLittleTime;
 
     public static event Action OnMissionTimerExpire;
     
@@ -20,6 +27,8 @@ public class MissionTimer : MonoBehaviour
         _timeLeft = _timeMax = time;
         _isTicking = true;
         timerBar.SetActive(true);
+        _hasTriggeredHalfTime = false;
+        _hasTriggeredLittleTime = false;
     }
 
     private void Start()
@@ -33,6 +42,17 @@ public class MissionTimer : MonoBehaviour
         {
             _timeLeft -= Time.deltaTime;
             UpdateDisplay();
+            if (!_hasTriggeredHalfTime && _timeLeft <= _timeMax / 2)
+            {
+                feedbackHalfTime.PlayMySound();
+                _hasTriggeredHalfTime = true;
+            }
+
+            if (!_hasTriggeredLittleTime && _timeLeft <= littleTime)
+            {
+                feedbackLittleTime.PlayMySound();
+                _hasTriggeredLittleTime = true;
+            }
             if (_timeLeft <= 0)
             {
                 ExpireTimer();
@@ -62,6 +82,8 @@ public class MissionTimer : MonoBehaviour
     {
         _isTicking = false;
         timerBar.SetActive(false);
+        _hasTriggeredHalfTime = true;
+        _hasTriggeredLittleTime = true;
     }
 
     public bool IsTimeRemaining()

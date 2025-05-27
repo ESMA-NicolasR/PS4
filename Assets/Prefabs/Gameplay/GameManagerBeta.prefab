@@ -993,6 +993,8 @@ GameObject:
   - component: {fileID: 8206769331526159259}
   - component: {fileID: 3196897014231287291}
   - component: {fileID: 6277276669843023796}
+  - component: {fileID: 6580870925546321100}
+  - component: {fileID: 447551550179498022}
   m_Layer: 0
   m_Name: MissionManager
   m_TagString: Untagged
@@ -1153,6 +1155,37 @@ MonoBehaviour:
   timerBar: {fileID: 0}
   timerBarFG: {fileID: 0}
   timerText: {fileID: 0}
+  feedbackHalfTime: {fileID: 6580870925546321100}
+  feedbackLittleTime: {fileID: 447551550179498022}
+  littleTime: 10
+--- !u!114 &6580870925546321100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5221941106425702674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 49e8256b954a09043bc09a223d1e4c9d, type: 3}
+  _volume: 0.5
+--- !u!114 &447551550179498022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5221941106425702674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 12983ccc00bb5d249ac7d8be57194ac9, type: 3}
+  _volume: 0.5
 --- !u!1 &5231227504430560881
 GameObject:
   m_ObjectHideFlags: 0
