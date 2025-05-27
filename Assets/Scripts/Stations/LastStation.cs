@@ -9,6 +9,8 @@ public class LastStation : MonoBehaviour
     public GameObject endPanel;
     public TextMeshProUGUI statisticsText;
     public TextMeshProUGUI achievementsText;
+    
+    [SerializeField] private FeedbackSound _feedbackDisplayPanel;
 
     private void OnEnable()
     {
@@ -29,6 +31,7 @@ public class LastStation : MonoBehaviour
             endPanel.SetActive(true);
             statisticsText.text = ScoreManager.Instance.GetFinalScore();
             achievementsText.text = ScoreManager.Instance.GetAchievements();
+            _feedbackDisplayPanel.PlayMySound();
         }
     }
 }

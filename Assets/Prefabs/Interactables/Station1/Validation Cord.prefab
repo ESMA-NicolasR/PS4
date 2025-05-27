@@ -189,7 +189,6 @@ MonoBehaviour:
       m_Calls: []
   canBeUsed: 0
   focusParent: {fileID: 0}
-  clickableSound: {fileID: 0}
   _anchor: {fileID: 8197091483043615770}
   dragFactor: 1
   highPoint: {fileID: 8313822507472611206}
@@ -244,4 +243,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
+  audioClip: {fileID: 8300000, guid: 349debe21f149f64a93d50a5943e5455, type: 3}
+  _volume: 0.5

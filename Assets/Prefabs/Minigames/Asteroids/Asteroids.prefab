@@ -40,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6661427949569500882}
+  - component: {fileID: 6891855569059692266}
   m_Layer: 0
   m_Name: Asteroids
   m_TagString: Untagged
@@ -64,6 +65,20 @@ Transform:
   - {fileID: 5694547758094095507}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6891855569059692266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200043910953356670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 12983ccc00bb5d249ac7d8be57194ac9, type: 3}
+  _volume: 0.5
 --- !u!1 &5951997103241345525
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,6 +588,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f4049d62fb353724180db3e5c4061a67, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4056913670185846014}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f4049d62fb353724180db3e5c4061a67, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 293222360094915616}
   m_SourcePrefab: {fileID: 100100000, guid: f4049d62fb353724180db3e5c4061a67, type: 3}
 --- !u!1 &4921530247591120425 stripped
 GameObject:
@@ -596,7 +614,6 @@ MonoBehaviour:
       m_Calls: []
   canBeUsed: 0
   focusParent: {fileID: 0}
-  clickableSound: {fileID: 0}
   pov: {fileID: 729722507318379420}
   mustLaunchScenario: 0
   stateText: {fileID: 2545016263759276880}
@@ -611,6 +628,21 @@ MonoBehaviour:
   cursorMaxX: 0
   asteroidPrefab: {fileID: 4774470700079407404, guid: 5c7ea845fa9d69d4f946f4b374d376b5, type: 3}
   cursorStep: 0
+  _meteorDestroyedSound: {fileID: 6891855569059692266}
+--- !u!114 &293222360094915616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4921530247591120425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 5b7151a6bb1c97847a173e3dfebeaa3b, type: 3}
+  _volume: 0.5
 --- !u!4 &5694547758094095507 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f4049d62fb353724180db3e5c4061a67, type: 3}

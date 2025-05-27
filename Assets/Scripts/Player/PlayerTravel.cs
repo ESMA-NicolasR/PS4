@@ -37,12 +37,22 @@ public class PlayerTravel : MonoBehaviour
     // Analytics
     public static int AnalyticsTotalTravels;
     public static float AnalyticsTotalTimeTraveling;
+    public static PlayerTravel Instance;
     
     private void Awake()
     {
         _cursorMoveCamera = GetComponent<CursorMoveCamera>();
         transform.position = currentStation.transform.position;
         headPivot.rotation = currentStation.transform.rotation;
+        // Singleton
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void MoveDirection(TravelDirection direction)

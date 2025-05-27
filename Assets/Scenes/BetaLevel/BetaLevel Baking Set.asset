@@ -35,7 +35,8 @@ MonoBehaviour:
   - d80cca8ce1960c54ab5cd3ce11d9d7cd
   obsoleteScenesToNotBake: []
   m_LightingScenarios:
-  - Default
+  - LightsOff
+  - LightsOn
   cellDescs:
     m_Keys: 
     m_Values: []
@@ -102,7 +103,7 @@ MonoBehaviour:
   supportLayerMaskChunkSize: 0
   supportOffsetsChunkSize: 98304
   supportDataChunkSize: 262144
-  lightingScenario: Default
+  lightingScenario: LightsOff
   version: 2
   freezePlacement: 0
   probeOffset: {x: 0, y: 0, z: 0}

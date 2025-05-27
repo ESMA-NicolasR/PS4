@@ -15,6 +15,13 @@ public class MinigameNetwork : MiniGame<NetworkScenarioData>
     private GameObject _currentBoard;
     public Transform pivotBoard;
 
+    [Header("Feedbacks")]
+    [SerializeField] private FeedbackSound _caseSelectedSound;
+    [SerializeField] private FeedbackSound _caseColoredSound;
+    [SerializeField] private FeedbackSound _resetSound;
+    [SerializeField] private FeedbackSound _clickMeteorSound;
+    [SerializeField] private FeedbackSound _pathConnectedSound;
+    
     protected override void LaunchScenario()
     {
         base.LaunchScenario();
@@ -90,6 +97,7 @@ public class MinigameNetwork : MiniGame<NetworkScenarioData>
         {
             _isPathing = false;
             ResetColor(cell1.colorNb);
+            _resetSound.PlayMySound();
             return;
         }
         // We know we can move
@@ -101,9 +109,11 @@ public class MinigameNetwork : MiniGame<NetworkScenarioData>
             {
                 case 1:
                     cell1.ChangeSprite(_spriteColor1Travel);
+                    _caseColoredSound.PlayMySound();
                     break;
                 case 2:
                     cell1.ChangeSprite(_spriteColor2Travel);
+                    _caseColoredSound.PlayMySound();
                     break;
             }
         }
@@ -120,6 +130,7 @@ public class MinigameNetwork : MiniGame<NetworkScenarioData>
                 else if (cell2.GetCellType() == CellType.End)
                 {
                     cell2.ChangeSprite(_spriteColor1Finish);
+                    _pathConnectedSound.PlayMySound();
                     _isPathing = false;
                 }
                 break;
@@ -133,6 +144,7 @@ public class MinigameNetwork : MiniGame<NetworkScenarioData>
                 else if (cell2.GetCellType() == CellType.End)
                 {
                     cell2.ChangeSprite(_spriteColor2Finish);
+                    _pathConnectedSound.PlayMySound();
                     _isPathing = false;
                 }
                 break;
@@ -146,6 +158,7 @@ public class MinigameNetwork : MiniGame<NetworkScenarioData>
         {
             case CellType.Start:
                 ResetColor(cell.colorNb);
+                _caseSelectedSound.PlayMySound();
                 _isPathing = true;
                 _lastCellUsed = cell;
                 break;
@@ -153,10 +166,13 @@ public class MinigameNetwork : MiniGame<NetworkScenarioData>
                 if (cell.isConnected && (cell == _lastCellUsedColor1 || cell == _lastCellUsedColor2))
                 {
                     _isPathing = true;
+                    _caseSelectedSound.PlayMySound();
                 }
                 else
                 {
                     _isPathing = false;
+                    if(cell.colorNb != 0)
+                        _resetSound.PlayMySound();
                     ResetColor(cell.colorNb);
                 }
                 _lastCellUsed  = cell;
@@ -164,6 +180,7 @@ public class MinigameNetwork : MiniGame<NetworkScenarioData>
             case CellType.Meteor:
                 _isPathing = false;
                 ResetAllColors();
+                _clickMeteorSound.PlayMySound();
                 break;
         }
     }
