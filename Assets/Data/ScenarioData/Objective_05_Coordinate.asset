@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b794c0c914447acac51b4d38d377dd8, type: 3}
+  m_Name: Objective_05_Coordinate
+  m_EditorClassIdentifier: 
+  systemName: 7
+  targetValue: 0
+  breakValue: 0
+  time: 60
+  description: Here is ship SHEEP. Type TY 63-Q, in sector -3 ; 4 ; 2. We found an
+    unknown gas. We should get it.
+  winMessage: Scientists are on the way. Hurrah for the company !
+  loseMessage: 'We have to go, it''s a pity we missed this huge opportunity.  '
+  notFinishedMessage: We can't wait for you forever.
+  humans: 0
+  money: 800000
+  recipient: 2
+  x: -3
+  y: 4
+  z: 2

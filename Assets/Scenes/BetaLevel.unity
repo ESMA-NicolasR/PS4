@@ -1051,6 +1051,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 6657707062669741555, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -5677645300040389594, guid: 0e9e09c85c2e18443ae0844836a44d36, type: 2}
+    - target: {fileID: 8964605104772485065, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
+      propertyPath: m_fontSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8964605104772485065, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0e9e09c85c2e18443ae0844836a44d36, type: 2}
+    - target: {fileID: 8964605104772485065, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5677645300040389594, guid: 0e9e09c85c2e18443ae0844836a44d36, type: 2}
+    - target: {fileID: 8964605104772485065, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

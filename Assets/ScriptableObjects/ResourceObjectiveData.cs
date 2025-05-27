@@ -10,6 +10,7 @@ public class ResourceObjectiveData : ScriptableObject
     public string description;
     public string winMessage;
     public string loseMessage;
+    public string notFinishedMessage;
     public int humans, money;
 
     public virtual void BreakSystem(ResourceSystem resourceSystem)

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af40da97a589c094d9570773aa25c0bc, type: 3}
+  m_Name: Objective_06_Shields
+  m_EditorClassIdentifier: 
+  systemName: 8
+  targetValue: 0
+  breakValue: 6
+  time: 45
+  description: Here is ship BUG. Type KY 21-0. A ship without any life forms is coming
+    to us. Please do something to help !
+  winMessage: Thank you, we are safe now.
+  loseMessage: No signals from the ship.
+  notFinishedMessage: The ship is getting closer and closer !
+  humans: 18
+  money: 40000

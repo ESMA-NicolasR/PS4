@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af40da97a589c094d9570773aa25c0bc, type: 3}
+  m_Name: Objective_03_Temperature
+  m_EditorClassIdentifier: 
+  systemName: 3
+  targetValue: -15
+  breakValue: 70
+  time: 60
+  description: 'Here is ship SEAL. Type : TY 63-Q. Our engines are getting far too
+    hot ! What should I do ?'
+  winMessage: The temperature feels nice again.
+  loseMessage: 'No signals from the ship.  '
+  notFinishedMessage: 'It is getting hotter and hotter here ! '
+  humans: 126
+  money: 80000
