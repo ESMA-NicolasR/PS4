@@ -325,7 +325,6 @@ MonoBehaviour:
         m_CallState: 2
   canBeUsed: 0
   focusParent: {fileID: 0}
-  clickableSound: {fileID: 0}
   timeBetweenClicksSlow: 0.2
   timeBetweenClicksFast: 0.1
   timeToFast: 0.5
@@ -341,7 +340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
+  audioClip: {fileID: 8300000, guid: 2245941d05c070a4eb76643b0bd75cb0, type: 3}
+  _volume: 0.5
 --- !u!4 &2131455720687207848 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d7b7dce0b57c6924db014872e7672523, type: 3}
@@ -449,7 +449,6 @@ MonoBehaviour:
         m_CallState: 2
   canBeUsed: 0
   focusParent: {fileID: 0}
-  clickableSound: {fileID: 0}
   timeBetweenClicksSlow: 0.2
   timeBetweenClicksFast: 0.1
   timeToFast: 0.5
@@ -465,7 +464,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
+  audioClip: {fileID: 8300000, guid: 2245941d05c070a4eb76643b0bd75cb0, type: 3}
+  _volume: 0.5
 --- !u!1001 &7476363093359287212
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -29,6 +29,7 @@ public class RepeatableClickable : Clickable
         while (true)
         {
             yield return new WaitForSeconds(timeBetweenClicksFast);
+            feedbackSound?.PlayMySound();
             OnClick?.Invoke();
         }
     }

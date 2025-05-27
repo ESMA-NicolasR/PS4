@@ -510,6 +510,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7104806460294209533, guid: 1461c278b80da174ab4ef744100b0528, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5006376396706971772}
+    - targetCorrespondingSourceObject: {fileID: 7104806460294209533, guid: 1461c278b80da174ab4ef744100b0528, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2762311902102137982}
   m_SourcePrefab: {fileID: 100100000, guid: 1461c278b80da174ab4ef744100b0528, type: 3}
 --- !u!4 &257431655340019600 stripped
 Transform:
@@ -538,7 +541,6 @@ MonoBehaviour:
       m_Calls: []
   canBeUsed: 0
   focusParent: {fileID: 0}
-  clickableSound: {fileID: 0}
   _anchor: {fileID: 257431655340019600}
   dragFactor: 1
   lowEnd: {fileID: 644378523306449571}
@@ -547,8 +549,23 @@ MonoBehaviour:
   amplitudeWeight: 15
   dragDownMultiplier: 0.5
   valueStrength: 1
+  _timeCheckContinueSound: 0
   progress: 0
   resourceSystem: {fileID: 0}
+--- !u!114 &2762311902102137982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637615686093100330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 59d062e70fc52534b88f7673d93e4e8a, type: 3}
+  _volume: 0.5
 --- !u!4 &644378523306449571 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7111563254293663860, guid: 1461c278b80da174ab4ef744100b0528, type: 3}

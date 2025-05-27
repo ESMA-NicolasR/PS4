@@ -166,13 +166,14 @@ public class MinigameNetwork : MiniGame<NetworkScenarioData>
                 if (cell.isConnected && (cell == _lastCellUsedColor1 || cell == _lastCellUsedColor2))
                 {
                     _isPathing = true;
-                    _caseColoredSound.PlayMySound();
+                    _caseSelectedSound.PlayMySound();
                 }
                 else
                 {
                     _isPathing = false;
+                    if(cell.colorNb != 0)
+                        _resetSound.PlayMySound();
                     ResetColor(cell.colorNb);
-                    _resetSound.PlayMySound();
                 }
                 _lastCellUsed  = cell;
                 break;
