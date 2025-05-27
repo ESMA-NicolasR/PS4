@@ -28,6 +28,7 @@ public class MissionManager : MonoBehaviour
     [SerializeField] private FeedbackSound _feedbackWin;
     [SerializeField] private FeedbackSound _feedbackLose;
     [SerializeField] private FeedbackSound _feedbackMissionReceived;
+    [SerializeField] private FeedbackSound _feedbackTryAgain;
 
     private void OnEnable()
     {
@@ -122,24 +123,29 @@ public class MissionManager : MonoBehaviour
     {
         bool isSuccess = _namesToSystems[_currentObjective.systemName].IsFixed();
         
-        // Analytics
-        AnalyticsObjectiveData data = new AnalyticsObjectiveData(_currentObjective.systemName.ToString(), isSuccess);
-        AnalyticsObjectiveFinished?.Invoke(data);
-        
         // Rewards
         if (isSuccess)
         {
             missionText.DisplayText(_currentObjective.winMessage);
             _nbSuccess++;
-            Debug.Log($"Mission {_currentObjective.name} won");
             _feedbackWin.PlayMySound();
         }
         else
         {
+            // Don't finish if there is time remaining
+            if (missionTimer.IsTimeRemaining())
+            {
+                missionText.DisplayText(_currentObjective.notFinishedMessage);
+                _feedbackTryAgain.PlayMySound();
+                return;
+            }
             missionText.DisplayText(_currentObjective.loseMessage);
-            Debug.Log($"Mission {_currentObjective.name} failed");
             _feedbackLose.PlayMySound();
         }
+        
+        // Analytics
+        AnalyticsObjectiveData data = new AnalyticsObjectiveData(_currentObjective.systemName.ToString(), isSuccess);
+        AnalyticsObjectiveFinished?.Invoke(data);
         
         // Clear current objective
         missionTimer.StopTimer();
@@ -151,7 +157,7 @@ public class MissionManager : MonoBehaviour
         // Check ending
         if(_progressionIndex >= objectives.Count)
         {
-            missionText.DisplayText($"Your day has\ncome to an end.\nYou can now relax\nin the couch.\nValidate by pulling\nthe handle. \n");
+            missionText.DisplayText($"Your day has\ncome to an end.\nYou can now relax\nin the couch.\nValidate by pulling\nthe handle.");
         }
         else
         { // Next objective

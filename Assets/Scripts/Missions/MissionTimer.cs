@@ -63,4 +63,9 @@ public class MissionTimer : MonoBehaviour
         _isTicking = false;
         timerBar.SetActive(false);
     }
+
+    public bool IsTimeRemaining()
+    {
+        return _isTicking && _timeLeft > 0;
+    }
 }
