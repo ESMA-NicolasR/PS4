@@ -1056,17 +1056,49 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -5677645300040389594, guid: 0e9e09c85c2e18443ae0844836a44d36, type: 2}
     - target: {fileID: 8964605104772485065, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
-      propertyPath: m_fontSize
-      value: 1
+      propertyPath: m_text
+      value: 'Welcome to your
+
+        new job, employee.
+
+        You should start
+        by
+
+        fixing the light.
+
+        Pull the handle
+
+        when it''s
+        done.'
       objectReference: {fileID: 0}
+    - target: {fileID: 8964605104772485065, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
+      propertyPath: m_fontSize
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8964605104772485065, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
+      propertyPath: m_renderer
+      value: 
+      objectReference: {fileID: 255927057}
     - target: {fileID: 8964605104772485065, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 0e9e09c85c2e18443ae0844836a44d36, type: 2}
     - target: {fileID: 8964605104772485065, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8964605104772485065, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -5677645300040389594, guid: 0e9e09c85c2e18443ae0844836a44d36, type: 2}
+    - target: {fileID: 8964605104772485065, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8964605104772485065, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8964605104772485065, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -1085,6 +1117,11 @@ PrefabInstance:
 --- !u!1 &255927056 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2086408068360208776, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
+  m_PrefabInstance: {fileID: 255927055}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &255927057 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6657707062669741555, guid: 6cabcd40a758b394c8f1c9e6b61965aa, type: 3}
   m_PrefabInstance: {fileID: 255927055}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &270486701 stripped
