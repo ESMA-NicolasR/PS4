@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b794c0c914447acac51b4d38d377dd8, type: 3}
   m_Name: Objective_16_Coordinates 1
   m_EditorClassIdentifier: 
-  systemName: 0
+  systemName: 7
   targetValue: 0
   breakValue: 0
   time: 45
-  description: 'Here is ship SNAKE. In : 6 : -3 ; 3 A ship is following us, and its
+  description: 'Here is ship SNAKE. In : 5 : -3 ; 3 A ship is following us, and its
     weapons are armed. We need assistance quickly.'
   winMessage: The forces are coming for us ? Thank you, employee.
   loseMessage: No signals from the ship.
@@ -24,6 +24,6 @@ MonoBehaviour:
   humans: 63
   money: 350000
   recipient: 0
-  x: 6
+  x: 5
   y: -3
   z: 3

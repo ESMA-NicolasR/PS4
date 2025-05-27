@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b55202d1a140c74f97edf4e00977e5c, type: 3}
   m_Name: Objective_13_Network
   m_EditorClassIdentifier: 
-  systemName: 5
+  systemName: 6
   targetValue: 2
   breakValue: 0
   time: 60
