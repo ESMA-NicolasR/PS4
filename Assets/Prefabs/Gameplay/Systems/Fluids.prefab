@@ -741,7 +741,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
+  audioClip: {fileID: 8300000, guid: ddc8a456158fd0340abefe767bcb2e9f, type: 3}
+  _volume: 0.5
 --- !u!4 &8442757962989715607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8216981594853482695, guid: 6e357f60e61a79946bf0a69e70087921, type: 3}
@@ -1205,7 +1206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
+  audioClip: {fileID: 8300000, guid: ddc8a456158fd0340abefe767bcb2e9f, type: 3}
+  _volume: 0.5
 --- !u!4 &6592917311044083005 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8216981594853482695, guid: 6e357f60e61a79946bf0a69e70087921, type: 3}
@@ -1485,4 +1487,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
+  audioClip: {fileID: 8300000, guid: ddc8a456158fd0340abefe767bcb2e9f, type: 3}
+  _volume: 0.5

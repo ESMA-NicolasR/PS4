@@ -179,11 +179,9 @@ MonoBehaviour:
       m_Calls: []
   canBeUsed: 0
   focusParent: {fileID: 0}
-  clickableSound: {fileID: 0}
   animator: {fileID: 0}
   turned: 0
-  index: 0
-  _book: {fileID: 9056534995243479481}
+  isTurning: 0
 --- !u!65 &7544785092150327875
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -218,6 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
+  _volume: 0.5
 --- !u!1 &2679156766914814587
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +379,6 @@ MonoBehaviour:
         m_CallState: 2
   canBeUsed: 0
   focusParent: {fileID: 0}
-  clickableSound: {fileID: 0}
 --- !u!1 &3043923189851365034
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,11 +691,9 @@ MonoBehaviour:
       m_Calls: []
   canBeUsed: 0
   focusParent: {fileID: 0}
-  clickableSound: {fileID: 0}
   animator: {fileID: 0}
   turned: 0
-  index: 0
-  _book: {fileID: 9056534995243479481}
+  isTurning: 0
 --- !u!65 &4651531049857315115
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -732,6 +728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
+  _volume: 0.5
 --- !u!1 &4096252906534576743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,11 +1063,9 @@ MonoBehaviour:
       m_Calls: []
   canBeUsed: 0
   focusParent: {fileID: 0}
-  clickableSound: {fileID: 0}
   animator: {fileID: 0}
   turned: 0
-  index: 0
-  _book: {fileID: 9056534995243479481}
+  isTurning: 0
 --- !u!65 &8119610181733264206
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1105,6 +1100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
+  _volume: 0.5
 --- !u!1 &6673078888659401789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,11 +1279,9 @@ MonoBehaviour:
       m_Calls: []
   canBeUsed: 0
   focusParent: {fileID: 0}
-  clickableSound: {fileID: 0}
   animator: {fileID: 0}
   turned: 0
-  index: 0
-  _book: {fileID: 9056534995243479481}
+  isTurning: 0
 --- !u!65 &3113839650147962438
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1488,11 +1482,9 @@ MonoBehaviour:
       m_Calls: []
   canBeUsed: 0
   focusParent: {fileID: 0}
-  clickableSound: {fileID: 0}
   animator: {fileID: 0}
   turned: 0
-  index: 0
-  _book: {fileID: 9056534995243479481}
+  isTurning: 0
 --- !u!65 &1089277218397128220
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1527,6 +1519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
+  _volume: 0.5
 --- !u!1 &7952220213736189927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1706,11 +1699,9 @@ MonoBehaviour:
       m_Calls: []
   canBeUsed: 0
   focusParent: {fileID: 0}
-  clickableSound: {fileID: 0}
   animator: {fileID: 0}
   turned: 0
-  index: 0
-  _book: {fileID: 9056534995243479481}
+  isTurning: 0
 --- !u!65 &3484443271071508070
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1745,6 +1736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
+  _volume: 0.5
 --- !u!1 &8100071478368087160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1756,6 +1748,8 @@ GameObject:
   - component: {fileID: 1292513449026208664}
   - component: {fileID: 9056534995243479481}
   - component: {fileID: 356122262366234245}
+  - component: {fileID: 2199721706123118301}
+  - component: {fileID: 5817880204819072547}
   m_Layer: 0
   m_Name: Manuel
   m_TagString: Untagged
@@ -1799,9 +1793,9 @@ MonoBehaviour:
       m_Calls: []
   canBeUsed: 0
   focusParent: {fileID: 0}
-  clickableSound: {fileID: 0}
   pov: {fileID: 3081984937634070776}
   open: 0
+  currentPage: 0
   animator: {fileID: 4984556022992219505}
   animator2: {fileID: 4193282403644017840}
   pagesGameObjects:
@@ -1815,6 +1809,8 @@ MonoBehaviour:
   helperColliders:
   - {fileID: 8971599639097156654}
   - {fileID: 5108696946268827218}
+  _openBookFeedback: {fileID: 2199721706123118301}
+  _turnPageFeedback: {fileID: 5817880204819072547}
 --- !u!114 &356122262366234245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1828,3 +1824,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
+  _volume: 0.5
+--- !u!114 &2199721706123118301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8100071478368087160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: f5a0f59043dae4542b6c8a3417f3b310, type: 3}
+  _volume: 0.5
+--- !u!114 &5817880204819072547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8100071478368087160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 9bce9074d16a3b74186918e2780b6f36, type: 3}
+  _volume: 0.5

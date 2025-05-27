@@ -14,17 +14,20 @@ public class MissionManager : MonoBehaviour
     public MissionText missionText;
     private bool _isObjectiveStarted;
     private bool _isDayStarted;
+    private bool _canDayStart;
     private int _progressionIndex;
     private ResourceObjectiveData _currentObjective;
     private int _nbSuccess;
     [SerializeField] private float _timeBetweenMissions;
-    private int _totalHumans, _totalMoney;
-    [SerializeField] private AudioClip _failSound;
-    [SerializeField] private AudioClip _winSound;
-    private SoundManager _soundManager;
+    public static MissionManager Instance;
 
     public static event Action AnalyticsObjectiveStarted;
     public static event Action<AnalyticsObjectiveData> AnalyticsObjectiveFinished;
+    
+    [Header("Feedbacks")]
+    [SerializeField] private FeedbackSound _feedbackWin;
+    [SerializeField] private FeedbackSound _feedbackLose;
+    [SerializeField] private FeedbackSound _feedbackMissionReceived;
 
     private void OnEnable()
     {
@@ -38,9 +41,21 @@ public class MissionManager : MonoBehaviour
         MissionButton.OnMissionAccepted -= StartMission;
     }
 
+    private void Awake()
+    {
+        // Singleton
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
-        _soundManager = GetComponent<SoundManager>();
         _namesToSystems = new Dictionary<SystemName, ResourceSystem>();
         var resourceSystems = GetComponentsInChildren<ResourceSystem>();
         foreach (var resourceSystem in resourceSystems)
@@ -51,11 +66,11 @@ public class MissionManager : MonoBehaviour
 
     public void CheckInMission()
     {
-        if (!_isDayStarted)
+        if (_canDayStart && !_isDayStarted)
         {
             StartDay();
         }
-        else if (_isObjectiveStarted)
+        if (_isObjectiveStarted)
         {
             CheckObjectiveIsDone();
         }
@@ -69,16 +84,23 @@ public class MissionManager : MonoBehaviour
         }
     }
 
+    public void EnableDay()
+    {
+        _canDayStart = true;
+        missionText.DisplayText("Pull the cord to start your day");
+    }
+    
     private void StartDay()
     {
         _isDayStarted = true;
         StartCoroutine(TriggerMissionCo());
-        missionText.DisplayText("Awaiting orders...");
+        missionText.DisplayText("Awaiting calls...");
     }
 
     private IEnumerator TriggerMissionCo()
     {
         yield return new WaitForSeconds(_timeBetweenMissions);
+        _feedbackMissionReceived.PlayMySound();
         missionGiver.StartSignal();
     }
     
@@ -110,13 +132,13 @@ public class MissionManager : MonoBehaviour
             missionText.DisplayText(_currentObjective.winMessage +" Awaiting new orders...");
             _nbSuccess++;
             Debug.Log($"Mission {_currentObjective.name} won");
-            _soundManager.PlaySound(_winSound);
+            _feedbackWin.PlayMySound();
         }
         else
         {
             missionText.DisplayText(_currentObjective.loseMessage +" Awaiting new orders...");
             Debug.Log($"Mission {_currentObjective.name} failed");
-            _soundManager.PlaySound(_failSound);
+            _feedbackLose.PlayMySound();
         }
         
         // Clear current objective

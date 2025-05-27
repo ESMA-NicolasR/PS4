@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 public class Cord : Draggable
 {
@@ -12,7 +11,7 @@ public class Cord : Draggable
     private bool _canTrigger;
     public UnityEvent OnTrigger;
     
-
+    
     protected override void Interact()
     {
         base.Interact();
@@ -54,6 +53,7 @@ public class Cord : Draggable
         _progress += delta.y/Screen.height;
         if (_progress <= _triggerThreshold && _canTrigger)
         {
+            feedbackSound?.PlayMySound();
             OnTrigger?.Invoke();
             _canTrigger = false;
         }
