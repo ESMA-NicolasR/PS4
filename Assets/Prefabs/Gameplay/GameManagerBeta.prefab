@@ -971,7 +971,7 @@ MonoBehaviour:
   systemName: 3
   currentValue: 0
   targetValue: 0
-  minValue: 10
+  minValue: -30
   maxValue: 50
   step: 1
   minDistance: 5
@@ -1031,16 +1031,23 @@ MonoBehaviour:
   missionTimer: {fileID: 6277276669843023796}
   missionGiver: {fileID: 3196897014231287291}
   objectives:
-  - {fileID: 11400000, guid: 522736f4fa4d0cc409b70cfe7b3cf260, type: 2}
-  - {fileID: 11400000, guid: 5204c53f661d3dd49894afc251913b2c, type: 2}
-  - {fileID: 11400000, guid: 098adbc9049af8d439cb5529a101a75b, type: 2}
-  - {fileID: 11400000, guid: f9038c4f44899e74ca6f1c946fbc802e, type: 2}
-  - {fileID: 11400000, guid: 02e10280a1e65de459334978c8d19447, type: 2}
-  - {fileID: 11400000, guid: a0c8a8bcc722a1047a2b6a66180709f1, type: 2}
-  - {fileID: 11400000, guid: 0623d07a6aeef3945832e347553029c6, type: 2}
-  - {fileID: 11400000, guid: 48bf54e714dda6d4cafff9f02c6a9c0e, type: 2}
-  - {fileID: 11400000, guid: 2cbf1e822f5219947888466b421cbf94, type: 2}
-  - {fileID: 11400000, guid: 45028c3c53d922a49aa4d24034658ef1, type: 2}
+  - {fileID: 11400000, guid: 1035a43b5daaa16489eb0b18a8a65a3a, type: 2}
+  - {fileID: 11400000, guid: 6db9966f6d51bc947847032b1cbf6839, type: 2}
+  - {fileID: 11400000, guid: fb3951de29e58954bacad1fd862dcbb8, type: 2}
+  - {fileID: 11400000, guid: 7578b88a13e1c924b89d46d66ba577e2, type: 2}
+  - {fileID: 11400000, guid: 55acc176c8482fd4d9cfb3d1efff7f62, type: 2}
+  - {fileID: 11400000, guid: ced7a5db98484474ab425a067bfbe0eb, type: 2}
+  - {fileID: 11400000, guid: b56927e8eab546a47b40a8aa04dfc91a, type: 2}
+  - {fileID: 11400000, guid: cd3a721f52c2db84991450d954922258, type: 2}
+  - {fileID: 11400000, guid: a13c8fa43a6d1a94bbb96b879dee92e5, type: 2}
+  - {fileID: 11400000, guid: 2a1b24b3b487c86499e57ce0f7a6bd83, type: 2}
+  - {fileID: 11400000, guid: f6f963b5feef5c84f8b060decce76244, type: 2}
+  - {fileID: 11400000, guid: 314f20390f5bb5146b811f0ac8cfe6a1, type: 2}
+  - {fileID: 11400000, guid: c4a1ce1b7b0e0b84a91d4635d388979d, type: 2}
+  - {fileID: 11400000, guid: 941d80d8076942c41a0ed6fe9809de0a, type: 2}
+  - {fileID: 11400000, guid: d1bc2f99846397144bba039c1e63d4f1, type: 2}
+  - {fileID: 11400000, guid: 9dc5fb5f5c3af0f488277acbad8cbbb7, type: 2}
+  - {fileID: 11400000, guid: d153c82d1e6d11940a0250a217c979e7, type: 2}
   missionText: {fileID: 0}
   _timeBetweenMissions: 2.5
   _feedbackWin: {fileID: 8922605918703081188}

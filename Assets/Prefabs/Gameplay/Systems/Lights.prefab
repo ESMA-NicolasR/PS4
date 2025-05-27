@@ -120,7 +120,7 @@ Transform:
   m_GameObject: {fileID: 3503037489543187679}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.19, y: 0.249, z: 0.175}
+  m_LocalPosition: {x: -0.314, y: 0.249, z: 0.175}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -138,7 +138,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 0.89758795, b: 0.504717, a: 1}
   m_Intensity: 1
-  m_Range: 0.1
+  m_Range: 2.5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -176,7 +176,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -308,7 +308,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -5677645300040389594, guid: 0e9e09c85c2e18443ae0844836a44d36, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -352,8 +352,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sample text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0e9e09c85c2e18443ae0844836a44d36, type: 2}
+  m_sharedMaterial: {fileID: -5677645300040389594, guid: 0e9e09c85c2e18443ae0844836a44d36, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -377,7 +377,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.95
+  m_fontSize: 0.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -488,6 +488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resourceSystem: {fileID: 0}
   _light: {fileID: 6544170290803970117}
+  minIntensity: 0
   maxIntensity: 0.4
 --- !u!1 &7628062968399078307
 GameObject:
@@ -707,6 +708,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0ec0dd2caae22484bac71fee6e346005, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7440780670692114480}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0ec0dd2caae22484bac71fee6e346005, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1375994862439466773}
   m_SourcePrefab: {fileID: 100100000, guid: 0ec0dd2caae22484bac71fee6e346005, type: 3}
 --- !u!4 &845394465940146 stripped
 Transform:
@@ -735,7 +739,6 @@ MonoBehaviour:
       m_Calls: []
   canBeUsed: 0
   focusParent: {fileID: 0}
-  clickableSound: {fileID: 0}
   _anchor: {fileID: 73281993843784261}
   dragFactor: 0.5
   target: {fileID: 845394465940146}
@@ -769,6 +772,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.24667737, y: 0.24667719, z: 0.1102017}
   m_Center: {x: 0.0000000037252903, y: -0.000000018626451, z: 0.03110364}
+--- !u!114 &1375994862439466773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813128762515666952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: ddc8a456158fd0340abefe767bcb2e9f, type: 3}
+  _volume: 0.5
 --- !u!1001 &3051988513543173162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -870,7 +887,6 @@ MonoBehaviour:
       m_Calls: []
   canBeUsed: 0
   focusParent: {fileID: 0}
-  clickableSound: {fileID: 0}
   pov: {fileID: 6336103131837328144}
 --- !u!114 &2836996215130191592
 MonoBehaviour:
@@ -884,7 +900,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 50021723b01e2ff438498487d699d42f, type: 3}
+  audioClip: {fileID: 8300000, guid: 5b7151a6bb1c97847a173e3dfebeaa3b, type: 3}
+  _volume: 0.5
 --- !u!4 &3301259608280880065 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6951711211fdebb44ba0d61a543ba76e, type: 3}
