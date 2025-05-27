@@ -60,12 +60,12 @@ public class Knob : Draggable
         // Set up rotation
         Vector3 vector = fakeCursor.localPosition;
         _startAngleCursor = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
-        _startAngleTarget = target.eulerAngles.z;
+        _startAngleTarget = target.localEulerAngles.z;
     }
 
     protected override void Drag(Vector2 delta)
     {
-        _lastAngle = target.eulerAngles.z;
+        _lastAngle = target.localEulerAngles.z;
         // Update fake cursor position
         fakeCursor.localPosition += turnSpeed*Time.deltaTime*new Vector3(-delta.x, delta.y, 0f);
         SnapCursorToCircle(fakeCursor.position);
@@ -73,7 +73,7 @@ public class Knob : Draggable
         Vector3 vector = fakeCursor.localPosition;
         float angle = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
         target.localEulerAngles = new Vector3(0, 0, _startAngleTarget + angle-_startAngleCursor);
-        UpdateProgress(Mathf.DeltaAngle(_lastAngle, target.eulerAngles.z));
+        UpdateProgress(Mathf.DeltaAngle(_lastAngle, target.localEulerAngles.z));
         if (delta.magnitude > 0)
         {
             PlayNoise();
@@ -92,16 +92,14 @@ public class Knob : Draggable
     {
         _progress = Mathf.Clamp(_progress+delta/degreesForValue*valueStrength, _minProgress, _maxProgress);
         resourceSystem.SetValue(
-            _progress>0
-            ?Mathf.FloorToInt(_progress)
-            :Mathf.CeilToInt(_progress)
+            Mathf.RoundToInt(_progress)
         );
     }
 
     private void OnSystemChangeValue()
     {
         // Only take the update if the rounded value changes
-        if((int)_progress!=resourceSystem.currentValue)
+        if(Mathf.RoundToInt(_progress)!=resourceSystem.currentValue)
             _progress = resourceSystem.currentValue;
     }
 
