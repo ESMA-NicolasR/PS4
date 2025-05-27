@@ -12,12 +12,13 @@ public class Cord : Draggable
     private bool _canTrigger;
     public UnityEvent OnTrigger;
     
-
+    
     protected override void Interact()
     {
         base.Interact();
         _isReturning = false;
         _canTrigger = true;
+        feedbackSound?.PlayMySound();
     }
 
     protected override void OnMouseUp()

@@ -7,7 +7,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource audioSource;
     public static SoundManager Instance;
 
-    private void Start()
+    private void Awake()
     {
         // Singleton
         if (Instance == null)
@@ -23,5 +23,10 @@ public class SoundManager : MonoBehaviour
     public void PlaySound(AudioClip sound, float volume = 1.0f)
     {
         audioSource.PlayOneShot(sound, volume);
+    }
+
+    public void StopSound()
+    {
+        audioSource.Stop();
     }
 }

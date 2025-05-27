@@ -15,6 +15,8 @@ public class MinigameAsteroids : MiniGame<AsteroidScenarioData>
     [HideInInspector]
     public float cursorStep;
     private Vector2 _lowerBounds, _higherBounds;
+    
+    [SerializeField] private FeedbackSound _meteorDestroyedSound;
 
     protected override void Start()
     {
@@ -104,6 +106,7 @@ public class MinigameAsteroids : MiniGame<AsteroidScenarioData>
     public void DestroyAsteroid()
     {
         resourceSystem.ChangeValue(-1);
+        _meteorDestroyedSound.PlayMySound();
     }
 
     private void OnValidate()

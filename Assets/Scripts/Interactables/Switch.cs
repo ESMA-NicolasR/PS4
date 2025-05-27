@@ -24,7 +24,7 @@ public class Switch : Clickable
     protected override void Interact()
     {
         Toggle();
-        clickableSound.PlayMySound();
+        feedbackSound.PlayMySound();
     }
 
     public void Toggle()
