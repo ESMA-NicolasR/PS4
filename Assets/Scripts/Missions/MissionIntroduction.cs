@@ -9,6 +9,8 @@ public class MissionIntroduction : MonoBehaviour
     [Min(1)] public int numberOfCellsBlendedPerFrame = 10;
     public string scenarioLightsOff;
     public string scenarioLightsOn;
+    public Light mainLight;
+    public float mainLightMaxIntensity;
     
     private void OnEnable()
     {
@@ -26,6 +28,7 @@ public class MissionIntroduction : MonoBehaviour
         probeRefVolume.numberOfCellsBlendedPerFrame = numberOfCellsBlendedPerFrame;
         
         // Prepare light scenario
+        mainLight.intensity = 0f;
         startSystem.Break(startObjective.targetValue, startObjective.breakValue);
         probeRefVolume.lightingScenario = scenarioLightsOff;
     }
@@ -33,13 +36,15 @@ public class MissionIntroduction : MonoBehaviour
     private void OnSystemChangeValue()
     {
         // Blend light scenario
-        probeRefVolume.BlendLightingScenario(scenarioLightsOn, Mathf.InverseLerp(startSystem.minValue, startSystem.maxValue, startSystem.currentValue));
-        
+        float ratio = Mathf.InverseLerp(startSystem.minValue, startSystem.maxValue, startSystem.currentValue);
+        probeRefVolume.BlendLightingScenario(scenarioLightsOn, ratio);
+        mainLight.intensity = Mathf.Lerp(0f, mainLightMaxIntensity, ratio);
         // Check if introduction is complete
         if (startSystem.IsFixed())
         {
             missionManager.EnableDay();
             startSystem.OnChangeValue -= OnSystemChangeValue;
+            mainLight.enabled = true;
             this.enabled = false;
         }
     }
