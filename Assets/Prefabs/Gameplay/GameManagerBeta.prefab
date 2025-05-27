@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 7084918817261159154}
   - component: {fileID: 8540456782299279873}
   - component: {fileID: 1665008794246005368}
+  - component: {fileID: 3045727934693990506}
   m_Layer: 0
   m_Name: GameManagerBeta
   m_TagString: Untagged
@@ -355,7 +356,6 @@ MonoBehaviour:
   missionTimer: {fileID: 3414790546830611490}
   missionGiver: {fileID: 7084918817261159154}
   objectives:
-  - {fileID: 11400000, guid: e0faf9aceeff6734b9e18948bb8ef1f5, type: 2}
   - {fileID: 11400000, guid: 522736f4fa4d0cc409b70cfe7b3cf260, type: 2}
   - {fileID: 11400000, guid: 5204c53f661d3dd49894afc251913b2c, type: 2}
   - {fileID: 11400000, guid: 098adbc9049af8d439cb5529a101a75b, type: 2}
@@ -368,6 +368,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 45028c3c53d922a49aa4d24034658ef1, type: 2}
   missionText: {fileID: 0}
   _timeBetweenMissions: 2.5
+  _failSound: {fileID: 0}
+  _winSound: {fileID: 0}
 --- !u!114 &4762873382987384640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,6 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4487b30d11a49d04ca69774b0dc72dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _floatingText: {fileID: 0}
 --- !u!114 &1665008794246005368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,6 +443,21 @@ MonoBehaviour:
   _cursorFinger: {fileID: 2800000, guid: 41f1ee2ae91ac0f48bae3783de0bb391, type: 3}
   _cursorEye: {fileID: 2800000, guid: c0bc2e051bcd967428e4429760395e56, type: 3}
   _hotSpot: {x: 256, y: 256}
+--- !u!114 &3045727934693990506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2452877499753427418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133918056345e7749a86fcc7a06f5ffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSystem: {fileID: 3967743100514765950}
+  startObjective: {fileID: 11400000, guid: e0faf9aceeff6734b9e18948bb8ef1f5, type: 2}
+  missionManager: {fileID: 5202662728669813818}
 --- !u!1 &2560929877033882945
 GameObject:
   m_ObjectHideFlags: 0

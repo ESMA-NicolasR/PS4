@@ -14,6 +14,7 @@ public class MissionManager : MonoBehaviour
     public MissionText missionText;
     private bool _isObjectiveStarted;
     private bool _isDayStarted;
+    private bool _canDayStart;
     private int _progressionIndex;
     private ResourceObjectiveData _currentObjective;
     private int _nbSuccess;
@@ -51,11 +52,11 @@ public class MissionManager : MonoBehaviour
 
     public void CheckInMission()
     {
-        if (!_isDayStarted)
+        if (_canDayStart && !_isDayStarted)
         {
             StartDay();
         }
-        else if (_isObjectiveStarted)
+        if (_isObjectiveStarted)
         {
             CheckObjectiveIsDone();
         }
@@ -69,11 +70,17 @@ public class MissionManager : MonoBehaviour
         }
     }
 
+    public void EnableDay()
+    {
+        _canDayStart = true;
+        missionText.DisplayText("Pull the cord to start your day");
+    }
+    
     private void StartDay()
     {
         _isDayStarted = true;
         StartCoroutine(TriggerMissionCo());
-        missionText.DisplayText("Awaiting orders...");
+        missionText.DisplayText("Awaiting calls...");
     }
 
     private IEnumerator TriggerMissionCo()
