@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Objective_12_Gates
   m_EditorClassIdentifier: 
   systemName: 2
-  targetValue: 1
-  breakValue: 0
+  targetValue: 0
+  breakValue: 1
   time: 30
   description: Here is ship DOG, Type CK 58-0. An alien entered in our hold. We are
     terrified.
