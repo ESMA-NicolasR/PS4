@@ -112,7 +112,7 @@ public class MissionManager : MonoBehaviour
         _currentObjective.BreakSystem(_namesToSystems[_currentObjective.systemName]);
         // Start the mission
         _isObjectiveStarted = true;
-        missionText.DisplayText(_currentObjective.description +" Pull the cord when it's done.");
+        missionText.DisplayText(_currentObjective.description);
         missionTimer.StartTimer(_currentObjective.time);
         // Analytics
         AnalyticsObjectiveStarted?.Invoke();
@@ -129,14 +129,14 @@ public class MissionManager : MonoBehaviour
         // Rewards
         if (isSuccess)
         {
-            missionText.DisplayText(_currentObjective.winMessage +" Awaiting new orders...");
+            missionText.DisplayText(_currentObjective.winMessage);
             _nbSuccess++;
             Debug.Log($"Mission {_currentObjective.name} won");
             _feedbackWin.PlayMySound();
         }
         else
         {
-            missionText.DisplayText(_currentObjective.loseMessage +" Awaiting new orders...");
+            missionText.DisplayText(_currentObjective.loseMessage);
             Debug.Log($"Mission {_currentObjective.name} failed");
             _feedbackLose.PlayMySound();
         }
@@ -151,7 +151,7 @@ public class MissionManager : MonoBehaviour
         // Check ending
         if(_progressionIndex >= objectives.Count)
         {
-            missionText.DisplayText($"Your shift is now over, pull the cord to call it a day.");
+            missionText.DisplayText($"Your day has\ncome to an end.\nYou can now relax\nin the couch.\nValidate by pulling\nthe handle. \n");
         }
         else
         { // Next objective

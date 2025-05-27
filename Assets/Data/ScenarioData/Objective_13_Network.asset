@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b55202d1a140c74f97edf4e00977e5c, type: 3}
+  m_Name: Objective_13_Network
+  m_EditorClassIdentifier: 
+  systemName: 5
+  targetValue: 2
+  breakValue: 0
+  time: 60
+  description: Here is ship CAT, We are approaching the ship MOUSE. Make sure we
+    don't collide.
+  winMessage: We were close to collapse. Good thing you are here.
+  loseMessage: No signals from the ship.
+  notFinishedMessage: We are still getting closer, your idling is going to make us
+    crash!
+  humans: 50
+  money: 300000
+  boardPrefab: {fileID: 2066718368306942282, guid: 0fcfe72cc97fdf64a9713af8ae4415ed, type: 3}
+  nbRows: 4
+  nbColumns: 3

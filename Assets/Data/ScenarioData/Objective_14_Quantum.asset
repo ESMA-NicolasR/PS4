@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af40da97a589c094d9570773aa25c0bc, type: 3}
-  m_Name: Objective_02_gates_easy
+  m_Name: Objective_14_Quantum
   m_EditorClassIdentifier: 
-  systemName: 2
-  targetValue: 1
+  systemName: 9
+  targetValue: 100
   breakValue: 0
-  time: 30
-  description: Open the gates, there is a fire !
-  winMessage: We made it out !
-  loseMessage: We lost half the crew...
-  notFinishedMessage: 
-  humans: 500
-  money: 0
+  time: 35
+  description: Here is ship BIRD, Type KY 21-0. Our reactor is making weird noise.
+    We are quite worried.
+  winMessage: It.. stopped ? Thank you, I guess.
+  loseMessage: No signals from the ship
+  notFinishedMessage: The noise didn't stop. It is becoming even louder.
+  humans: 14
+  money: 90000

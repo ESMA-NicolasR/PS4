@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af40da97a589c094d9570773aa25c0bc, type: 3}
-  m_Name: Objective_02_gates_easy
+  m_Name: Objective_12_Gates
   m_EditorClassIdentifier: 
   systemName: 2
-  targetValue: 1
-  breakValue: 0
+  targetValue: 0
+  breakValue: 1
   time: 30
-  description: Open the gates, there is a fire !
-  winMessage: We made it out !
-  loseMessage: We lost half the crew...
-  notFinishedMessage: 
-  humans: 500
-  money: 0
+  description: Here is ship DOG, Type CK 58-0. An alien entered in our hold. We are
+    terrified.
+  winMessage: You saved our life !
+  loseMessage: No signals from the ship
+  notFinishedMessage: He is moving towards us !
+  humans: 79
+  money: 250000

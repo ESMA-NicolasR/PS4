@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af40da97a589c094d9570773aa25c0bc, type: 3}
+  m_Name: Objective_01_Gates
+  m_EditorClassIdentifier: 
+  systemName: 2
+  targetValue: 0
+  breakValue: 1
+  time: 90
+  description: Here is ship FLY. CK 58-0 A fire is spreading in our ship. Please
+    help us !
+  winMessage: Good job employee, i thought my last day had arrived !
+  loseMessage: 'No signals from the ship.  '
+  notFinishedMessage: What are you doing ? I already feel the heat of the flames
+    !
+  humans: 64
+  money: 500000
