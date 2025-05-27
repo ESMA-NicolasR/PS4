@@ -905,7 +905,7 @@ Transform:
   m_GameObject: {fileID: 250451688}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.71, y: 0.2, z: -2.37}
+  m_LocalPosition: {x: -6.06, y: 0.68, z: -2.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -945,8 +945,8 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 1, g: 0.6417324, b: 0.3830188, a: 1}
-  m_Intensity: 11.6
-  m_Range: 5.88
+  m_Intensity: 17.88
+  m_Range: 6.7
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -3966,7 +3966,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 69d5996ac3995244ab1d3bc2d316aa2e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4690,39 +4690,39 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -0.5486985
+        z: -0.48676875
       TangentOut:
         x: 0
         y: 0
-        z: 0.5486985
+        z: 0.48676875
       Rotation:
         value:
-          x: 0.0026481007
-          y: 0.81375366
-          z: 0.0037077279
-          w: -0.581192
+          x: 0.00314715
+          y: 0.83707917
+          z: 0.0040787444
+          w: -0.5470576
     - Position:
-        x: -5.69
+        x: -4.958
         y: 1.05
-        z: 2.72
+        z: 2.546
       TangentIn:
         x: -0
         y: -0
-        z: -1.3842018
+        z: -1.3523548
       TangentOut:
         x: 0
         y: 0
-        z: 1.14176
+        z: 1.137558
       Rotation:
         value:
-          x: 0.010518369
-          y: 0.9456933
-          z: -0.0049648965
-          w: -0.324852
+          x: 0.010460211
+          y: 0.9330602
+          z: -0.0052775736
+          w: -0.35952923
     - Position:
-        x: -6
+        x: -6.02
         y: 1
-        z: -1
+        z: -0.73
       TangentIn:
         x: 0
         y: 0
@@ -4738,9 +4738,9 @@ MonoBehaviour:
           z: 0
           w: 0.70710677
     - Position:
-        x: -6
+        x: -6.02
         y: 0.2
-        z: -1
+        z: -0.73
       TangentIn:
         x: 0
         y: 0
@@ -5775,7 +5775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4080533205009946647, guid: 788d605d668368843bc52f45f4e31526, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4080533205009946647, guid: 788d605d668368843bc52f45f4e31526, type: 3}
       propertyPath: m_LocalRotation.w
