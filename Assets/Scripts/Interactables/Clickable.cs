@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class Clickable : MonoBehaviour
 {
@@ -9,12 +10,16 @@ public class Clickable : MonoBehaviour
     private LayerMask highlightLayer;
     public bool canBeUsed;
     public Focusable focusParent;
+
+    protected FeedbackSound feedbackSound;
+
     protected virtual CursorType cursorType => CursorType.Finger;
 
     public static int AnalyticsTotalClicks;
 
     protected virtual void Awake()
     {
+        feedbackSound = GetComponent<FeedbackSound>();
         canBeUsed = true;
         defaultLayer = LayerMask.NameToLayer("Default");
         interactableLayer = LayerMask.NameToLayer("Interactable");
@@ -62,6 +67,7 @@ public class Clickable : MonoBehaviour
     protected virtual void Interact()
     {
         Debug.Log("Interact");
+        feedbackSound?.PlayMySound();
     }
 
     protected virtual void OnMouseEnter()

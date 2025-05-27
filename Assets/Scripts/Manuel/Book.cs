@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
@@ -6,6 +5,7 @@ using UnityEngine;
 public class Book : Focusable
 {
     public bool open;
+    public int currentPage;
     
     public Animator animator;
     public Animator animator2;
@@ -14,6 +14,9 @@ public class Book : Focusable
     public List<Page> pages;
 
     public List<Collider> helperColliders;
+
+    [SerializeField] private FeedbackSound _openBookFeedback;
+    [SerializeField] private FeedbackSound _turnPageFeedback;
     
 
     protected override void Start()
@@ -25,12 +28,11 @@ public class Book : Focusable
         {
             if (pagesGameObjects[i].TryGetComponent<Page>(out var page))
             {
-                page.index = i;
                 page.DisablePage();
+                page.Init(this, i);
                 pages.Add(page);
             }
         }
-
     }
 
     public void StartBook()
@@ -40,7 +42,10 @@ public class Book : Focusable
         {
             page.DisablePage();
         }
+        int pagesToOpen = currentPage;
         pages[0].EnablePage();
+        for(int i=0; i<pagesToOpen; i++)
+            TurnPageToLeft(i, false);
     }
     
     
@@ -70,6 +75,7 @@ public class Book : Focusable
 
      IEnumerator OpenBook()
     {
+        _openBookFeedback.PlayMySound();
         foreach (var collider in helperColliders)
         {
             collider.enabled = false;
@@ -83,6 +89,7 @@ public class Book : Focusable
 
     IEnumerator CloseBook() 
     {
+        _openBookFeedback.PlayMySound();
         animator.SetBool("Close", true);
         animator2.SetBool("Close", true);
         yield return new WaitForSeconds(1f);
@@ -93,5 +100,38 @@ public class Book : Focusable
             collider.enabled = true;
         }
     }
-    
+
+    public void TurnPageToRight(int index)
+    {
+        _turnPageFeedback.PlayMySound();
+        pages[index].StartTurnRight();
+        if (index > 0)
+        {
+            pages[index - 1].EnablePage();
+        }
+        if (index < pages.Count-1)
+        {
+            pages[index+1].DisablePage();
+        }
+
+        currentPage = index;
+    }
+
+    public void TurnPageToLeft(int index, bool playSound = true)
+    {
+        if(playSound)
+            _turnPageFeedback.PlayMySound();
+        pages[index].StartTurnLeft();
+        if (index < pages.Count - 1)
+        {
+            pages[index + 1].EnablePage();
+        }
+
+        if (index > 0)
+        {
+            pages[index - 1].DisablePage();
+        }
+
+        currentPage = index + 1;
+    }
 }

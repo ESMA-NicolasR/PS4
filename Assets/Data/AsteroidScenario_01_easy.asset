@@ -15,7 +15,7 @@ MonoBehaviour:
   systemName: 5
   targetValue: 0
   breakValue: 0
-  time: 30
+  time: 3000
   description: We are being destroyed, help !
   winMessage: Thanks for saving us
   loseMessage: . . . - everyone died - . . .

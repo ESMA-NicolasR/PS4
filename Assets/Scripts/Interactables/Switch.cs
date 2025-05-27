@@ -34,6 +34,8 @@ public class Switch : Clickable
     private void UpdateDisplay()
     {
         target.localEulerAngles = new Vector3(rotationAmplitude*(resourceSystem.GetCurrentValueAsBool()? 1 : -1), 0, 0);
+        if(canBeUsed)
+            feedbackSound.PlayMySound();
     }
 
     private void UpdateValue()

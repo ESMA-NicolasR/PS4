@@ -24,7 +24,7 @@ public class SelectWheel : Draggable
         _displayedValue = -1; // Force update display for the first frame
         UpdateDisplay();
     }
-
+    
     private void OnEnable()
     {
         resourceSystem.OnChangeValue += UpdateDisplay;
@@ -55,6 +55,8 @@ public class SelectWheel : Draggable
             _displayedValue = resourceSystem.currentValue;
             _currentAngle = _displayedValue * _amplitudePerSection + _zeroAngle;
             target.localEulerAngles = Vector3.forward * _currentAngle;
+            if(canBeUsed)
+                feedbackSound?.PlayMySound();
         }
     }
 }

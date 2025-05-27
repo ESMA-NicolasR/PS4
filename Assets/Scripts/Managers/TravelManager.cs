@@ -6,7 +6,7 @@ public class TravelManager : MonoBehaviour
     public static TravelManager Instance;
     public PlayerTravel playerTravel;
     public TravelButton travelLeft, travelRight, travelBack;
-
+    
     private void OnEnable()
     {
         PlayerTravel.OnDestinationReached += OnDestinationReached;

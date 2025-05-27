@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e6eb99eb86df7ff4d920b419e7ffcbaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &6277936080387793270
@@ -105,7 +105,6 @@ MonoBehaviour:
   positionY: 0
   isConnected: 0
   colorNb: 0
-  minigame: {fileID: 0}
 --- !u!65 &2989905345256134300
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -204,7 +203,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e6eb99eb86df7ff4d920b419e7ffcbaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -213,7 +212,7 @@ SpriteRenderer:
   m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &8382839336643594459
@@ -232,7 +231,6 @@ MonoBehaviour:
   positionY: 0
   isConnected: 0
   colorNb: 0
-  minigame: {fileID: 0}
 --- !u!65 &5216429720772899407
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -331,7 +329,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e6eb99eb86df7ff4d920b419e7ffcbaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -340,7 +338,7 @@ SpriteRenderer:
   m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &4191667002439533548
@@ -359,7 +357,6 @@ MonoBehaviour:
   positionY: 0
   isConnected: 0
   colorNb: 0
-  minigame: {fileID: 0}
 --- !u!65 &7858888539039831749
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -458,7 +455,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e6eb99eb86df7ff4d920b419e7ffcbaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -467,7 +464,7 @@ SpriteRenderer:
   m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &4251770075712773251
@@ -486,7 +483,6 @@ MonoBehaviour:
   positionY: 0
   isConnected: 0
   colorNb: 0
-  minigame: {fileID: 0}
 --- !u!65 &8421783661373884085
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -585,7 +581,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e6eb99eb86df7ff4d920b419e7ffcbaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -594,7 +590,7 @@ SpriteRenderer:
   m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &7497921449469179505
@@ -613,7 +609,6 @@ MonoBehaviour:
   positionY: 0
   isConnected: 0
   colorNb: 2
-  minigame: {fileID: 0}
 --- !u!65 &6432334975547069938
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -755,7 +750,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e6eb99eb86df7ff4d920b419e7ffcbaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -764,7 +759,7 @@ SpriteRenderer:
   m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &8135163601406771790
@@ -783,7 +778,6 @@ MonoBehaviour:
   positionY: 0
   isConnected: 0
   colorNb: 0
-  minigame: {fileID: 0}
 --- !u!65 &754679224314892289
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -882,7 +876,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e6eb99eb86df7ff4d920b419e7ffcbaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -891,7 +885,7 @@ SpriteRenderer:
   m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &975344183786766262
@@ -910,7 +904,6 @@ MonoBehaviour:
   positionY: 0
   isConnected: 0
   colorNb: 1
-  minigame: {fileID: 0}
 --- !u!65 &3510459360468058125
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1009,7 +1002,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e6eb99eb86df7ff4d920b419e7ffcbaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1018,7 +1011,7 @@ SpriteRenderer:
   m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &7710600993126340557
@@ -1037,7 +1030,6 @@ MonoBehaviour:
   positionY: 0
   isConnected: 0
   colorNb: 1
-  minigame: {fileID: 0}
 --- !u!65 &7749639473435285393
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1136,7 +1128,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e6eb99eb86df7ff4d920b419e7ffcbaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1145,7 +1137,7 @@ SpriteRenderer:
   m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &5403174599154807760
@@ -1164,7 +1156,6 @@ MonoBehaviour:
   positionY: 0
   isConnected: 0
   colorNb: 0
-  minigame: {fileID: 0}
 --- !u!65 &6061013558831423778
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1263,7 +1254,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e6eb99eb86df7ff4d920b419e7ffcbaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1272,7 +1263,7 @@ SpriteRenderer:
   m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &9183086600638376187
@@ -1291,7 +1282,6 @@ MonoBehaviour:
   positionY: 0
   isConnected: 0
   colorNb: 2
-  minigame: {fileID: 0}
 --- !u!65 &2298375881126549014
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1390,7 +1380,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e6eb99eb86df7ff4d920b419e7ffcbaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1399,7 +1389,7 @@ SpriteRenderer:
   m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1388611404781510714
@@ -1418,7 +1408,6 @@ MonoBehaviour:
   positionY: 0
   isConnected: 0
   colorNb: 0
-  minigame: {fileID: 0}
 --- !u!65 &3322065368020039011
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1517,7 +1506,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e6eb99eb86df7ff4d920b419e7ffcbaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1526,7 +1515,7 @@ SpriteRenderer:
   m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &5667502973040122666
@@ -1545,7 +1534,6 @@ MonoBehaviour:
   positionY: 0
   isConnected: 0
   colorNb: 0
-  minigame: {fileID: 0}
 --- !u!65 &8174950487623241586
 BoxCollider:
   m_ObjectHideFlags: 0

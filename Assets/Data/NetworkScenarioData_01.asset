@@ -15,7 +15,7 @@ MonoBehaviour:
   systemName: 6
   targetValue: 2
   breakValue: 0
-  time: 30
+  time: 3000
   description: Fix the network
   winMessage: Connection established !
   loseMessage: Connection lost...

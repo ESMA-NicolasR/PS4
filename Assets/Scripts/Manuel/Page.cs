@@ -1,33 +1,32 @@
-using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Page : Animatable
 {
     public bool turned;
 
-    [SerializeField] public int index;
+    private int _index;
+    private Book _book;
+    public bool isTurning;
 
-    [SerializeField] private Book _book;
-
-    protected override void Start()
+    public void Init(Book book, int index)
     {
-        base.Start();
+        _index = index;
+        _book = book;
     }
-
+    
     protected override void Interact()
     {
+        if (isTurning) return;
+        
         if (!turned)
         {
-            StartTurnLeft();
+            _book.TurnPageToLeft(_index);
         }
-
         else
         {
-            StartTurnRight();
+            _book.TurnPageToRight(_index);
         }
-            
     }
 
     public virtual void DisablePage()
@@ -39,50 +38,25 @@ public class Page : Animatable
     {
         base.Enable();
     }
-
-       protected virtual void EnablePagesRight()
-    {
-        if (index < _book.pages.Count-1)
-        {
-            _book.pages[index + 1].EnablePage();
-        }
-        Debug.Log("Active a Droite" + index);
-        if (index > 0)
-        {
-            _book.pages[index-1].DisablePage();
-        }
-
-    }
-
-         protected virtual void EnablePagesLeft()
-    {
-        if (index > 0)
-        {
-            _book.pages[index - 1].EnablePage();
-        }
-        Debug.Log("Active a Gauche" + index);
-        if (index < _book.pages.Count-1)
-        {
-            _book.pages[index+1].DisablePage();
-        }
-    }
     
     IEnumerator TurnLeft() 
     {
+        isTurning = true;
         animator.SetBool("TurningLeft", true);
         yield return new WaitForSeconds(1f);
         animator.SetBool("TurningLeft", false);
         turned = true;
-        EnablePagesRight();
+        isTurning = false;
     }
     
     IEnumerator TurnRight() 
     {
+        isTurning = true;
         animator.SetBool("TurningRight", true);
         yield return new WaitForSeconds(1f);
         animator.SetBool("TurningRight", false);
         turned = false;
-        EnablePagesLeft();
+        isTurning = false;
     }
 
     public void StartTurnLeft()

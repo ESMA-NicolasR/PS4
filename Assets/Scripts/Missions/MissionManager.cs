@@ -11,17 +11,23 @@ public class MissionManager : MonoBehaviour
     public MissionGiver missionGiver;
     public List<ResourceObjectiveData> objectives;
     private Dictionary<SystemName, ResourceSystem> _namesToSystems;
-    public TextMeshPro missionText;
+    public MissionText missionText;
     private bool _isObjectiveStarted;
     private bool _isDayStarted;
+    private bool _canDayStart;
     private int _progressionIndex;
     private ResourceObjectiveData _currentObjective;
     private int _nbSuccess;
     [SerializeField] private float _timeBetweenMissions;
-    private int _totalHumans, _totalMoney;
+    public static MissionManager Instance;
 
     public static event Action AnalyticsObjectiveStarted;
     public static event Action<AnalyticsObjectiveData> AnalyticsObjectiveFinished;
+    
+    [Header("Feedbacks")]
+    [SerializeField] private FeedbackSound _feedbackWin;
+    [SerializeField] private FeedbackSound _feedbackLose;
+    [SerializeField] private FeedbackSound _feedbackMissionReceived;
 
     private void OnEnable()
     {
@@ -33,6 +39,19 @@ public class MissionManager : MonoBehaviour
     {
         MissionTimer.OnMissionTimerExpire -= OnMissionTimerExpire;
         MissionButton.OnMissionAccepted -= StartMission;
+    }
+
+    private void Awake()
+    {
+        // Singleton
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Start()
@@ -47,11 +66,11 @@ public class MissionManager : MonoBehaviour
 
     public void CheckInMission()
     {
-        if (!_isDayStarted)
+        if (_canDayStart && !_isDayStarted)
         {
             StartDay();
         }
-        else if (_isObjectiveStarted)
+        if (_isObjectiveStarted)
         {
             CheckObjectiveIsDone();
         }
@@ -65,16 +84,23 @@ public class MissionManager : MonoBehaviour
         }
     }
 
+    public void EnableDay()
+    {
+        _canDayStart = true;
+        missionText.DisplayText("Pull the cord to start your day");
+    }
+    
     private void StartDay()
     {
         _isDayStarted = true;
         StartCoroutine(TriggerMissionCo());
-        missionText.text = "Awaiting orders...";
+        missionText.DisplayText("Awaiting calls...");
     }
 
     private IEnumerator TriggerMissionCo()
     {
         yield return new WaitForSeconds(_timeBetweenMissions);
+        _feedbackMissionReceived.PlayMySound();
         missionGiver.StartSignal();
     }
     
@@ -86,7 +112,7 @@ public class MissionManager : MonoBehaviour
         _currentObjective.BreakSystem(_namesToSystems[_currentObjective.systemName]);
         // Start the mission
         _isObjectiveStarted = true;
-        missionText.text = _currentObjective.description +" Pull the cord when it's done.";
+        missionText.DisplayText(_currentObjective.description +" Pull the cord when it's done.");
         missionTimer.StartTimer(_currentObjective.time);
         // Analytics
         AnalyticsObjectiveStarted?.Invoke();
@@ -103,14 +129,16 @@ public class MissionManager : MonoBehaviour
         // Rewards
         if (isSuccess)
         {
-            missionText.text = _currentObjective.winMessage +" Awaiting new orders...";
+            missionText.DisplayText(_currentObjective.winMessage +" Awaiting new orders...");
             _nbSuccess++;
             Debug.Log($"Mission {_currentObjective.name} won");
+            _feedbackWin.PlayMySound();
         }
         else
         {
-            missionText.text = _currentObjective.loseMessage +" Awaiting new orders...";
+            missionText.DisplayText(_currentObjective.loseMessage +" Awaiting new orders...");
             Debug.Log($"Mission {_currentObjective.name} failed");
+            _feedbackLose.PlayMySound();
         }
         
         // Clear current objective
@@ -123,7 +151,7 @@ public class MissionManager : MonoBehaviour
         // Check ending
         if(_progressionIndex >= objectives.Count)
         {
-            missionText.text = $"Your shift is now over, pull the cord to call it a day.";
+            missionText.DisplayText($"Your shift is now over, pull the cord to call it a day.");
         }
         else
         { // Next objective
