@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c784f610ed1f3648a0173fe9082449f, type: 3}
-  m_Name: Objective_11_Asteroids
+  m_Name: Objective_07_Asteroids
   m_EditorClassIdentifier: 
   systemName: 5
   targetValue: 0
@@ -23,9 +23,33 @@ MonoBehaviour:
   humans: 0
   money: 50000
   spawnList:
-  - spawnDelay: 0
-    moveSpeed: 0
-    growSpeed: 0
+  - spawnDelay: 0.5
+    moveSpeed: 0.5
+    growSpeed: 0.1
     scale: 1
     direction: {x: 0, y: 0}
-    position: {x: 0, y: 0}
+    position: {x: 1, y: 1.5}
+  - spawnDelay: 0.5
+    moveSpeed: 0.2
+    growSpeed: 0.05
+    scale: 1
+    direction: {x: 0, y: 0}
+    position: {x: -2, y: -0.5}
+  - spawnDelay: 0.5
+    moveSpeed: 0.5
+    growSpeed: 0.1
+    scale: 1
+    direction: {x: 0, y: 0}
+    position: {x: -1, y: 2}
+  - spawnDelay: 0.5
+    moveSpeed: 0.2
+    growSpeed: 0.05
+    scale: 1
+    direction: {x: 0, y: 0}
+    position: {x: 2, y: 0.5}
+  - spawnDelay: 0.5
+    moveSpeed: 0.2
+    growSpeed: 0.05
+    scale: 1
+    direction: {x: 0, y: 0}
+    position: {x: 0.5, y: -2}

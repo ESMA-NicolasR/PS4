@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b55202d1a140c74f97edf4e00977e5c, type: 3}
-  m_Name: Objective_07_Network
+  m_Name: Objective_04_Network
   m_EditorClassIdentifier: 
   systemName: 6
   targetValue: 2
@@ -24,6 +24,6 @@ MonoBehaviour:
     nothing !
   humans: 47
   money: 270000
-  boardPrefab: {fileID: 2066718368306942282, guid: da8789b4a0bf0214c8eb5726093fabc0, type: 3}
+  boardPrefab: {fileID: 2066718368306942282, guid: 0fcfe72cc97fdf64a9713af8ae4415ed, type: 3}
   nbRows: 6
   nbColumns: 5
