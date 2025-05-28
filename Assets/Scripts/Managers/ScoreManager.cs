@@ -126,11 +126,11 @@ public class ScoreManager : MonoBehaviour
 
     private string GetMoneyGainedTitle()
     {
-        if (_scoreMoneyGained > 100)
+        if (_scoreMoneyGained > 1500000)
         {
             return "CEO";
         }
-        if (_scoreMoneyGained > 10)
+        if (_scoreMoneyGained > 500000)
         {
             return "Manager";
         }
