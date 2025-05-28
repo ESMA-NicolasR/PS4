@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5148a1e3e1321e64282e5e4d9d12c4e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToBeDestroyed: 0.5
-  timeToDestroy: 300
+  timeToBeDestroyed: 1
+  timeToDestroy: 30000
   baseRotationSpeed: 90
   _spriteRenderer: {fileID: 5014918108856479254}
 --- !u!65 &-4769447568602742275
@@ -69,8 +69,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 0.1, z: 0.01}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.058840916, y: 0.055889994, z: 0.01}
+  m_Center: {x: 0.0012491867, y: 0.0037099086, z: 0}
 --- !u!1 &8121979361161613783
 GameObject:
   m_ObjectHideFlags: 0

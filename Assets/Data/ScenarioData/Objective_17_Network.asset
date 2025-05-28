@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b55202d1a140c74f97edf4e00977e5c, type: 3}
-  m_Name: Objective_13_Network
+  m_Name: Objective_17_Network
   m_EditorClassIdentifier: 
   systemName: 6
   targetValue: 2
   breakValue: 0
-  time: 60
-  description: Here is ship CAT, We are approaching the ship MOUSE. Make sure we
+  time: 100
+  description: Here is ship RAT, We are approaching the ship PEEBLE. Make sure we
     don't collide.
-  winMessage: We were close to collapse. Good thing you are here.
-  loseMessage: No signals from the ship.
-  notFinishedMessage: We are still getting closer, your idling is going to make us
-    crash!
-  humans: 50
-  money: 300000
+  winMessage: That was close.
+  loseMessage: No signals from the ships.
+  notFinishedMessage: We are still getting closer, we are going to crash if you do
+    nothing !
+  humans: 24
+  money: 50000
   boardPrefab: {fileID: 2066718368306942282, guid: 1a60adb94d9077b47a85d05593d390e0, type: 3}
   nbRows: 7
   nbColumns: 7
