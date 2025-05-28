@@ -79,90 +79,83 @@ public class ScoreManager : MonoBehaviour
         _floatingText.DisplayText(text);
     }
 
-    public string GetFinalScore()
+    public string GetStatistics()
     {
-        return $"You saved {_scoreHumansSaved} humans"
-            +$"\nYou killed {_scoreHumansKilled} humans"
-            +$"\nYou gained ${_scoreMoneyGained}"
-            +$"\nYou lost ${_scoreMoneyLost}"
-            +$"\n<b>Net result</b> : ${_scoreMoneyGained-_scoreMoneyLost}, {_scoreHumansSaved-_scoreHumansKilled} lives"
+        return $"Humans saved: {_scoreHumansSaved} ({GetHumansSavedTitle()})"
+            +$"\nHumans killed: {_scoreHumansKilled} ({GetHumansKilledTitle()})"
+            +$"\nMoney gained ${_scoreMoneyGained} ({GetMoneyGainedTitle()})"
+            +$"\nMoney lost ${_scoreMoneyLost} ({GetMoneyLostTitle()})"
+            +$"\n<u>Net result</u> : ${_scoreMoneyGained-_scoreMoneyLost}, {_scoreHumansSaved-_scoreHumansKilled} lives"
             ;
     }
 
-    public string GetAchievements()
+    private string GetHumansSavedTitle()
     {
-        string result = $"<b>Achievements :</b>\n";
+        if (_scoreHumansSaved > 100)
+        {
+            return "Intergalactic Saviour";
+        }
+        if (_scoreHumansSaved > 10)
+        {
+            return "Local Hero";
+        }
+        if (_scoreHumansSaved > 0)
+        {
+            return "Protect and Serve";
+        }
+        return $"Bystander";
+    }
+
+    private string GetHumansKilledTitle()
+    {
         // People killed
         if (_scoreHumansKilled > 100)
         {
-            result += $"Mass Murderer\n";
+            return "Mass Murderer";
         }
-        else if (_scoreHumansKilled > 10)
+        if (_scoreHumansKilled > 10)
         {
-            result += $"Casual Manslaughter\n";
+            return "Casual Manslaughter";
         }
-        else if (_scoreHumansKilled > 0)
+        if (_scoreHumansKilled > 0)
         {
-            result += $"Nobody important was lost\n";
+            return "Nobody important was lost";
         }
-        else
-        {
-            result += $"Pacifist\n";
-        }
-        // People saved
-        if (_scoreHumansSaved > 100)
-        {
-            result += $"Intergalactic Saviour\n";
-        }
-        else if (_scoreHumansSaved > 10)
-        {
-            result += $"Local Hero\n";
-        }
-        else if (_scoreHumansSaved > 0)
-        {
-            result += $"Protect and Serve\n";
-        }
-        else
-        {
-            result += $"Bystander\n";
-        }
-        
-        // Money gained
+        return "Pacifist";
+    }
+
+    private string GetMoneyGainedTitle()
+    {
         if (_scoreMoneyGained > 100)
         {
-            result += $"CEO\n";
+            return "CEO";
         }
-        else if (_scoreMoneyGained > 10)
+        if (_scoreMoneyGained > 10)
         {
-            result += $"Manager\n";
+            return "Manager";
         }
-        else if (_scoreMoneyGained > 0)
+        if (_scoreMoneyGained > 0)
         {
-            result += $"Intern\n";
+            return "Intern";
         }
-        else
-        {
-            result += $"Volunteer\n";
-        }
-        
+        return "Volunteer";
+    }
+
+    private string GetMoneyLostTitle()
+    {
         // Money lost
         if (_scoreMoneyLost > 100)
         {
-            result += $"Financial Disaster\n";
+            return "Financial trough";
         }
-        else if (_scoreMoneyLost > 10)
+        if (_scoreMoneyLost > 10)
         {
-            result += $"Money Leaker\n";
+            return "Money Leaker";
         }
-        else if (_scoreMoneyLost > 0)
+        if (_scoreMoneyLost > 0)
         {
-            result += $"Negligent\n";
+            return "Negligent";
         }
-        else
-        {
-            result += $"Cautious\n";
-        }
-
-        return result;
+        return "Cautious";
     }
 }

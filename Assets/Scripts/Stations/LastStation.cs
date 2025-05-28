@@ -8,7 +8,6 @@ public class LastStation : MonoBehaviour
     public float speedMultiplier;
     public GameObject endPanel;
     public TextMeshProUGUI statisticsText;
-    public TextMeshProUGUI achievementsText;
     
     [SerializeField] private FeedbackSound _feedbackDisplayPanel;
 
@@ -29,8 +28,7 @@ public class LastStation : MonoBehaviour
         if (_station == station)
         {
             endPanel.SetActive(true);
-            statisticsText.text = ScoreManager.Instance.GetFinalScore();
-            achievementsText.text = ScoreManager.Instance.GetAchievements();
+            statisticsText.text = ScoreManager.Instance.GetStatistics();
             _feedbackDisplayPanel.PlayMySound();
         }
     }

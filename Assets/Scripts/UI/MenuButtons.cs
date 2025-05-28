@@ -4,6 +4,7 @@ using UnityEditor;
 
 public class MenuButtons : MonoBehaviour
 {
+    public GameObject creditsPanel;
     public string sceneToLoad;
     public void Play()
     {
@@ -17,5 +18,10 @@ public class MenuButtons : MonoBehaviour
         #else
         Application.Quit();
         #endif
+    }
+
+    public void ToggleCredits()
+    {
+        creditsPanel?.SetActive(!creditsPanel.activeSelf);
     }
 }
