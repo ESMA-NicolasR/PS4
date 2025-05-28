@@ -91,11 +91,11 @@ public class ScoreManager : MonoBehaviour
 
     private string GetHumansSavedTitle()
     {
-        if (_scoreHumansSaved > 100)
+        if (_scoreHumansSaved > 500)
         {
             return "Intergalactic Saviour";
         }
-        if (_scoreHumansSaved > 10)
+        if (_scoreHumansSaved > 100)
         {
             return "Local Hero";
         }
@@ -109,11 +109,11 @@ public class ScoreManager : MonoBehaviour
     private string GetHumansKilledTitle()
     {
         // People killed
-        if (_scoreHumansKilled > 100)
+        if (_scoreHumansKilled > 500)
         {
             return "Mass Murderer";
         }
-        if (_scoreHumansKilled > 10)
+        if (_scoreHumansKilled > 100)
         {
             return "Casual Manslaughter";
         }
@@ -144,11 +144,11 @@ public class ScoreManager : MonoBehaviour
     private string GetMoneyLostTitle()
     {
         // Money lost
-        if (_scoreMoneyLost > 100)
+        if (_scoreMoneyLost > 1500000)
         {
             return "Financial trough";
         }
-        if (_scoreMoneyLost > 10)
+        if (_scoreMoneyLost > 500000)
         {
             return "Money Leaker";
         }
