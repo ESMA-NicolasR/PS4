@@ -157,7 +157,7 @@ public class MissionManager : MonoBehaviour
         // Check ending
         if(_progressionIndex >= objectives.Count)
         {
-            missionText.DisplayText($"Your day has\ncome to an end.\nYou can now relax\nin the couch.\nValidate by pulling\nthe handle.");
+            missionText.DisplayText($"Your day has\ncome to an end.\nYou can now relax\nin the couch.\nValidate by pulling\nthe cord.");
         }
         else
         { // Next objective

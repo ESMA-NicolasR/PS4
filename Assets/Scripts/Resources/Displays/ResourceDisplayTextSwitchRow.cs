@@ -16,10 +16,10 @@ public class ResourceDisplayTextSwitchRow : ResourceDisplayText<ResourceSystemSw
                 color = Color.red;
                 break;
             case SwitchRowState.Partial:
-                color = Color.yellow;
+                color = Color.black;
                 break;
             case SwitchRowState.On:
-                color = Color.green;
+                color = Color.blue;
                 break;
         }
         _text.color = color;

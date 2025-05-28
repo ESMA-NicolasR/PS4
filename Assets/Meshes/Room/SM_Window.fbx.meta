@@ -9,6 +9,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: M_Room_001
     second: {fileID: 2100000, guid: 1ce0c15737dc47d43b60d67781680bca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Window_001
+    second: {fileID: 2100000, guid: 1ce0c15737dc47d43b60d67781680bca, type: 2}
   materials:
     materialImportMode: 2
     materialName: 1

@@ -102,7 +102,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Read the manuel
+  m_text: 'Power off -
+
+    Read the guide book'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0e9e09c85c2e18443ae0844836a44d36, type: 2}
   m_sharedMaterial: {fileID: -5677645300040389594, guid: 0e9e09c85c2e18443ae0844836a44d36, type: 2}
