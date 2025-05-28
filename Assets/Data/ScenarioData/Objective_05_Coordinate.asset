@@ -22,7 +22,7 @@ MonoBehaviour:
   loseMessage: 'We have to go, it''s a pity we missed this huge opportunity.  '
   notFinishedMessage: We can't wait for you forever.
   humans: 0
-  money: 800000
+  money: 200000
   recipient: 2
   x: -3
   y: 1

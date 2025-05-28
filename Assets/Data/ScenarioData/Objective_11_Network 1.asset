@@ -22,8 +22,8 @@ MonoBehaviour:
   loseMessage: No signals from the ship.
   notFinishedMessage: We are still getting closer, your idling is going to make us
     crash!
-  humans: 50
-  money: 300000
+  humans: 30
+  money: 100000
   boardPrefab: {fileID: 2066718368306942282, guid: da8789b4a0bf0214c8eb5726093fabc0, type: 3}
   nbRows: 6
   nbColumns: 5

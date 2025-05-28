@@ -22,5 +22,5 @@ MonoBehaviour:
   loseMessage: 'No signals from the ship.  '
   notFinishedMessage: What are you doing ? I already feel the heat of the flames
     !
-  humans: 64
-  money: 500000
+  humans: 30
+  money: 100000

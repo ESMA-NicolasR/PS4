@@ -19,7 +19,7 @@ MonoBehaviour:
   description: Here is ship COW. The gas we are transporting is turning red. We can
     not afford to lose it.
   winMessage: Such a relief.
-  loseMessage: 'You silly ! We lost millions with your mistake !  '
+  loseMessage: 'You silly ! We lost so much with your mistake !  '
   notFinishedMessage: Come on, a lot of money is on the table !
   humans: 0
-  money: 1000000
+  money: 300000

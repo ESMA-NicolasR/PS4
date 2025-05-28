@@ -22,4 +22,4 @@ MonoBehaviour:
   loseMessage: We lost our entire shipping because of you !
   notFinishedMessage: 'Come on, the robots we are carrying are worth a lot ! '
   humans: 0
-  money: 800000
+  money: 200000

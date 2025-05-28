@@ -22,5 +22,5 @@ MonoBehaviour:
   loseMessage: No signals from the ship.
   notFinishedMessage: A lot of asteroids are around us, and we can not dodge them
     !
-  humans: 16
-  money: 60000
+  humans: 60
+  money: 100000
