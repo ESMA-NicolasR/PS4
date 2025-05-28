@@ -18,6 +18,7 @@ public class MissionManager : MonoBehaviour
     private int _progressionIndex;
     private ResourceObjectiveData _currentObjective;
     private int _nbSuccess;
+    private bool _canShowWaitingText =  true;
     [SerializeField] private float _timeBetweenMissions;
     public static MissionManager Instance;
 
@@ -135,8 +136,13 @@ public class MissionManager : MonoBehaviour
             // Don't finish if there is time remaining
             if (missionTimer.IsTimeRemaining())
             {
-                missionText.DisplayText(_currentObjective.notFinishedMessage);
-                _feedbackTryAgain.PlayMySound();
+                if (_canShowWaitingText)
+                {
+                    _canShowWaitingText = false;
+                    missionText.DisplayText(_currentObjective.notFinishedMessage);
+                    StartCoroutine(ShowTheMissionTextAgain());
+                    _feedbackTryAgain.PlayMySound();
+                }
                 return;
             }
             missionText.DisplayText(_currentObjective.loseMessage);
@@ -178,5 +184,12 @@ public class MissionManager : MonoBehaviour
         {
             CheckInMission();
         }
+    }
+
+    private IEnumerator ShowTheMissionTextAgain()
+    {
+        yield return new WaitForSeconds(4f);
+        missionText.DisplayText(_currentObjective.description);
+        _canShowWaitingText = true;
     }
 }
