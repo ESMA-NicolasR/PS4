@@ -67,25 +67,25 @@ public class ScoreManager : MonoBehaviour
 
     private void SaveHumans(int score)
     {
-        _scoreHumansSaved = +score;
+        scoreHumansSaved += score;
         _textToDisplay += $"You saved {score} humans";
     }
     
     private void KillHumans(int score)
     {
-        _scoreHumansKilled = +score;
+        scoreHumansKilled += score;
         _textToDisplay += $"You killed {score} humans";
     }
 
     private void GainMoney(int score)
     {
-        _scoreMoneyGained += score;
+        scoreMoneyGained += score;
         _textToDisplay += $"You gained ${score}";
     }
 
     private void LoseMoney(int score)
     {
-        _scoreMoneyLost += score;
+        scoreMoneyLost += score;
         _textToDisplay += $"You lost ${score}";
     }
 
