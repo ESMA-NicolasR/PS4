@@ -22,4 +22,4 @@ MonoBehaviour:
   loseMessage: 'You silly ! We lost millions with your mistake !  '
   notFinishedMessage: Come on, a lot of money is on the table !
   humans: 0
-  money: 2600000
+  money: 1000000
