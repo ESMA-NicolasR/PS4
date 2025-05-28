@@ -5,10 +5,16 @@ using UnityEditor;
 public class MenuButtons : MonoBehaviour
 {
     public GameObject creditsPanel;
-    public string sceneToLoad;
+    public string playScene;
+    public string menuScene;
     public void Play()
     {
-        SceneManager.LoadScene(sceneToLoad);
+        SceneManager.LoadScene(playScene);
+    }
+
+    public void GoMenu()
+    {
+        SceneManager.LoadScene(menuScene);
     }
 
     public void Quit()
