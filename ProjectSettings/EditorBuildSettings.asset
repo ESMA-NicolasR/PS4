@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/BetaLevel.unity
     guid: d80cca8ce1960c54ab5cd3ce11d9d7cd
   - enabled: 1
-    path: Assets/Scenes/EndingScene.unity
-    guid: f006ec702e597904c8c031576acfd2bf
+    path: Assets/Scenes/EndingSceneWin.unity
+    guid: 79e92ac58a6ee9f4ba0897785b51e0e7
   - enabled: 1
     path: Assets/Scenes/EndingSceneLose.unity
-    guid: 7d4a9f5e4dd49db4ebb3d8c0b5f2f88d
+    guid: 53e5eb4f0a6bf5141abdaf6cfcaed32d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

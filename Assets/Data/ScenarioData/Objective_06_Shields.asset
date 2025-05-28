@@ -16,7 +16,7 @@ MonoBehaviour:
   targetValue: 6
   breakValue: 0
   time: 45
-  description: Here is ship BUG,\n Type KY 21-0. A ship without any life forms is
+  description: Here is ship BUG,\nType KY 21-0. A ship without any life forms is
     attacking us. Please do something to help !
   winMessage: Thank you, we are safe now.
   loseMessage: No signals from the ship.

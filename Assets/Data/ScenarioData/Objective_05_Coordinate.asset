@@ -18,7 +18,7 @@ MonoBehaviour:
   time: 240
   description: Here is ship SHEEP.\nType TY 63-Q, in sector Avarax. We found an unknown
     gas. We should get it.
-  winMessage: Scientists are on the way. Hurrah for the company !
+  winMessage: Scientists are on the way. Hooray for the company !
   loseMessage: 'We have to go, it''s a pity we missed this huge opportunity.  '
   notFinishedMessage: We can't wait for you forever.
   humans: 0

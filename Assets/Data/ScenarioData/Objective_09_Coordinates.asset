@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemName: 7
   targetValue: 0
-  breakValue: 0
+  breakValue: 4
   time: 120
   description: Here is ship PIG from Hoth System. I'm hungry as hell, Hurry up and
     send me some food if you don't want to lose your job.

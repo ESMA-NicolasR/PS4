@@ -9,7 +9,7 @@ public enum SystemName
 {
     None,
     // Station 1
-    Lights,
+    Power,
     // Station 2
     Gates,
     Temperature,

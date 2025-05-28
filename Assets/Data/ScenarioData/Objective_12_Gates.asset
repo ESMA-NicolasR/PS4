@@ -18,7 +18,7 @@ MonoBehaviour:
   time: 45
   description: Here is ship DOG.\nType CK 58-0. An alien entered in our hold. We
     are terrified.
-  winMessage: You saved our life !
+  winMessage: You saved our lives !
   loseMessage: No signals from the ship
   notFinishedMessage: He is moving towards us !
   humans: 90
