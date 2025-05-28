@@ -46,7 +46,7 @@ public enum SelectEnums
 
 public enum CoordinatesRecipient
 {
-    Police,
+    Military,
     Hospital,
     Scientists,
     Government,

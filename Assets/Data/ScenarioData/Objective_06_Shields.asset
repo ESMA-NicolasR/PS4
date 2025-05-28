@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Objective_06_Shields
   m_EditorClassIdentifier: 
   systemName: 8
-  targetValue: 0
-  breakValue: 6
+  targetValue: 6
+  breakValue: 0
   time: 45
   description: Here is ship BUG,\n Type KY 21-0. A ship without any life forms is
     attacking us. Please do something to help !
