@@ -15,7 +15,7 @@ MonoBehaviour:
   systemName: 6
   targetValue: 2
   breakValue: 0
-  time: 80
+  time: 120
   description: Here is ship BEAR, We are approaching the ship DEER. Make sure we
     don't collide.
   winMessage: Thank god, the worst didn't happen.
