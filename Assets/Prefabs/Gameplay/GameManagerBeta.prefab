@@ -511,7 +511,7 @@ MonoBehaviour:
   _cursorCircle: {fileID: 2800000, guid: adba24796f4071f429357483101d3ea5, type: 3}
   _cursorFinger: {fileID: 2800000, guid: 41f1ee2ae91ac0f48bae3783de0bb391, type: 3}
   _cursorEye: {fileID: 2800000, guid: c0bc2e051bcd967428e4429760395e56, type: 3}
-  _hotSpot: {x: 256, y: 256}
+  _hotSpot: {x: 16, y: 16}
 --- !u!1 &2560929877033882945
 GameObject:
   m_ObjectHideFlags: 0

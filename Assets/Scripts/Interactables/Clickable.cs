@@ -92,6 +92,8 @@ public class Clickable : MonoBehaviour
 
     public virtual void EnableHighlight()
     {
+        if (Cursor.lockState == CursorLockMode.Locked)
+            return;
         gameObject.layer = highlightLayer;
         CursorManager.Instance.ChangeCursor(cursorType);
         
