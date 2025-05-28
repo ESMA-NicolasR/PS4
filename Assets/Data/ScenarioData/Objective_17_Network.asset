@@ -16,7 +16,7 @@ MonoBehaviour:
   targetValue: 2
   breakValue: 0
   time: 100
-  description: Here is ship RAT, We are approaching the ship PEEBLE. Make sure we
+  description: Here is ship RAT, We are approaching the ship PEBBLE. Make sure we
     don't collide.
   winMessage: That was close.
   loseMessage: No signals from the ships.
