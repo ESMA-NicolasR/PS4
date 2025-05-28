@@ -19,6 +19,7 @@ public class MissionManager : MonoBehaviour
     private ResourceObjectiveData _currentObjective;
     private int _nbSuccess;
     private bool _canShowWaitingText =  true;
+    private ResourceObjectiveData _savedObjective;
     [SerializeField] private float _timeBetweenMissions;
     public static MissionManager Instance;
 
@@ -138,6 +139,7 @@ public class MissionManager : MonoBehaviour
             {
                 if (_canShowWaitingText)
                 {
+                    _savedObjective = _currentObjective;
                     _canShowWaitingText = false;
                     missionText.DisplayText(_currentObjective.notFinishedMessage);
                     StartCoroutine(ShowTheMissionTextAgain());
@@ -189,7 +191,10 @@ public class MissionManager : MonoBehaviour
     private IEnumerator ShowTheMissionTextAgain()
     {
         yield return new WaitForSeconds(4f);
-        missionText.DisplayText(_currentObjective.description);
+        if (_savedObjective == _currentObjective)
+        {
+            missionText.DisplayText(_currentObjective.description);
+        }
         _canShowWaitingText = true;
     }
 }
