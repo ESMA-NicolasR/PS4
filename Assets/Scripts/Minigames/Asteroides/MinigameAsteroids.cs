@@ -8,6 +8,7 @@ public class MinigameAsteroids : MiniGame<AsteroidScenarioData>
     public ResourceSystemAsteroids resourceSystem;
     public GameObject cursor;
     public GameObject screen, screenOffset;
+    public GameObject wallPaper;
     public float inset;
     [HideInInspector]
     public float cursorMaxY, cursorMaxX;
@@ -89,6 +90,7 @@ public class MinigameAsteroids : MiniGame<AsteroidScenarioData>
     protected override void LaunchScenario()
     {
         base.LaunchScenario();
+        wallPaper.SetActive(true);
         StartCoroutine(SpawnAsteroids(_scenario.spawnList));
     }
 
@@ -139,6 +141,7 @@ public class MinigameAsteroids : MiniGame<AsteroidScenarioData>
     public override void CleanUp()
     {
         base.CleanUp();
+        wallPaper.SetActive(false);
         foreach (var asteroid in screenOffset.GetComponentsInChildren<Asteroid>())
         {
             Destroy(asteroid.gameObject);
