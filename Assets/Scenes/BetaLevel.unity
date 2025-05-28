@@ -535,7 +535,7 @@ GameObject:
   - component: {fileID: 178685038}
   - component: {fileID: 178685037}
   m_Layer: 0
-  m_Name: Ambient_Light_Livingroom (1)
+  m_Name: Ambient_Light_Exterior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1585,8 +1585,8 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_RenderingLayerMask: 3
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1632,7 +1632,7 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
+  m_RenderingLayers: 3
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
   m_ShadowRenderingLayers: 1
@@ -3264,8 +3264,8 @@ Transform:
   m_GameObject: {fileID: 1069622564}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.57, y: 9.96, z: 1.04}
-  m_LocalScale: {x: 15.573, y: 1.1122329, z: 15.883545}
+  m_LocalPosition: {x: -3.2186, y: 9.96, z: 0.1427}
+  m_LocalScale: {x: 16.2747, y: 1.1122329, z: 17.678387}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3313,6 +3313,71 @@ Transform:
   - {fileID: 1851205924}
   - {fileID: 1065675579}
   - {fileID: 1643341384}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1123390196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1123390198}
+  - component: {fileID: 1123390197}
+  m_Layer: 0
+  m_Name: Reflection Probe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!215 &1123390197
+ReflectionProbe:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123390196}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Type: 0
+  m_Mode: 0
+  m_RefreshMode: 0
+  m_TimeSlicingMode: 0
+  m_Resolution: 128
+  m_UpdateFrequency: 0
+  m_BoxSize: {x: 15.090925, y: 7.948417, z: 17.681885}
+  m_BoxOffset: {x: 0.4020176, y: -0.015310049, z: -0.01725769}
+  m_NearClip: 0.3
+  m_FarClip: 1000
+  m_ShadowDistance: 100
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IntensityMultiplier: 1
+  m_BlendDistance: 1
+  m_HDR: 1
+  m_BoxProjection: 0
+  m_RenderDynamicObjects: 0
+  m_UseOcclusionCulling: 1
+  m_Importance: 1
+  m_CustomBakedTexture: {fileID: 0}
+--- !u!4 &1123390198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123390196}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.46980476, y: 3.775307, z: 1.5579786}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1134386101 stripped
@@ -5352,6 +5417,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6426324497012303, guid: a92c7167fc1aaa74da8b6932bafb0f37, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951792317005608858, guid: a92c7167fc1aaa74da8b6932bafb0f37, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3032114492053216805, guid: a92c7167fc1aaa74da8b6932bafb0f37, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5699,7 +5772,7 @@ Transform:
   m_GameObject: {fileID: 2054533996}
   serializedVersion: 2
   m_LocalRotation: {x: 0.6742688, y: -0.13136029, z: -0.13896412, w: 0.71329874}
-  m_LocalPosition: {x: -3.29, y: 4.48, z: 7.99}
+  m_LocalPosition: {x: -3.29, y: 4.48, z: 7.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5739,8 +5812,8 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 0.6417324, b: 0.3830188, a: 1}
-  m_Intensity: 113.25
-  m_Range: 7.855194
+  m_Intensity: 192.03
+  m_Range: 8.743498
   m_SpotAngle: 56.44145
   m_InnerSpotAngle: 0
   m_CookieSize: 10
@@ -8635,6 +8708,7 @@ SceneRoots:
   - {fileID: 1895996399}
   - {fileID: 1398205755}
   - {fileID: 1069622568}
+  - {fileID: 1123390198}
   - {fileID: 790681755}
   - {fileID: 278123414}
   - {fileID: 2022735340}
