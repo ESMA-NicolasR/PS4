@@ -7016,6 +7016,10 @@ PrefabInstance:
       propertyPath: audioClip
       value: 
       objectReference: {fileID: 8300000, guid: b47d6e44f50416848978445f5e0527b0, type: 3}
+    - target: {fileID: 754144306101102754, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c171435ed21f80418900d342537d5da, type: 3}
     - target: {fileID: 2070724040673989616, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
       propertyPath: _station
       value: 
@@ -7076,6 +7080,10 @@ PrefabInstance:
       propertyPath: missionText
       value: 
       objectReference: {fileID: 1697485023}
+    - target: {fileID: 6113715642203947308, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c171435ed21f80418900d342537d5da, type: 3}
     - target: {fileID: 6277276669843023796, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
       propertyPath: timerBar
       value: 
