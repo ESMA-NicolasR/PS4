@@ -21,8 +21,8 @@ MonoBehaviour:
   winMessage: The forces are coming for us ? Thank you, employee.
   loseMessage: No signals from the ship.
   notFinishedMessage: The unknown ship is still following us..
-  humans: 63
-  money: 350000
+  humans: 60
+  money: 100000
   recipient: 0
   x: -3
   y: 1

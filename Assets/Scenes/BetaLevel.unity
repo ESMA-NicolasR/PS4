@@ -7012,6 +7012,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 447551550179498022, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b47d6e44f50416848978445f5e0527b0, type: 3}
+    - target: {fileID: 754144306101102754, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c171435ed21f80418900d342537d5da, type: 3}
     - target: {fileID: 2070724040673989616, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
       propertyPath: _station
       value: 
@@ -7064,10 +7072,18 @@ PrefabInstance:
       propertyPath: missionButtons
       value: 
       objectReference: {fileID: 5103595590116613000}
+    - target: {fileID: 3811335978558823883, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b4b88bc4749dbe342ab63b95761081cb, type: 3}
     - target: {fileID: 3864147187228787195, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
       propertyPath: missionText
       value: 
       objectReference: {fileID: 1697485023}
+    - target: {fileID: 6113715642203947308, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c171435ed21f80418900d342537d5da, type: 3}
     - target: {fileID: 6277276669843023796, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
       propertyPath: timerBar
       value: 
@@ -7080,6 +7096,10 @@ PrefabInstance:
       propertyPath: timerBarFG
       value: 
       objectReference: {fileID: 1241809151}
+    - target: {fileID: 6580870925546321100, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b47d6e44f50416848978445f5e0527b0, type: 3}
     - target: {fileID: 7663148210796135694, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
       propertyPath: minigameAsteroids
       value: 

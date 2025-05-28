@@ -21,5 +21,5 @@ MonoBehaviour:
   winMessage: The temperature feels nice again.
   loseMessage: 'No signals from the ship.  '
   notFinishedMessage: 'It is getting hotter and hotter here ! '
-  humans: 126
-  money: 80000
+  humans: 60
+  money: 100000

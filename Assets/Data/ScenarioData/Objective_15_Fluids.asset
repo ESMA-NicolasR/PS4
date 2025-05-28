@@ -22,6 +22,6 @@ MonoBehaviour:
   loseMessage: No signals from the ship.
   notFinishedMessage: If they come to be empty, we will not be able to stay near
     the station and maybe crash. Our lives are in danger!
-  humans: 136
-  money: 70000
+  humans: 30
+  money: 100000
   targetValues: 000000000000000032000000

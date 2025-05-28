@@ -21,5 +21,5 @@ MonoBehaviour:
   winMessage: You saved our life !
   loseMessage: No signals from the ship
   notFinishedMessage: He is moving towards us !
-  humans: 79
-  money: 250000
+  humans: 90
+  money: 100000

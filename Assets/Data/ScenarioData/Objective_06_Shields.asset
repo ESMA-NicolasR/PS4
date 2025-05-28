@@ -21,5 +21,5 @@ MonoBehaviour:
   winMessage: Thank you, we are safe now.
   loseMessage: No signals from the ship.
   notFinishedMessage: The ship is getting closer and closer !
-  humans: 18
-  money: 40000
+  humans: 60
+  money: 100000

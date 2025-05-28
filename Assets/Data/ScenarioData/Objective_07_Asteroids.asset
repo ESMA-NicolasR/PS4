@@ -21,7 +21,7 @@ MonoBehaviour:
   loseMessage: Our devices are damaged. Cost of repairs sent to central.
   notFinishedMessage: The threat is still upon us.
   humans: 0
-  money: 50000
+  money: 100000
   spawnList:
   - spawnDelay: 0.5
     moveSpeed: 0.5
