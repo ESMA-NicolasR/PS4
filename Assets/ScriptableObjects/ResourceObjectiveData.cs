@@ -22,7 +22,6 @@ public class ResourceObjectiveData : ScriptableObject
     {
         Debug.Log("Objective ended");
         int successFactor = resourceSystem.IsFixed() ? 1 : -1;
-        ScoreManager.Instance.ScoreHumans(humans*successFactor);
-        ScoreManager.Instance.ScoreMoney(money*successFactor);
+        ScoreManager.Instance.Score(humans*successFactor, money*successFactor);
     }
 }
