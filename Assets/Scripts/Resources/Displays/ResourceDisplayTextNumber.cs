@@ -8,6 +8,6 @@ public class ResourceDisplayTextNumber : ResourceDisplayText<ResourceSystemNumbe
     {
         if (_showOnlyNumber)
             return _resourceSystem.currentValue.ToString();
-        return $"{_resourceSystem.name} level : {_resourceSystem.currentValue} {_suffix}";
+        return $"{_resourceSystem.systemName.ToString()} level : {_resourceSystem.currentValue} {_suffix}";
     }
 }

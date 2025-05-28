@@ -491,6 +491,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4487b30d11a49d04ca69774b0dc72dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreHumansSaved: 0
+  scoreHumansKilled: 0
+  scoreMoneyGained: 0
+  scoreMoneyLost: 0
   _floatingText: {fileID: 0}
 --- !u!114 &1665008794246005368
 MonoBehaviour:
@@ -1110,7 +1114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 12983ccc00bb5d249ac7d8be57194ac9, type: 3}
+  audioClip: {fileID: 8300000, guid: b4b88bc4749dbe342ab63b95761081cb, type: 3}
   _volume: 0.5
 --- !u!114 &8206769331526159259
 MonoBehaviour:
@@ -1170,7 +1174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 49e8256b954a09043bc09a223d1e4c9d, type: 3}
+  audioClip: {fileID: 8300000, guid: b47d6e44f50416848978445f5e0527b0, type: 3}
   _volume: 0.5
 --- !u!114 &447551550179498022
 MonoBehaviour:
@@ -1184,7 +1188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 12983ccc00bb5d249ac7d8be57194ac9, type: 3}
+  audioClip: {fileID: 8300000, guid: b47d6e44f50416848978445f5e0527b0, type: 3}
   _volume: 0.5
 --- !u!1 &5231227504430560881
 GameObject:
@@ -1197,7 +1201,7 @@ GameObject:
   - component: {fileID: 6301121704569876112}
   - component: {fileID: 3967743100514765950}
   m_Layer: 0
-  m_Name: Lights
+  m_Name: Power
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1575,7 +1579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: c9908a9fd75c77843b1be5fccb2478c0, type: 3}
+  audioClip: {fileID: 8300000, guid: 2c171435ed21f80418900d342537d5da, type: 3}
   _volume: 0.5
 --- !u!114 &754144306101102754
 MonoBehaviour:
@@ -1589,7 +1593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 9b6c4d846d5d57945acc23a8ecf6c6c5, type: 3}
+  audioClip: {fileID: 8300000, guid: 2c171435ed21f80418900d342537d5da, type: 3}
   _volume: 0.5
 --- !u!1 &7136243642397672408
 GameObject:
