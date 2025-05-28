@@ -15,7 +15,7 @@ MonoBehaviour:
   systemName: 9
   targetValue: 100
   breakValue: 0
-  time: 45
+  time: 180
   description: Here is ship FISH.\nType KY 21-0. Our reactors have shut down. Do
     something !
   winMessage: Problem solved, have a good day.

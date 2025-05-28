@@ -15,7 +15,7 @@ MonoBehaviour:
   systemName: 4
   targetValue: 25
   breakValue: 90
-  time: 40
+  time: 60
   description: Here is ship ANT.\nType TY 63-Q. We detected a fire in our robots
     compartment. We need your help.
   winMessage: The compartment is out of danger.

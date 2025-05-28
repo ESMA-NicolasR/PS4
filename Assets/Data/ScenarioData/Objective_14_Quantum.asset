@@ -15,7 +15,7 @@ MonoBehaviour:
   systemName: 9
   targetValue: 100
   breakValue: 0
-  time: 35
+  time: 40
   description: Here is ship BIRD\nType KY 21-0. Our reactor is making weird noises.
     We are quite worried.
   winMessage: It.. stopped ? Thank you, I guess.
