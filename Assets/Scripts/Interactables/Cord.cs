@@ -11,6 +11,8 @@ public class Cord : Draggable
     private bool _canTrigger;
     public UnityEvent OnTrigger;
     
+    protected override CursorType cursorType => CursorType.UpDown;
+    
     
     protected override void Interact()
     {
