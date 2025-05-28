@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    private int _scoreHumansSaved;
-    private int _scoreHumansKilled;
-    private int _scoreMoneyGained;
-    private int _scoreMoneyLost;
+    public int scoreHumansSaved;
+    public int scoreHumansKilled;
+    public int scoreMoneyGained;
+    public int scoreMoneyLost;
     public static ScoreManager Instance;
     [SerializeField] private FloatingText _floatingText;
 
@@ -49,27 +49,27 @@ public class ScoreManager : MonoBehaviour
 
     private void SaveHumans(int score)
     {
-        _scoreHumansSaved = +score;
+        scoreHumansSaved = +score;
         DisplayFloatingText($"You saved {score} humans", Color.green);
     }
     
     private void KillHumans(int score)
     {
-        _scoreHumansKilled = +score;
+        scoreHumansKilled = +score;
         DisplayFloatingText($"You killed {score} humans", Color.red);
 
     }
 
     private void GainMoney(int score)
     {
-        _scoreMoneyGained += score;
+        scoreMoneyGained += score;
         DisplayFloatingText($"You gained ${score}", Color.green);
 
     }
 
     private void LoseMoney(int score)
     {
-        _scoreMoneyLost += score;
+        scoreMoneyLost += score;
         DisplayFloatingText($"You lost ${score}", Color.red);
 
     }
@@ -81,25 +81,25 @@ public class ScoreManager : MonoBehaviour
 
     public string GetStatistics()
     {
-        return $"Humans saved: {_scoreHumansSaved} ({GetHumansSavedTitle()})"
-            +$"\nHumans killed: {_scoreHumansKilled} ({GetHumansKilledTitle()})"
-            +$"\nMoney gained ${_scoreMoneyGained} ({GetMoneyGainedTitle()})"
-            +$"\nMoney lost ${_scoreMoneyLost} ({GetMoneyLostTitle()})"
-            +$"\n<u>Net result</u> : ${_scoreMoneyGained-_scoreMoneyLost}, {_scoreHumansSaved-_scoreHumansKilled} lives"
+        return $"Humans saved: {scoreHumansSaved} ({GetHumansSavedTitle()})"
+            +$"\nHumans killed: {scoreHumansKilled} ({GetHumansKilledTitle()})"
+            +$"\nMoney gained ${scoreMoneyGained} ({GetMoneyGainedTitle()})"
+            +$"\nMoney lost ${scoreMoneyLost} ({GetMoneyLostTitle()})"
+            +$"\n<u>Net result</u> : ${scoreMoneyGained-scoreMoneyLost}, {scoreHumansSaved-scoreHumansKilled} lives"
             ;
     }
 
     private string GetHumansSavedTitle()
     {
-        if (_scoreHumansSaved > 500)
+        if (scoreHumansSaved > 500)
         {
             return "Intergalactic Saviour";
         }
-        if (_scoreHumansSaved > 100)
+        if (scoreHumansSaved > 100)
         {
             return "Local Hero";
         }
-        if (_scoreHumansSaved > 0)
+        if (scoreHumansSaved > 0)
         {
             return "Protect and Serve";
         }
@@ -109,15 +109,15 @@ public class ScoreManager : MonoBehaviour
     private string GetHumansKilledTitle()
     {
         // People killed
-        if (_scoreHumansKilled > 500)
+        if (scoreHumansKilled > 500)
         {
             return "Mass Murderer";
         }
-        if (_scoreHumansKilled > 100)
+        if (scoreHumansKilled > 100)
         {
             return "Casual Manslaughter";
         }
-        if (_scoreHumansKilled > 0)
+        if (scoreHumansKilled > 0)
         {
             return "Nobody important was lost";
         }
@@ -126,15 +126,15 @@ public class ScoreManager : MonoBehaviour
 
     private string GetMoneyGainedTitle()
     {
-        if (_scoreMoneyGained > 1500000)
+        if (scoreMoneyGained > 1500000)
         {
             return "CEO";
         }
-        if (_scoreMoneyGained > 500000)
+        if (scoreMoneyGained > 500000)
         {
             return "Manager";
         }
-        if (_scoreMoneyGained > 0)
+        if (scoreMoneyGained > 0)
         {
             return "Intern";
         }
@@ -144,15 +144,15 @@ public class ScoreManager : MonoBehaviour
     private string GetMoneyLostTitle()
     {
         // Money lost
-        if (_scoreMoneyLost > 1500000)
+        if (scoreMoneyLost > 1500000)
         {
             return "Financial trough";
         }
-        if (_scoreMoneyLost > 500000)
+        if (scoreMoneyLost > 500000)
         {
             return "Money Leaker";
         }
-        if (_scoreMoneyLost > 0)
+        if (scoreMoneyLost > 0)
         {
             return "Negligent";
         }

@@ -176,7 +176,14 @@ public class MissionManager : MonoBehaviour
     public void FinishGame()
     {
         AnalyticsManager.Instance.WriteAnalytics();
-        SceneManager.LoadScene("EndingScene");
+        if ((ScoreManager.Instance.scoreHumansSaved-ScoreManager.Instance.scoreHumansKilled) >= 0 && (ScoreManager.Instance.scoreMoneyGained-ScoreManager.Instance.scoreMoneyLost) >= 0)
+        {
+            SceneManager.LoadScene("EndingSceneWin");
+        }
+        else
+        {
+            SceneManager.LoadScene("EndingSceneLose");
+        }
     }
 
     private void OnMissionTimerExpire()
