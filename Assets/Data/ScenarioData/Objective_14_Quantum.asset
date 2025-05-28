@@ -16,7 +16,7 @@ MonoBehaviour:
   targetValue: 100
   breakValue: 0
   time: 35
-  description: Here is ship BIRD, Type KY 21-0. Our reactor is making weird noise.
+  description: Here is ship BIRD\nType KY 21-0. Our reactor is making weird noises.
     We are quite worried.
   winMessage: It.. stopped ? Thank you, I guess.
   loseMessage: No signals from the ship

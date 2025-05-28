@@ -16,8 +16,8 @@ MonoBehaviour:
   targetValue: 0
   breakValue: 1
   time: 90
-  description: Here is ship FLY. CK 58-0 A fire is spreading in our ship. Please
-    help us !
+  description: Here is ship FLY.\nType CK 58-0. A fire is spreading in our ship.
+    Please help us !
   winMessage: Good job employee, i thought my last day had arrived !
   loseMessage: 'No signals from the ship.  '
   notFinishedMessage: What are you doing ? I already feel the heat of the flames

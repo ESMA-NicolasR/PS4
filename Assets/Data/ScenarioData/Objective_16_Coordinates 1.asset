@@ -16,8 +16,8 @@ MonoBehaviour:
   targetValue: 0
   breakValue: 0
   time: 45
-  description: 'Here is ship SNAKE. In : 5 : -3 ; 3 A ship is following us, and its
-    weapons are armed. We need assistance quickly.'
+  description: Here is ship SNAKE. In system Avarax. A ship is following us, and
+    its weapons are armed. We need assistance quickly.
   winMessage: The forces are coming for us ? Thank you, employee.
   loseMessage: No signals from the ship.
   notFinishedMessage: The unknown ship is still following us..

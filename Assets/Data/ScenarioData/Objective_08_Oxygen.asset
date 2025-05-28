@@ -16,7 +16,7 @@ MonoBehaviour:
   targetValue: 25
   breakValue: 90
   time: 40
-  description: Here is ship ANT. Type  TY 63-Q. We detected a fire in our robots
+  description: Here is ship ANT.\nType TY 63-Q. We detected a fire in our robots
     compartment. We need your help.
   winMessage: The compartment is out of danger.
   loseMessage: We lost our entire shipping because of you !

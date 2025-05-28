@@ -16,7 +16,7 @@ MonoBehaviour:
   targetValue: 0
   breakValue: 0
   time: 90
-  description: Here is ship PIG in 5 ; -1 ; -1. I'm hungry as hell, Hurry up and
+  description: Here is ship PIG from Hoth System. I'm hungry as hell, Hurry up and
     send me some food if you don't want to lose your job.
   winMessage: You took your time, didn't you ?
   loseMessage: 'I wish you the worst !  '
@@ -24,6 +24,6 @@ MonoBehaviour:
   humans: 0
   money: 0
   recipient: 5
-  x: 5
-  y: -1
-  z: -1
+  x: 2
+  y: -4
+  z: 3

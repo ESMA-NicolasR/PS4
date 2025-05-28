@@ -16,8 +16,8 @@ MonoBehaviour:
   targetValue: -15
   breakValue: 70
   time: 60
-  description: 'Here is ship SEAL. Type : TY 63-Q. Our engines are getting far too
-    hot ! What should I do ?'
+  description: Here is ship SEAL.\nType TY 63-Q. My engines are getting far too hot
+    ! What should I do ?
   winMessage: The temperature feels nice again.
   loseMessage: 'No signals from the ship.  '
   notFinishedMessage: 'It is getting hotter and hotter here ! '

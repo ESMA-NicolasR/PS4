@@ -16,8 +16,8 @@ MonoBehaviour:
   targetValue: 0
   breakValue: 1
   time: 30
-  description: Here is ship DOG, Type CK 58-0. An alien entered in our hold. We are
-    terrified.
+  description: Here is ship DOG.\nType CK 58-0. An alien entered in our hold. We
+    are terrified.
   winMessage: You saved our life !
   loseMessage: No signals from the ship
   notFinishedMessage: He is moving towards us !

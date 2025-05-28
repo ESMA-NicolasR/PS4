@@ -16,8 +16,8 @@ MonoBehaviour:
   targetValue: 100
   breakValue: 0
   time: 45
-  description: 'Here is ship FISH. Type : KY 21-0. Our reactors have shut down. Do
-    something !'
+  description: Here is ship FISH.\nType KY 21-0. Our reactors have shut down. Do
+    something !
   winMessage: Problem solved, have a good day.
   loseMessage: No signals from the ship.
   notFinishedMessage: A lot of asteroids are around us, and we can not dodge them
