@@ -15,7 +15,7 @@ MonoBehaviour:
   systemName: 7
   targetValue: 0
   breakValue: 0
-  time: 90
+  time: 240
   description: Here is ship SHEEP.\nType TY 63-Q, in sector Avarax. We found an unknown
     gas. We should get it.
   winMessage: Scientists are on the way. Hurrah for the company !

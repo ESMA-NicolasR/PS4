@@ -15,7 +15,7 @@ MonoBehaviour:
   systemName: 7
   targetValue: 0
   breakValue: 0
-  time: 60
+  time: 90
   description: Here is ship SNAKE. In system Avarax. A ship is following us, and
     its weapons are armed. We need assistance quickly.
   winMessage: The forces are coming for us ? Thank you, employee.

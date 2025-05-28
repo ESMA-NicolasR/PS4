@@ -15,7 +15,7 @@ MonoBehaviour:
   systemName: 5
   targetValue: 0
   breakValue: 10
-  time: 60
+  time: 50
   description: ALERT Threat 666
   winMessage: Threat cleared. Good job, employee.
   loseMessage: Our devices are damaged. Cost of repairs sent to central.
