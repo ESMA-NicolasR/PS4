@@ -629,7 +629,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 366853887, guid: e5b98ec83a3a3f74489dc4dab0747478, type: 3}
-    m_PressedSprite: {fileID: -153266439, guid: 8cacf5aefbd799f4a8a7135f8ea5b444, type: 3}
+    m_PressedSprite: {fileID: -543127051, guid: c785e3a2a8fa5cd499e399d0ce78dcd1, type: 3}
     m_SelectedSprite: {fileID: 2112076324, guid: 1aba94c053f54524ea8334239c141cdb, type: 3}
     m_DisabledSprite: {fileID: 2112076324, guid: 1aba94c053f54524ea8334239c141cdb, type: 3}
   m_AnimationTriggers:
@@ -840,7 +840,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: -726561259, guid: e5b98ec83a3a3f74489dc4dab0747478, type: 3}
-    m_PressedSprite: {fileID: -1587906120, guid: 8cacf5aefbd799f4a8a7135f8ea5b444, type: 3}
+    m_PressedSprite: {fileID: -678778154, guid: c785e3a2a8fa5cd499e399d0ce78dcd1, type: 3}
     m_SelectedSprite: {fileID: 1737727875, guid: 1aba94c053f54524ea8334239c141cdb, type: 3}
     m_DisabledSprite: {fileID: 1737727875, guid: 1aba94c053f54524ea8334239c141cdb, type: 3}
   m_AnimationTriggers:
@@ -1024,7 +1024,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creditsPanel: {fileID: 681212837}
-  sceneToLoad: BetaLevel
+  playScene: BetaLevel
+  menuScene: Menu
 --- !u!1 &1725449241
 GameObject:
   m_ObjectHideFlags: 0

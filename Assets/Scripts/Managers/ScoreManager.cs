@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
     public int scoreMoneyLost;
     public static ScoreManager Instance;
     [SerializeField] private FloatingText _floatingText;
+    private string _textToDisplay;
 
 
     private void Awake()
@@ -23,6 +24,15 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+    public void Score(int humans, int money)
+    {
+        _textToDisplay = "";
+        ScoreHumans(humans);
+        _textToDisplay += "\n";
+        ScoreMoney(money);
+        DisplayFloatingText(_textToDisplay);
+    }
+
     public void ScoreHumans(int score)
     {
         if (score > 0)
@@ -32,6 +42,10 @@ public class ScoreManager : MonoBehaviour
         else if (score < 0)
         {
             KillHumans(-score);
+        }
+        else
+        {
+            _textToDisplay += "No human life affected";
         }
     }
     
@@ -45,36 +59,37 @@ public class ScoreManager : MonoBehaviour
         {
             LoseMoney(-score);
         }
+        else
+        {
+            _textToDisplay += "No money was lost";
+        }
     }
 
     private void SaveHumans(int score)
     {
-        scoreHumansSaved = +score;
-        DisplayFloatingText($"You saved {score} humans", Color.green);
+        scoreHumansSaved += score;
+        _textToDisplay += $"You saved {score} humans";
     }
     
     private void KillHumans(int score)
     {
-        scoreHumansKilled = +score;
-        DisplayFloatingText($"You killed {score} humans", Color.red);
-
+        scoreHumansKilled += score;
+        _textToDisplay += $"You killed {score} humans";
     }
 
     private void GainMoney(int score)
     {
         scoreMoneyGained += score;
-        DisplayFloatingText($"You gained ${score}", Color.green);
-
+        _textToDisplay += $"You gained ${score}";
     }
 
     private void LoseMoney(int score)
     {
         scoreMoneyLost += score;
-        DisplayFloatingText($"You lost ${score}", Color.red);
-
+        _textToDisplay += $"You lost ${score}";
     }
 
-    private void DisplayFloatingText(string text, Color color)
+    private void DisplayFloatingText(string text)
     {
         _floatingText.DisplayText(text);
     }
