@@ -564,7 +564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6651f050e628bb847a814acf6f764eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 59d062e70fc52534b88f7673d93e4e8a, type: 3}
+  audioClip: {fileID: 8300000, guid: dad1ee1e09267124d8211edd41fe8e30, type: 3}
   _volume: 0.5
 --- !u!4 &644378523306449571 stripped
 Transform:
