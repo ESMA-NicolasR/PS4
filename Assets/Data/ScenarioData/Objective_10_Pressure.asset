@@ -15,7 +15,7 @@ MonoBehaviour:
   systemName: 11
   targetValue: 1500
   breakValue: 200
-  time: 45
+  time: 60
   description: Here is ship COW. The gas we are transporting is turning red. We can
     not afford to lose it.
   winMessage: Such a relief.

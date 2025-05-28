@@ -15,7 +15,7 @@ MonoBehaviour:
   systemName: 2
   targetValue: 0
   breakValue: 1
-  time: 90
+  time: 300
   description: Here is ship FLY.\nType CK 58-0. A fire is spreading in our ship.
     Please help us !
   winMessage: Good job employee, i thought my last day had arrived !

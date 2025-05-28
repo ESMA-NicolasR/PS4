@@ -15,7 +15,7 @@ MonoBehaviour:
   systemName: 3
   targetValue: -15
   breakValue: 70
-  time: 60
+  time: 120
   description: Here is ship SEAL.\nType TY 63-Q. My engines are getting far too hot
     ! What should I do ?
   winMessage: The temperature feels nice again.
