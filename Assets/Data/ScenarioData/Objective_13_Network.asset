@@ -24,6 +24,6 @@ MonoBehaviour:
     crash!
   humans: 50
   money: 300000
-  boardPrefab: {fileID: 2066718368306942282, guid: 0fcfe72cc97fdf64a9713af8ae4415ed, type: 3}
-  nbRows: 4
-  nbColumns: 3
+  boardPrefab: {fileID: 2066718368306942282, guid: 1a60adb94d9077b47a85d05593d390e0, type: 3}
+  nbRows: 7
+  nbColumns: 7
