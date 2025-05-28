@@ -133,9 +133,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Network state :
-
-    Inactive'
+  m_text: No risk of collision detected
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0e9e09c85c2e18443ae0844836a44d36, type: 2}
   m_sharedMaterial: {fileID: -5677645300040389594, guid: 0e9e09c85c2e18443ae0844836a44d36, type: 2}
@@ -393,8 +391,8 @@ MonoBehaviour:
   pov: {fileID: 1707470146823337197}
   mustLaunchScenario: 0
   stateText: {fileID: 553366504690493698}
-  textWhenInactive: Network connected
-  textWhenBroken: Network disconnected
+  textWhenInactive: No risk of collision detected
+  textWhenBroken: Risk of collision detected
   _spriteColor1Start: {fileID: 21300000, guid: d2489ec4548e68940be8dacac1feb8fb, type: 3}
   _spriteColor1End: {fileID: 21300000, guid: a3a59cc1144c7f642a45f170d3844c8a, type: 3}
   _spriteColor1Finish: {fileID: 21300000, guid: 86cc5cf515883fc45a752b6aad251ccd, type: 3}
