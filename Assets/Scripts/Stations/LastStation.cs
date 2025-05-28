@@ -30,6 +30,7 @@ public class LastStation : MonoBehaviour
             endPanel.SetActive(true);
             statisticsText.text = ScoreManager.Instance.GetStatistics();
             _feedbackDisplayPanel.PlayMySound();
+            CursorManager.Instance.ChangeCursor(CursorType.Open);
         }
     }
 }
