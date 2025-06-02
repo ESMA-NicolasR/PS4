@@ -23,6 +23,8 @@ public class LastStation : MonoBehaviour
 
     public void GoToLastStation()
     {
+        Cursor.visible = false;
+        CursorManager.Instance.ChangeCursor(CursorType.Open);
         playerTravel.travelSpeed *= speedMultiplier;
         playerTravel.speedToAdhereToLookAhead *= speedMultiplier;
         TravelManager.Instance.Travel(TravelDirection.Front);
