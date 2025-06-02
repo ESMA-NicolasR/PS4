@@ -178,11 +178,11 @@ public class MissionManager : MonoBehaviour
         AnalyticsManager.Instance.WriteAnalytics();
         if ((ScoreManager.Instance.scoreHumansSaved-ScoreManager.Instance.scoreHumansKilled) >= 0 && (ScoreManager.Instance.scoreMoneyGained-ScoreManager.Instance.scoreMoneyLost) >= 0)
         {
-            SceneManager.LoadScene("EndingSceneWin");
+            SceneLoader.Instance.LoadScene("EndingSceneWin");
         }
         else
         {
-            SceneManager.LoadScene("EndingSceneLose");
+            SceneLoader.Instance.LoadScene("EndingSceneLose");
         }
     }
 

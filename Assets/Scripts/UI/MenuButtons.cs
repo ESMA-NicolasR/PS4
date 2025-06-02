@@ -7,14 +7,15 @@ public class MenuButtons : MonoBehaviour
     public GameObject creditsPanel;
     public string playScene;
     public string menuScene;
+
     public void Play()
     {
-        SceneManager.LoadScene(playScene);
+        SceneLoader.Instance.LoadScene(playScene);
     }
 
     public void GoMenu()
     {
-        SceneManager.LoadScene(menuScene);
+        SceneLoader.Instance.LoadScene(menuScene);
     }
 
     public void Quit()
