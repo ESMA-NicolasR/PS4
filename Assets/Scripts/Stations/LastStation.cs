@@ -16,6 +16,11 @@ public class LastStation : MonoBehaviour
         PlayerTravel.OnDestinationReached += OnDestinationReached;
     }
 
+    private void OnDisable()
+    {
+        PlayerTravel.OnDestinationReached -= OnDestinationReached;
+    }
+
     public void GoToLastStation()
     {
         playerTravel.travelSpeed *= speedMultiplier;

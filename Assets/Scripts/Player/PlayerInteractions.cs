@@ -13,6 +13,14 @@ public class PlayerInteractions : MonoBehaviour
         PlayerTravel.OnDestinationReached += OnDestinationReached;
     }
 
+    private void OnDisable()
+    {
+        Focusable.OnGainFocus -= OnGainFocus;
+        PlayerFocus.OnLoseFocus -= OnLoseFocus;
+        PlayerTravel.OnTravelStart -= OnTravelStart;
+        PlayerTravel.OnDestinationReached -= OnDestinationReached;
+    }
+
     void Start()
     {
         if(currentStation!=null)
