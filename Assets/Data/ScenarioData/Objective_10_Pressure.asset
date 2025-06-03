@@ -16,8 +16,8 @@ MonoBehaviour:
   targetValue: 1500
   breakValue: 200
   time: 60
-  description: Here is ship COW. The gas we are transporting is turning red. We can
-    not afford to lose it.
+  description: Here is ship COW. The gas we are transporting is turning red. We can't
+    afford to lose it.
   winMessage: Such a relief.
   loseMessage: 'You silly ! We lost so much with your mistake !  '
   notFinishedMessage: Come on, a lot of money is on the table !
