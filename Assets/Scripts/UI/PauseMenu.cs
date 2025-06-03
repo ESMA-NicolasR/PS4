@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    private bool _isPaused;
+    private static bool _isPaused;
+    public static bool IsPaused => _isPaused;
     public GameObject pausePanel;
     
     private void Update()

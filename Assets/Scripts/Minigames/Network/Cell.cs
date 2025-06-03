@@ -49,11 +49,13 @@ public class Cell : MonoBehaviour
 
     public virtual void OnMouseDown()
     {
+        if (PauseMenu.IsPaused) return;
         _minigame.StartPathFromCell(this);
     }
     
     public void OnMouseEnter()
     {
+        if (PauseMenu.IsPaused) return;
         if (Input.GetMouseButton(0))
         {
             _minigame.DrawPathOnCell(this);

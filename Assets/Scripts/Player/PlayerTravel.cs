@@ -106,6 +106,11 @@ public class PlayerTravel : MonoBehaviour
             lastNode.Rotation.value.y, lastNode.Rotation.value.z, lastNode.Rotation.value.w) * Vector3.forward;
         while (elapsedTime < totalTime)
         {
+            if (PauseMenu.IsPaused)
+            {
+                yield return null;
+                continue;
+            }
             elapsedTime = Mathf.Min(elapsedTime+Time.deltaTime, totalTime);
             float ratio = elapsedTime / totalTime;
             // Move along spline

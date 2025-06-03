@@ -47,6 +47,7 @@ public class Clickable : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (PauseMenu.IsPaused) return;
         if (HasActiveParent())
         {
             focusParent.GainFocus();
@@ -66,12 +67,14 @@ public class Clickable : MonoBehaviour
 
     protected virtual void Interact()
     {
+        if (PauseMenu.IsPaused) return;
         Debug.Log("Interact");
         feedbackSound?.PlayMySound();
     }
 
     protected virtual void OnMouseEnter()
     {
+        if (PauseMenu.IsPaused) return;
         if (HasActiveParent())
         {
             focusParent.EnableHighlight();

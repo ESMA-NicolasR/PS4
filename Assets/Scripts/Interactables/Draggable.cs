@@ -28,7 +28,6 @@ public class Draggable : Clickable
         Mouse.current.WarpCursorPosition(Camera.main.WorldToScreenPoint(_anchor.position));
         Cursor.visible = true;
         FindFirstObjectByType<CursorMoveCamera>().readInputs = true;
-        
     }
 
     protected override void OnMouseEnter()
@@ -47,7 +46,7 @@ public class Draggable : Clickable
 
     protected virtual void Update()
     {
-        if (!_isDragged) return;
+        if (!_isDragged || PauseMenu.IsPaused) return;
         Drag(Mouse.current.delta.ReadValue() * dragFactor);
         // Analytics
         AnalyticsTotalTimeDragging += Time.deltaTime;
