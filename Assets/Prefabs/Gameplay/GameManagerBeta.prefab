@@ -428,6 +428,7 @@ GameObject:
   - component: {fileID: 8540456782299279873}
   - component: {fileID: 1665008794246005368}
   - component: {fileID: 937438010822401361}
+  - component: {fileID: 3656054629721306203}
   m_Layer: 0
   m_Name: GameManagerBeta
   m_TagString: Untagged
@@ -530,6 +531,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeScreenAnimator: {fileID: 0}
+--- !u!114 &3656054629721306203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2452877499753427418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eebd31b267eef334db9b7fe51952bbba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pausePanel: {fileID: 0}
 --- !u!1 &2560929877033882945
 GameObject:
   m_ObjectHideFlags: 0

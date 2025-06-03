@@ -1775,6 +1775,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6948981781298013093, guid: 0811f0791995a9143b537d1c7027d0be, type: 3}
   m_PrefabInstance: {fileID: 452286497}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &514945711 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5979757840790363318, guid: bd0e00d6b4a8e7f469caf1e5b26d0a99, type: 3}
+  m_PrefabInstance: {fileID: 1241809144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &527776820 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1176665561083935074, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
@@ -3699,10 +3704,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2770346994938278659, guid: bd0e00d6b4a8e7f469caf1e5b26d0a99, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5633647657992790291}
     - target: {fileID: 3871561454661424005, guid: bd0e00d6b4a8e7f469caf1e5b26d0a99, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 848407825}
+    - target: {fileID: 8150272665206447433, guid: bd0e00d6b4a8e7f469caf1e5b26d0a99, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5633647657992790291}
+    - target: {fileID: 8150272665206447433, guid: bd0e00d6b4a8e7f469caf1e5b26d0a99, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 5633647657992790290}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6993,6 +7010,10 @@ PrefabInstance:
       propertyPath: missionButtons
       value: 
       objectReference: {fileID: 5103595590116613000}
+    - target: {fileID: 3656054629721306203, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+      propertyPath: pausePanel
+      value: 
+      objectReference: {fileID: 514945711}
     - target: {fileID: 3864147187228787195, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
       propertyPath: missionText
       value: 
@@ -7051,6 +7072,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ee90f325c921794c8b67d5decb900bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5633647657992790290 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 937438010822401361, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+  m_PrefabInstance: {fileID: 5633647657992790287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee9e8afaa0619145a02391691dc8668, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5633647657992790291 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3656054629721306203, guid: ecff77eb9badf21438b29aab0c1e428c, type: 3}
+  m_PrefabInstance: {fileID: 5633647657992790287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eebd31b267eef334db9b7fe51952bbba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &5633647657992790292 stripped
