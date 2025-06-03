@@ -2067,7 +2067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: a9ed02d11d935514aaa1168dc1b2f3ce, type: 3}
-  _volume: 0.5
+  _volume: 0.4
 --- !u!4 &4184028609417234352 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f368db2ea58b3c94687d59d61ef1e688, type: 3}
@@ -2718,7 +2718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: a9ed02d11d935514aaa1168dc1b2f3ce, type: 3}
-  _volume: 0.5
+  _volume: 0.4
 --- !u!4 &7882051175403743929 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f368db2ea58b3c94687d59d61ef1e688, type: 3}
@@ -2931,7 +2931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: a9ed02d11d935514aaa1168dc1b2f3ce, type: 3}
-  _volume: 0.5
+  _volume: 0.4
 --- !u!4 &8884101632733137129 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f368db2ea58b3c94687d59d61ef1e688, type: 3}
