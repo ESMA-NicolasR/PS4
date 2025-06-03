@@ -28,9 +28,9 @@ public class AsteroidScenarioData : ResourceObjectiveData
         systemAsteroids.Break(this);
     }
 
-    public override void End(ResourceSystem resourceSystem)
+    public override void End(ResourceSystem resourceSystem, bool isSuccess)
     {
-        base.End(resourceSystem);
+        base.End(resourceSystem, isSuccess);
         var systemAsteroids = resourceSystem as ResourceSystemAsteroids;
         if (systemAsteroids == null)
         {

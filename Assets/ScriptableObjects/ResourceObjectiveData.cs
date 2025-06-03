@@ -18,10 +18,9 @@ public class ResourceObjectiveData : ScriptableObject
         resourceSystem.Break(targetValue, breakValue);
     }
 
-    public virtual void End(ResourceSystem resourceSystem)
+    public virtual void End(ResourceSystem resourceSystem, bool isSuccess)
     {
-        Debug.Log("Objective ended");
-        int successFactor = resourceSystem.IsFixed() ? 1 : -1;
+        int successFactor = isSuccess ? 1 : -1;
         ScoreManager.Instance.Score(humans*successFactor, money*successFactor);
     }
 }

@@ -18,9 +18,9 @@ public class NetworkScenarioData : ResourceObjectiveData
         systemNetwork.Break(this);
     }
     
-    public override void End(ResourceSystem resourceSystem)
+    public override void End(ResourceSystem resourceSystem, bool isSuccess)
     {
-        base.End(resourceSystem);
+        base.End(resourceSystem, isSuccess);
         var systemNetwork = resourceSystem as ResourceSystemNetwork;
         if (systemNetwork == null)
         {

@@ -17,7 +17,6 @@ public class MissionManager : MonoBehaviour
     private bool _canDayStart;
     private int _progressionIndex;
     private ResourceObjectiveData _currentObjective;
-    private int _nbSuccess;
     private bool _canShowWaitingText =  true;
     private ResourceObjectiveData _savedObjective;
     [SerializeField] private float _timeBetweenMissions;
@@ -149,7 +148,6 @@ public class MissionManager : MonoBehaviour
         if (isSuccess)
         {
             missionText.DisplayText(_currentObjective.winMessage);
-            _nbSuccess++;
             _feedbackWin.PlayMySound();
         }
         else
@@ -179,7 +177,7 @@ public class MissionManager : MonoBehaviour
         missionTimer.StopTimer();
         _isObjectiveStarted = false;
         _progressionIndex++;
-        _currentObjective.End(_namesToSystems[_currentObjective.systemName]);
+        _currentObjective.End(_namesToSystems[_currentObjective.systemName], isSuccess);
         _currentObjective = null;
         
         // Check ending
