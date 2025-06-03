@@ -67,6 +67,27 @@ public class MissionManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        // CheatCodes
+        // CTRL ALT + => win
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftAlt) && Input.GetKey(KeyCode.KeypadPlus))
+        {
+            if (_isObjectiveStarted)
+            {
+                CheckObjectiveIsDone(true);
+            }
+        }
+        // CTRL ALT - => lose
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftAlt) && Input.GetKey(KeyCode.KeypadMinus))
+        {
+            if (_isObjectiveStarted)
+            {
+                missionTimer.StartTimer(0);
+            }
+        }
+    }
+
     public void CheckInMission()
     {
         if (_canDayStart && !_isDayStarted)
@@ -75,7 +96,8 @@ public class MissionManager : MonoBehaviour
         }
         if (_isObjectiveStarted)
         {
-            CheckObjectiveIsDone();
+            bool isSuccess = _namesToSystems[_currentObjective.systemName].IsFixed();
+            CheckObjectiveIsDone(isSuccess);
         }
         else if (_progressionIndex >= objectives.Count)
         {
@@ -121,10 +143,8 @@ public class MissionManager : MonoBehaviour
         AnalyticsObjectiveStarted?.Invoke();
     }
     
-    private void CheckObjectiveIsDone()
+    private void CheckObjectiveIsDone(bool isSuccess)
     {
-        bool isSuccess = _namesToSystems[_currentObjective.systemName].IsFixed();
-        
         // Rewards
         if (isSuccess)
         {
